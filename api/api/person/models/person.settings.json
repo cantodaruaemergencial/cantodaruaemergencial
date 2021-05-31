@@ -1,0 +1,116 @@
+{
+  "kind": "collectionType",
+  "collectionName": "people",
+  "info": {
+    "name": "Person",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "SocialName": {
+      "type": "string"
+    },
+    "MotherName": {
+      "type": "string"
+    },
+    "BirthDate": {
+      "type": "date"
+    },
+    "BirthPlace": {
+      "type": "string"
+    },
+    "gender": {
+      "model": "gender"
+    },
+    "GeneralRegister": {
+      "type": "string"
+    },
+    "Childrens": {
+      "type": "integer"
+    },
+    "HasHabitation": {
+      "type": "boolean"
+    },
+    "HasEmergencyAid": {
+      "type": "boolean"
+    },
+    "HasPbhBasket": {
+      "type": "boolean"
+    },
+    "HasUniqueRegister": {
+      "type": "boolean"
+    },
+    "HasGeneralRegister": {
+      "type": "boolean"
+    },
+    "HasCpf": {
+      "type": "boolean"
+    },
+    "Cpf": {
+      "type": "string"
+    },
+    "HasCtps": {
+      "type": "boolean"
+    },
+    "HasBirthCertificate": {
+      "type": "boolean"
+    },
+    "marital_status": {
+      "model": "marital-status"
+    },
+    "school_training": {
+      "model": "school-training"
+    },
+    "ReferenceLocation": {
+      "type": "text"
+    },
+    "Occupation": {
+      "type": "string"
+    },
+    "Profession": {
+      "type": "string"
+    },
+    "ContactPhone": {
+      "type": "string"
+    },
+    "ReferenceAddress": {
+      "type": "text"
+    },
+    "Observation": {
+      "type": "string"
+    },
+    "skin_color": {
+      "model": "skin-color"
+    },
+    "CardNumber": {
+      "type": "string"
+    },
+    "Preferential": {
+      "type": "boolean"
+    },
+    "HomelessSince": {
+      "type": "date"
+    },
+    "services": {
+      "via": "people",
+      "collection": "service",
+      "dominant": true
+    },
+    "HomelessTime": {
+      "type": "string"
+    },
+    "BirthPlaceState": {
+      "type": "string"
+    },
+    "BirthPlaceCity": {
+      "type": "string"
+    }
+  }
+}

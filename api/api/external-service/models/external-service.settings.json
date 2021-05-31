@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "external_services",
+  "info": {
+    "name": "External Service"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "ExternalService": {
+      "type": "string",
+      "private": false,
+      "required": true,
+      "maxLength": 128
+    }
+  }
+}

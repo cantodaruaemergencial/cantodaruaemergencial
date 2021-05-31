@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "marital_statuses",
+  "info": {
+    "name": "Marital Status"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "MaritalStatus": {
+      "type": "string"
+    }
+  }
+}

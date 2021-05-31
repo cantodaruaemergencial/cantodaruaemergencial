@@ -1,0 +1,54 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/dashboard/people",
+      "handler": "dashboard.people"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/genders",
+      "handler": "Dashboard.genders"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/skin-colors",
+      "handler": "Dashboard.skincolors"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/school-trainings",
+      "handler": "Dashboard.schooltrainings"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/entrances",
+      "handler": "Dashboard.entrances"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/service-attendances",
+      "handler": "Dashboard.serviceattendances"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/ages",
+      "handler": "Dashboard.ages"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/homelessness",
+      "handler": "Dashboard.homelessness"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/services",
+      "handler": "Dashboard.services"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/today",
+      "handler": "Dashboard.today"
+    }
+  ]
+}

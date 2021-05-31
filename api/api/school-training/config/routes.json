@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/school-trainings",
+      "handler": "school-training.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/school-trainings/count",
+      "handler": "school-training.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/school-trainings/:id",
+      "handler": "school-training.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/school-trainings",
+      "handler": "school-training.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/school-trainings/:id",
+      "handler": "school-training.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/school-trainings/:id",
+      "handler": "school-training.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

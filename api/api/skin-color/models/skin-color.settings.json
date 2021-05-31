@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "skin_colors",
+  "info": {
+    "name": "SkinColor"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "SkinColor": {
+      "type": "string"
+    }
+  }
+}

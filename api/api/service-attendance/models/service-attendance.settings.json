@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_attendances",
+  "info": {
+    "name": "ServiceAttendance"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "service": {
+      "model": "service"
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "Attendances": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

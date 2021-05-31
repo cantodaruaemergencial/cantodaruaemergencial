@@ -1,0 +1,1911 @@
+input FileInfoInput {
+  name: String
+  alternativeText: String
+  caption: String
+}
+
+type UsersPermissionsMe {
+  id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+input UsersPermissionsRegisterInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String
+  user: UsersPermissionsMe!
+}
+
+type UserPermissionsPasswordPayload {
+  ok: Boolean!
+}
+
+type Benefit {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  benefit: String
+  published_at: DateTime
+}
+
+type BenefitConnection {
+  values: [Benefit]
+  groupBy: BenefitGroupBy
+  aggregate: BenefitAggregator
+}
+
+type BenefitAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type BenefitGroupBy {
+  id: [BenefitConnectionId]
+  created_at: [BenefitConnectionCreated_at]
+  updated_at: [BenefitConnectionUpdated_at]
+  benefit: [BenefitConnectionBenefit]
+  published_at: [BenefitConnectionPublished_at]
+}
+
+type BenefitConnectionId {
+  key: ID
+  connection: BenefitConnection
+}
+
+type BenefitConnectionCreated_at {
+  key: DateTime
+  connection: BenefitConnection
+}
+
+type BenefitConnectionUpdated_at {
+  key: DateTime
+  connection: BenefitConnection
+}
+
+type BenefitConnectionBenefit {
+  key: String
+  connection: BenefitConnection
+}
+
+type BenefitConnectionPublished_at {
+  key: DateTime
+  connection: BenefitConnection
+}
+
+input BenefitInput {
+  benefit: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editBenefitInput {
+  benefit: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createBenefitInput {
+  data: BenefitInput
+}
+
+type createBenefitPayload {
+  benefit: Benefit
+}
+
+input updateBenefitInput {
+  where: InputID
+  data: editBenefitInput
+}
+
+type updateBenefitPayload {
+  benefit: Benefit
+}
+
+input deleteBenefitInput {
+  where: InputID
+}
+
+type deleteBenefitPayload {
+  benefit: Benefit
+}
+
+type ExternalService {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  ExternalService: String!
+  published_at: DateTime
+}
+
+type ExternalServiceConnection {
+  values: [ExternalService]
+  groupBy: ExternalServiceGroupBy
+  aggregate: ExternalServiceAggregator
+}
+
+type ExternalServiceAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ExternalServiceGroupBy {
+  id: [ExternalServiceConnectionId]
+  created_at: [ExternalServiceConnectionCreated_at]
+  updated_at: [ExternalServiceConnectionUpdated_at]
+  ExternalService: [ExternalServiceConnectionExternalService]
+  published_at: [ExternalServiceConnectionPublished_at]
+}
+
+type ExternalServiceConnectionId {
+  key: ID
+  connection: ExternalServiceConnection
+}
+
+type ExternalServiceConnectionCreated_at {
+  key: DateTime
+  connection: ExternalServiceConnection
+}
+
+type ExternalServiceConnectionUpdated_at {
+  key: DateTime
+  connection: ExternalServiceConnection
+}
+
+type ExternalServiceConnectionExternalService {
+  key: String
+  connection: ExternalServiceConnection
+}
+
+type ExternalServiceConnectionPublished_at {
+  key: DateTime
+  connection: ExternalServiceConnection
+}
+
+input ExternalServiceInput {
+  ExternalService: String!
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editExternalServiceInput {
+  ExternalService: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createExternalServiceInput {
+  data: ExternalServiceInput
+}
+
+type createExternalServicePayload {
+  externalService: ExternalService
+}
+
+input updateExternalServiceInput {
+  where: InputID
+  data: editExternalServiceInput
+}
+
+type updateExternalServicePayload {
+  externalService: ExternalService
+}
+
+input deleteExternalServiceInput {
+  where: InputID
+}
+
+type deleteExternalServicePayload {
+  externalService: ExternalService
+}
+
+type Gender {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Gender: String
+  published_at: DateTime
+}
+
+type GenderConnection {
+  values: [Gender]
+  groupBy: GenderGroupBy
+  aggregate: GenderAggregator
+}
+
+type GenderAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type GenderGroupBy {
+  id: [GenderConnectionId]
+  created_at: [GenderConnectionCreated_at]
+  updated_at: [GenderConnectionUpdated_at]
+  Gender: [GenderConnectionGender]
+  published_at: [GenderConnectionPublished_at]
+}
+
+type GenderConnectionId {
+  key: ID
+  connection: GenderConnection
+}
+
+type GenderConnectionCreated_at {
+  key: DateTime
+  connection: GenderConnection
+}
+
+type GenderConnectionUpdated_at {
+  key: DateTime
+  connection: GenderConnection
+}
+
+type GenderConnectionGender {
+  key: String
+  connection: GenderConnection
+}
+
+type GenderConnectionPublished_at {
+  key: DateTime
+  connection: GenderConnection
+}
+
+input GenderInput {
+  Gender: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editGenderInput {
+  Gender: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createGenderInput {
+  data: GenderInput
+}
+
+type createGenderPayload {
+  gender: Gender
+}
+
+input updateGenderInput {
+  where: InputID
+  data: editGenderInput
+}
+
+type updateGenderPayload {
+  gender: Gender
+}
+
+input deleteGenderInput {
+  where: InputID
+}
+
+type deleteGenderPayload {
+  gender: Gender
+}
+
+type MaritalStatus {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  MaritalStatus: String
+  published_at: DateTime
+}
+
+type MaritalStatusConnection {
+  values: [MaritalStatus]
+  groupBy: MaritalStatusGroupBy
+  aggregate: MaritalStatusAggregator
+}
+
+type MaritalStatusAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type MaritalStatusGroupBy {
+  id: [MaritalStatusConnectionId]
+  created_at: [MaritalStatusConnectionCreated_at]
+  updated_at: [MaritalStatusConnectionUpdated_at]
+  MaritalStatus: [MaritalStatusConnectionMaritalStatus]
+  published_at: [MaritalStatusConnectionPublished_at]
+}
+
+type MaritalStatusConnectionId {
+  key: ID
+  connection: MaritalStatusConnection
+}
+
+type MaritalStatusConnectionCreated_at {
+  key: DateTime
+  connection: MaritalStatusConnection
+}
+
+type MaritalStatusConnectionUpdated_at {
+  key: DateTime
+  connection: MaritalStatusConnection
+}
+
+type MaritalStatusConnectionMaritalStatus {
+  key: String
+  connection: MaritalStatusConnection
+}
+
+type MaritalStatusConnectionPublished_at {
+  key: DateTime
+  connection: MaritalStatusConnection
+}
+
+input MaritalStatusInput {
+  MaritalStatus: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editMaritalStatusInput {
+  MaritalStatus: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createMaritalStatusInput {
+  data: MaritalStatusInput
+}
+
+type createMaritalStatusPayload {
+  maritalStatus: MaritalStatus
+}
+
+input updateMaritalStatusInput {
+  where: InputID
+  data: editMaritalStatusInput
+}
+
+type updateMaritalStatusPayload {
+  maritalStatus: MaritalStatus
+}
+
+input deleteMaritalStatusInput {
+  where: InputID
+}
+
+type deleteMaritalStatusPayload {
+  maritalStatus: MaritalStatus
+}
+
+type PersonEntrance {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  person: Person
+  DateTime: DateTime!
+  published_at: DateTime
+}
+
+type PersonEntranceConnection {
+  values: [PersonEntrance]
+  groupBy: PersonEntranceGroupBy
+  aggregate: PersonEntranceAggregator
+}
+
+type PersonEntranceAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type PersonEntranceGroupBy {
+  id: [PersonEntranceConnectionId]
+  created_at: [PersonEntranceConnectionCreated_at]
+  updated_at: [PersonEntranceConnectionUpdated_at]
+  person: [PersonEntranceConnectionPerson]
+  DateTime: [PersonEntranceConnectionDateTime]
+  published_at: [PersonEntranceConnectionPublished_at]
+}
+
+type PersonEntranceConnectionId {
+  key: ID
+  connection: PersonEntranceConnection
+}
+
+type PersonEntranceConnectionCreated_at {
+  key: DateTime
+  connection: PersonEntranceConnection
+}
+
+type PersonEntranceConnectionUpdated_at {
+  key: DateTime
+  connection: PersonEntranceConnection
+}
+
+type PersonEntranceConnectionPerson {
+  key: ID
+  connection: PersonEntranceConnection
+}
+
+type PersonEntranceConnectionDateTime {
+  key: DateTime
+  connection: PersonEntranceConnection
+}
+
+type PersonEntranceConnectionPublished_at {
+  key: DateTime
+  connection: PersonEntranceConnection
+}
+
+input PersonEntranceInput {
+  person: ID
+  DateTime: DateTime!
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editPersonEntranceInput {
+  person: ID
+  DateTime: DateTime
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createPersonEntranceInput {
+  data: PersonEntranceInput
+}
+
+type createPersonEntrancePayload {
+  personEntrance: PersonEntrance
+}
+
+input updatePersonEntranceInput {
+  where: InputID
+  data: editPersonEntranceInput
+}
+
+type updatePersonEntrancePayload {
+  personEntrance: PersonEntrance
+}
+
+input deletePersonEntranceInput {
+  where: InputID
+}
+
+type deletePersonEntrancePayload {
+  personEntrance: PersonEntrance
+}
+
+type Person {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Name: String
+  SocialName: String
+  MotherName: String
+  BirthDate: Date
+  BirthPlace: String
+  gender: Gender
+  GeneralRegister: String
+  Childrens: Int
+  HasHabitation: Boolean
+  HasEmergencyAid: Boolean
+  HasPbhBasket: Boolean
+  HasUniqueRegister: Boolean
+  HasGeneralRegister: Boolean
+  HasCpf: Boolean
+  Cpf: String
+  HasCtps: Boolean
+  HasBirthCertificate: Boolean
+  marital_status: MaritalStatus
+  school_training: SchoolTraining
+  ReferenceLocation: String
+  Occupation: String
+  Profession: String
+  ContactPhone: String
+  ReferenceAddress: String
+  Observation: String
+  skin_color: SkinColor
+  CardNumber: String
+  Preferential: Boolean
+  HomelessSince: Date
+  HomelessTime: String
+  BirthPlaceState: String
+  BirthPlaceCity: String
+  published_at: DateTime
+  services(sort: String, limit: Int, start: Int, where: JSON): [Service]
+}
+
+type PersonConnection {
+  values: [Person]
+  groupBy: PersonGroupBy
+  aggregate: PersonAggregator
+}
+
+type PersonAggregator {
+  count: Int
+  totalCount: Int
+  sum: PersonAggregatorSum
+  avg: PersonAggregatorAvg
+  min: PersonAggregatorMin
+  max: PersonAggregatorMax
+}
+
+type PersonAggregatorSum {
+  Childrens: Float
+}
+
+type PersonAggregatorAvg {
+  Childrens: Float
+}
+
+type PersonAggregatorMin {
+  Childrens: Float
+}
+
+type PersonAggregatorMax {
+  Childrens: Float
+}
+
+type PersonGroupBy {
+  id: [PersonConnectionId]
+  created_at: [PersonConnectionCreated_at]
+  updated_at: [PersonConnectionUpdated_at]
+  Name: [PersonConnectionName]
+  SocialName: [PersonConnectionSocialName]
+  MotherName: [PersonConnectionMotherName]
+  BirthDate: [PersonConnectionBirthDate]
+  BirthPlace: [PersonConnectionBirthPlace]
+  gender: [PersonConnectionGender]
+  GeneralRegister: [PersonConnectionGeneralRegister]
+  Childrens: [PersonConnectionChildrens]
+  HasHabitation: [PersonConnectionHasHabitation]
+  HasEmergencyAid: [PersonConnectionHasEmergencyAid]
+  HasPbhBasket: [PersonConnectionHasPbhBasket]
+  HasUniqueRegister: [PersonConnectionHasUniqueRegister]
+  HasGeneralRegister: [PersonConnectionHasGeneralRegister]
+  HasCpf: [PersonConnectionHasCpf]
+  Cpf: [PersonConnectionCpf]
+  HasCtps: [PersonConnectionHasCtps]
+  HasBirthCertificate: [PersonConnectionHasBirthCertificate]
+  marital_status: [PersonConnectionMarital_status]
+  school_training: [PersonConnectionSchool_training]
+  ReferenceLocation: [PersonConnectionReferenceLocation]
+  Occupation: [PersonConnectionOccupation]
+  Profession: [PersonConnectionProfession]
+  ContactPhone: [PersonConnectionContactPhone]
+  ReferenceAddress: [PersonConnectionReferenceAddress]
+  Observation: [PersonConnectionObservation]
+  skin_color: [PersonConnectionSkin_color]
+  CardNumber: [PersonConnectionCardNumber]
+  Preferential: [PersonConnectionPreferential]
+  HomelessSince: [PersonConnectionHomelessSince]
+  HomelessTime: [PersonConnectionHomelessTime]
+  BirthPlaceState: [PersonConnectionBirthPlaceState]
+  BirthPlaceCity: [PersonConnectionBirthPlaceCity]
+  published_at: [PersonConnectionPublished_at]
+}
+
+type PersonConnectionId {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionCreated_at {
+  key: DateTime
+  connection: PersonConnection
+}
+
+type PersonConnectionUpdated_at {
+  key: DateTime
+  connection: PersonConnection
+}
+
+type PersonConnectionName {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionSocialName {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionMotherName {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionBirthDate {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionBirthPlace {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionGender {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionGeneralRegister {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionChildrens {
+  key: Int
+  connection: PersonConnection
+}
+
+type PersonConnectionHasHabitation {
+  key: Boolean
+  connection: PersonConnection
+}
+
+type PersonConnectionHasEmergencyAid {
+  key: Boolean
+  connection: PersonConnection
+}
+
+type PersonConnectionHasPbhBasket {
+  key: Boolean
+  connection: PersonConnection
+}
+
+type PersonConnectionHasUniqueRegister {
+  key: Boolean
+  connection: PersonConnection
+}
+
+type PersonConnectionHasGeneralRegister {
+  key: Boolean
+  connection: PersonConnection
+}
+
+type PersonConnectionHasCpf {
+  key: Boolean
+  connection: PersonConnection
+}
+
+type PersonConnectionCpf {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionHasCtps {
+  key: Boolean
+  connection: PersonConnection
+}
+
+type PersonConnectionHasBirthCertificate {
+  key: Boolean
+  connection: PersonConnection
+}
+
+type PersonConnectionMarital_status {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionSchool_training {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionReferenceLocation {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionOccupation {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionProfession {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionContactPhone {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionReferenceAddress {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionObservation {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionSkin_color {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionCardNumber {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionPreferential {
+  key: Boolean
+  connection: PersonConnection
+}
+
+type PersonConnectionHomelessSince {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionHomelessTime {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionBirthPlaceState {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionBirthPlaceCity {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionPublished_at {
+  key: DateTime
+  connection: PersonConnection
+}
+
+input PersonInput {
+  Name: String
+  SocialName: String
+  MotherName: String
+  BirthDate: Date
+  BirthPlace: String
+  gender: ID
+  GeneralRegister: String
+  Childrens: Int
+  HasHabitation: Boolean
+  HasEmergencyAid: Boolean
+  HasPbhBasket: Boolean
+  HasUniqueRegister: Boolean
+  HasGeneralRegister: Boolean
+  HasCpf: Boolean
+  Cpf: String
+  HasCtps: Boolean
+  HasBirthCertificate: Boolean
+  marital_status: ID
+  school_training: ID
+  ReferenceLocation: String
+  Occupation: String
+  Profession: String
+  ContactPhone: String
+  ReferenceAddress: String
+  Observation: String
+  skin_color: ID
+  CardNumber: String
+  Preferential: Boolean
+  HomelessSince: Date
+  services: [ID]
+  HomelessTime: String
+  BirthPlaceState: String
+  BirthPlaceCity: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editPersonInput {
+  Name: String
+  SocialName: String
+  MotherName: String
+  BirthDate: Date
+  BirthPlace: String
+  gender: ID
+  GeneralRegister: String
+  Childrens: Int
+  HasHabitation: Boolean
+  HasEmergencyAid: Boolean
+  HasPbhBasket: Boolean
+  HasUniqueRegister: Boolean
+  HasGeneralRegister: Boolean
+  HasCpf: Boolean
+  Cpf: String
+  HasCtps: Boolean
+  HasBirthCertificate: Boolean
+  marital_status: ID
+  school_training: ID
+  ReferenceLocation: String
+  Occupation: String
+  Profession: String
+  ContactPhone: String
+  ReferenceAddress: String
+  Observation: String
+  skin_color: ID
+  CardNumber: String
+  Preferential: Boolean
+  HomelessSince: Date
+  services: [ID]
+  HomelessTime: String
+  BirthPlaceState: String
+  BirthPlaceCity: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createPersonInput {
+  data: PersonInput
+}
+
+type createPersonPayload {
+  person: Person
+}
+
+input updatePersonInput {
+  where: InputID
+  data: editPersonInput
+}
+
+type updatePersonPayload {
+  person: Person
+}
+
+input deletePersonInput {
+  where: InputID
+}
+
+type deletePersonPayload {
+  person: Person
+}
+
+type SchoolTraining {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  SchoolTraining: String
+  published_at: DateTime
+}
+
+type SchoolTrainingConnection {
+  values: [SchoolTraining]
+  groupBy: SchoolTrainingGroupBy
+  aggregate: SchoolTrainingAggregator
+}
+
+type SchoolTrainingAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type SchoolTrainingGroupBy {
+  id: [SchoolTrainingConnectionId]
+  created_at: [SchoolTrainingConnectionCreated_at]
+  updated_at: [SchoolTrainingConnectionUpdated_at]
+  SchoolTraining: [SchoolTrainingConnectionSchoolTraining]
+  published_at: [SchoolTrainingConnectionPublished_at]
+}
+
+type SchoolTrainingConnectionId {
+  key: ID
+  connection: SchoolTrainingConnection
+}
+
+type SchoolTrainingConnectionCreated_at {
+  key: DateTime
+  connection: SchoolTrainingConnection
+}
+
+type SchoolTrainingConnectionUpdated_at {
+  key: DateTime
+  connection: SchoolTrainingConnection
+}
+
+type SchoolTrainingConnectionSchoolTraining {
+  key: String
+  connection: SchoolTrainingConnection
+}
+
+type SchoolTrainingConnectionPublished_at {
+  key: DateTime
+  connection: SchoolTrainingConnection
+}
+
+input SchoolTrainingInput {
+  SchoolTraining: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editSchoolTrainingInput {
+  SchoolTraining: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createSchoolTrainingInput {
+  data: SchoolTrainingInput
+}
+
+type createSchoolTrainingPayload {
+  schoolTraining: SchoolTraining
+}
+
+input updateSchoolTrainingInput {
+  where: InputID
+  data: editSchoolTrainingInput
+}
+
+type updateSchoolTrainingPayload {
+  schoolTraining: SchoolTraining
+}
+
+input deleteSchoolTrainingInput {
+  where: InputID
+}
+
+type deleteSchoolTrainingPayload {
+  schoolTraining: SchoolTraining
+}
+
+type ServiceAttendance {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  service: Service
+  Date: Date!
+  Attendances: Int!
+  published_at: DateTime
+}
+
+type ServiceAttendanceConnection {
+  values: [ServiceAttendance]
+  groupBy: ServiceAttendanceGroupBy
+  aggregate: ServiceAttendanceAggregator
+}
+
+type ServiceAttendanceAggregator {
+  count: Int
+  totalCount: Int
+  sum: ServiceAttendanceAggregatorSum
+  avg: ServiceAttendanceAggregatorAvg
+  min: ServiceAttendanceAggregatorMin
+  max: ServiceAttendanceAggregatorMax
+}
+
+type ServiceAttendanceAggregatorSum {
+  Attendances: Float
+}
+
+type ServiceAttendanceAggregatorAvg {
+  Attendances: Float
+}
+
+type ServiceAttendanceAggregatorMin {
+  Attendances: Float
+}
+
+type ServiceAttendanceAggregatorMax {
+  Attendances: Float
+}
+
+type ServiceAttendanceGroupBy {
+  id: [ServiceAttendanceConnectionId]
+  created_at: [ServiceAttendanceConnectionCreated_at]
+  updated_at: [ServiceAttendanceConnectionUpdated_at]
+  service: [ServiceAttendanceConnectionService]
+  Date: [ServiceAttendanceConnectionDate]
+  Attendances: [ServiceAttendanceConnectionAttendances]
+  published_at: [ServiceAttendanceConnectionPublished_at]
+}
+
+type ServiceAttendanceConnectionId {
+  key: ID
+  connection: ServiceAttendanceConnection
+}
+
+type ServiceAttendanceConnectionCreated_at {
+  key: DateTime
+  connection: ServiceAttendanceConnection
+}
+
+type ServiceAttendanceConnectionUpdated_at {
+  key: DateTime
+  connection: ServiceAttendanceConnection
+}
+
+type ServiceAttendanceConnectionService {
+  key: ID
+  connection: ServiceAttendanceConnection
+}
+
+type ServiceAttendanceConnectionDate {
+  key: ID
+  connection: ServiceAttendanceConnection
+}
+
+type ServiceAttendanceConnectionAttendances {
+  key: Int
+  connection: ServiceAttendanceConnection
+}
+
+type ServiceAttendanceConnectionPublished_at {
+  key: DateTime
+  connection: ServiceAttendanceConnection
+}
+
+input ServiceAttendanceInput {
+  service: ID
+  Date: Date!
+  Attendances: Int!
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editServiceAttendanceInput {
+  service: ID
+  Date: Date
+  Attendances: Int
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createServiceAttendanceInput {
+  data: ServiceAttendanceInput
+}
+
+type createServiceAttendancePayload {
+  serviceAttendance: ServiceAttendance
+}
+
+input updateServiceAttendanceInput {
+  where: InputID
+  data: editServiceAttendanceInput
+}
+
+type updateServiceAttendancePayload {
+  serviceAttendance: ServiceAttendance
+}
+
+input deleteServiceAttendanceInput {
+  where: InputID
+}
+
+type deleteServiceAttendancePayload {
+  serviceAttendance: ServiceAttendance
+}
+
+type Service {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Service: String
+  icon: String
+  published_at: DateTime
+  people(sort: String, limit: Int, start: Int, where: JSON): [Person]
+}
+
+type ServiceConnection {
+  values: [Service]
+  groupBy: ServiceGroupBy
+  aggregate: ServiceAggregator
+}
+
+type ServiceAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ServiceGroupBy {
+  id: [ServiceConnectionId]
+  created_at: [ServiceConnectionCreated_at]
+  updated_at: [ServiceConnectionUpdated_at]
+  Service: [ServiceConnectionService]
+  icon: [ServiceConnectionIcon]
+  published_at: [ServiceConnectionPublished_at]
+}
+
+type ServiceConnectionId {
+  key: ID
+  connection: ServiceConnection
+}
+
+type ServiceConnectionCreated_at {
+  key: DateTime
+  connection: ServiceConnection
+}
+
+type ServiceConnectionUpdated_at {
+  key: DateTime
+  connection: ServiceConnection
+}
+
+type ServiceConnectionService {
+  key: String
+  connection: ServiceConnection
+}
+
+type ServiceConnectionIcon {
+  key: String
+  connection: ServiceConnection
+}
+
+type ServiceConnectionPublished_at {
+  key: DateTime
+  connection: ServiceConnection
+}
+
+input ServiceInput {
+  Service: String
+  people: [ID]
+  icon: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editServiceInput {
+  Service: String
+  people: [ID]
+  icon: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createServiceInput {
+  data: ServiceInput
+}
+
+type createServicePayload {
+  service: Service
+}
+
+input updateServiceInput {
+  where: InputID
+  data: editServiceInput
+}
+
+type updateServicePayload {
+  service: Service
+}
+
+input deleteServiceInput {
+  where: InputID
+}
+
+type deleteServicePayload {
+  service: Service
+}
+
+type SkinColor {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  SkinColor: String
+  published_at: DateTime
+}
+
+type SkinColorConnection {
+  values: [SkinColor]
+  groupBy: SkinColorGroupBy
+  aggregate: SkinColorAggregator
+}
+
+type SkinColorAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type SkinColorGroupBy {
+  id: [SkinColorConnectionId]
+  created_at: [SkinColorConnectionCreated_at]
+  updated_at: [SkinColorConnectionUpdated_at]
+  SkinColor: [SkinColorConnectionSkinColor]
+  published_at: [SkinColorConnectionPublished_at]
+}
+
+type SkinColorConnectionId {
+  key: ID
+  connection: SkinColorConnection
+}
+
+type SkinColorConnectionCreated_at {
+  key: DateTime
+  connection: SkinColorConnection
+}
+
+type SkinColorConnectionUpdated_at {
+  key: DateTime
+  connection: SkinColorConnection
+}
+
+type SkinColorConnectionSkinColor {
+  key: String
+  connection: SkinColorConnection
+}
+
+type SkinColorConnectionPublished_at {
+  key: DateTime
+  connection: SkinColorConnection
+}
+
+input SkinColorInput {
+  SkinColor: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editSkinColorInput {
+  SkinColor: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createSkinColorInput {
+  data: SkinColorInput
+}
+
+type createSkinColorPayload {
+  skinColor: SkinColor
+}
+
+input updateSkinColorInput {
+  where: InputID
+  data: editSkinColorInput
+}
+
+type updateSkinColorPayload {
+  skinColor: SkinColor
+}
+
+input deleteSkinColorInput {
+  where: InputID
+}
+
+type deleteSkinColorPayload {
+  skinColor: SkinColor
+}
+
+type UploadFile {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+  sum: UploadFileAggregatorSum
+  avg: UploadFileAggregatorAvg
+  min: UploadFileAggregatorMin
+  max: UploadFileAggregatorMax
+}
+
+type UploadFileAggregatorSum {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorAvg {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMin {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMax {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileGroupBy {
+  id: [UploadFileConnectionId]
+  created_at: [UploadFileConnectionCreated_at]
+  updated_at: [UploadFileConnectionUpdated_at]
+  name: [UploadFileConnectionName]
+  alternativeText: [UploadFileConnectionAlternativeText]
+  caption: [UploadFileConnectionCaption]
+  width: [UploadFileConnectionWidth]
+  height: [UploadFileConnectionHeight]
+  formats: [UploadFileConnectionFormats]
+  hash: [UploadFileConnectionHash]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  previewUrl: [UploadFileConnectionPreviewUrl]
+  provider: [UploadFileConnectionProvider]
+  provider_metadata: [UploadFileConnectionProvider_metadata]
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionAlternativeText {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCaption {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionWidth {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHeight {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionFormats {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: Float
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPreviewUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider_metadata {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+input FileInput {
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editFileInput {
+  name: String
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String
+  ext: String
+  mime: String
+  size: Float
+  url: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input deleteFileInput {
+  where: InputID
+}
+
+type deleteFilePayload {
+  file: UploadFile
+}
+
+type UsersPermissionsPermission {
+  id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsRoleGroupBy {
+  id: [UsersPermissionsRoleConnectionId]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsRoleConnectionId {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUser {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsUserGroupBy {
+  id: [UsersPermissionsUserConnectionId]
+  created_at: [UsersPermissionsUserConnectionCreated_at]
+  updated_at: [UsersPermissionsUserConnectionUpdated_at]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+}
+
+type UsersPermissionsUserConnectionId {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Benefit | BenefitConnection | BenefitAggregator | BenefitGroupBy | BenefitConnectionId | BenefitConnectionCreated_at | BenefitConnectionUpdated_at | BenefitConnectionBenefit | BenefitConnectionPublished_at | createBenefitPayload | updateBenefitPayload | deleteBenefitPayload | ExternalService | ExternalServiceConnection | ExternalServiceAggregator | ExternalServiceGroupBy | ExternalServiceConnectionId | ExternalServiceConnectionCreated_at | ExternalServiceConnectionUpdated_at | ExternalServiceConnectionExternalService | ExternalServiceConnectionPublished_at | createExternalServicePayload | updateExternalServicePayload | deleteExternalServicePayload | Gender | GenderConnection | GenderAggregator | GenderGroupBy | GenderConnectionId | GenderConnectionCreated_at | GenderConnectionUpdated_at | GenderConnectionGender | GenderConnectionPublished_at | createGenderPayload | updateGenderPayload | deleteGenderPayload | MaritalStatus | MaritalStatusConnection | MaritalStatusAggregator | MaritalStatusGroupBy | MaritalStatusConnectionId | MaritalStatusConnectionCreated_at | MaritalStatusConnectionUpdated_at | MaritalStatusConnectionMaritalStatus | MaritalStatusConnectionPublished_at | createMaritalStatusPayload | updateMaritalStatusPayload | deleteMaritalStatusPayload | PersonEntrance | PersonEntranceConnection | PersonEntranceAggregator | PersonEntranceGroupBy | PersonEntranceConnectionId | PersonEntranceConnectionCreated_at | PersonEntranceConnectionUpdated_at | PersonEntranceConnectionPerson | PersonEntranceConnectionDateTime | PersonEntranceConnectionPublished_at | createPersonEntrancePayload | updatePersonEntrancePayload | deletePersonEntrancePayload | Person | PersonConnection | PersonAggregator | PersonAggregatorSum | PersonAggregatorAvg | PersonAggregatorMin | PersonAggregatorMax | PersonGroupBy | PersonConnectionId | PersonConnectionCreated_at | PersonConnectionUpdated_at | PersonConnectionName | PersonConnectionSocialName | PersonConnectionMotherName | PersonConnectionBirthDate | PersonConnectionBirthPlace | PersonConnectionGender | PersonConnectionGeneralRegister | PersonConnectionChildrens | PersonConnectionHasHabitation | PersonConnectionHasEmergencyAid | PersonConnectionHasPbhBasket | PersonConnectionHasUniqueRegister | PersonConnectionHasGeneralRegister | PersonConnectionHasCpf | PersonConnectionCpf | PersonConnectionHasCtps | PersonConnectionHasBirthCertificate | PersonConnectionMarital_status | PersonConnectionSchool_training | PersonConnectionReferenceLocation | PersonConnectionOccupation | PersonConnectionProfession | PersonConnectionContactPhone | PersonConnectionReferenceAddress | PersonConnectionObservation | PersonConnectionSkin_color | PersonConnectionCardNumber | PersonConnectionPreferential | PersonConnectionHomelessSince | PersonConnectionHomelessTime | PersonConnectionBirthPlaceState | PersonConnectionBirthPlaceCity | PersonConnectionPublished_at | createPersonPayload | updatePersonPayload | deletePersonPayload | SchoolTraining | SchoolTrainingConnection | SchoolTrainingAggregator | SchoolTrainingGroupBy | SchoolTrainingConnectionId | SchoolTrainingConnectionCreated_at | SchoolTrainingConnectionUpdated_at | SchoolTrainingConnectionSchoolTraining | SchoolTrainingConnectionPublished_at | createSchoolTrainingPayload | updateSchoolTrainingPayload | deleteSchoolTrainingPayload | ServiceAttendance | ServiceAttendanceConnection | ServiceAttendanceAggregator | ServiceAttendanceAggregatorSum | ServiceAttendanceAggregatorAvg | ServiceAttendanceAggregatorMin | ServiceAttendanceAggregatorMax | ServiceAttendanceGroupBy | ServiceAttendanceConnectionId | ServiceAttendanceConnectionCreated_at | ServiceAttendanceConnectionUpdated_at | ServiceAttendanceConnectionService | ServiceAttendanceConnectionDate | ServiceAttendanceConnectionAttendances | ServiceAttendanceConnectionPublished_at | createServiceAttendancePayload | updateServiceAttendancePayload | deleteServiceAttendancePayload | Service | ServiceConnection | ServiceAggregator | ServiceGroupBy | ServiceConnectionId | ServiceConnectionCreated_at | ServiceConnectionUpdated_at | ServiceConnectionService | ServiceConnectionIcon | ServiceConnectionPublished_at | createServicePayload | updateServicePayload | deleteServicePayload | SkinColor | SkinColorConnection | SkinColorAggregator | SkinColorGroupBy | SkinColorConnectionId | SkinColorConnectionCreated_at | SkinColorConnectionUpdated_at | SkinColorConnectionSkinColor | SkinColorConnectionPublished_at | createSkinColorPayload | updateSkinColorPayload | deleteSkinColorPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+
+input InputID {
+  id: ID!
+}
+
+enum PublicationState {
+  LIVE
+  PREVIEW
+}
+
+type AdminUser {
+  id: ID!
+  username: String
+  firstname: String!
+  lastname: String!
+}
+
+type Query {
+  benefit(id: ID!, publicationState: PublicationState): Benefit
+  benefits(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Benefit]
+  benefitsConnection(sort: String, limit: Int, start: Int, where: JSON): BenefitConnection
+  externalService(id: ID!, publicationState: PublicationState): ExternalService
+  externalServices(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ExternalService]
+  externalServicesConnection(sort: String, limit: Int, start: Int, where: JSON): ExternalServiceConnection
+  gender(id: ID!, publicationState: PublicationState): Gender
+  genders(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Gender]
+  gendersConnection(sort: String, limit: Int, start: Int, where: JSON): GenderConnection
+  maritalStatus(id: ID!, publicationState: PublicationState): MaritalStatus
+  maritalStatuses(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [MaritalStatus]
+  maritalStatusesConnection(sort: String, limit: Int, start: Int, where: JSON): MaritalStatusConnection
+  personEntrance(id: ID!, publicationState: PublicationState): PersonEntrance
+  personEntrances(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [PersonEntrance]
+  personEntrancesConnection(sort: String, limit: Int, start: Int, where: JSON): PersonEntranceConnection
+  person(id: ID!, publicationState: PublicationState): Person
+  people(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Person]
+  peopleConnection(sort: String, limit: Int, start: Int, where: JSON): PersonConnection
+  schoolTraining(id: ID!, publicationState: PublicationState): SchoolTraining
+  schoolTrainings(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [SchoolTraining]
+  schoolTrainingsConnection(sort: String, limit: Int, start: Int, where: JSON): SchoolTrainingConnection
+  serviceAttendance(id: ID!, publicationState: PublicationState): ServiceAttendance
+  serviceAttendances(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ServiceAttendance]
+  serviceAttendancesConnection(sort: String, limit: Int, start: Int, where: JSON): ServiceAttendanceConnection
+  service(id: ID!, publicationState: PublicationState): Service
+  services(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Service]
+  servicesConnection(sort: String, limit: Int, start: Int, where: JSON): ServiceConnection
+  skinColor(id: ID!, publicationState: PublicationState): SkinColor
+  skinColors(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [SkinColor]
+  skinColorsConnection(sort: String, limit: Int, start: Int, where: JSON): SkinColorConnection
+  files(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!, publicationState: PublicationState): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!, publicationState: PublicationState): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+type Mutation {
+  createBenefit(input: createBenefitInput): createBenefitPayload
+  updateBenefit(input: updateBenefitInput): updateBenefitPayload
+  deleteBenefit(input: deleteBenefitInput): deleteBenefitPayload
+  createExternalService(input: createExternalServiceInput): createExternalServicePayload
+  updateExternalService(input: updateExternalServiceInput): updateExternalServicePayload
+  deleteExternalService(input: deleteExternalServiceInput): deleteExternalServicePayload
+  createGender(input: createGenderInput): createGenderPayload
+  updateGender(input: updateGenderInput): updateGenderPayload
+  deleteGender(input: deleteGenderInput): deleteGenderPayload
+  createMaritalStatus(input: createMaritalStatusInput): createMaritalStatusPayload
+  updateMaritalStatus(input: updateMaritalStatusInput): updateMaritalStatusPayload
+  deleteMaritalStatus(input: deleteMaritalStatusInput): deleteMaritalStatusPayload
+  createPersonEntrance(input: createPersonEntranceInput): createPersonEntrancePayload
+  updatePersonEntrance(input: updatePersonEntranceInput): updatePersonEntrancePayload
+  deletePersonEntrance(input: deletePersonEntranceInput): deletePersonEntrancePayload
+  createPerson(input: createPersonInput): createPersonPayload
+  updatePerson(input: updatePersonInput): updatePersonPayload
+  deletePerson(input: deletePersonInput): deletePersonPayload
+  createSchoolTraining(input: createSchoolTrainingInput): createSchoolTrainingPayload
+  updateSchoolTraining(input: updateSchoolTrainingInput): updateSchoolTrainingPayload
+  deleteSchoolTraining(input: deleteSchoolTrainingInput): deleteSchoolTrainingPayload
+  createServiceAttendance(input: createServiceAttendanceInput): createServiceAttendancePayload
+  updateServiceAttendance(input: updateServiceAttendanceInput): updateServiceAttendancePayload
+  deleteServiceAttendance(input: deleteServiceAttendanceInput): deleteServiceAttendancePayload
+  createService(input: createServiceInput): createServicePayload
+  updateService(input: updateServiceInput): updateServicePayload
+  deleteService(input: deleteServiceInput): deleteServicePayload
+  createSkinColor(input: createSkinColorInput): createSkinColorPayload
+  updateSkinColor(input: updateSkinColorInput): updateSkinColorPayload
+  deleteSkinColor(input: deleteSkinColorInput): deleteSkinColorPayload
+
+  """Delete one file"""
+  deleteFile(input: deleteFileInput): deleteFilePayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, field: String, source: String, info: FileInfoInput, file: Upload!): UploadFile!
+  multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
+  updateFileInfo(id: ID!, info: FileInfoInput!): UploadFile!
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  forgotPassword(email: String!): UserPermissionsPasswordPayload
+  resetPassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+"""A time string with format: HH:mm:ss.SSS"""
+scalar Time
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload

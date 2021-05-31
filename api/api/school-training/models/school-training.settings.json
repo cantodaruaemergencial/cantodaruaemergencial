@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "school_trainings",
+  "info": {
+    "name": "School Training"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "SchoolTraining": {
+      "type": "string"
+    }
+  }
+}

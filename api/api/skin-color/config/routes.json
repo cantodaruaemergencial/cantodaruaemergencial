@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/skin-colors",
+      "handler": "skin-color.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/skin-colors/count",
+      "handler": "skin-color.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/skin-colors/:id",
+      "handler": "skin-color.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/skin-colors",
+      "handler": "skin-color.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/skin-colors/:id",
+      "handler": "skin-color.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/skin-colors/:id",
+      "handler": "skin-color.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
