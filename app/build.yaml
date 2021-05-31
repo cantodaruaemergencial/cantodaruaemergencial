@@ -1,0 +1,4 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}:${_GITHUB_SHA}','--build-arg','NEXT_PUBLIC_STRAPI_API_URL=${_NEXT_PUBLIC_STRAPI_API_URL}', '.']
+images: ['gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}:${_GITHUB_SHA}']
