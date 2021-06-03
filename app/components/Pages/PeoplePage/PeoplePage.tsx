@@ -105,7 +105,7 @@ const PeoplePage = (): ReactElement => {
     person: BasePerson,
     callback: (entrance: Entrance) => void,
   ) => {
-    const message = `Deseja confirmar a entrada de ${person.Name}?`;
+    const message = `Deseja confirmar a entrada de **${person.Name} (${person.CardNumber})**?`;
 
     setConfirmationModal({
       ...confirmationModal,

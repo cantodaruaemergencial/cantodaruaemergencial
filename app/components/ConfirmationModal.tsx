@@ -7,6 +7,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { ReactElement, ReactNode } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import { ConfirmationModal as ConfirmationModalType } from '#/types/ConfirmationModal';
 
@@ -33,7 +34,9 @@ const ConfirmationModal = ({
   >
     <DialogTitle>{title}</DialogTitle>
     <DialogContent dividers>
-      <Typography gutterBottom>{message}</Typography>
+      <Typography gutterBottom>
+        <ReactMarkdown>{message || ''}</ReactMarkdown>
+      </Typography>
     </DialogContent>
     <DialogActions>{actions}</DialogActions>
   </Dialog>
