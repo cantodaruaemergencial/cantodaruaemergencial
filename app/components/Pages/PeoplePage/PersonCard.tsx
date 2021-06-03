@@ -10,6 +10,7 @@ import { ReactElement, useState } from 'react';
 import { ListRowProps } from 'react-virtualized';
 import styled from 'styled-components';
 import TheTag from './../../Tag';
+import Link from 'next/link';
 
 const PersonWrapper = styled(Box)`
   flex: 0 0 auto;
@@ -30,7 +31,7 @@ const PersonBox = withTheme(styled(Box)`
   }
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.01);
+    background-color: rgba(0, 0, 0, 0.05);
   }
 `);
 
@@ -48,6 +49,11 @@ const Info = withTheme(styled(Box)`
 const Title = withTheme(styled(Typography)`
   && {
     font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
 
     ${({ theme }) => theme.breakpoints.down('xs')} {
       white-space: nowrap;
@@ -69,20 +75,11 @@ const PersonInfo = withTheme(styled(Box)`
 `);
 
 const Options = styled(Box)`
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
   justify-content: space-between;
-  align-items: center;
 `;
-
-const Option = withTheme(styled(Box)`
-  display: flex;
-  flex-direction: column;
-  margin-left: 1rem;
-
-  ${({ theme }) => theme.breakpoints.down('xs')} {
-    margin-left: 0;
-  }
-`);
 
 const Tag = styled(TheTag)`
   min-width: 48px;
@@ -113,18 +110,11 @@ const PersonCard = ({
             <Title variant="body2">
               <Skeleton variant="text" width={160} />
             </Title>
-            <Typography variant="caption">
-              <Skeleton variant="text" width={80} />
-            </Typography>
           </PersonInfo>
         </Info>
         <Options>
-          <Option>
-            <Chip loading />
-          </Option>
-          <Option>
-            <Skeleton variant="rect" width={95} height={27} />
-          </Option>
+          <Chip loading />
+          <Skeleton variant="rect" width={95} height={27} />
         </Options>
       </PersonBox>
     </PersonWrapper>
@@ -171,27 +161,25 @@ const PersonCard = ({
         <Info>
           <Tag label={CardNumber} color={getColor()} />
           <PersonInfo>
-            <Title variant="body2">{Name}</Title>
+            <Link href={`/pessoas/cadastro/${Id}`}>
+              <Title variant="body2">{Name}</Title>
+            </Link>
             {SocialName && (
               <Typography variant="caption">{SocialName}</Typography>
             )}
           </PersonInfo>
         </Info>
         <Options>
-          <Option>
-            <Chip label={lastEntranceLabel()} color={getColor()} />
-          </Option>
+          <Chip label={lastEntranceLabel()} color={getColor()} />
           {!entrance.EnteredToday && (
-            <Option>
-              <Button
-                variant="outlined"
-                size="small"
-                startIcon={<AddCircleRounded />}
-                onClick={() => addNewEntrance(item, updateItem)}
-              >
-                Entrada
-              </Button>
-            </Option>
+            <Button
+              variant="outlined"
+              size="small"
+              startIcon={<AddCircleRounded />}
+              onClick={() => addNewEntrance(item, updateItem)}
+            >
+              Entrada
+            </Button>
           )}
         </Options>
       </PersonBox>

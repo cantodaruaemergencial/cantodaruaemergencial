@@ -29,6 +29,8 @@ const Form = ({ form, onSubmit, className }: Props) => {
     const defaultValues: { [key: string]: unknown } = {};
 
     const getDefaultValue = (field: FormField) => {
+      if (field.value !== null) return field.value;
+
       switch (field.type) {
         case FieldType.boolean:
           return false;

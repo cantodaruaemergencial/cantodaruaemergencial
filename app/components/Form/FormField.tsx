@@ -63,6 +63,7 @@ const FormField = ({
     rules,
     inputConfig,
     dateConfig,
+    disabled
   },
   control,
   className,
@@ -92,6 +93,7 @@ const FormField = ({
         variant="outlined"
         error={!!error}
         helperText={getErrorMessage(error)}
+        disabled={disabled === false}
         inputProps={{
           maxLength: inputConfig?.maxLength,
         }}

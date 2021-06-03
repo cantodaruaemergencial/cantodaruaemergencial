@@ -10,6 +10,7 @@ import {
   BasePerson,
   SchoolTraining,
   SkinColor,
+  Person,
 } from '#/types/People';
 
 class PeopleService {
@@ -60,7 +61,16 @@ class PeopleService {
   static getBenefits = () =>
     Api.publicGet<Benefit[]>('benefits').then((res) => res.data);
 
-  static getPersonForm = async (): Promise<Form> => {
+  static getPerson = (personId: number) =>
+    Api.get<Person>(`people/${personId}`).then((res) => res.data);
+
+  static getPersonForm = async (personId: number | null): Promise<Form> => {
+    let person;
+
+    if (personId) {
+      person = await PeopleService.getPerson(personId);
+    }
+
     const [
       genders,
       skinColors,
@@ -83,15 +93,18 @@ class PeopleService {
         fields: [
           {
             property: 'CardNumber',
+            value: person?.CardNumber,
             label: 'Cartão',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
             rules: {
               required: true,
             },
+            disabled: person !== null,
           },
           {
             property: 'Name',
+            value: person?.Name,
             label: 'Nome',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -101,18 +114,21 @@ class PeopleService {
           },
           {
             property: 'SocialName',
+            value: person?.SocialName,
             label: 'Nome Social',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
             property: 'MotherName',
+            value: person?.MotherName,
             label: 'Nome da Mãe',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
             property: 'BirthDate',
+            value: person ? moment(person.BirthDate) : null,
             label: 'Data de Nascimento',
             type: FieldType.date,
             dateConfig: { disableFuture: true },
@@ -122,6 +138,7 @@ class PeopleService {
           },
           {
             property: 'BirthPlace',
+            value: person?.BirthPlace,
             label: 'Naturalidade',
             description: 'Exemplo: Belo Horizonte - MG',
             type: FieldType.input,
@@ -132,6 +149,7 @@ class PeopleService {
           },
           {
             property: 'gender',
+            value: person?.gender?.id,
             label: 'Sexo',
             type: FieldType.select,
             options: genders.map(
@@ -146,6 +164,7 @@ class PeopleService {
           },
           {
             property: 'skin_color',
+            value: person?.skin_color?.id,
             label: 'Cor/Raça',
             type: FieldType.select,
             options: skinColors.map(
@@ -161,6 +180,7 @@ class PeopleService {
           {
             property: 'marital_status',
             label: 'Estado Civil',
+            value: person?.marital_status?.id,
             type: FieldType.select,
             options: maritalStatuses.map(
               (ms): FormFieldOption => ({
@@ -174,6 +194,7 @@ class PeopleService {
           },
           {
             property: 'Childrens',
+            value: person?.Childrens,
             label: 'Número de Filhos',
             type: FieldType.number,
             rules: {
@@ -182,6 +203,7 @@ class PeopleService {
           },
           {
             property: 'school_training',
+            value: person?.school_training?.id,
             label: 'Formação Escolar',
             type: FieldType.select,
             options: schoolTrainings.map(
@@ -196,6 +218,7 @@ class PeopleService {
           },
           {
             property: 'Occupation',
+            value: person?.Occupation,
             label: 'Ocupação',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -205,6 +228,7 @@ class PeopleService {
           },
           {
             property: 'Profession',
+            value: person?.Profession,
             label: 'Profissão',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -219,33 +243,39 @@ class PeopleService {
         fields: [
           {
             property: 'HasGeneralRegister',
+            value: person?.HasGeneralRegister,
             label: 'Possui RG?',
             type: FieldType.boolean,
           },
           {
             property: 'GeneralRegister',
+            value: person?.GeneralRegister,
             label: 'Número do RG',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
             property: 'HasCpf',
+            value: person?.HasCpf,
             label: 'Possui CPF?',
             type: FieldType.boolean,
           },
           {
             property: 'Cpf',
+            value: person?.Cpf,
             label: 'Número do CPF',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
             property: 'HasBirthCertificate',
+            value: person?.HasBirthCertificate,
             label: 'Possui Certidão de Nascimento?',
             type: FieldType.boolean,
           },
           {
             property: 'HasCtps',
+            value: person?.HasCtps,
             label: 'Possui CTPS?',
             type: FieldType.boolean,
           },
@@ -256,21 +286,25 @@ class PeopleService {
         fields: [
           {
             property: 'HasEmergencyAid',
+            value: person?.HasEmergencyAid,
             label: 'Recebe Auxílio Emergencial?',
             type: FieldType.boolean,
           },
           {
             property: 'HasPbhBasket',
+            value: person?.HasPbhBasket,
             label: 'Recebe Cesta PBH?',
             type: FieldType.boolean,
           },
           {
             property: 'HasUniqueRegister',
+            value: person?.HasUniqueRegister,
             label: 'Possui Cadastro Único?',
             type: FieldType.boolean,
           },
           {
             property: 'Benefits',
+            value: (person?.Benefits || []).map((b) => b.id),
             label: 'Recebe algum benefício?',
             type: FieldType.selectMultiple,
             options: benefits.map(
@@ -282,6 +316,7 @@ class PeopleService {
           },
           {
             property: 'ExternalServices',
+            value: (person?.ExternalServices || []).map((es) => es.id),
             label: 'Utiliza algum dos serviços?',
             type: FieldType.selectMultiple,
             options: externalServices.map(
@@ -293,17 +328,20 @@ class PeopleService {
           },
           {
             property: 'HasHabitation',
+            value: person?.HasHabitation,
             label: 'Possui moradia?',
             type: FieldType.boolean,
           },
           {
             property: 'HomelessTime',
+            value: person?.HomelessTime,
             label: 'Tempo em situação de rua',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
             property: 'ReferenceAddress',
+            value: person?.ReferenceAddress,
             label: 'Local de referência',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -315,11 +353,13 @@ class PeopleService {
         fields: [
           {
             property: 'ContactPhone',
+            value: person?.ContactPhone,
             label: 'Telefone de Contato',
             type: FieldType.number,
           },
           {
             property: 'ReferenceLocation',
+            value: person?.ReferenceLocation,
             label: 'Endereço de referência',
             description: 'Endereço de familiar ou amigo',
             type: FieldType.input,
@@ -330,12 +370,14 @@ class PeopleService {
           },
           {
             property: 'Demands',
+            value: person?.Demands,
             label: 'Demandas',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
             property: 'Observation',
+            value: person?.Observation,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -347,9 +389,12 @@ class PeopleService {
     return { sections };
   };
 
-  static saveNewPerson = async (formData: {
-    [key: string]: unknown;
-  }): Promise<unknown> => {
+  static savePerson = async (
+    formData: {
+      [key: string]: unknown;
+    },
+    personId?: number | null,
+  ): Promise<unknown> => {
     const body = { ...formData };
 
     Object.keys(body).forEach((k) => {
@@ -359,7 +404,9 @@ class PeopleService {
       }
     });
 
-    return Api.post('people', body);
+    return personId !== null
+      ? Api.put(`people/${personId}`, body)
+      : Api.post('people', body);
   };
 }
 

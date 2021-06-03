@@ -17,8 +17,8 @@ const Container = styled(MuiContainer)`
 `;
 
 interface Props {
-  personId?: string;
-  form: FormType;
+  personId?: number | null;
+  form?: FormType | null;
 }
 
 export interface IResult {
@@ -31,12 +31,12 @@ const PersonPage = ({ personId, form }: Props): ReactElement => {
   const router = useRouter();
 
   const onSubmit = async (data: { [key: string]: unknown }) => {
-    PeopleService.saveNewPerson(data)
+    PeopleService.savePerson(data, personId)
       .then(() => {
         enqueueSnackbar('Cadastro realizado com sucesso!', {
           variant: 'success',
         });
-        router.replace('/people');
+        router.replace('/pessoas');
       })
       .catch(() => {
         enqueueSnackbar('Ocorreu um erro. Tente novamente.', {
@@ -47,8 +47,7 @@ const PersonPage = ({ personId, form }: Props): ReactElement => {
 
   return (
     <Container>
-      <PageHeader title="Cadastro" />
-      {personId}
+      <PageHeader title={'Cadastro'} />
       {form && <Form form={form} onSubmit={onSubmit} />}
     </Container>
   );

@@ -141,7 +141,7 @@ const PeoplePage = (): ReactElement => {
 
   const renderControls = () => (
     <AddNew
-      href="/people/new-person"
+      href="/pessoas/cadastro"
       variant="contained"
       startIcon={<AddCircleRounded />}
     >

@@ -1,3 +1,4 @@
+import { Moment } from 'moment';
 import { RegisterOptions } from 'react-hook-form';
 
 export enum FieldType {
@@ -22,11 +23,12 @@ export interface FormField {
   label: string;
   description?: string;
   type: FieldType;
-  value?: string | string[] | number;
+  value?: string | string[] | number | number[] | Moment | boolean | null;
   options?: FormFieldOption[];
   rules?: RegisterOptions;
   dateConfig?: DateConfig;
   inputConfig?: InputConfig;
+  disabled?: boolean;
 }
 
 export interface FormFieldOption {

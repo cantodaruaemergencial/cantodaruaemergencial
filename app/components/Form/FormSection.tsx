@@ -28,7 +28,7 @@ const FormSection = ({
   control,
   className,
 }: Props) => (
-  <Container className={className}>
+  <Container className={className} rounder>
     <Title variant="h4">{label}</Title>
     {fields.map((f) => (
       <FormField key={f.property} field={f} control={control} />
