@@ -150,8 +150,7 @@ const Value = ({
   growth,
   className,
 }: Props) => {
-  const valueNumber =
-    typeof value === 'number' ? Numerals.format(value, format) : value;
+  const valueNumber = isNaN(+value) ? value : Numerals.format(+value, format);
 
   const renderGrowth = () => {
     const growthNumber = growth || 0;
@@ -167,7 +166,14 @@ const Value = ({
   return (
     <Container className={className}>
       <ValueContainer
-        className={clsx({ small, medium, inline, alignCenter, alignRight, light })}
+        className={clsx({
+          small,
+          medium,
+          inline,
+          alignCenter,
+          alignRight,
+          light,
+        })}
       >
         <ValueNumber color="textPrimary" className="value">
           {valueNumber}
