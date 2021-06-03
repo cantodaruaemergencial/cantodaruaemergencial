@@ -1,14 +1,13 @@
-import { Container as MuiContainer } from '@material-ui/core';
-import { useRouter } from 'next/dist/client/router';
-import { useSnackbar } from 'notistack';
-import React, { ReactElement } from 'react';
-import styled from 'styled-components';
-
-import Form from '../Form/Form';
-import PageHeader from '../PageHeader';
-
 import PeopleService from '#/services/PeopleService';
 import { Form as FormType } from '#/types/Forms';
+import { Person } from '#/types/People';
+import { Container as MuiContainer } from '@material-ui/core';
+import { useRouter } from 'next/dist/client/router';
+import React, { ReactElement, useState } from 'react';
+import styled from 'styled-components';
+import Form from '../Form/Form';
+import PageHeader from '../PageHeader';
+import PersonCardModal from '../PersonCardModal';
 
 const Container = styled(MuiContainer)`
   && {
@@ -27,28 +26,52 @@ export interface IResult {
 }
 
 const PersonPage = ({ personId, form }: Props): ReactElement => {
-  const { enqueueSnackbar } = useSnackbar();
   const router = useRouter();
 
+  const [personModal, setPersonModal] = useState<{
+    person: Person | null;
+    open: boolean;
+  }>({ open: false, person: null });
+
   const onSubmit = async (data: { [key: string]: unknown }) => {
-    PeopleService.savePerson(data, personId)
-      .then(() => {
-        enqueueSnackbar('Cadastro realizado com sucesso!', {
-          variant: 'success',
+    return new Promise<string | null>((resolve, reject) => {
+      PeopleService.savePerson(data, personId)
+        .then((person) => {
+          if (personId !== null) {
+            router.replace('/pessoas');
+            redirectTo(person?.CardNumber);
+            resolve('Cadastro atualizado com sucesso!');
+          } else {
+            showPersonCardModal(person);
+            resolve(null);
+          }
+        })
+        .catch(() => {
+          reject('Ocorreu um erro. Tente novamente.');
         });
-        router.replace('/pessoas');
-      })
-      .catch(() => {
-        enqueueSnackbar('Ocorreu um erro. Tente novamente.', {
-          variant: 'error',
-        });
-      });
+    });
+  };
+
+  const redirectTo = (cardNumber: string) =>
+    router.replace(`/pessoas?q=${cardNumber}`);
+
+  const showPersonCardModal = (person: Person) =>
+    setPersonModal({ open: true, person });
+
+  const handleClosePersonCardModal = () => {
+    setPersonModal({ ...personModal, open: false });
+    redirectTo(personModal.person?.CardNumber || '');
   };
 
   return (
     <Container>
       <PageHeader title={'Cadastro'} />
       {form && <Form form={form} onSubmit={onSubmit} />}
+      <PersonCardModal
+        {...personModal}
+        handleClose={handleClosePersonCardModal}
+        newPerson
+      />
     </Container>
   );
 };

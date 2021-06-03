@@ -11,6 +11,7 @@ import { Shadows } from '#/utils/theme';
 import { Box, Button, Container as MuiContainer } from '@material-ui/core';
 import { withTheme } from '@material-ui/core/styles';
 import { AddCircleRounded } from '@material-ui/icons';
+import Link from 'next/link';
 import { useSnackbar } from 'notistack';
 import { ReactElement, useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -21,6 +22,8 @@ import InfiniteList, {
 import PageHeader from '../../PageHeader';
 import Value from './../../Value';
 import PersonCard from './PersonCard';
+import qs from 'qs';
+import { useRouter } from 'next/router';
 
 const Container = styled(MuiContainer)`
   && {
@@ -78,17 +81,27 @@ const Search = styled(SearchField)`
 const PeoplePage = (): ReactElement => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const [selectedFilter, setSelectedFilter] = useState({});
+  const route = useRouter();
+
+  const [selectedFilter, setSelectedFilter] = useState<{
+    nameOrCardNumber?: string | null;
+  }>({});
+
+  useEffect(
+    () =>
+      setSelectedFilter({
+        nameOrCardNumber: route.query.q as string,
+      }),
+    [],
+  );
 
   const [todayEntrances, setTodayEntrances] = useState<number | null>();
 
-  const [
-    confirmationModal,
-    setConfirmationModal,
-  ] = useState<ConfirmationModalType>({
-    title: 'Confirmar entrada',
-    open: false,
-  });
+  const [confirmationModal, setConfirmationModal] =
+    useState<ConfirmationModalType>({
+      title: 'Confirmar entrada',
+      open: false,
+    });
 
   const fetchPeople: InfiniteListFetchRows = (startIndex, limit, filter) =>
     PeopleService.get(startIndex, limit, filter);
@@ -140,13 +153,11 @@ const PeoplePage = (): ReactElement => {
   };
 
   const renderControls = () => (
-    <AddNew
-      href="/pessoas/cadastro"
-      variant="contained"
-      startIcon={<AddCircleRounded />}
-    >
-      Nova Pessoa
-    </AddNew>
+    <Link href="/pessoas/cadastro">
+      <AddNew variant="contained" startIcon={<AddCircleRounded />}>
+        Nova Pessoa
+      </AddNew>
+    </Link>
   );
 
   useEffect(() => {
@@ -165,7 +176,7 @@ const PeoplePage = (): ReactElement => {
   return (
     <Container>
       <Header title="Pessoas" sideComponent={renderControls()} />
-      <ListContainer rounder>
+      <ListContainer>
         <SearchBar>
           <Search placeholder="Nome ou cartão" onFilter={onChangeFilter} />
           <EntrancesToday

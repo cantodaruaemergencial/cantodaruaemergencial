@@ -394,7 +394,7 @@ class PeopleService {
       [key: string]: unknown;
     },
     personId?: number | null,
-  ): Promise<unknown> => {
+  ): Promise<Person> => {
     const body = { ...formData };
 
     Object.keys(body).forEach((k) => {
@@ -404,9 +404,16 @@ class PeopleService {
       }
     });
 
-    return personId !== null
-      ? Api.put(`people/${personId}`, body)
-      : Api.post('people', body);
+    const saveMethod =
+      personId !== null
+        ? Api.put<Person>(`people/${personId}`, body)
+        : Api.post<Person>('people', body);
+
+    const { status, data } = await saveMethod;
+
+    if (status !== 200) throw new Error();
+
+    return data;
   };
 }
 

@@ -2,15 +2,21 @@ import Chip from '#/components/Chip';
 import { Color } from '#/types/Color';
 import { Entrance } from '#/types/Entrance';
 import { BasePerson } from '#/types/People';
-import { Box, Button, Typography, withTheme } from '@material-ui/core';
+import {
+  Box,
+  Button,
+
+  Typography,
+  withTheme
+} from '@material-ui/core';
 import { AddCircleRounded } from '@material-ui/icons';
 import { Skeleton } from '@material-ui/lab';
 import moment from 'moment';
+import Link from 'next/link';
 import { ReactElement, useState } from 'react';
 import { ListRowProps } from 'react-virtualized';
 import styled from 'styled-components';
 import TheTag from './../../Tag';
-import Link from 'next/link';
 
 const PersonWrapper = styled(Box)`
   flex: 0 0 auto;
@@ -79,6 +85,7 @@ const Options = styled(Box)`
   grid-auto-flow: column;
   grid-gap: 1rem;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const Tag = styled(TheTag)`
@@ -122,14 +129,8 @@ const PersonCard = ({
 
   if (!isRowLoaded) return renderSkeleton();
 
-  const {
-    Id,
-    Name,
-    SocialName,
-    CardNumber,
-    EnteredToday,
-    LastEntranceDate,
-  } = item;
+  const { Id, Name, SocialName, CardNumber, EnteredToday, LastEntranceDate } =
+    item;
 
   const [entrance, setEntrance] = useState({ LastEntranceDate, EnteredToday });
 

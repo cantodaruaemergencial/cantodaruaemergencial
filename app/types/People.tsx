@@ -63,6 +63,7 @@ export interface Person {
   CardNumber: string;
   ExternalServices: ExternalService[];
   Benefits: Benefit[];
+  created_at: string;
 }
 
 export interface BasePerson {
