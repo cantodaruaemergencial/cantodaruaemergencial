@@ -108,6 +108,15 @@ const ButtonAppBar = (): React.ReactElement => {
           <NavButton>
             <Link href="/pessoas">Pessoas</Link>
           </NavButton>
+
+          <NavIconButton>
+            <Link href="/servicos">
+              <PersonRounded />
+            </Link>
+          </NavIconButton>
+          <NavButton>
+            <Link href="/servicos">Serviços</Link>
+          </NavButton>
         </Links>
       </Toolbar>
       <FloatingBox>
