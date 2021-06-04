@@ -22,7 +22,6 @@ import InfiniteList, {
 import PageHeader from '../../PageHeader';
 import Value from './../../Value';
 import PersonCard from './PersonCard';
-import qs from 'qs';
 import { useRouter } from 'next/router';
 
 const Container = styled(MuiContainer)`

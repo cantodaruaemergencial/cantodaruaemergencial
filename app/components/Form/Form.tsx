@@ -66,7 +66,7 @@ const Form = ({ form, onSubmit, className }: Props) => {
     return defaultValues;
   };
 
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit } = useForm({
     mode: 'onSubmit',
     defaultValues: getDefaultValues(),
   });
