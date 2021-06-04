@@ -21,13 +21,13 @@ jobs:
       - name: set env to dev
         if: endsWith(github.ref, '/dev')
         run: |
-          echo "::set-env name=SERVICE_NAME::app-dev"
-          echo "::set-env name=NEXT_PUBLIC_STRAPI_API_URL::https://api-dev.cantodaruaemergencial.com.br"
+          echo "SERVICE_NAME=app-dev" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_STRAPI_API_URL=https://api-dev.cantodaruaemergencial.com.br" >> "$GITHUB_ENV"
       - name: set env to production
         if: endsWith(github.ref, '/main')
         run: |
-          echo "::set-env name=SERVICE_NAME::app"
-          echo "::set-env name=NEXT_PUBLIC_STRAPI_API_URL::https://api.cantodaruaemergencial.com.br"
+          echo "SERVICE_NAME=app" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_STRAPI_API_URL=https://api.cantodaruaemergencial.com.br" >> "$GITHUB_ENV"
       - name: checkout
         uses: actions/checkout@v1
 
@@ -43,12 +43,13 @@ jobs:
 
       - name: build
         run: |
-          cd app && gcloud builds submit --config=build.yaml \
+          cd app
+          gcloud builds submit --config=build.yaml \
             --substitutions=_NEXT_PUBLIC_STRAPI_API_URL=$NEXT_PUBLIC_STRAPI_API_URL,_PROJECT_ID=$PROJECT_ID,_SERVICE_NAME=$SERVICE_NAME,_GITHUB_SHA=$GITHUB_SHA
 
       - name: deploy
         run: |
-          cd app && gcloud run deploy $SERVICE_NAME \
+          gcloud run deploy $SERVICE_NAME \
             --region $RUN_REGION \
             --image gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA \
             --platform managed

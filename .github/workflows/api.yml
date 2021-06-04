@@ -21,11 +21,11 @@ jobs:
       - name: Set env to dev
         if: endsWith(github.ref, '/dev')
         run: |
-          echo "::set-env name=SERVICE_NAME::api-dev"
+          echo "SERVICE_NAME=api-dev" >> "$GITHUB_ENV"
       - name: Set env to production
         if: endsWith(github.ref, '/main')
         run: |
-          echo "::set-env name=SERVICE_NAME::api"
+          echo "SERVICE_NAME=api" >> "$GITHUB_ENV"
 
       - name: Checkout
         uses: actions/checkout@v1
