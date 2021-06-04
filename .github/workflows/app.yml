@@ -1,0 +1,54 @@
+name: deploy app
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - "app/**"
+
+env:
+  PROJECT_ID: ${{ secrets.PROJECT_ID }}
+  RUN_REGION: us-east1
+
+jobs:
+  setup-build-deploy:
+    name: build and deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: set env to dev
+        if: endsWith(github.ref, '/dev')
+        run: |
+          echo "::set-env name=SERVICE_NAME::app-dev"
+          echo "::set-env name=NEXT_PUBLIC_STRAPI_API_URL::https://api-dev.cantodaruaemergencial.com.br"
+      - name: set env to production
+        if: endsWith(github.ref, '/main')
+        run: |
+          echo "::set-env name=SERVICE_NAME::app"
+          echo "::set-env name=NEXT_PUBLIC_STRAPI_API_URL::https://api.cantodaruaemergencial.com.br"
+      - name: checkout
+        uses: actions/checkout@v1
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: "275.0.0"
+          service_account_email: ${{ secrets.SA_EMAIL }}
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+
+      - name: gcloud Set up
+        run: |
+          gcloud config set project $PROJECT_ID
+
+      - name: build
+        run: |
+          cd app && gcloud builds submit --config=build.yaml \
+            --substitutions=_NEXT_PUBLIC_STRAPI_API_URL=$NEXT_PUBLIC_STRAPI_API_URL,_PROJECT_ID=$PROJECT_ID,_SERVICE_NAME=$SERVICE_NAME,_GITHUB_SHA=$GITHUB_SHA
+
+      - name: deploy
+        run: |
+          cd app && gcloud run deploy $SERVICE_NAME \
+            --region $RUN_REGION \
+            --image gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA \
+            --platform managed

@@ -14,18 +14,18 @@ env:
   
 jobs:
   setup-build-deploy:
-    name: Setup, Build, and Deploy
+    name: build and deploy
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set env to dev
-      if: endsWith(github.ref, '/dev')
-      run: |
-        echo "::set-env name=SERVICE_NAME::api-dev"
-    - name: Set env to production
-      if: endsWith(github.ref, '/main')
-      run: |
-        echo "::set-env name=SERVICE_NAME::api"
+      - name: Set env to dev
+        if: endsWith(github.ref, '/dev')
+        run: |
+          echo "::set-env name=SERVICE_NAME::api-dev"
+      - name: Set env to production
+        if: endsWith(github.ref, '/main')
+        run: |
+          echo "::set-env name=SERVICE_NAME::api"
 
       - name: Checkout
         uses: actions/checkout@v1
@@ -40,11 +40,11 @@ jobs:
         run: |
           gcloud config set project $PROJECT_ID
       
-      - name: Build
+      - name: build
         run: |
           cd api && gcloud builds submit -t gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA
       
-      - name: Deploy
+      - name: deploy
         run: |
           cd api && gcloud run deploy $SERVICE_NAME \
             --region $RUN_REGION \
