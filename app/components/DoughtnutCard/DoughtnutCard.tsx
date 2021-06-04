@@ -34,7 +34,7 @@ const DoughtnutCard = ({
   format = Format.number,
   className,
 }: Props) => (
-  <DashCard className={className} rounder>
+  <DashCard className={className}>
     <CardHeader title={label} />
     {values && <Chart values={values} format={format} />}
   </DashCard>

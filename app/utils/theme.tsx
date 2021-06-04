@@ -13,7 +13,7 @@ const theme = createMuiTheme({
       main: '#563727',
     },
     secondary: {
-      main: '#d59745',
+      main: '#00a89e',
     },
     text: {
       primary: '#545a68',
@@ -116,3 +116,22 @@ const theme = createMuiTheme({
 });
 
 export default responsiveFontSizes(theme);
+
+export const globalStyles = () => ({
+  '@global': {
+    '*::-webkit-scrollbar': {
+      width: 4,
+      height: 4,
+    },
+    '*::-webkit-scrollbar-track': {
+      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.1)',
+    },
+    '*::-webkit-scrollbar-thumb': {
+      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      borderRadius: '1em',
+    },
+    '*::-webkit-scrollbar-corner': {
+      background: 'transparent',
+    },
+  },
+});

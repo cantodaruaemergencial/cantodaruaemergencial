@@ -50,8 +50,8 @@ export interface Person {
   Cpf: string;
   HasCtps: boolean;
   HasBirthCertificate: boolean;
-  // marital_status: MaritalStatus;
-  // school_training: SchoolTraining;
+  marital_status: MaritalStatus;
+  school_training: SchoolTraining;
   ReferenceLocation: string;
   Occupation: string;
   Profession: string;
@@ -59,8 +59,11 @@ export interface Person {
   ReferenceAddress: string;
   Demands: string;
   Observation: string;
-  // skin_color: SkinColor;
+  skin_color: SkinColor;
   CardNumber: string;
+  ExternalServices: ExternalService[];
+  Benefits: Benefit[];
+  created_at: string;
 }
 
 export interface BasePerson {

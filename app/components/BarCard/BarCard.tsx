@@ -45,7 +45,7 @@ const BarCard = ({
   horizontal = false,
   className,
 }: Props) => (
-  <DashCard className={className} rounder>
+  <DashCard className={className}>
     <Header>
       <CardHeader
         title={label}

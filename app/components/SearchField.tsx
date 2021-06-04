@@ -28,6 +28,8 @@ const SearchField = ({ placeholder, onFilter, className }: Props) => {
   const onKeyDown = ({ key, target: { value } }: any) => {
     if (key === 'Enter') {
       onFilter(value);
+      // @ts-ignore
+      document.getElementById('search-field')?.select();
     }
   };
 

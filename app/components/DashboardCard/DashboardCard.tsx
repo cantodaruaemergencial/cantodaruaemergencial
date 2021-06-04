@@ -94,7 +94,7 @@ const DashboardCard = ({
   );
 
   return (
-    <DashCard className={className} rounder primary={primary}>
+    <DashCard className={className} primary={primary}>
       <Numbers className={clsx({ alignCenter })}>
         <Box>
           <Header title={label} contrast={primary} />
