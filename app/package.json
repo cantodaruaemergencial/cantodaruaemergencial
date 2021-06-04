@@ -33,6 +33,7 @@
     "react-dom": "^17.0.1",
     "react-hook-form": "^7.5.3",
     "react-input-mask": "^2.0.4",
+    "react-markdown": "^6.0.2",
     "react-virtualized": "^9.22.3",
     "styled-components": "^4.4.0"
   },

@@ -5,7 +5,9 @@ import { Auth } from '#/types/Auth';
 
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 
-const { NEXT_PUBLIC_STRAPI_API_URL } = process.env;
+const {
+  NEXT_PUBLIC_STRAPI_API_URL = 'https://api-mvp.cantodaruaemergencial.com.br',
+} = process.env;
 
 export function getUserProfile(): UserProfile | null {
   if (!localStorage) return null;
@@ -77,6 +79,26 @@ export class Api {
   ): Promise<{ status: number; data: ResultType }> => {
     const options = {
       method: 'POST',
+      body: JSON.stringify(body),
+      headers: Api.getHeaders(),
+    };
+
+    const res = await fetch(`${NEXT_PUBLIC_STRAPI_API_URL}/${url}`, options);
+
+    const result = await res.json();
+
+    return {
+      status: res.status,
+      data: result,
+    };
+  };
+
+  static put = async <ResultType extends unknown>(
+    url: string,
+    body = {},
+  ): Promise<{ status: number; data: ResultType }> => {
+    const options = {
+      method: 'PUT',
       body: JSON.stringify(body),
       headers: Api.getHeaders(),
     };

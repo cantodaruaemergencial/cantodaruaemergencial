@@ -97,7 +97,7 @@ const TotalListCard = ({ values, className }: Props) => {
   );
 
   return (
-    <Card className={className} rounder>
+    <Card className={className}>
       <CardHeader title="Serviços" sideComponent={renderSelector()} />
       <List>{values && values.map(renderValue)}</List>
     </Card>

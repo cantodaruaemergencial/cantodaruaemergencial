@@ -101,12 +101,12 @@ const ButtonAppBar = (): React.ReactElement => {
           </NavButton>
 
           <NavIconButton>
-            <Link href="/people">
+            <Link href="/pessoas">
               <PersonRounded />
             </Link>
           </NavIconButton>
           <NavButton>
-            <Link href="/people">Pessoas</Link>
+            <Link href="/pessoas">Pessoas</Link>
           </NavButton>
         </Links>
       </Toolbar>

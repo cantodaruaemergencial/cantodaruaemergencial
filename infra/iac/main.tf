@@ -55,7 +55,7 @@ module "api" {
   project               = var.project
   region                = var.region
   name                  = "api"
-  image                 = "gcr.io/cantodarua/api:42223af589755fe820adac57b4ef840d6f441593"
+  image                 = "gcr.io/cantodarua/api:bb7e097da48f33173b7676f0fed6aff9223a49d4"
   url                   = "api.cantodaruaemergencial.com.br"
   dns_managed_zone_name = var.dns_managed_zone_name
 
@@ -75,15 +75,7 @@ module "api" {
     {
       name  = "DATABASE_PASSWORD"
       value = module.db_schema.credentials.pass
-    },
-    {
-      name  = "GOOGLE_CLIENT_ID"
-      value = var.google_client_id
-    },
-    {
-      name  = "GOOGLE_CLIENT_SECRET"
-      value = var.google_client_secret
-    }
+    }    
   ]
 }
 
@@ -97,7 +89,7 @@ module "app" {
   project               = var.project
   region                = var.region
   name                  = "app"
-  image                 = "gcr.io/cantodarua/app:190a10d01a1568e6e20dce725c9798b6d1d24f60"
+  image                 = "gcr.io/cantodarua/app:e351d30f2a50b7d2c35b8e72eaedb01e776c6bd8"
   url                   = "www.cantodaruaemergencial.com.br"
   url2                  = "cantodaruaemergencial.com.br"
   dns_managed_zone_name = var.dns_managed_zone_name

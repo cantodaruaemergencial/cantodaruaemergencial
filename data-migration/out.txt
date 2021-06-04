@@ -1,0 +1,397 @@
+Linha 69 - Nome vazio
+Linha 100 - Nome vazio
+Linha 106 - Nome ('JULIO CESAR DOS SANTOS') repetido nas linhas 106 e 58
+Linha 117 - Nome vazio
+Linha 121 - Nome vazio
+Linha 140 - Nome ('YASMIM VITORIA DE SOUZA SILVA') repetido nas linhas 140 e 134
+Linha 210 - Nome vazio
+Linha 249 - Nome vazio
+Linha 304 - Nome vazio
+Linha 308 - Nome vazio
+Linha 335 - Nome vazio
+Linha 392 - Nome vazio
+Linha 402 - Nome vazio
+Linha 409 - Nome vazio
+Linha 460 - Nome vazio
+Linha 467 - Nome vazio
+Linha 474 - Nome vazio
+Linha 504 - Nome vazio
+Linha 534 - Nome vazio
+Linha 538 - Nome vazio
+Linha 607 - Nome vazio
+Linha 610 - Nome vazio
+Linha 623 - Nome vazio
+Linha 626 - Nome vazio
+Linha 633 - Nome vazio
+Linha 638 - Nome vazio
+Linha 649 - Nome ('WALTER BENEDITO DA SILVA') repetido nas linhas 649 e 43
+Linha 651 - Nome vazio
+Linha 686 - Nome ('GABRIEL VIEIRA DE OLIVEIRA') repetido nas linhas 686 e 540
+Linha 693 - Nome vazio
+Linha 711 - Nome ('ORLANDO SEMANATE SALAZAR') repetido nas linhas 711 e 561
+Linha 765 - Nome ('LUCIANO DA SILVA MIRANDA') repetido nas linhas 765 e 398
+Linha 780 - Nome ('ALEXANDRE ALVES BRAGA') repetido nas linhas 780 e 463
+Linha 785 - Nome ('WAGNER ALVES DE SOUZA') repetido nas linhas 785 e 701
+Linha 795 - Nome vazio
+Linha 811 - Nome vazio
+Linha 814 - Nome vazio
+Linha 826 - Nome vazio
+Linha 841 - Nome ('REGINALDO VIEIRA') repetido nas linhas 841 e 180
+Linha 848 - Nome vazio
+Linha 885 - Nome vazio
+Linha 891 - Nome vazio
+Linha 892 - Nome ('REMILDO DA SILVA SANTOS') repetido nas linhas 892 e 729
+Linha 937 - Nome ('JOSÉ CICERO DE JESUS') repetido nas linhas 937 e 625
+Linha 951 - Nome vazio
+Linha 962 - Nome vazio
+Linha 1015 - Nome ('ROSILENE RODRIGUES GOMES') repetido nas linhas 1015 e 867
+Linha 1034 - Nome ('ALESSANDRO FRANCISCO DE FARIAS') repetido nas linhas 1034 e 707
+Linha 1060 - Nome vazio
+Linha 1074 - Nome vazio
+Linha 1085 - Nome ('EDVALDO MARQUES DIAS') repetido nas linhas 1085 e 851
+Linha 1088 - Nome ('LEONARDO JUNIO DE DEUS SILVA') repetido nas linhas 1088 e 975
+Linha 1106 - Nome vazio
+Linha 1127 - Nome ('BRUNO DE JESUS LIMA') repetido nas linhas 1127 e 477
+Linha 1129 - Nome vazio
+Linha 1138 - Nome vazio
+Linha 1139 - Nome ('GABRIEL VIEIRA DE OLIVEIRA') repetido nas linhas 1139 e 540
+Linha 1152 - Nome ('LUANA PEREIRA DE SOUZA') repetido nas linhas 1152 e 829
+Linha 1170 - Nome ('MARLENE APARECIDA DA SILVA') repetido nas linhas 1170 e 889
+Linha 1177 - Nome vazio
+Linha 1190 - Nome ('PAULO DOS SANTOS') repetido nas linhas 1190 e 92
+Linha 1196 - Nome vazio
+Linha 1207 - Nome ('RAFAEL FERNANDES DE SOUZA') repetido nas linhas 1207 e 1078
+Linha 1211 - Nome ('VALDECI VICENTE FERREIRA') repetido nas linhas 1211 e 1141
+Linha 1228 - Nome ('GABRIEL VIEIRA DE OLIVEIRA') repetido nas linhas 1228 e 540
+Linha 1241 - Nome vazio
+Linha 1249 - Nome ('ANTONIO CARLOS PEREIRA') repetido nas linhas 1249 e 790
+Linha 1256 - Nome vazio
+Linha 1271 - Nome ('CHARLES EDUARDO DOS SANTOS') repetido nas linhas 1271 e 986
+Linha 1272 - Nome vazio
+Linha 1334 - Nome ('FABRÍCIO RODRIGUES DE SOUZA') repetido nas linhas 1334 e 825
+Linha 1344 - Nome vazio
+Linha 1358 - Nome vazio
+Linha 1361 - Nome vazio
+Linha 1362 - Nome ('GABRIEL VIEIRA DE OLIVEIRA') repetido nas linhas 1362 e 540
+Linha 1369 - Nome ('LUIDE CESAR CLARO DOS SANTOS') repetido nas linhas 1369 e 552
+Linha 1378 - Nome ('DANIEL SÉRGIO FONSECA') repetido nas linhas 1378 e 1208
+Linha 1379 - Nome ('ANDRÉ LUIZ DO NASCIMENTO') repetido nas linhas 1379 e 831
+Linha 1395 - Nome ('CARLOS ANTÔNIO DA SILVA') repetido nas linhas 1395 e 747
+Linha 1405 - Nome ('WANTUIR DOROTER PINTO') repetido nas linhas 1405 e 855
+Linha 1409 - Nome ('MARCIO GOMES DINIZ') repetido nas linhas 1409 e 1080
+Linha 1418 - Nome ('WESLEI SANTOS MACHADO') repetido nas linhas 1418 e 483
+Linha 1427 - Nome ('BRUNO DA SILVA') repetido nas linhas 1427 e 1303
+Linha 1430 - Nome vazio
+Linha 1433 - Nome vazio
+Linha 1438 - Nome vazio
+Linha 1457 - Nome vazio
+Linha 1495 - Nome vazio
+Linha 1525 - Nome ('WAGNER ALVES DE SOUZA') repetido nas linhas 1525 e 701
+Linha 1560 - Nome ('GUSTAVO AUGUSTO DE FREITAS') repetido nas linhas 1560 e 662
+Linha 1610 - Nome vazio
+Linha 1620 - Número Cadastro ('1647') repetido nas linhas 1620 e 1528
+Linha 1645 - Nome vazio
+Linha 1652 - Nome vazio
+Linha 1676 - Nome vazio
+Linha 1722 - Nome ('WENDEL CARLOS SANTOS DE ARRUDA') repetido nas linhas 1722 e 1093
+Linha 1756 - Nome vazio
+Linha 1762 - Nome vazio
+Linha 1765 - Nome vazio
+Linha 1766 - Nome vazio
+Linha 1767 - Nome vazio
+Linha 1770 - Nome vazio
+Linha 1778 - Nome vazio
+Linha 1782 - Nome ('CARLA JULIANA DE JESUS') repetido nas linhas 1782 e 1523
+Linha 1867 - Nome vazio
+Linha 1876 - Nome vazio
+Linha 1962 - Nome vazio
+Linha 1982 - Nome vazio
+Linha 2016 - Nome vazio
+Linha 2054 - Nome vazio
+Linha 2094 - Nome ('VIVALDO DUTRA') repetido nas linhas 2094 e 633
+Linha 2131 - Nome vazio
+Linha 2160 - Nome vazio
+Linha 2163 - Nome ('RODRIGO FERREIRA DA SILVA') repetido nas linhas 2163 e 870
+Linha 2192 - Nome vazio
+Linha 2197 - Nome ('FERNANDO GOMES DA SILVA') repetido nas linhas 2197 e 1697
+Linha 2201 - Nome vazio
+Linha 2218 - Nome vazio
+Linha 2271 - Nome ('DANIEL DA SILVA') repetido nas linhas 2271 e 1435
+Linha 2328 - Nome vazio
+Linha 2347 - Nome vazio
+Linha 2367 - Nome ('LUCAS HENRIQUE DA SILVA') repetido nas linhas 2367 e 1725
+Linha 2375 - Nome vazio
+Linha 2401 - Nome ('PRISCILA PERSILVA VIANNA CARVALHO') repetido nas linhas 2401 e 1711
+Linha 2413 - Nome vazio
+Linha 2432 - Nome ('LUIZ ANTONIO DA SILVA') repetido nas linhas 2432 e 2201
+Linha 2439 - Nome vazio
+Linha 2453 - Nome vazio
+Linha 2454 - Nome vazio
+Linha 2471 - Nome vazio
+Linha 2546 - Nome vazio
+Linha 2549 - Nome vazio
+Linha 2554 - Nome vazio
+Linha 2555 - Nome vazio
+Linha 2560 - Nome ('LUIZ CARLOS DE OLIVEIRA') repetido nas linhas 2560 e 2308
+Linha 2570 - Nome vazio
+Linha 2615 - Nome vazio
+Linha 2619 - Nome vazio
+Linha 2622 - Nome ('LUIZ ANTONIO DA SILVA') repetido nas linhas 2622 e 2201
+Linha 2644 - Nome vazio
+Linha 2663 - Nome vazio
+Linha 2664 - Nome ('EMERSON SILVA DOS SANTOS') repetido nas linhas 2664 e 1857
+Linha 2665 - Nome ('TIAGO HENRIQUE PAINS') repetido nas linhas 2665 e 2229
+Linha 2714 - Nome ('LOURDES DOS SANTOS') repetido nas linhas 2714 e 1541
+Linha 2736 - Nome ('CRISTIAN DENIS PACHECO DE OLIVEIRA') repetido nas linhas 2736 e 2397
+Linha 2792 - Nome ('MARCELO DOS SANTOS') repetido nas linhas 2792 e 2357
+Linha 2840 - Nome ('JOÃO PAULO DA SILVA') repetido nas linhas 2840 e 344
+Linha 2888 - Nome vazio
+Linha 2919 - Nome ('CLAUDIO PEREIRA DA SILVA') repetido nas linhas 2919 e 2502
+Linha 2944 - Nome ('CARLOS HENRIQUES DE OLIVEIRA ALMEIDA') repetido nas linhas 2944 e 2624
+Linha 2965 - Nome ('LUIZ CARLOS DE OLIVEIRA') repetido nas linhas 2965 e 2308
+Linha 2966 - Nome ('ANTONIO MARCOS TOMAZ') repetido nas linhas 2966 e 1438
+Linha 3007 - Nome ('ISRAEL DE JESUS FLOR') repetido nas linhas 3007 e 75
+Linha 3024 - Nome vazio
+Linha 3033 - Nome ('VALDECI VICENTE FERREIRA') repetido nas linhas 3033 e 1141
+Linha 3041 - Nome vazio
+Linha 3046 - Número Cadastro ('3101') repetido nas linhas 3046 e 2890
+Linha 3055 - Número Cadastro ('3109') repetido nas linhas 3055 e 2899
+Linha 3062 - Nome vazio
+Linha 3074 - Nome ('CARLOS JOSE DE MELO') repetido nas linhas 3074 e 2674
+Linha 3085 - Nome ('FERNANDA PEREIRA ITURRA') repetido nas linhas 3085 e 2007
+Linha 3093 - Nome vazio
+Linha 3123 - Nome vazio
+Linha 3161 - Nome vazio
+Linha 3164 - Número Cadastro ('3219') repetido nas linhas 3164 e 3002
+Linha 3173 - Nome vazio
+Linha 3184 - Nome ('CARLOS EDUARDO DA SILVA') repetido nas linhas 3184 e 1794
+Linha 3198 - Nome vazio
+Linha 3261 - Nome vazio
+Linha 3311 - Nome vazio
+Linha 3324 - Nome ('GEOVANI LEANDRO DOS REIS') repetido nas linhas 3324 e 2716
+Linha 3357 - Nome ('GISLENE ALVES') repetido nas linhas 3357 e 3042
+Linha 3367 - Nome ('OSVALDO PEREIRA LIMA') repetido nas linhas 3367 e 1561
+Linha 3368 - Nome ('EVERALDO BICALHO MARINHO') repetido nas linhas 3368 e 2328
+Linha 3427 - Nome vazio
+Linha 3429 - Nome ('DAVID GOMES DE SOUZA') repetido nas linhas 3429 e 2199
+Linha 3437 - Nome ('GONÇALO CHAGAS SOBRINHO') repetido nas linhas 3437 e 341
+Linha 3496 - Nome vazio
+Linha 3522 - Nome ('LEANDRO RODRIGUES DOS SANTOS') repetido nas linhas 3522 e 2421
+Linha 3525 - Nome ('LUIZ BELTRÃO DE SOUZA') repetido nas linhas 3525 e 1485
+Linha 3546 - Nome ('SEBASTIÃO CANDIDO DE OLIVEIRA') repetido nas linhas 3546 e 1064
+Linha 3569 - Número Cadastro ('3628') repetido nas linhas 3569 e 3391
+Linha 3578 - Nome ('TATIANA PEREIRA DE FREITAS') repetido nas linhas 3578 e 739
+Linha 3648 - Nome vazio
+Linha 3662 - Nome ('WELLINGTON PEREIRA DA SILVA') repetido nas linhas 3662 e 1398
+Linha 3675 - Nome ('FABIO FIRMO DOS SANTOS') repetido nas linhas 3675 e 983
+Linha 3678 - Nome ('FERNANDA CRISTINA DOS SANTOS') repetido nas linhas 3678 e 525
+Linha 3681 - Número Cadastro ('3741') repetido nas linhas 3681 e 3498
+Linha 3696 - Nome vazio
+Linha 3716 - Nome ('PAULO PATRICK FERNANDES') repetido nas linhas 3716 e 120
+Linha 3722 - Nome ('LUIZ CARLOS DA SILVA') repetido nas linhas 3722 e 1490
+Linha 3785 - Nome ('VENICIO CLAUDINO DE ALMEIDA') repetido nas linhas 3785 e 3541
+Linha 3792 - Número Cadastro ('3855') repetido nas linhas 3792 e 3605
+Linha 3794 - Número Cadastro ('3856') repetido nas linhas 3794 e 3607
+Linha 3831 - Nome ('LEANDRO JUSTINO DA SILVA') repetido nas linhas 3831 e 3628
+Linha 3868 - Nome ('SERGIO RAMOS DE SOUZA JUNIOR') repetido nas linhas 3868 e 1470
+Linha 3874 - Nome vazio
+Linha 3876 - Nome ('LEANDRO JUSTINO DA SILVA') repetido nas linhas 3876 e 3628
+Linha 3923 - Nome vazio
+Linha 3924 - Nome vazio
+Linha 3925 - Nome vazio
+Linha 3926 - Nome vazio
+Linha 3927 - Nome vazio
+Linha 3929 - Nome vazio
+Linha 3931 - Nome vazio
+Linha 3932 - Nome vazio
+Linha 3957 - Nome ('FRANCISCO JOSE DOS SANTOS JUNIOR') repetido nas linhas 3957 e 1551
+Linha 3982 - Nome ('ALARICO FONTES') repetido nas linhas 3982 e 1373
+Linha 3983 - Nome vazio
+Linha 3999 - Nome vazio
+Linha 4000 - Nome vazio
+Linha 4035 - Nome ('WALLACE DUARTE BARBOSA') repetido nas linhas 4035 e 3826
+Linha 4055 - Número Cadastro ('4122') repetido nas linhas 4055 e 3850
+Linha 4055 - Nome ('NILSON SOARES SANTANA') repetido nas linhas 4055 e 3850
+Linha 4056 - Nome vazio
+Linha 4081 - Número Cadastro ('4147') repetido nas linhas 4081 e 3874
+Linha 4117 - Nome ('CARLOS ALBERTO DE SOUZA PINTO') repetido nas linhas 4117 e 181
+Linha 4144 - Nome ('PAULO CESAR DA SILVA') repetido nas linhas 4144 e 1001
+Linha 4172 - Nome ('CARLOS ALBERTO PEREIRA') repetido nas linhas 4172 e 125
+Linha 4213 - Nome ('JOSE CARLOS DOS ANJOS') repetido nas linhas 4213 e 318
+Linha 4259 - Nome vazio
+Linha 4268 - Nome ('MARILIA LINA VIEIRA') repetido nas linhas 4268 e 799
+Linha 4298 - Número Cadastro ('4366') repetido nas linhas 4298 e 4085
+Linha 4300 - Número Cadastro ('4367') repetido nas linhas 4300 e 4087
+Linha 4302 - Número Cadastro ('4368') repetido nas linhas 4302 e 4089
+Linha 4304 - Número Cadastro ('4369') repetido nas linhas 4304 e 4091
+Linha 4341 - Número Cadastro ('4406') repetido nas linhas 4341 e 4128
+Linha 4343 - Número Cadastro ('4407') repetido nas linhas 4343 e 4130
+Linha 4345 - Número Cadastro ('4408') repetido nas linhas 4345 e 4132
+Linha 4345 - Nome ('THIAGO DE ASSIS RODRIGUES') repetido nas linhas 4345 e 1456
+Linha 4347 - Número Cadastro ('4409') repetido nas linhas 4347 e 4133
+Linha 4448 - Nome ('WILSON ADÃO MADALENA') repetido nas linhas 4448 e 3500
+Linha 4463 - Nome ('LUIZ FELIPE DE OLIVEIRA BRITO') repetido nas linhas 4463 e 838
+Linha 4477 - Número Cadastro ('4541') repetido nas linhas 4477 e 4261
+Linha 4492 - Nome ('FERNANDO PEREIRA DOS SANTOS') repetido nas linhas 4492 e 410
+Linha 4501 - Nome ('JORGE ADÃO ROSA') repetido nas linhas 4501 e 1567
+Linha 4506 - Número Cadastro ('4569') repetido nas linhas 4506 e 4288
+Linha 4517 - Nome ('SILAS PALMEIRA BISPO') repetido nas linhas 4517 e 1691
+Linha 4536 - Nome vazio
+Linha 4552 - Nome ('AILTON DOS SANTOS BORGES') repetido nas linhas 4552 e 3681
+Linha 4604 - Número Cadastro ('4667') repetido nas linhas 4604 e 4383
+Linha 4617 - Nome vazio
+Linha 4733 - Nome vazio
+Linha 4741 - Nome ('PAULO CESAR DA SILVA') repetido nas linhas 4741 e 1001
+Linha 4756 - Nome ('FAGNER ALFREDO ANTUNES') repetido nas linhas 4756 e 3490
+Linha 4765 - Nome vazio
+Linha 4793 - Nome ('FERNANDO CARLOS DA CRUZ') repetido nas linhas 4793 e 627
+Linha 4803 - Nome vazio
+Linha 4812 - Nome vazio
+Linha 4830 - Nome ('MARCOS CEZAR RODRIGUES DE SOUZA') repetido nas linhas 4830 e 856
+Linha 4842 - Nome ('ELIAS PEREIRA ROSA') repetido nas linhas 4842 e 3514
+Linha 4859 - Nome ('HELBERT RICHARD DA SILVA FERREIRA') repetido nas linhas 4859 e 2069
+Linha 4874 - Nome ('ROGERIO DOS SANTOS') repetido nas linhas 4874 e 4146
+Linha 4875 - Nome vazio
+Linha 4908 - Nome ('WANDERSON PIM DE OLIVEIRA') repetido nas linhas 4908 e 2208
+Linha 4909 - Nome vazio
+Linha 4965 - Nome ('VANDERLEI MESSIAS DOS SANTOS') repetido nas linhas 4965 e 4070
+Linha 5007 - Nome ('RONALDO FERNANDO REIS') repetido nas linhas 5007 e 4116
+Linha 5050 - Número Cadastro ('5112') repetido nas linhas 5050 e 4812
+Linha 5066 - Nome ('MARCO AURELIO DA COSTA') repetido nas linhas 5066 e 1491
+Linha 5124 - Nome ('DENILTON GONÇALVES DE SOUZA') repetido nas linhas 5124 e 4156
+Linha 5126 - Nome ('SEBASTIÃO DE SOUZA FILHO') repetido nas linhas 5126 e 3105
+Linha 5166 - Nome vazio
+Linha 5258 - Nome ('JOSÉ PAULO DOS SANTOS') repetido nas linhas 5258 e 4816
+Linha 5312 - Nome vazio
+Linha 5313 - Nome ('ANDERSON OLIVEIRA DOS SANTOS') repetido nas linhas 5313 e 2770
+Linha 5325 - Nome ('ARINEU TORRES') repetido nas linhas 5325 e 1164
+Linha 5343 - Nome ('RENIVALDO DOS SANTOS ALAGE') repetido nas linhas 5343 e 2943
+Linha 5358 - Número Cadastro ('5424') repetido nas linhas 5358 e 5111
+Linha 5407 - Nome vazio
+Linha 5412 - Nome vazio
+Linha 5483 - Nome vazio
+Linha 5488 - Nome ('WHITE ARAUJO ANTUNES') repetido nas linhas 5488 e 2618
+Linha 5532 - Nome ('JOSÉ FERNANDO DE JESUS') repetido nas linhas 5532 e 1573
+Linha 5548 - Nome ('WAGNER MAXIMO DE CARVALHO') repetido nas linhas 5548 e 1726
+Linha 5556 - Número Cadastro ('6022') repetido nas linhas 5556 e 5303
+Linha 5563 - Nome ('MICHAEL DOUGLAS ARAUJO SILVA') repetido nas linhas 5563 e 506
+Linha 5584 - Nome ('MARCELO BARBOSA DE OLIVEIRA') repetido nas linhas 5584 e 431
+Linha 5585 - Nome ('JOSE MANOEL DA SILVA') repetido nas linhas 5585 e 2188
+Linha 5588 - Nome vazio
+Linha 5615 - Nome ('MARCOS PAULO RODRIGUES FONSECA') repetido nas linhas 5615 e 5078
+Linha 5630 - Nome ('LUCIMAR REZENDE') repetido nas linhas 5630 e 5304
+Linha 5637 - Número Cadastro ('6105') repetido nas linhas 5637 e 5378
+Linha 5637 - Nome ('WALLISON APARECIDO DOS SANTOS') repetido nas linhas 5637 e 5378
+Linha 5648 - Nome ('PAULO DE PAULA GOMES') repetido nas linhas 5648 e 1834
+Linha 5657 - Nome ('SAMUEL SANTOS DA CRUZ') repetido nas linhas 5657 e 2268
+Linha 5658 - Nome ('AFONSO ALVES JUNIOR') repetido nas linhas 5658 e 1629
+Linha 5712 - Nome vazio
+Linha 5716 - Nome ('EMERSON PEREIRA DE PAULA') repetido nas linhas 5716 e 3496
+Linha 5770 - Nome ('CARLOS EDUARDO DA SILVA') repetido nas linhas 5770 e 1794
+Linha 5780 - Número Cadastro ('6248') repetido nas linhas 5780 e 5514
+Linha 5791 - Nome vazio
+Linha 5852 - Nome ('INARA LUCIA DE PAULA') repetido nas linhas 5852 e 2190
+Linha 5857 - Nome ('ROBELIO RODRIGUES') repetido nas linhas 5857 e 196
+Linha 5874 - Nome ('PAULO SERGIO OLIVEIRA BARBOSA') repetido nas linhas 5874 e 599
+Linha 5892 - Nome ('PAULO ALEXANDRE DE SOUSA SANTANA') repetido nas linhas 5892 e 4294
+Linha 5907 - Nome ('DEBORA PEREIRA DORNELAS') repetido nas linhas 5907 e 2038
+Linha 5943 - Nome ('LUIZ HENRIQUE DE SOUZA') repetido nas linhas 5943 e 2384
+Linha 5954 - Número Cadastro ('6423') repetido nas linhas 5954 e 5681
+Linha 5954 - Nome ('LEANDRO SEVERINO DOS SANTOS') repetido nas linhas 5954 e 4480
+Linha 5986 - Nome vazio
+Linha 6000 - Número Cadastro ('6468') repetido nas linhas 6000 e 5725
+Linha 6022 - Número Cadastro ('6489') repetido nas linhas 6022 e 5747
+Linha 6022 - Nome ('FRANCISCA PEREIRA LOPES') repetido nas linhas 6022 e 5747
+Linha 6025 - Número Cadastro ('6491') repetido nas linhas 6025 e 5749
+Linha 6025 - Nome ('NILSON LUIZ NOGUEIRA') repetido nas linhas 6025 e 5749
+Linha 6109 - Nome ('CELIO DO AMARAL FERREIRA') repetido nas linhas 6109 e 3912
+Linha 6112 - Nome ('VALDECIR FERREIRA DA SILVA') repetido nas linhas 6112 e 2399
+Linha 6114 - Número Cadastro ('6580') repetido nas linhas 6114 e 5835
+Linha 6114 - Nome ('PAULINO BARBOSA DE SOUZA') repetido nas linhas 6114 e 5835
+Linha 6162 - Nome ('CARLOS ALBERTO FERREIRA') repetido nas linhas 6162 e 4460
+Linha 6171 - Número Cadastro ('6636') repetido nas linhas 6171 e 5890
+Linha 6171 - Nome ('WAGNER TADEU DOS SANTOS') repetido nas linhas 6171 e 5890
+Linha 6186 - Número Cadastro ('6651') repetido nas linhas 6186 e 5904
+Linha 6191 - Número Cadastro ('6655') repetido nas linhas 6191 e 5909
+Linha 6194 - Número Cadastro ('6658') repetido nas linhas 6194 e 5912
+Linha 6244 - Número Cadastro ('6707') repetido nas linhas 6244 e 5962
+Linha 6244 - Nome ('MATHEUS FELIPE ALVES') repetido nas linhas 6244 e 5962
+Linha 6246 - Número Cadastro ('6708') repetido nas linhas 6246 e 5963
+Linha 6298 - Nome ('ANTONIO FERREIRA') repetido nas linhas 6298 e 5495
+Linha 6312 - Nome ('JOÃO BATISTA SILVA') repetido nas linhas 6312 e 209
+Linha 6335 - Nome vazio
+Linha 6340 - Nome ('LUCIANO SILVA COELHO') repetido nas linhas 6340 e 201
+Linha 6425 - Nome ('JULIO CESAR DA SILVA') repetido nas linhas 6425 e 847
+Linha 6431 - Nome ('MARCOS ANTONIO DA SILVA') repetido nas linhas 6431 e 405
+Linha 6448 - Nome ('JOHN MICHAEL RODRIGUES NEVES') repetido nas linhas 6448 e 1201
+Linha 6510 - Nome ('TEOFONES VELOSO TEIXEIRA') repetido nas linhas 6510 e 3607
+Linha 6511 - Nome ('JOSE MARCIO RODRIGUES NOGUEIRA') repetido nas linhas 6511 e 3609
+Linha 6541 - Nome ('JOSE CARLOS DE OLIVEIRA') repetido nas linhas 6541 e 1952
+Linha 6557 - Nome vazio
+Linha 6577 - Nome ('ANA PAULA DE OLIVEIRA') repetido nas linhas 6577 e 2404
+Linha 6588 - Nome ('LEONARDO BATISTA DE SOUZA SANTOS') repetido nas linhas 6588 e 2846
+Linha 6589 - Nome vazio
+Linha 6624 - Nome vazio
+Linha 6676 - Nome ('GUSTAVO REZENDE DE SOUZA') repetido nas linhas 6676 e 5531
+Linha 6695 - Nome ('JOSE CARLOS DA SILVA FILHO') repetido nas linhas 6695 e 4840
+Linha 6743 - Nome ('HELIO MARCELINO DA SILVA') repetido nas linhas 6743 e 1221
+Linha 6749 - Nome ('ADELINO RIBEIRO DOS SANTOS') repetido nas linhas 6749 e 2418
+Linha 6768 - Número Cadastro ('7230') repetido nas linhas 6768 e 6466
+Linha 6788 - Nome ('MARCIO PEREIRA') repetido nas linhas 6788 e 1965
+Linha 6791 - Nome ('PETRONIO DE OLIVEIRA') repetido nas linhas 6791 e 6343
+Linha 6812 - Nome vazio
+Linha 6842 - Número Cadastro ('7303') repetido nas linhas 6842 e 6537
+Linha 6879 - Nome ('PAULO DOS SANTOS') repetido nas linhas 6879 e 92
+Linha 6893 - Nome ('LUCIANO CARDOSO DE OLIVEIRA') repetido nas linhas 6893 e 1787
+Linha 6896 - Nome ('CLEITON CASTRO ESPINOLA') repetido nas linhas 6896 e 1576
+Linha 6897 - Nome ('DIOGO ERIK DE SOUZA') repetido nas linhas 6897 e 2658
+Linha 6898 - Nome ('CARLOS ALBERTO DA SILVA') repetido nas linhas 6898 e 6465
+Linha 6953 - Nome ('JULIANA ALVES ROSA') repetido nas linhas 6953 e 5549
+Linha 6967 - Nome ('WALLACE ALVES DA CRUZ') repetido nas linhas 6967 e 6467
+Linha 6981 - Nome ('FREDERICO LUCIO TADEU') repetido nas linhas 6981 e 2824
+Linha 7005 - Nome ('VANDERLEI SOARES') repetido nas linhas 7005 e 6341
+Linha 7027 - Nome vazio
+Linha 7042 - Nome ('WAGNER SILVA DIAS') repetido nas linhas 7042 e 5494
+Linha 7090 - Número Cadastro ('7553') repetido nas linhas 7090 e 6774
+Linha 7150 - Nome ('NÃO INFORMOU') repetido nas linhas 7150 e 4901
+Linha 7168 - Número Cadastro ('7630') repetido nas linhas 7168 e 6851
+Linha 7181 - Número Cadastro ('7642') repetido nas linhas 7181 e 6864
+Linha 7223 - Nome ('MATEUS PEREIRA BARBOSA') repetido nas linhas 7223 e 2106
+Linha 7262 - Nome ('ELVIS DANILO BRAZ') repetido nas linhas 7262 e 4402
+Linha 7267 - Nome ('MARCUS VINICIUS SILVA') repetido nas linhas 7267 e 488
+Linha 7275 - Número Cadastro ('7736') repetido nas linhas 7275 e 6955
+Linha 7287 - Nome ('FABIANO PEREIRA DA SILVA') repetido nas linhas 7287 e 5665
+Linha 7296 - Nome ('FERNANDO GOMES DA SILVA') repetido nas linhas 7296 e 1697
+Linha 7324 - Número Cadastro ('7784') repetido nas linhas 7324 e 7002
+Linha 7352 - Número Cadastro ('7811') repetido nas linhas 7352 e 7030
+Linha 7359 - Número Cadastro ('7817') repetido nas linhas 7359 e 7037
+Linha 7359 - Nome vazio
+Linha 7369 - Nome ('VITOR GOMES SILVA') repetido nas linhas 7369 e 2254
+Linha 7374 - Nome ('MARCELA GONÇALVES DOS SANTOS') repetido nas linhas 7374 e 651
+Linha 7384 - Número Cadastro ('7840') repetido nas linhas 7384 e 7059
+Linha 7388 - Nome ('MATEUS HENRIQUE ROSA DE LIMA') repetido nas linhas 7388 e 6506
+Linha 7400 - Nome ('FABIO RODRIGUES DA SILVA') repetido nas linhas 7400 e 3381
+Linha 7415 - Nome ('PAULO ROBERTO DA SILVA') repetido nas linhas 7415 e 5117
+Linha 7439 - Nome ('SERGIO ANTONIO LEITE') repetido nas linhas 7439 e 7038
+Linha 7469 - Nome ('CLEBER DOS REIS NUNES') repetido nas linhas 7469 e 5298
+Linha 7484 - Nome ('EDSON CAETANO DA SILVA') repetido nas linhas 7484 e 1135
+Linha 7625 - Nome ('RONILSON DAMASCENO DA SILVA') repetido nas linhas 7625 e 2605
+Linha 7676 - Nome ('ADAILTON DE JESUS SANTOS') repetido nas linhas 7676 e 2289
+Linha 7717 - Nome ('FRANCISCO BATISTA DA SILVA') repetido nas linhas 7717 e 4198
+Linha 7719 - Nome ('SIDNEI DA SILVA SOARES') repetido nas linhas 7719 e 5512
+Linha 7730 - Nome ('ALEX DA SILVA RAMOS') repetido nas linhas 7730 e 4037
+Linha 7755 - Nome ('LEONARDO HENRIQUE DOS SANTOS') repetido nas linhas 7755 e 5956
+Linha 7768 - Nome ('RAMON LE GRAND MALDONADO HORTA') repetido nas linhas 7768 e 4058
+Linha 7784 - Nome ('NAMARA DOS SANTOS TRANCOLINO') repetido nas linhas 7784 e 5833
+Linha 7793 - Nome ('ANTONIO RODRIGUES DOS SANTOS') repetido nas linhas 7793 e 2775
+Linha 7818 - Nome ('ALEX ALVES SOARES') repetido nas linhas 7818 e 6834
+Linha 7859 - Número Cadastro ('8313') repetido nas linhas 7859 e 7514
+Linha 7878 - Nome ('LEONARDO HENRIQUE DOS SANTOS') repetido nas linhas 7878 e 5956
+Linha 7880 - Nome vazio
+Linha 7881 - Nome vazio
+Linha 7882 - Nome vazio
+Linha 7883 - Nome vazio
+Importados - 38
+Nomes vazios - 149
+Nomes repetidos - 196
+Números repetidos - 48

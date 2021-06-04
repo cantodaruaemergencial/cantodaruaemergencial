@@ -16,7 +16,7 @@ module "api_dev" {
   project               = var.project
   region                = var.region
   name                  = "api-dev"
-  image                 = "gcr.io/cantodarua/api-dev:e6bc4793194d1a24c0d3e695148763e338a18e20"
+  image                 = "gcr.io/cantodarua/api:bb7e097da48f33173b7676f0fed6aff9223a49d4"
   url                   = "api-dev.cantodaruaemergencial.com.br"
   dns_managed_zone_name = var.dns_managed_zone_name
 
@@ -36,18 +36,33 @@ module "api_dev" {
     {
       name  = "DATABASE_PASSWORD"
       value = module.db_schema_dev.credentials.pass
-    },
-    {
-      name  = "GOOGLE_CLIENT_ID"
-      value = var.google_client_id
-    },
-    {
-      name  = "GOOGLE_CLIENT_SECRET"
-      value = var.google_client_secret
     }
   ]
 }
 
 output "dev_api" {
   value = module.api_dev.urls
+}
+
+module "app_dev" {
+  source = "./modules/cloud_run"
+
+  project               = var.project
+  region                = var.region
+  name                  = "app-dev"
+  image                 = "gcr.io/cantodarua/app:e351d30f2a50b7d2c35b8e72eaedb01e776c6bd8"
+  url                   = "dev.cantodaruaemergencial.com.br"
+  dns_managed_zone_name = var.dns_managed_zone_name
+  container_port        = 3000
+
+  env_vars = [
+    {
+      name  = "NEXT_PUBLIC_STRAPI_API_URL"
+      value = module.api_dev.urls.public_url
+    }
+  ]
+}
+
+output "dev_app" {
+  value = module.app_dev.urls
 }

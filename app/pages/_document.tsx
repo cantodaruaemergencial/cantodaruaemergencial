@@ -60,6 +60,10 @@ const pwaMetaData = (
         text-decoration: none;
         color: inherit;
       }
+
+      .ReactVirtualized__List {
+        overflow-y: scroll !important;
+      }
       `}</style>
   </>
 );

@@ -23,6 +23,8 @@ const Container = styled(MuiContainer)`
   }
 `;
 
+const Form = styled.form``;
+
 const TextField = styled(MuiTextField)`
   && {
     margin-bottom: 1rem;
@@ -59,34 +61,37 @@ const LoginPage = (): ReactElement => {
       <Card>
         <Logo alt="Canto da Rua" src="/images/logo.png" />
 
-        <TextField
-          autoFocus
-          label="Email"
-          variant="outlined"
-          type="email"
-          autoComplete="off"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          fullWidth
-        />
-        <TextField
-          label="Senha"
-          variant="outlined"
-          type="password"
-          autoComplete="off"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          fullWidth
-        />
-        <Button
-          onClick={() => {
+        <Form
+          onSubmit={(e) => {
+            e.preventDefault();
             login(email, password);
           }}
-          variant="outlined"
-          disabled={isLoading}
         >
-          Login
-        </Button>
+          <TextField
+            autoFocus
+            label="Email"
+            variant="outlined"
+            type="email"
+            autoComplete="off"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            fullWidth
+            required
+          />
+          <TextField
+            label="Senha"
+            variant="outlined"
+            type="password"
+            autoComplete="off"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            fullWidth
+            required
+          />
+          <Button variant="outlined" type="submit" disabled={isLoading}>
+            Login
+          </Button>
+        </Form>
       </Card>
     </Container>
   );
