@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "06/05/2021 2:46:50 PM"
+    "x-generation-date": "06/05/2021 3:16:43 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8350,6 +8350,12 @@
               "BirthPlaceCity": {
                 "type": "string"
               },
+              "external_services": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -8611,6 +8617,32 @@
           "BirthPlaceCity": {
             "type": "string"
           },
+          "external_services": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "ExternalService"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "ExternalService": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -8722,6 +8754,12 @@
           },
           "BirthPlaceCity": {
             "type": "string"
+          },
+          "external_services": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -8973,6 +9011,12 @@
                 },
                 "BirthPlaceCity": {
                   "type": "string"
+                },
+                "external_services": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"

@@ -543,6 +543,7 @@ type Person {
   BirthPlaceCity: String
   published_at: DateTime
   services(sort: String, limit: Int, start: Int, where: JSON): [Service]
+  external_services(sort: String, limit: Int, start: Int, where: JSON): [ExternalService]
 }
 
 type PersonConnection {
@@ -829,6 +830,7 @@ input PersonInput {
   HomelessTime: String
   BirthPlaceState: String
   BirthPlaceCity: String
+  external_services: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -868,6 +870,7 @@ input editPersonInput {
   HomelessTime: String
   BirthPlaceState: String
   BirthPlaceCity: String
+  external_services: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID

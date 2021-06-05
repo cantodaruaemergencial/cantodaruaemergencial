@@ -61,7 +61,7 @@ export interface Person {
   Observation: string;
   skin_color: SkinColor;
   CardNumber: string;
-  ExternalServices: ExternalService[];
+  external_services: ExternalService[];
   Benefits: Benefit[];
   created_at: string;
 }

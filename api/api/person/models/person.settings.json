@@ -111,6 +111,9 @@
     },
     "BirthPlaceCity": {
       "type": "string"
+    },
+    "external_services": {
+      "collection": "external-service"
     }
   }
 }

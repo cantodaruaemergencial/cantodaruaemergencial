@@ -787,6 +787,32 @@
           "BirthPlaceCity": {
             "type": "string"
           },
+          "external_services": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "ExternalService"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "ExternalService": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -898,6 +924,12 @@
           },
           "BirthPlaceCity": {
             "type": "string"
+          },
+          "external_services": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

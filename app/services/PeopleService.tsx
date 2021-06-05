@@ -316,7 +316,7 @@ class PeopleService {
           },
           {
             property: 'ExternalServices',
-            value: (person?.ExternalServices || []).map((es) => es.id),
+            value: (person?.external_services || []).map((es) => es.id),
             label: 'Utiliza algum dos serviços?',
             type: FieldType.selectMultiple,
             options: externalServices.map(
