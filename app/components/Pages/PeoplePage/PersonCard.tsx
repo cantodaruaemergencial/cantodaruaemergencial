@@ -2,14 +2,14 @@ import Chip from '#/components/Chip';
 import { Color } from '#/types/Color';
 import { Entrance } from '#/types/Entrance';
 import { BasePerson } from '#/types/People';
+import { Person } from '#/types/People';
 import {
   Box,
   Button,
-
   Typography,
   withTheme
 } from '@material-ui/core';
-import { AddCircleRounded } from '@material-ui/icons';
+import { AddCircleRounded, InfoRounded } from '@material-ui/icons';
 import { Skeleton } from '@material-ui/lab';
 import moment from 'moment';
 import Link from 'next/link';
@@ -17,6 +17,8 @@ import { ReactElement, useState } from 'react';
 import { ListRowProps } from 'react-virtualized';
 import styled from 'styled-components';
 import TheTag from './../../Tag';
+import PersonCardModal from '#/components/PersonCardModal';
+import PeopleService from '#/services/PeopleService';
 
 const PersonWrapper = styled(Box)`
   flex: 0 0 auto;
@@ -156,6 +158,18 @@ const PersonCard = ({
       EnteredToday: true,
     });
 
+  const [personModal, setPersonModal] = useState<{
+    person: Person | null;
+    open: boolean;
+  }>({ open: false, person: null });
+
+  const showPersonCardModal = (person: Person) =>
+    setPersonModal({ open: true, person });
+
+  const handleClosePersonCardModal = () => {
+    setPersonModal({ ...personModal, open: false });
+  };
+
   return (
     <PersonWrapper key={Id}>
       <PersonBox condensed>
@@ -182,9 +196,25 @@ const PersonCard = ({
               Entrada
             </Button>
           )}
+          <Button
+            variant="outlined"
+            size="small"
+            startIcon={<InfoRounded />}
+            onClick={async () => {
+              const people = await PeopleService.getPerson(item.Id);
+              showPersonCardModal(people);
+            }}
+          >
+            Cartão
+          </Button>
         </Options>
       </PersonBox>
-    </PersonWrapper>
+      <PersonCardModal
+        {...personModal}
+        handleClose={handleClosePersonCardModal}
+        newPerson={false}
+      />
+    </PersonWrapper >
   );
 };
 
