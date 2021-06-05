@@ -1,5 +1,7 @@
 "use strict";
 
+const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
+
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
@@ -30,5 +32,24 @@ module.exports = {
     );
 
     ctx.send(result[0]);
+  },
+
+  async create(ctx) {
+    const knex = strapi.connections.default;
+
+    let inputEntity = ctx.request.body;
+    const nextCardNumber = await knex.raw(
+      "select max(cast(cardnumber as unsigned)) + 1 as nextCardNumber from people p"
+    );
+    if (
+      nextCardNumber &&
+      nextCardNumber[0] &&
+      nextCardNumber[0][0] &&
+      nextCardNumber[0][0]["nextCardNumber"]
+    ) {
+      inputEntity.CardNumber = nextCardNumber[0][0]["nextCardNumber"];
+    }
+    let outputEntity = await strapi.services.person.create(inputEntity);
+    return sanitizeEntity(outputEntity, { model: strapi.models.person });
   },
 };

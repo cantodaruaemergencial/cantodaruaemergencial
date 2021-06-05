@@ -93,7 +93,7 @@ const FormField = ({
         variant="outlined"
         error={!!error}
         helperText={getErrorMessage(error)}
-        disabled={disabled === false}
+        disabled={disabled === true}
         inputProps={{
           maxLength: inputConfig?.maxLength,
         }}
