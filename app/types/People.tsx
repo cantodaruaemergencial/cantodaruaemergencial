@@ -62,7 +62,7 @@ export interface Person {
   skin_color: SkinColor;
   CardNumber: string;
   external_services: ExternalService[];
-  Benefits: Benefit[];
+  benefits: Benefit[];
   created_at: string;
 }
 

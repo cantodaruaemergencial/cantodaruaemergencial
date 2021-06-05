@@ -303,8 +303,8 @@ class PeopleService {
             type: FieldType.boolean,
           },
           {
-            property: 'Benefits',
-            value: (person?.Benefits || []).map((b) => b.id),
+            property: 'benefits',
+            value: (person?.benefits || []).map((b) => b.id),
             label: 'Recebe algum benefício?',
             type: FieldType.selectMultiple,
             options: benefits.map(
@@ -315,7 +315,7 @@ class PeopleService {
             ),
           },
           {
-            property: 'ExternalServices',
+            property: 'external_services',
             value: (person?.external_services || []).map((es) => es.id),
             label: 'Utiliza algum dos serviços?',
             type: FieldType.selectMultiple,

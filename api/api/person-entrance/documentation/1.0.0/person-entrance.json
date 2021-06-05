@@ -652,6 +652,15 @@
                   "type": "string"
                 }
               },
+              "benefits": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "Demands": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },

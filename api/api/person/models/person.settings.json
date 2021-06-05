@@ -114,6 +114,12 @@
     },
     "external_services": {
       "collection": "external-service"
+    },
+    "benefits": {
+      "collection": "benefit"
+    },
+    "Demands": {
+      "type": "string"
     }
   }
 }
