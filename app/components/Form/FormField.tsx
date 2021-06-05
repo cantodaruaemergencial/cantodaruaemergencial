@@ -140,7 +140,7 @@ const FormField = ({
 
   const renderBoolean = ({ field }: RenderType) => (
     <FormControlLabel
-      control={<Checkbox {...field} color="primary" />}
+      control={<Checkbox {...field} color="primary" checked={field?.value === true} />}
       label={formatedLabel}
     />
   );
