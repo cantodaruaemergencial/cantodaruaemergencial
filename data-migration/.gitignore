@@ -2,6 +2,8 @@ cadastro*.sql
 cadastro*.tsv
 person*.sql
 person*.tsv
+entradas*.sql
+entradas*.tsv
 
 *.swp
 *.*~

@@ -57,7 +57,7 @@ namespace data_migration
             }
 
             sql = (sql.Substring(0, sql.Length - (sql.EndsWith("values ") ? 0 : 2)) + ";").Sanitize();
-            sql += " update service_attendances set published_at = now(), created_at = now(), updated_at = now();";
+            sql += " update service_attendances set published_at = now(), created_at = now(), updated_at = now() where published_at is null;";
             result.Query = sql;
             return result;
         }
