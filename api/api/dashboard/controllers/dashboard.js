@@ -54,7 +54,9 @@ module.exports = {
       "and week(datetime) = week(now())) as weekTotal";
     const sql2 =
       "select date_format(datetime, '%Y-%m') as name, count(1) as total " +
-      "from person_entrances group by name order by name;";
+      "from person_entrances " +
+      "where date_format(datetime, '%Y-%m') <> date_format(now(), '%Y-%m') " +
+      "group by name order by name;";
     const result1 = await query(sql1);
     const result2 = await query(sql2);
     ctx.send({
@@ -76,7 +78,9 @@ module.exports = {
       "and week(date) = week(now())) as weekTotal";
     const sql2 =
       "select date_format(date, '%Y-%m') as name, sum(Attendances) as total " +
-      "from service_attendances group by name order by name;";
+      "from service_attendances " +
+      "where date_format(date, '%Y-%m') <> date_format(now(), '%Y-%m') " +
+      "group by name order by name;";
     const result1 = await query(sql1);
     const result2 = await query(sql2);
     ctx.send({
