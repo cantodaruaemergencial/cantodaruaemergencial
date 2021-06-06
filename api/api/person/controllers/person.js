@@ -26,7 +26,7 @@ module.exports = {
         "greatest(0, cast((select count(1) from person_entrances pe3 where pe3.person = p.id) as unsigned)) as Entrances " +
         "from people p " +
         "where Name like :filter or SocialName like :filter or CardNumber like :numericFilter " +
-        "order by p.Name " +
+        "order by p.CardNumber " +
         "limit :limit offset :offset;",
       params
     );
