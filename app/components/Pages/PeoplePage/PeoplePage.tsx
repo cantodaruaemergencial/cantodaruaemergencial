@@ -59,7 +59,7 @@ const List = styled(InfiniteList)`
   flex: 1;
 `;
 
-const EntrancesToday = styled(Value)`
+const DashboardToday = styled(Value)`
   margin-left: 1rem;
 `;
 
@@ -95,6 +95,7 @@ const PeoplePage = (): ReactElement => {
   );
 
   const [todayEntrances, setTodayEntrances] = useState<number | null>();
+  const [todayRegisters, setTodayRegisters] = useState<number | null>();
 
   const [confirmationModal, setConfirmationModal] =
     useState<ConfirmationModalType>({
@@ -105,10 +106,11 @@ const PeoplePage = (): ReactElement => {
   const fetchPeople: InfiniteListFetchRows = (startIndex, limit, filter) =>
     PeopleService.get(startIndex, limit, filter);
 
-  const fetchEntrances = () =>
-    DashboardService.getToday().then(({ entrances }) =>
-      setTodayEntrances(entrances),
-    );
+  const fetchDashboardToday = () =>
+    DashboardService.getToday().then(({ entrances, registers }) => {
+      setTodayEntrances(entrances);
+      setTodayRegisters(registers);
+    });
 
   const onChangeFilter = (value?: string) =>
     setSelectedFilter({ nameOrCardNumber: value });
@@ -141,7 +143,7 @@ const PeoplePage = (): ReactElement => {
         if (status === 200) {
           handleCloseConfirmationModal();
           confirmationModal.data.callback(data);
-          fetchEntrances();
+          fetchDashboardToday();
         } else {
           enqueueSnackbar('Ocorreu um erro ao confirmar a entrada.', {
             variant: 'error',
@@ -160,7 +162,7 @@ const PeoplePage = (): ReactElement => {
   );
 
   useEffect(() => {
-    fetchEntrances();
+    fetchDashboardToday();
   }, []);
 
   const rowRenderer: InfiniteListRowRenderer = (item, isRowLoaded, props) => (
@@ -178,9 +180,15 @@ const PeoplePage = (): ReactElement => {
       <ListContainer>
         <SearchBar>
           <Search placeholder="Nome ou cartão" onFilter={onChangeFilter} />
-          <EntrancesToday
+          <DashboardToday
             value={todayEntrances != null ? todayEntrances : '-'}
             label="entradas hoje"
+            medium
+            alignRight
+          />
+          <DashboardToday
+            value={todayRegisters != null ? todayRegisters : '-'}
+            label="cadastros hoje"
             medium
             alignRight
           />

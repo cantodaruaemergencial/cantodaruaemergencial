@@ -365,7 +365,7 @@ class PeopleService {
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
             rules: {
-              required: true,
+              required: false,
             },
           },
           {

@@ -4,6 +4,7 @@ import { Format } from './Format';
 
 export type DashboardToday = {
   entrances: number;
+  registers: number;
 };
 
 export type DashboardTotalByCategory = {
