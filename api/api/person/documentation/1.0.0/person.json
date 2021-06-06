@@ -841,6 +841,16 @@
           "Demands": {
             "type": "string"
           },
+          "Checked": {
+            "type": "boolean"
+          },
+          "CheckedBy": {
+            "type": "string"
+          },
+          "CheckedAt": {
+            "type": "string",
+            "format": "date"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -967,6 +977,16 @@
           },
           "Demands": {
             "type": "string"
+          },
+          "Checked": {
+            "type": "boolean"
+          },
+          "CheckedBy": {
+            "type": "string"
+          },
+          "CheckedAt": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",

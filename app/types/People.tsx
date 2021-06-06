@@ -64,6 +64,9 @@ export interface Person {
   external_services: ExternalService[];
   benefits: Benefit[];
   created_at: string;
+  Checked: boolean;
+  CheckedBy: string;
+  CheckedAt: string;
 }
 
 export interface BasePerson {

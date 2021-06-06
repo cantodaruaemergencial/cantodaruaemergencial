@@ -384,6 +384,29 @@ class PeopleService {
           },
         ],
       },
+      {
+        label: 'Conferência',
+        fields: [
+          {
+            property: 'Checked',
+            value: person?.Checked,
+            label: 'Conferido',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'CheckedBy',
+            value: person?.CheckedBy,
+            label: 'Conferido por',
+            type: FieldType.input,
+          },
+          {
+            property: 'CheckedAt',
+            value: person?.CheckedAt,
+            label: 'Conferido em',
+            type: FieldType.date,
+          }
+        ]
+      }
     ];
 
     return { sections };
