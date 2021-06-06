@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "06/05/2021 5:13:38 PM"
+    "x-generation-date": "06/06/2021 8:32:21 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8365,6 +8365,15 @@
               "Demands": {
                 "type": "string"
               },
+              "Checked": {
+                "type": "boolean"
+              },
+              "CheckedBy": {
+                "type": "string"
+              },
+              "CheckedAt": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -8680,6 +8689,16 @@
           "Demands": {
             "type": "string"
           },
+          "Checked": {
+            "type": "boolean"
+          },
+          "CheckedBy": {
+            "type": "string"
+          },
+          "CheckedAt": {
+            "type": "string",
+            "format": "date"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -8806,6 +8825,16 @@
           },
           "Demands": {
             "type": "string"
+          },
+          "Checked": {
+            "type": "boolean"
+          },
+          "CheckedBy": {
+            "type": "string"
+          },
+          "CheckedAt": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",
@@ -9071,6 +9100,15 @@
                   }
                 },
                 "Demands": {
+                  "type": "string"
+                },
+                "Checked": {
+                  "type": "boolean"
+                },
+                "CheckedBy": {
+                  "type": "string"
+                },
+                "CheckedAt": {
                   "type": "string"
                 },
                 "published_at": {

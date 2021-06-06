@@ -120,6 +120,15 @@
     },
     "Demands": {
       "type": "string"
+    },
+    "Checked": {
+      "type": "boolean"
+    },
+    "CheckedBy": {
+      "type": "string"
+    },
+    "CheckedAt": {
+      "type": "date"
     }
   }
 }
