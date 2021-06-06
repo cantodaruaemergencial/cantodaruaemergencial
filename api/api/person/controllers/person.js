@@ -11,11 +11,15 @@ module.exports = {
   async find2(ctx) {
     const knex = strapi.connections.default;
 
+    const f = ctx.query.filter;
+
     const params = {
       limit: Number(ctx.query.limit),
       offset: Number(ctx.query.start),
-      filter: ctx.query.filter ? "%" + ctx.query.filter + "%" : "%",
-      numericFilter: ctx.query.filter ? ctx.query.filter : "0",
+      filter: f ? "%" + f + "%" : "%",
+      numericFilter: f ? f : "0",
+      isFilter: f ? true : false,
+      isNumeric: /^\d+$/.test(f),
     };
 
     const result = await knex.raw(
@@ -25,8 +29,17 @@ module.exports = {
         "least(cast((select count(1) from person_entrances pe2 where pe2.person = p.id and date(pe2.datetime) = date(now())) as unsigned),1) as EnteredToday, " +
         "greatest(0, cast((select count(1) from person_entrances pe3 where pe3.person = p.id) as unsigned)) as Entrances " +
         "from people p " +
-        "where Name like :filter or SocialName like :filter or CardNumber like :numericFilter " +
-        "order by p.CardNumber " +
+        "where ( " +
+        "(:isFilter = 0) or " +
+        "(:isFilter = 1 and :isNumeric = 1 and CardNumber like :numericFilter) or " +
+        "(:isFilter = 1 and :isNumeric = 0 and ( " +
+        "   Name like :filter " + 
+        "   or soundex(Name) like concat(soundex(:numericFilter), '%') " +
+        "   or SocialName like :filter " +
+        "   or soundex(SocialName) like concat(soundex(:numericFilter), '%') " +
+        ")) " +
+        ")" +
+        "order by cast(p.CardNumber as unsigned) " +
         "limit :limit offset :offset;",
       params
     );
