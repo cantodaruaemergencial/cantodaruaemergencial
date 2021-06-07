@@ -7,9 +7,10 @@ import {
   Box,
   Button,
   Typography,
-  withTheme
+  withTheme,
+  Tooltip
 } from '@material-ui/core';
-import { AddCircleRounded, InfoRounded } from '@material-ui/icons';
+import { AddCircleRounded, InfoRounded, PanToolRounded } from '@material-ui/icons';
 import { Skeleton } from '@material-ui/lab';
 import moment from 'moment';
 import Link from 'next/link';
@@ -131,7 +132,7 @@ const PersonCard = ({
 
   if (!isRowLoaded) return renderSkeleton();
 
-  const { Id, Name, SocialName, CardNumber, EnteredToday, LastEntranceDate } =
+  const { Id, Preferential, Name, SocialName, CardNumber, EnteredToday, LastEntranceDate } =
     item;
 
   const [entrance, setEntrance] = useState({ LastEntranceDate, EnteredToday });
@@ -177,7 +178,13 @@ const PersonCard = ({
           <Tag label={CardNumber} color={getColor()} />
           <PersonInfo>
             <Link href={`/pessoas/cadastro/${Id}`}>
-              <Title variant="body2">{Name}</Title>
+              <Title variant="body2">
+                {Preferential &&
+                  <Tooltip title='Preferencial'>
+                    <PanToolRounded style={{ fill: 'rgb(76, 175, 80)' }} />
+                  </Tooltip>}
+                {Name}
+              </Title>
             </Link>
             {SocialName && (
               <Typography variant="caption">{SocialName}</Typography>

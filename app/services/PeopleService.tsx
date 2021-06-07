@@ -92,6 +92,12 @@ class PeopleService {
         label: 'Dados Pessoais',
         fields: [
           {
+            property: 'Preferential',
+            value: person?.Preferential,
+            label: 'Preferencial',
+            type: FieldType.boolean,
+          },
+          {
             property: 'CardNumber',
             value: person?.CardNumber,
             label: 'Cartão',

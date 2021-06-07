@@ -32,6 +32,7 @@ export interface ExternalService {
 
 export interface Person {
   id: number;
+  Preferential: boolean;
   Name: string;
   SocialName: string;
   MotherName: string;
@@ -71,6 +72,7 @@ export interface Person {
 
 export interface BasePerson {
   Id: number;
+  Preferential: boolean;
   Name: string;
   SocialName: string;
   CardNumber: string;
