@@ -1,4 +1,5 @@
-import { Avatar, Box, Container, withTheme } from '@material-ui/core';
+import { Avatar, Box, Container, withTheme, Link } from '@material-ui/core';
+import { Instagram, Facebook } from '@material-ui/icons';
 import { ReactElement, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -132,6 +133,12 @@ const DashboardPage = (): ReactElement => {
       <Title>
         <Logo src="/images/logo.png" />
         Canto da Rua
+        <Link href="https://www.instagram.com/cantodaruaemergencial/" target="_blank" style={{ float: 'left' }}>
+          <Instagram />
+        </Link>
+        <Link href="https://www.facebook.com/comunidadecantodarua" target="_blank">
+          <Facebook />
+        </Link>
       </Title>
     );
   };
