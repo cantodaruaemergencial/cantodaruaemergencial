@@ -1,4 +1,4 @@
-import { Chip as MuiChip } from '@material-ui/core';
+import { Chip as MuiChip, Tooltip } from '@material-ui/core';
 import { withTheme } from '@material-ui/core/styles';
 import {
   CheckCircleRounded,
@@ -60,6 +60,7 @@ interface Props {
   color?: Color;
   loading?: boolean;
   className?: string;
+  tooltip?: string;
 }
 
 const Chip = ({
@@ -67,6 +68,7 @@ const Chip = ({
   color,
   className,
   loading = false,
+  tooltip = null
 }: Props): ReactElement => {
   if (loading) return <ChipSkeleton variant="rect" width={100} height={24} />;
 
@@ -93,14 +95,25 @@ const Chip = ({
     disabled: Color.disabled === color,
   });
 
-  return (
-    <CustomChip
-      className={clsx(className, getClassColor())}
-      label={label}
-      avatar={getAvatar()}
-      size="small"
-    />
-  );
+  return tooltip ?
+    (
+      <Tooltip title={tooltip}>
+        <CustomChip
+          className={clsx(className, getClassColor())}
+          label={label}
+          avatar={getAvatar()}
+          size="small"
+        />
+      </Tooltip>
+    ) :
+    (
+      <CustomChip
+        className={clsx(className, getClassColor())}
+        label={label}
+        avatar={getAvatar()}
+        size="small"
+      />
+    );
 };
 
 export default Chip;

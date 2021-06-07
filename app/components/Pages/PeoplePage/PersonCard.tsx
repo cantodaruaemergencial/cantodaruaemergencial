@@ -192,7 +192,10 @@ const PersonCard = ({
           </PersonInfo>
         </Info>
         <Options>
-          <Chip label={lastEntranceLabel()} color={getColor()} />
+          <Chip label={lastEntranceLabel()}
+            color={getColor()}
+            tooltip={moment(entrance.LastEntranceDate).format('DD/MM/YYYY HH:mm').toString()}
+          />
           {!entrance.EnteredToday && (
             <Button
               variant="outlined"
