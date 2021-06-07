@@ -68,7 +68,7 @@ const Chip = ({
   color,
   className,
   loading = false,
-  tooltip = null
+  tooltip
 }: Props): ReactElement => {
   if (loading) return <ChipSkeleton variant="rect" width={100} height={24} />;
 
