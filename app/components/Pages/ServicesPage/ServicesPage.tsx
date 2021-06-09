@@ -1,6 +1,7 @@
 import { Button, Container, withTheme } from '@material-ui/core';
 import { AddCircleRounded } from '@material-ui/icons';
 import { ReactElement, useEffect, useState } from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 import PageHeader from '../../PageHeader';
@@ -21,7 +22,6 @@ const Services = styled(TotalListCard)`
 `;
 
 const ServicesPage = (): ReactElement => {
-
   const [dashboardData, setDashboardData] = useState<DashboardData>();
 
   useEffect(() => {
@@ -32,21 +32,20 @@ const ServicesPage = (): ReactElement => {
 
   if (!dashboardData) return <></>;
 
-  const {
-    services,
-  } = dashboardData;
-
+  const { services } = dashboardData;
 
   const renderControls = () => (
+    <Link href="/servicos/cadastro">
       <AddNew variant="contained" startIcon={<AddCircleRounded />}>
         Novos Serviços
       </AddNew>
+    </Link>
   );
 
   return (
     <Container>
       <Header title="Serviços" sideComponent={renderControls()} />
-        <Services {...services} />
+      <Services {...services} />
     </Container>
   );
 };

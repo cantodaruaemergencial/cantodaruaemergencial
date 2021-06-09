@@ -6,7 +6,7 @@ import { Auth } from '#/types/Auth';
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 
 const {
-  NEXT_PUBLIC_STRAPI_API_URL = 'https://api-mvp.cantodaruaemergencial.com.br',
+  NEXT_PUBLIC_STRAPI_API_URL = 'https://api-dev.cantodaruaemergencial.com.br',
 } = process.env;
 
 export function getUserProfile(): UserProfile | null {

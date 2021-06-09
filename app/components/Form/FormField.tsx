@@ -63,7 +63,7 @@ const FormField = ({
     rules,
     inputConfig,
     dateConfig,
-    disabled
+    disabled,
   },
   control,
   className,
