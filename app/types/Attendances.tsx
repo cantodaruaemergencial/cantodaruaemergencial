@@ -1,19 +1,18 @@
 export enum AttendanceType {
-  Lockers,
-  Snack,
-  FemaleRestroom,
-  Nursing,
-  Laundry,
-  FemaleBath,
-  MaleRestroom,
-  MaleBath,
-  Date,
+  Lockers = 15,
+  Snack = 16,
+  FemaleRestroom = 17,
+  Nursing = 18,
+  Laundry = 19,
+  FemaleBath = 20,
+  MaleRestroom = 22,
+  MaleBath = 23,
+  Date = 0,
 }
 
 export interface ServiceAttendanceOnDatabase {
   Id?: number;
-  Service: string | number;
+  service: number;
   Date: Date;
   Attendances: number;
-  State: string;
 }

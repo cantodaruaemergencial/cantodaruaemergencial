@@ -17,10 +17,12 @@ class AttendancesService {
             property: AttendancesService.AttendanceEnumToString(
               AttendanceType.Date,
             ),
+            value: null,
+            type: FieldType.date,
+            dateConfig: { disableFuture: true },
             rules: {
               required: true,
             },
-            type: FieldType.date,
           },
           {
             label: 'Banheiro Feminino Banho',
@@ -118,21 +120,21 @@ class AttendancesService {
       case AttendanceType[AttendanceType.FemaleBath]:
         return AttendanceType.FemaleBath;
       case AttendanceType[AttendanceType.FemaleRestroom]:
-        return 'Banheiro Feminino Sanitário';
+        return AttendanceType.FemaleRestroom;
       case AttendanceType[AttendanceType.MaleBath]:
-        return 'Banheiro Masculino Banho';
+        return AttendanceType.MaleBath;
       case AttendanceType[AttendanceType.MaleRestroom]:
-        return 'Banheiro Masculino Sanitário';
+        return AttendanceType.MaleRestroom;
       case AttendanceType[AttendanceType.Laundry]:
-        return 'Lavanderia';
+        return AttendanceType.Laundry;
       case AttendanceType[AttendanceType.Lockers]:
-        return 'Guarda Volume';
+        return AttendanceType.Lockers;
       case AttendanceType[AttendanceType.Snack]:
-        return 'Lanche';
+        return AttendanceType.Snack;
       case AttendanceType[AttendanceType.Nursing]:
-        return 'Enfermagem';
+        return AttendanceType.Nursing;
       default:
-        return '';
+        return 0;
     }
   };
 
@@ -142,16 +144,15 @@ class AttendancesService {
     quantity: string,
   ): ServiceAttendanceOnDatabase => {
     return {
-      Service: AttendancesService.mappingPropertyToAAttendance(value),
+      service: AttendancesService.mappingPropertyToAAttendance(value),
       Date: date,
       Attendances: parseInt(quantity, 10),
-      State: 'Published',
     };
   };
 
   static saveAttendancesByDay = async (formData: {
     [key: string]: unknown;
-  }): Promise<string> => {
+  }): Promise<any[]> => {
     const body = { ...formData };
 
     Object.keys(body).forEach((k) => {
@@ -160,7 +161,6 @@ class AttendancesService {
         body[k] = momentDate.format('YYYY-MM-DD');
       }
     });
-    console.log('body', body);
 
     let response = [];
     Object.keys(body).forEach(async (key) => {
@@ -171,22 +171,17 @@ class AttendancesService {
           body[key],
         );
 
-        response.push(
-          await Api.post<ServiceAttendanceOnDatabase>(
-            'service-attendances',
-            objBody,
-          ),
+        const { status, data } = await Api.post<ServiceAttendanceOnDatabase>(
+          'service-attendances',
+          objBody,
         );
+        response.push(data);
+
+        if (status !== 200) throw new Error();
       }
     });
-    // console.log('testeeee', teste);
-    // const saveMethod = Api.post<Person>('/service-attendances', body);
 
-    // const { status, data } = await saveMethod;
-
-    // if (status !== 200) throw new Error();
-
-    return 'haha';
+    return response;
   };
 }
 
