@@ -10,13 +10,11 @@ class AttendancesService {
   static getAttendancesForm = () => {
     const sections: FormSection[] = [
       {
-        label: 'Serviços Semanais',
+        label: 'Atendimentos diários',
         fields: [
           {
-            label: 'Data',
-            property: AttendancesService.AttendanceEnumToString(
-              AttendanceType.Date,
-            ),
+            label: 'Data de referência',
+            property: AttendancesService.AttendanceEnumToString(AttendanceType.Date),
             value: null,
             type: FieldType.date,
             dateConfig: { disableFuture: true },
@@ -26,9 +24,7 @@ class AttendancesService {
           },
           {
             label: 'Banheiro Feminino Banho',
-            property: AttendancesService.AttendanceEnumToString(
-              AttendanceType.FemaleBath,
-            ),
+            property: AttendancesService.AttendanceEnumToString(AttendanceType.FemaleBath),
             rules: {
               required: true,
             },
@@ -36,9 +32,7 @@ class AttendancesService {
           },
           {
             label: 'Banheiro Feminino Sanitário',
-            property: AttendancesService.AttendanceEnumToString(
-              AttendanceType.FemaleRestroom,
-            ),
+            property: AttendancesService.AttendanceEnumToString(AttendanceType.FemaleRestroom),
             rules: {
               required: true,
             },
@@ -46,9 +40,7 @@ class AttendancesService {
           },
           {
             label: 'Banheiro Masculino Banho',
-            property: AttendancesService.AttendanceEnumToString(
-              AttendanceType.MaleBath,
-            ),
+            property: AttendancesService.AttendanceEnumToString(AttendanceType.MaleBath),
             rules: {
               required: true,
             },
@@ -56,9 +48,7 @@ class AttendancesService {
           },
           {
             label: 'Banheiro Masculino Sanitário',
-            property: AttendancesService.AttendanceEnumToString(
-              AttendanceType.MaleRestroom,
-            ),
+            property: AttendancesService.AttendanceEnumToString(AttendanceType.MaleRestroom),
             rules: {
               required: true,
             },
@@ -66,9 +56,7 @@ class AttendancesService {
           },
           {
             label: 'Enfermagem',
-            property: AttendancesService.AttendanceEnumToString(
-              AttendanceType.Nursing,
-            ),
+            property: AttendancesService.AttendanceEnumToString(AttendanceType.Nursing),
             rules: {
               required: true,
             },
@@ -76,9 +64,7 @@ class AttendancesService {
           },
           {
             label: 'Guarda Volume',
-            property: AttendancesService.AttendanceEnumToString(
-              AttendanceType.Lockers,
-            ),
+            property: AttendancesService.AttendanceEnumToString(AttendanceType.Lockers),
             rules: {
               required: true,
             },
@@ -86,9 +72,7 @@ class AttendancesService {
           },
           {
             label: 'Lanche',
-            property: AttendancesService.AttendanceEnumToString(
-              AttendanceType.Snack,
-            ),
+            property: AttendancesService.AttendanceEnumToString(AttendanceType.Snack),
             rules: {
               required: true,
             },
@@ -96,9 +80,7 @@ class AttendancesService {
           },
           {
             label: 'Lavanderia',
-            property: AttendancesService.AttendanceEnumToString(
-              AttendanceType.Laundry,
-            ),
+            property: AttendancesService.AttendanceEnumToString(AttendanceType.Laundry),
             rules: {
               required: true,
             },
@@ -112,30 +94,7 @@ class AttendancesService {
   };
 
   static AttendanceEnumToString = (whichAttendance: AttendanceType): string => {
-    return AttendanceType[whichAttendance];
-  };
-
-  static mappingPropertyToAAttendance = (value: string) => {
-    switch (value) {
-      case AttendanceType[AttendanceType.FemaleBath]:
-        return AttendanceType.FemaleBath;
-      case AttendanceType[AttendanceType.FemaleRestroom]:
-        return AttendanceType.FemaleRestroom;
-      case AttendanceType[AttendanceType.MaleBath]:
-        return AttendanceType.MaleBath;
-      case AttendanceType[AttendanceType.MaleRestroom]:
-        return AttendanceType.MaleRestroom;
-      case AttendanceType[AttendanceType.Laundry]:
-        return AttendanceType.Laundry;
-      case AttendanceType[AttendanceType.Lockers]:
-        return AttendanceType.Lockers;
-      case AttendanceType[AttendanceType.Snack]:
-        return AttendanceType.Snack;
-      case AttendanceType[AttendanceType.Nursing]:
-        return AttendanceType.Nursing;
-      default:
-        return 0;
-    }
+    return whichAttendance.toString();
   };
 
   static createAttendanceObjectToSave = (
@@ -144,7 +103,7 @@ class AttendancesService {
     quantity: string,
   ): ServiceAttendanceOnDatabase => {
     return {
-      service: AttendancesService.mappingPropertyToAAttendance(value),
+      service: parseInt(value,10),
       Date: date,
       Attendances: parseInt(quantity, 10),
     };
@@ -154,6 +113,7 @@ class AttendancesService {
     [key: string]: unknown;
   }): Promise<any[]> => {
     const body = { ...formData };
+    console.log('body', body)
 
     Object.keys(body).forEach((k) => {
       if (isMoment(body[k])) {
@@ -164,9 +124,10 @@ class AttendancesService {
 
     let response = [];
     Object.keys(body).forEach(async (key) => {
-      if (key !== 'Date') {
+      console.log('key', key);
+      if (key !== AttendancesService.AttendanceEnumToString(AttendanceType.Date)) {
         const objBody = AttendancesService.createAttendanceObjectToSave(
-          new Date(body.Date.toString()),
+          new Date(body[AttendancesService.AttendanceEnumToString(AttendanceType.Date)]),
           key,
           body[key],
         );

@@ -15,9 +15,7 @@ const Container = styled(MuiContainer)`
 `;
 
 const NewServices = () => {
-  const [form, setForm] = useState<FormType>({
-    sections: [],
-  });
+  const [form, setForm] = useState<FormType | null>(null);
 
   const router = useRouter();
 
@@ -46,8 +44,8 @@ const NewServices = () => {
   return (
     <Layout title="Cadastro - Canto da Rua">
       <Container>
-        <PageHeader title={'Cadastro de Serviços'} />
-        <Form form={form} onSubmit={onSubmit} />
+        <PageHeader title={'Cadastro de Atendimentos'} />
+        {form && <Form form={form} onSubmit={onSubmit} />}
       </Container>
     </Layout>
   );

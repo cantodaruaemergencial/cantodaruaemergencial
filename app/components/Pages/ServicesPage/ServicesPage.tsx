@@ -37,7 +37,7 @@ const ServicesPage = (): ReactElement => {
   const renderControls = () => (
     <Link href="/servicos/cadastro">
       <AddNew variant="contained" startIcon={<AddCircleRounded />}>
-        Novos Serviços
+        Novos Atendimentos
       </AddNew>
     </Link>
   );
