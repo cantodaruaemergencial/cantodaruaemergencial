@@ -122,14 +122,14 @@ class AttendancesService {
       }
     });
 
-    let response = [];
+    let response: any[] = [];
     Object.keys(body).forEach(async (key) => {
       console.log('key', key);
       if (key !== AttendancesService.AttendanceEnumToString(AttendanceType.Date)) {
         const objBody = AttendancesService.createAttendanceObjectToSave(
-          new Date(body[AttendancesService.AttendanceEnumToString(AttendanceType.Date)]),
+          new Date(body[AttendancesService.AttendanceEnumToString(AttendanceType.Date)] as number),
           key,
-          body[key],
+          body[key] as string,
         );
 
         const { status, data } = await Api.post<ServiceAttendanceOnDatabase>(

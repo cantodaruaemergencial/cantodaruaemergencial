@@ -23,8 +23,5 @@ module.exports = withPWA({
     PROJECT_ID,
     MEASUREMENT_ID,
     MESSAGING_SENDER_ID
-  },
-  future: {
-    webpack5: true
-  },
+  }
 });
