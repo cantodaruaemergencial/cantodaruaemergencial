@@ -11,6 +11,7 @@ import {
   DashboardRounded,
   ExitToAppRounded,
   PersonRounded,
+  TransferWithinAStationRounded,
 } from '@material-ui/icons';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -107,6 +108,15 @@ const ButtonAppBar = (): React.ReactElement => {
           </NavIconButton>
           <NavButton>
             <Link href="/pessoas">Pessoas</Link>
+          </NavButton>
+
+          <NavIconButton>
+            <Link href="/servicos">
+              <TransferWithinAStationRounded />
+            </Link>
+          </NavIconButton>
+          <NavButton>
+            <Link href="/servicos">Serviços</Link>
           </NavButton>
         </Links>
       </Toolbar>

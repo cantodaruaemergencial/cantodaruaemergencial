@@ -14,7 +14,7 @@ module.exports = withPWA({
   pwa: {
     disable: process.env.NODE_ENV === 'development',
     dest: 'public',
-    register: true,
+    register: true
   },
   // environment variable
   env: {
@@ -22,9 +22,6 @@ module.exports = withPWA({
     API_KEY,
     PROJECT_ID,
     MEASUREMENT_ID,
-    MESSAGING_SENDER_ID,
-  },
-  future: {
-    webpack5: true,
-  },
+    MESSAGING_SENDER_ID
+  }
 });

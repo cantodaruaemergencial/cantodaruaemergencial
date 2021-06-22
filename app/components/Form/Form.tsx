@@ -62,7 +62,7 @@ const Form = ({ form, onSubmit, className }: Props) => {
         defaultValues[f.property] = getDefaultValue(f);
       });
     });
-
+    
     return defaultValues;
   };
 
