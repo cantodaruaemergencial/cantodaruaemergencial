@@ -134,7 +134,7 @@ class PeopleService {
           },
           {
             property: 'BirthDate',
-            value: person ? moment(person.BirthDate) : null,
+            value: person?.BirthDate ? moment(person.BirthDate) : null,
             label: 'Data de Nascimento',
             type: FieldType.date,
             dateConfig: { disableFuture: true },
@@ -410,9 +410,9 @@ class PeopleService {
             value: person?.CheckedAt,
             label: 'Conferido em',
             type: FieldType.date,
-          }
-        ]
-      }
+          },
+        ],
+      },
     ];
 
     return { sections };

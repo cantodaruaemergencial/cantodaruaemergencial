@@ -96,12 +96,15 @@ const PeoplePage = (): ReactElement => {
 
   const [todayEntrances, setTodayEntrances] = useState<number | null>();
   const [todayRegisters, setTodayRegisters] = useState<number | null>();
+  const [isWaitingRequest, setIsWaitingRequest] = useState(false);
 
-  const [confirmationModal, setConfirmationModal] =
-    useState<ConfirmationModalType>({
-      title: 'Confirmar entrada',
-      open: false,
-    });
+  const [
+    confirmationModal,
+    setConfirmationModal,
+  ] = useState<ConfirmationModalType>({
+    title: 'Confirmar entrada',
+    open: false,
+  });
 
   const fetchPeople: InfiniteListFetchRows = (startIndex, limit, filter) =>
     PeopleService.get(startIndex, limit, filter);
@@ -138,16 +141,19 @@ const PeoplePage = (): ReactElement => {
   };
 
   const confirmEntrance = () => {
+    setIsWaitingRequest(true);
     EntrancesService.post(confirmationModal.data.person).then(
       ({ status, data }) => {
         if (status === 200) {
           handleCloseConfirmationModal();
           confirmationModal.data.callback(data);
           fetchDashboardToday();
+          setIsWaitingRequest(false);
         } else {
           enqueueSnackbar('Ocorreu um erro ao confirmar a entrada.', {
             variant: 'error',
           });
+          setIsWaitingRequest(false);
         }
       },
     );
@@ -205,7 +211,12 @@ const PeoplePage = (): ReactElement => {
         {...confirmationModal}
         handleClose={handleCloseConfirmationModal}
         actions={
-          <Button autoFocus onClick={confirmEntrance} color="primary">
+          <Button
+            autoFocus
+            onClick={confirmEntrance}
+            color="primary"
+            disabled={isWaitingRequest}
+          >
             Confirmar
           </Button>
         }
