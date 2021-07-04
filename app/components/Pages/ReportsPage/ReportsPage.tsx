@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Card from '#/components/Card';
 import { Container as MuiContainer, Button as MuiButton, InputBase, withTheme } from '@material-ui/core';
 import { ReactElement } from 'react';
@@ -45,8 +46,15 @@ const Button = styled(MuiButton)`
 
 const ReportsPage = (): ReactElement => {
 
-  const getPeople = () => {
-    ReportsService.getPeople();
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
+
+  const getMonthly = () => {
+    if (month === '' || year === '') {
+      alert('Preencha mês e ano!');
+      return;
+    }
+    ReportsService.getMonthly(month, year);
   };
 
   return (
@@ -54,15 +62,20 @@ const ReportsPage = (): ReactElement => {
       <Header title="Relatórios" />
       <ListContainer>
         <Input
-          id="month-month"
+          id="monthly_month"
           placeholder="Mês (MM)"
-          format="99"
+          type="number"
+          value={month}
+          onChange={(e) => setMonth(e.target.value)}
         />
         <Input
-          id="month-year"
+          id="monthly_year"
           placeholder="Ano (AAAA)"
+          type="number"
+          value={year}
+          onChange={(e) => setYear(e.target.value)}
         />
-        <Button variant="contained" color="primary" onClick={getPeople}>
+        <Button variant="contained" color="primary" onClick={getMonthly}>
           Relatório Mensal
         </Button>
       </ListContainer>

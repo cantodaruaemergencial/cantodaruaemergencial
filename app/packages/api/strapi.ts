@@ -7,7 +7,9 @@ import { saveAs } from 'file-saver';
 
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 
-const { NEXT_PUBLIC_STRAPI_API_URL = 'https://api-dev.cantodaruaemergencial.com.br' } = process.env;
+const {
+  NEXT_PUBLIC_STRAPI_API_URL = 'https://api-dev.cantodaruaemergencial.com.br',
+} = process.env;
 
 export function getUserProfile(): UserProfile | null {
   if (!localStorage) return null;
@@ -52,20 +54,24 @@ export class Api {
     };
   };
 
-  static getFile = async (url: string, params?: { [key: string]: any }) => {
+  static getFile = async (
+    url: string,
+    filename: string,
+    params?: { [key: string]: any },
+  ) => {
+    const userProfile = getUserProfile();
     const options = {
       method: 'GET',
-      headers: { ...Api.getHeaders(), 'response-type': 'text/csv' },
+      headers: {
+        'Content-Type': 'text/csv',
+        Authorization: userProfile?.token ? `Bearer ${userProfile.token}` : '',
+      },
     };
 
     const queryString = params ? `?${qs.stringify(params)}` : '';
-    const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL}/${url}${queryString}`,
-      options,
-    )
+    await fetch(`${NEXT_PUBLIC_STRAPI_API_URL}/${url}${queryString}`, options)
       .then((res) => res.blob())
-      .then((blob) => saveAs(blob, 'test.csv'));
-    console.log(res);
+      .then((blob) => saveAs(blob, filename));
   };
 
   static get = async <ResultType extends unknown>(

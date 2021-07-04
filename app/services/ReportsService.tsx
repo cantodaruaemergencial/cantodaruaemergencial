@@ -1,8 +1,8 @@
 import { Api } from '#/packages/api/strapi';
 
 class ReportsService {
-  static getPeople = () =>
-    Api.getFile('reports/people');
+  static getMonthly = (month: string, year: string) =>
+    Api.getFile(`reports/monthly?month=${month}&year=${year}`, `mensal-${month}-${year}.csv`);
 }
 
 export default ReportsService;
