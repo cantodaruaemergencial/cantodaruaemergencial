@@ -33,8 +33,8 @@ const getQuery = async (ctx, filename, q, params, isArray = true) => {
 module.exports = {
   monthly: async (ctx) => {
     const params = {
-      year: Number(ctx.query.year) ?? 2021,
-      month: Number(ctx.query.month) ?? 1,
+      year: Number(ctx.query.year),
+      month: Number(ctx.query.month),
     };
 
     return getQuery(

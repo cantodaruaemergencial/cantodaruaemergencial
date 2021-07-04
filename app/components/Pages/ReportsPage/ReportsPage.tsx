@@ -56,6 +56,7 @@ const ReportsPage = (): ReactElement => {
         <Input
           id="month-month"
           placeholder="Mês (MM)"
+          format="99"
         />
         <Input
           id="month-year"
