@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/reports/monthly",
+      "handler": "report.monthly",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

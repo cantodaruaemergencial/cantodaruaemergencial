@@ -3,6 +3,8 @@ import qs from 'qs';
 import { UserProfile } from '#/packages/entities/types';
 import { Auth } from '#/types/Auth';
 
+import { saveAs } from 'file-saver';
+
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 
 const {
@@ -50,6 +52,26 @@ export class Api {
       status: res.status,
       data: res.json() as ResultType,
     };
+  };
+
+  static getFile = async (
+    url: string,
+    filename: string,
+    params?: { [key: string]: any },
+  ) => {
+    const userProfile = getUserProfile();
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'text/csv',
+        Authorization: userProfile?.token ? `Bearer ${userProfile.token}` : '',
+      },
+    };
+
+    const queryString = params ? `?${qs.stringify(params)}` : '';
+    await fetch(`${NEXT_PUBLIC_STRAPI_API_URL}/${url}${queryString}`, options)
+      .then((res) => res.blob())
+      .then((blob) => saveAs(blob, filename));
   };
 
   static get = async <ResultType extends unknown>(
