@@ -3,11 +3,11 @@ import qs from 'qs';
 import { UserProfile } from '#/packages/entities/types';
 import { Auth } from '#/types/Auth';
 
+import { saveAs } from 'file-saver';
+
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 
-const {
-  NEXT_PUBLIC_STRAPI_API_URL = 'https://api-dev.cantodaruaemergencial.com.br',
-} = process.env;
+const { NEXT_PUBLIC_STRAPI_API_URL = 'http://localhost:1337' } = process.env;
 
 export function getUserProfile(): UserProfile | null {
   if (!localStorage) return null;
@@ -50,6 +50,22 @@ export class Api {
       status: res.status,
       data: res.json() as ResultType,
     };
+  };
+
+  static getFile = async (url: string, params?: { [key: string]: any }) => {
+    const options = {
+      method: 'GET',
+      headers: { ...Api.getHeaders(), 'response-type': 'text/csv' },
+    };
+
+    const queryString = params ? `?${qs.stringify(params)}` : '';
+    const res = await fetch(
+      `${NEXT_PUBLIC_STRAPI_API_URL}/${url}${queryString}`,
+      options,
+    )
+      .then((res) => res.blob())
+      .then((blob) => saveAs(blob, 'test.csv'));
+    console.log(res);
   };
 
   static get = async <ResultType extends unknown>(
