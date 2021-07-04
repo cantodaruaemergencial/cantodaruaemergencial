@@ -41,7 +41,7 @@ module.exports = {
       ctx,
       "mensal.csv",
       "select " +
-        "p.cardnumber as numero, p.name as nome, p.birthdate as nacimento, " +
+        "p.cardnumber as numero, p.name as nome, date_format(p.birthdate,'%Y-%m-%d') as nascimento, " +
         "p.mothername as mae, p.birthplace as naturalidade, p.generalregister as rg, p.cpf as cpf, " +
         "(select count(1) from person_entrances e " +
         "where e.person = p.id and month(e.datetime) = :month and year(e.datetime) = :year) as entradas " +
