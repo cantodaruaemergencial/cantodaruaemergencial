@@ -46,6 +46,7 @@ module.exports = {
         "(select count(1) from person_entrances e " +
         "where e.person = p.id and month(e.datetime) = :month and year(e.datetime) = :year) as entradas " +
         "from people p " +
+        "having entradas > 0 " +
         "order by name;",
       params,
       true
