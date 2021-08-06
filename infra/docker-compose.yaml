@@ -51,3 +51,16 @@ services:
     volumes:
       - ./compose/docker-mysql/:/docker-entrypoint-initdb.d
       - ./compose/init.sql:/data/application/init.sql
+      
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - database
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80

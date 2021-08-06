@@ -49,6 +49,9 @@ const ReportsPage = (): ReactElement => {
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
 
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
+
   const getMonthly = () => {
     if (month === '' || year === '') {
       alert('Preencha mês e ano!');
@@ -56,6 +59,14 @@ const ReportsPage = (): ReactElement => {
     }
     ReportsService.getMonthly(month, year);
   };
+
+  const getPeople = () => {
+    if (from === '' || to === '') {
+      alert('Preencha o número dos cartões!');
+      return;
+    }
+    ReportsService.getPeople(from, to);
+  }
 
   return (
     <Container>
@@ -79,7 +90,25 @@ const ReportsPage = (): ReactElement => {
           Relatório Mensal
         </Button>
       </ListContainer>
-
+      <ListContainer>
+        <Input
+          id="people_from"
+          placeholder="Do cartão"
+          type="number"
+          value={from}
+          onChange={(e) => setFrom(e.target.value)}
+        />
+        <Input
+          id="people_to"
+          placeholder="Até o cartão"
+          type="number"
+          value={to}
+          onChange={(e) => setTo(e.target.value)}
+        />
+        <Button variant="contained" color="primary" onClick={getPeople}>
+          Relatório de Pessoas
+        </Button>
+      </ListContainer>
     </Container>
   );
 };

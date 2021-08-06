@@ -8,7 +8,7 @@ import { saveAs } from 'file-saver';
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 
 const {
-  NEXT_PUBLIC_STRAPI_API_URL = 'https://api.cantodaruaemergencial.com.br',
+  NEXT_PUBLIC_STRAPI_API_URL = 'http://localhost:1337',
 } = process.env;
 
 export function getUserProfile(): UserProfile | null {
