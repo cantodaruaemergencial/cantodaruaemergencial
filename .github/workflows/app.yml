@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - "app/**"
+      - ".github/workflows/app.yml"
 
 env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
@@ -23,11 +24,13 @@ jobs:
         run: |
           echo "SERVICE_NAME=app-dev" >> "$GITHUB_ENV"
           echo "NEXT_PUBLIC_STRAPI_API_URL=https://api-dev.cantodaruaemergencial.com.br" >> "$GITHUB_ENV"
+          echo "STORAGE_BUCKET=gs://dev.cantodaruaemergencial.com.br" >> "$GITHUB_ENV"
       - name: set env to production
         if: endsWith(github.ref, '/main')
         run: |
           echo "SERVICE_NAME=app" >> "$GITHUB_ENV"
           echo "NEXT_PUBLIC_STRAPI_API_URL=https://api.cantodaruaemergencial.com.br" >> "$GITHUB_ENV"
+          echo "STORAGE_BUCKET=gs://www.cantodaruaemergencial.com.br" >> "$GITHUB_ENV"
       - name: checkout
         uses: actions/checkout@v1
 
@@ -41,12 +44,8 @@ jobs:
         run: |
           gcloud config set project $PROJECT_ID
 
-      - name: build
+      - name: build and deploy
         run: |
           cd app
-          yarn
-          yarn build          
-
-      - name: deploy
-        run: |
-          gsutil -m rsync -r -d out gs://dev.cantodaruaemergencial.com.br          
+          yarn && yarn build
+          gsutil -m rsync -r -d out $STORAGE_BUCKET          
