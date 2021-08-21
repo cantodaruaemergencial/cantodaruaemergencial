@@ -55,7 +55,7 @@ module "api" {
   project               = var.project
   region                = var.region
   name                  = "api"
-  image                 = "gcr.io/cantodarua/api:bb7e097da48f33173b7676f0fed6aff9223a49d4"
+  image                 = "gcr.io/cantodarua/api@sha256:3d049149ae93e509d51733a21546423fdbe160b70462db35318ca31169235266"
   url                   = "api.cantodaruaemergencial.com.br"
   dns_managed_zone_name = var.dns_managed_zone_name
 
@@ -89,7 +89,7 @@ module "app" {
   project               = var.project
   region                = var.region
   name                  = "app"
-  image                 = "gcr.io/cantodarua/app:e351d30f2a50b7d2c35b8e72eaedb01e776c6bd8"
+  image                 = "gcr.io/cantodarua/app@sha256:ad237c3b2d9157722195b89947f8e4f28e3427b8ee9a56655fc5f5f5f1a27f7a"
   url                   = "www.cantodaruaemergencial.com.br"
   url2                  = "cantodaruaemergencial.com.br"
   dns_managed_zone_name = var.dns_managed_zone_name

@@ -44,12 +44,8 @@ jobs:
       - name: build
         run: |
           cd app
-          gcloud builds submit --config=build.yaml \
-            --substitutions=_NEXT_PUBLIC_STRAPI_API_URL=$NEXT_PUBLIC_STRAPI_API_URL,_PROJECT_ID=$PROJECT_ID,_SERVICE_NAME=$SERVICE_NAME,_GITHUB_SHA=$GITHUB_SHA
+          yarn build          
 
       - name: deploy
         run: |
-          gcloud run deploy $SERVICE_NAME \
-            --region $RUN_REGION \
-            --image gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA \
-            --platform managed
+          gsutil -m rsync -r -d out gs://dev.cantodaruaemergencial.com.br          
