@@ -55,7 +55,7 @@ module "api" {
   project               = var.project
   region                = var.region
   name                  = "api"
-  image                 = "gcr.io/cantodarua/api:bb7e097da48f33173b7676f0fed6aff9223a49d4"
+  image                 = "gcr.io/cantodarua/api@sha256:3d049149ae93e509d51733a21546423fdbe160b70462db35318ca31169235266"
   url                   = "api.cantodaruaemergencial.com.br"
   dns_managed_zone_name = var.dns_managed_zone_name
 
@@ -84,25 +84,14 @@ output "api" {
 }
 
 module "app" {
-  source = "./modules/cloud_run"
+  source = "./modules/static_website"
 
   project               = var.project
-  region                = var.region
-  name                  = "app"
-  image                 = "gcr.io/cantodarua/app:e351d30f2a50b7d2c35b8e72eaedb01e776c6bd8"
-  url                   = "www.cantodaruaemergencial.com.br"
-  url2                  = "cantodaruaemergencial.com.br"
+  website_domain_name   = "www.cantodaruaemergencial.com.br"
+  create_dns_entry      = true
   dns_managed_zone_name = var.dns_managed_zone_name
-  container_port        = 3000
-
-  env_vars = [
-    {
-      name  = "NEXT_PUBLIC_STRAPI_API_URL"
-      value = module.api.urls.public_url
-    }
-  ]
 }
 
 output "app" {
-  value = module.app.urls
+  value = module.app.website_url
 }
