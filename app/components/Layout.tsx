@@ -4,6 +4,7 @@ import { ReactElement } from 'react';
 import styled from 'styled-components';
 
 import NavBar from '#/components/NavBar';
+import PublicNavBar from '#/components/PublicNavBar';
 import { useAuthState } from '#/packages/auth/auth-context';
 
 interface Props {
@@ -30,7 +31,7 @@ const Layout = ({
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      {userProfile && <NavBar />}
+      {userProfile && <NavBar /> || <PublicNavBar />}
       {children}
     </Container>
   );
