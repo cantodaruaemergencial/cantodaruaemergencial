@@ -4,7 +4,6 @@ import { ReactElement } from 'react';
 import styled from 'styled-components';
 
 import NavBar from '#/components/NavBar';
-import PublicNavBar from '#/components/PublicNavBar';
 import { useAuthState } from '#/packages/auth/auth-context';
 
 interface Props {
