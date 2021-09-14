@@ -8,6 +8,7 @@ on:
     paths:
       - 'api/**'
       - '.github/workflows/api.yml'
+      
 
 env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
