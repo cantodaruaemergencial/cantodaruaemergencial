@@ -28,7 +28,7 @@ jobs:
         if: endsWith(github.ref, '/main')
         run: |
           echo "SERVICE_NAME=app" >> "$GITHUB_ENV"
-          echo "NEXT_PUBLIC_STRAPI_API_URL=https://api.cantodaruaemergencial.com.br" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_STRAPI_API_URL=https://api-isvft3mpaa-ue.a.run.app/" >> "$GITHUB_ENV"
       - name: checkout
         uses: actions/checkout@v1
 
