@@ -9,7 +9,6 @@ on:
       - "app/**"
       - ".github/workflows/app.yml"
 
-
 env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
   RUN_REGION: us-east1
@@ -33,7 +32,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
 
-      - uses: google-github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@main
         with:
           version: "275.0.0"
           service_account_email: ${{ secrets.SA_EMAIL }}
