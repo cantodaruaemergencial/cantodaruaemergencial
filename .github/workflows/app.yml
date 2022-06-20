@@ -9,6 +9,7 @@ on:
       - "app/**"
       - ".github/workflows/app.yml"
 
+
 env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
   RUN_REGION: us-east1
