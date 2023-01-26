@@ -82,24 +82,24 @@ output "api" {
   value = module.api.urls
 }
 
-module "app" {
-  source = "./modules/cloud_run"
+# module "app" {
+#   source = "./modules/cloud_run"
 
-  project        = var.project
-  region         = var.region
-  name           = "app"
-  image          = "gcr.io/cloudrun/placeholder"
-  use_dns        = false
-  container_port = 3000
+#   project        = var.project
+#   region         = var.region
+#   name           = "app"
+#   image          = "gcr.io/cloudrun/placeholder"
+#   use_dns        = false
+#   container_port = 3000
 
-  env_vars = [
-    {
-      name  = "NEXT_PUBLIC_STRAPI_API_URL"
-      value = module.api.urls.public_url
-    }
-  ]
-}
+#   env_vars = [
+#     {
+#       name  = "NEXT_PUBLIC_STRAPI_API_URL"
+#       value = module.api.urls.public_url
+#     }
+#   ]
+# }
 
-output "app" {
-  value = module.app.urls
-}
+# output "app" {
+#   value = module.app.urls
+# }
