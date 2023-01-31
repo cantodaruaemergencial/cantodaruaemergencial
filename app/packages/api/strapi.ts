@@ -8,8 +8,8 @@ import { saveAs } from 'file-saver';
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 
 const {
-  NEXT_PUBLIC_STRAPI_API_URL = 'https://api-dev.cantodaruaemergencial.com.br',
-} = process.env;
+  NEXT_PUBLIC_STRAPI_API_URL = 'https://api-t6n6cgkpra-ue.a.run.app',
+} = process?.env;
 
 export function getUserProfile(): UserProfile | null {
   if (!localStorage) return null;
@@ -27,6 +27,7 @@ export function makeLogout() {
 export class Api {
   static getPublicHeaders = () => ({
     'Content-Type': 'application/json',
+    Accept: 'application/json',
   });
 
   static getHeaders = () => {
@@ -167,7 +168,7 @@ export async function validateUser(
     );
 
     return userProfile;
-  } catch (error) {
+  } catch (error: any) {
     const message = error?.message || 'Falha ao conectar.';
     throw new Error(message);
   }
