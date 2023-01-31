@@ -14,8 +14,14 @@ variable "image" {
   type = string
 }
 
+variable "use_dns" {
+  type    = bool
+  default = true
+}
+
 variable "url" {
-  type = string
+  type    = string
+  default = ""
 }
 
 variable "url2" {
@@ -24,7 +30,8 @@ variable "url2" {
 }
 
 variable "dns_managed_zone_name" {
-  type = string
+  type    = string
+  default = "value"
 }
 
 variable "container_port" {
