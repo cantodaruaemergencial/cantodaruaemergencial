@@ -10,6 +10,7 @@ const {
 } = process.env;
 
 module.exports = withPWA({
+  basePath: '/cantodaruaemergencial',
   // other next config
   pwa: {
     disable: process.env.NODE_ENV === 'development',
