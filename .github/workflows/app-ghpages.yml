@@ -15,6 +15,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           # update the Node version to meet your needs
+          folder: app
           node-version: 16.16.0
           cache: npm
 
