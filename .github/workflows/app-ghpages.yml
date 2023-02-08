@@ -4,6 +4,9 @@ name: Deploy GH Pages for APP
 on:
   push:
     branches: [main]
+    paths:
+      - "app/**"
+      - ".github/workflows/app-ghpages.yml"
 
 jobs:
   build:
@@ -15,7 +18,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           # update the Node version to meet your needs
-          folder: app
           node-version: 16.16.0
           cache: npm
 
