@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - dev
-      - main
+      - master # TODO: If the deploy is not being done on GitHub Pages, it must change master to main to use this file correctly
     paths:
       - "app/**"
       - ".github/workflows/app.yml"
