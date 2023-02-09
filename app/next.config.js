@@ -8,16 +8,16 @@ const withPWA = require('next-pwa')({
   register: true,
 });
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const isGithubActions = process.env.GITHUB_ACTIONS || false;
 
-let assetPrefix = '';
 let basePath = '';
 
 if (isGithubActions) {
   // trim off `<owner>/`
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
 
-  assetPrefix = `/${repo}/`;
   basePath = `/${repo}`;
 }
 
@@ -25,7 +25,7 @@ const { APP_ID, API_KEY, PROJECT_ID, MEASUREMENT_ID, MESSAGING_SENDER_ID } =
   process.env;
 
 module.exports = withPWA({
-  assetPrefix,
+  assetPrefix: isProd ? 'https://cantodaruaemergencial.imgix.net/' : undefined,
   basePath,
   images: {
     loader: 'imgix',
