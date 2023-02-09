@@ -12,11 +12,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: app
 
     steps:
+      - name: Using app folder
+        uses: ./app
       - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
