@@ -1,10 +1,6 @@
 # Deploy file configured exclusive to work on GitHub Pages for app project
 name: Deploy GH Pages for APP
 
-defaults:
-  run:
-    working-directory: app
-
 on:
   push:
     branches:
@@ -16,6 +12,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
 
     steps:
       - uses: actions/checkout@v3
