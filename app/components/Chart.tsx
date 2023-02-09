@@ -147,18 +147,15 @@ const Chart = ({
     case 'doughnut':
       return (
         <Doughnut
-          type="doughnut"
-          data={customizedData}
-          options={customizedOptions}
+          data={customizedData as any}
+          options={customizedOptions as any}
         />
       );
     case 'bar':
-      return (
-        <Bar type="bar" data={customizedData} options={customizedOptions} />
-      );
+      return <Bar data={customizedData} options={customizedOptions as any} />;
     default:
       return (
-        <Line type="line" data={customizedData} options={customizedOptions} />
+        <Line data={customizedData as any} options={customizedOptions as any} />
       );
   }
 };

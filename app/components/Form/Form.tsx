@@ -37,7 +37,7 @@ const Form = ({ form, onSubmit, className }: Props) => {
 
   const [loading, setLoading] = useState(false);
 
-  const getDefaultValues = (useInitialValue = true) => {
+  const getDefaultValues = (useInitialValue = true): {} | undefined => {
     const defaultValues: { [key: string]: unknown } = {};
 
     const getDefaultValue = (field: FormField) => {
@@ -62,7 +62,7 @@ const Form = ({ form, onSubmit, className }: Props) => {
         defaultValues[f.property] = getDefaultValue(f);
       });
     });
-    
+
     return defaultValues;
   };
 

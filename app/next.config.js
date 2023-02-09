@@ -28,11 +28,6 @@ module.exports = withPWA({
   assetPrefix,
   basePath,
   // other next config
-  // pwa: {
-  //   disable: process.env.NODE_ENV === 'development',
-  //   dest: 'public',
-  //   register: true,
-  // },
   // environment variable
   env: {
     APP_ID,

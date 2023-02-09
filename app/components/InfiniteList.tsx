@@ -1,16 +1,26 @@
 /* eslint-disable react/prop-types */
+import { FC } from 'react';
 import { Box } from '@material-ui/core';
 import { ReactNode, useEffect, useMemo, useState } from 'react';
 import {
-  AutoSizer,
-  CellMeasurer,
+  AutoSizer as _AutoSizer,
+  AutoSizerProps,
+  CellMeasurer as _CellMeasurer,
+  CellMeasurerProps,
   CellMeasurerCache,
   Index,
   IndexRange,
-  InfiniteLoader,
-  List,
+  InfiniteLoader as _InfiniteLoader,
+  InfiniteLoaderProps,
+  List as _List,
+  ListProps,
   ListRowProps,
 } from 'react-virtualized';
+
+const AutoSizer = _AutoSizer as unknown as FC<AutoSizerProps>;
+const CellMeasurer = _CellMeasurer as unknown as FC<CellMeasurerProps>;
+const InfiniteLoader = _InfiniteLoader as unknown as FC<InfiniteLoaderProps>;
+const List = _List as unknown as FC<ListProps>;
 
 import EmptyState from './EmptyState';
 
@@ -38,7 +48,7 @@ const InfiniteList = ({ fetchRows, rowRenderer, filter, className }: Props) => {
 
   const [hasNextPage, setHasNextPage] = useState<boolean>(true);
 
-  let infiteLoaderRef: InfiniteLoader | null = null;
+  let infiteLoaderRef: _InfiniteLoader | null = null;
 
   const rowCount = hasNextPage ? list.length + 8 : list.length;
 
@@ -109,7 +119,7 @@ const InfiniteList = ({ fetchRows, rowRenderer, filter, className }: Props) => {
       loadMoreRows={loadMoreRows}
       rowCount={rowCount}
       className={className}
-      ref={(child) => {
+      ref={(child: any) => {
         infiteLoaderRef = child;
       }}
     >

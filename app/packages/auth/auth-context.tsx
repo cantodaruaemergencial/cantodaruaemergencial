@@ -67,7 +67,7 @@ const AuthProvider = ({ children }: Props): ReactElement => {
         const userProfileFetched = getUserProfile();
         setUserProfile(userProfileFetched);
         setFetchStatus('fetched');
-      } catch (error) {
+      } catch (error: any) {
         setFetchStatus('fetched');
         const message = error?.message || 'Ocorreu um erro ao realizar login.';
         enqueueSnackbar(message, { variant: 'error' });
