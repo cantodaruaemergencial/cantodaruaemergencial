@@ -3,7 +3,8 @@ name: Deploy GH Pages for APP
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - "app/**"
       - ".github/workflows/app-ghpages.yml"
