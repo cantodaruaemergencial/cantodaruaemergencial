@@ -27,6 +27,10 @@ const { APP_ID, API_KEY, PROJECT_ID, MEASUREMENT_ID, MESSAGING_SENDER_ID } =
 module.exports = withPWA({
   assetPrefix,
   basePath,
+  images: {
+    loader: 'imgix',
+    path: 'https://cantodaruaemergencial.imgix.net/',
+  },
   // other next config
   // environment variable
   env: {
