@@ -6,7 +6,10 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
+    "lib": [
+      "dom",
+      "es2017"
+    ],
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
@@ -22,9 +25,19 @@
     "target": "esnext",
     "baseUrl": ".", // This must be specified if "paths" is.
     "paths": {
-      "#/*": ["./*"]
-    }
+      "#/*": [
+        "./*"
+      ]
+    },
+    "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", "next.config.js"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    "next.config.js"
+  ]
 }

@@ -101,8 +101,8 @@ interface Props {
 const Chart = ({
   type = 'bar',
   labels = [],
-  dataset,
-  options,
+  dataset = {} as DatasetChartOptions,
+  options = {} as ChartOptions,
   format = Format.number,
   tooltipCallbacksTitle,
 }: Props) => {

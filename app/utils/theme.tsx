@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 export const Shadows = {
   bottom: '0 6px 8px rgba(0, 0, 0, 0.05)',
@@ -6,7 +6,7 @@ export const Shadows = {
   2: '0px 5px 5px -3px rgba(0,0,0,0.02),0px 12px 12px -1px rgba(0,0,0,0.05),0px 3px 12px 2px rgba(0,0,0,0.02)',
 };
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     type: 'light',
     primary: {
