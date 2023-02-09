@@ -27,6 +27,7 @@ jobs:
           npm ci
           npm run build
           touch out/.nojekyll
+        working-directory: ./app
 
       - name: Deploy
         # https://github.com/JamesIves/github-pages-deploy-action
