@@ -1,6 +1,10 @@
 # Deploy file configured exclusive to work on GitHub Pages for app project
 name: Deploy GH Pages for APP
 
+defaults:
+  run:
+    working-directory: app
+
 on:
   push:
     branches:
@@ -27,7 +31,6 @@ jobs:
           npm ci
           npm run build
           touch out/.nojekyll
-        working-directory: ./app
 
       - name: Deploy
         # https://github.com/JamesIves/github-pages-deploy-action
