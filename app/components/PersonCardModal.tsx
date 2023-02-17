@@ -80,7 +80,7 @@ const Banner = withTheme(styled(Box)`
   align-items: center;
   grid-auto-flow: column;
   justify-content: start;
-  grid-gap: .5rem;
+  grid-gap: 0.5rem;
   color: #fff;
   font-weight: bold;
   border-radius: 16px 16px 0 0;
@@ -122,10 +122,7 @@ const PersonCardModal = ({
 
   return (
     <Modal className={className} onClose={handleClose} open={open}>
-      <Grow
-        in={open}
-        {...(open ? { timeout: 500 } : {})}
-      >
+      <Grow in={open} {...(open ? { timeout: 500 } : {})}>
         <ModalWrapper>
           {newPerson && (
             <Banner>
@@ -134,7 +131,10 @@ const PersonCardModal = ({
             </Banner>
           )}
           <Card>
-            <Logo alt="Canto da Rua" src="/images/logo.png" />
+            <Logo
+              alt="Canto da Rua"
+              src={`${process.env.REPO_NAME}/images/logo.png`}
+            />
 
             <Field>
               <Label>Número</Label>

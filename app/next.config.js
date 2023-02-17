@@ -8,14 +8,14 @@ const withPWA = require('next-pwa')({
   register: true,
 });
 
-const isGithubActions = process.env.IS_GITHUB_ACTIONS || false;
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
 
 let assetPrefix = '';
 let basePath = '';
 
 if (isGithubActions) {
   // trim off `<owner>/`
-  const repo = process.env.NAME_GITHUB_REPOSITORY;
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
 
   assetPrefix = `/${repo}`;
   basePath = `/${repo}`;

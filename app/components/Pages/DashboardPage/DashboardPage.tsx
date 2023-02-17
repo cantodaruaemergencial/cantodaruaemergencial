@@ -131,12 +131,19 @@ const DashboardPage = (): ReactElement => {
 
     return (
       <Title>
-        <Logo src="/images/logo.png" />
+        <Logo src={`${process.env.REPO_NAME}/images/logo.png`} />
         Canto da Rua
-        <Link href="https://www.instagram.com/cantodaruaemergencial/" target="_blank" style={{ float: 'left' }}>
+        <Link
+          href="https://www.instagram.com/cantodaruaemergencial/"
+          target="_blank"
+          style={{ float: 'left' }}
+        >
           <Instagram />
         </Link>
-        <Link href="https://www.facebook.com/comunidadecantodarua" target="_blank">
+        <Link
+          href="https://www.facebook.com/comunidadecantodarua"
+          target="_blank"
+        >
           <Facebook />
         </Link>
       </Title>
