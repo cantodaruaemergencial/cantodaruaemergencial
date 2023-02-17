@@ -22,13 +22,10 @@ const pwaMetaData = (
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href={`${process.env.REPO_NAME}/icons/apple-touch-icon.png`}
+      href={`/icons/apple-touch-icon.png`}
     />
     <link rel="manifest" href="/manifest.json" />
-    <link
-      rel="shortcut icon"
-      href={`${process.env.REPO_NAME}/icons/favicon.ico`}
-    />
+    <link rel="shortcut icon" href="/icons/favicon.ico" />
     <style>{`
       html, body, #__next {
         height: 100%;

@@ -89,10 +89,7 @@ const ButtonAppBar = (): React.ReactElement => {
       <Toolbar>
         <Links>
           <Link href="/dashboard">
-            <Logo
-              alt="Canto da Rua"
-              src={`${process.env.REPO_NAME}/images/logo.png`}
-            />
+            <Logo alt="Canto da Rua" src="/images/logo.png" />
           </Link>
 
           <NavIconButton>
@@ -137,7 +134,7 @@ const ButtonAppBar = (): React.ReactElement => {
           <ExitToAppRounded />
         </NavIconButton>
         <NavButton onClick={logout}>Sair</NavButton>
-        <Flag src={`${process.env.REPO_NAME}/images/flag.png`} />
+        <Flag src="/images/flag.png" />
       </FloatingBox>
     </AppBar>
   );
