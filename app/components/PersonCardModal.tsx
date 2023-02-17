@@ -131,7 +131,10 @@ const PersonCardModal = ({
             </Banner>
           )}
           <Card>
-            <Logo alt="Canto da Rua" src="/images/logo.png" />
+            <Logo
+              alt="Canto da Rua"
+              src={`${process.env.REPO_NAME}/images/logo.png`}
+            />
 
             <Field>
               <Label>Número</Label>
