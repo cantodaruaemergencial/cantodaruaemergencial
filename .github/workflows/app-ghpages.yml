@@ -16,6 +16,8 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      REPO_NAME: "cantodaruaemergencial"
 
     steps:
       - uses: actions/checkout@v3
