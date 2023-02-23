@@ -59,10 +59,7 @@ const LoginPage = (): ReactElement => {
   return (
     <Container>
       <Card>
-        <Logo
-          alt="Canto da Rua"
-          src={`/${process.env.REPO_NAME}/images/logo.png`}
-        />
+        <Logo alt="Canto da Rua" src={`/images/logo.png`} />
 
         <Form
           onSubmit={(e) => {
