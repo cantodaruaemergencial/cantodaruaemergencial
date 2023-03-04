@@ -1,6 +1,5 @@
 export const returnBasePathDependingOnEnv = () => {
-  if (process.env.GITHUB_ACTIONS)
-    return `/${process.env.GITHUB_REPOSITORY?.replace(/.*?\//, '')}`;
+  if (process.env.NODE_ENV === 'production') return `/${process.env.REPO_NAME}`;
 
   return '';
 };
