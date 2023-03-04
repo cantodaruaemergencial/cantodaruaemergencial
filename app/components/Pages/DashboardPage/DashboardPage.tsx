@@ -177,13 +177,14 @@ const DashboardPage = (): ReactElement => {
   };
 
   const renderLoginButton = () => {
-    return (
-      <LinkButton>
-        <Link href="/login">
-          <InputRounded /> Login
-        </Link>
-      </LinkButton>
-    );
+    if (!isLogged)
+      return (
+        <LinkButton>
+          <Link href="/login">
+            <InputRounded /> Login
+          </Link>
+        </LinkButton>
+      );
   };
 
   return (
