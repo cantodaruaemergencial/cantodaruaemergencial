@@ -12,6 +12,7 @@ import TotalListCard from '#/components/TotalListCard/TotalListCard';
 import { useAuthState } from '#/packages/auth/auth-context';
 import DashboardService from '#/services/DashboardService';
 import { DashboardData } from '#/types/Dashboard';
+import { returnBasePathDependingOnEnv } from '#/utils/deploy';
 
 const Logo = styled(Avatar)`
   && {
@@ -174,7 +175,7 @@ const DashboardPage = (): ReactElement => {
   const renderLoginButton = () => {
     if (!isLogged)
       return (
-        <Link href="/login">
+        <Link href={`${returnBasePathDependingOnEnv()}/login`}>
           <LinkButton>
             <InputRounded /> Login
           </LinkButton>
