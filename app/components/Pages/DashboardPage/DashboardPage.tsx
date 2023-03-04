@@ -32,22 +32,17 @@ const Title = styled.span`
 const LinkButton = styled.button`
   && {
     width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     padding: 8px 16px;
     font-size: 1.25rem;
     font-weight: 700;
+    color: #fff;
     background-color: #563727;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-
-    a {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 100%;
-      color: #fff;
-      text-decoration: none;
-    }
 
     @media screen and (max-width: 960px) {
       width: 200px;
@@ -179,11 +174,11 @@ const DashboardPage = (): ReactElement => {
   const renderLoginButton = () => {
     if (!isLogged)
       return (
-        <LinkButton>
-          <Link href="/login">
+        <Link href="/login">
+          <LinkButton>
             <InputRounded /> Login
-          </Link>
-        </LinkButton>
+          </LinkButton>
+        </Link>
       );
   };
 
