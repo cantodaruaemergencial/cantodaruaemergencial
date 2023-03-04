@@ -5,13 +5,18 @@ import styled from 'styled-components';
 
 const Header = withTheme(styled.header`
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   flex: 0 0 auto;
   margin: 2.5rem 0 2rem;
 
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    flex-direction: column;
+  }
+
   ${({ theme }) => theme.breakpoints.down('xs')} {
-    margin: 2rem 0 1.5rem;
+    margin: 2rem 0 2rem;
   }
 `);
 

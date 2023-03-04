@@ -1,5 +1,5 @@
 import { Avatar, Box, Container, withTheme, Link } from '@material-ui/core';
-import { Instagram, Facebook } from '@material-ui/icons';
+import { Instagram, Facebook, InputRounded } from '@material-ui/icons';
 import { ReactElement, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -26,6 +26,30 @@ const Title = styled.span`
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
+  }
+`;
+
+const LinkButton = styled.button`
+  && {
+    width: 150px;
+    padding: 8px 16px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-color: #563727;
+    border-radius: 5px;
+
+    a {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 960px) {
+      width: 200px;
+    }
   }
 `;
 
@@ -150,9 +174,19 @@ const DashboardPage = (): ReactElement => {
     );
   };
 
+  const renderLoginButton = () => {
+    return (
+      <LinkButton>
+        <Link href="/login">
+          <InputRounded /> Login
+        </Link>
+      </LinkButton>
+    );
+  };
+
   return (
     <Container>
-      <PageHeader title={renderTitle()} />
+      <PageHeader title={renderTitle()} sideComponent={renderLoginButton()} />
       <DashboardContainer>
         <People {...people} primary alignCenter />
         <Entrances {...entrances} />
