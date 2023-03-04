@@ -37,6 +37,8 @@ const LinkButton = styled.button`
     font-weight: 700;
     background-color: #563727;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
 
     a {
       display: flex;
