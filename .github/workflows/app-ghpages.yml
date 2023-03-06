@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPO_NAME: "cantodaruaemergencial"
+      GITHUB_ACTIONS: true
+      GITHUB_REPOSITORY: "cantodaruaemergencial"
 
     steps:
       - uses: actions/checkout@v3

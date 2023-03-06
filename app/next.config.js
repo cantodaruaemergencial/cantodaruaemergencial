@@ -30,6 +30,10 @@ const {
 
 module.exports = withPWA({
   basePath,
+  reactStrictMode: false,
+  compiler: {
+    styledComponents: true,
+  },
   // other next config
   // environment variable
   env: {

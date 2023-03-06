@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import Card from './Card';
 
 import { useAuthMethods, useAuthState } from '#/packages/auth/auth-context';
+import Link from 'next/link';
 
 const Container = styled(MuiContainer)`
   && {
@@ -43,6 +44,12 @@ const Logo = styled(Avatar)`
     height: 8rem;
     margin: 3rem auto;
   }
+`;
+
+const BackLabelText = styled.p`
+  font-size: 0.875rem;
+  color: '#706e6e';
+  text-align: center;
 `;
 
 const LoginPage = (): ReactElement => {
@@ -94,6 +101,9 @@ const LoginPage = (): ReactElement => {
           <Button variant="outlined" type="submit" disabled={isLoading}>
             Login
           </Button>
+          <BackLabelText>
+            <Link href="/">Voltar para Dashboard</Link>
+          </BackLabelText>
         </Form>
       </Card>
     </Container>

@@ -2,6 +2,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React, { ReactElement } from 'react';
 
 import DefaultTheme from '#/utils/theme';
+import { ServerStyleSheets } from '@material-ui/styles';
 
 const pwaMetaData = (
   <>
@@ -69,7 +70,7 @@ const pwaMetaData = (
   </>
 );
 
-class TheDocument extends Document {
+class MyDocument extends Document {
   render(): ReactElement {
     return (
       <Html lang="en">
@@ -89,4 +90,24 @@ class TheDocument extends Document {
   }
 }
 
-export default TheDocument;
+MyDocument.getInitialProps = async (ctx) => {
+  const sheets = new ServerStyleSheets();
+  const originalRenderPage = ctx.renderPage;
+
+  ctx.renderPage = () =>
+    originalRenderPage({
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+    });
+
+  const initialProps = await Document.getInitialProps(ctx);
+
+  return {
+    ...initialProps,
+    styles: [
+      ...React.Children.toArray(initialProps.styles),
+      sheets.getStyleElement(),
+    ],
+  };
+};
+
+export default MyDocument;

@@ -175,7 +175,7 @@ const DashboardPage = (): ReactElement => {
   const renderLoginButton = () => {
     if (!isLogged)
       return (
-        <Link href={`${returnBasePathDependingOnEnv()}/login`}>
+        <Link href="/login">
           <LinkButton>
             <InputRounded /> Login
           </LinkButton>
