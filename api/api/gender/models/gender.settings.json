@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "genders",
   "info": {
-    "name": "Gender"
+    "name": "gender"
   },
   "options": {
     "increments": true,
@@ -10,8 +10,10 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Gender": {
-      "type": "string"
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

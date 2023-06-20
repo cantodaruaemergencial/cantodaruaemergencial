@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/family-references",
+      "handler": "family-reference.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/family-references/count",
+      "handler": "family-reference.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/family-references/:id",
+      "handler": "family-reference.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/family-references",
+      "handler": "family-reference.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/family-references/:id",
+      "handler": "family-reference.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/family-references/:id",
+      "handler": "family-reference.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

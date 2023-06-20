@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "safeties",
+  "info": {
+    "name": "Safety"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "quantity_victim_of_crimes_against_property_last_three_months": {
+      "type": "integer"
+    },
+    "quantity_victim_of_crimes_against_person_last_three_months": {
+      "type": "integer"
+    },
+    "quantity_victim_of_institutional_violence_last_three_months": {
+      "type": "integer"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "volunteer": {
+      "model": "volunteer"
+    },
+    "person": {
+      "model": "person"
+    }
+  }
+}

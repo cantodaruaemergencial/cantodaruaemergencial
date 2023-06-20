@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_types",
+  "info": {
+    "name": "WorkType"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

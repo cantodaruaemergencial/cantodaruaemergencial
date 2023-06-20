@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sexual-orientations",
+      "handler": "sexual-orientation.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sexual-orientations/count",
+      "handler": "sexual-orientation.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sexual-orientations/:id",
+      "handler": "sexual-orientation.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/sexual-orientations",
+      "handler": "sexual-orientation.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sexual-orientations/:id",
+      "handler": "sexual-orientation.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sexual-orientations/:id",
+      "handler": "sexual-orientation.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

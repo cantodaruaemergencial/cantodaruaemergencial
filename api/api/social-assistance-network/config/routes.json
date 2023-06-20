@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/social-assistance-networks",
+      "handler": "social-assistance-network.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/social-assistance-networks/count",
+      "handler": "social-assistance-network.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/social-assistance-networks/:id",
+      "handler": "social-assistance-network.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/social-assistance-networks",
+      "handler": "social-assistance-network.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/social-assistance-networks/:id",
+      "handler": "social-assistance-network.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/social-assistance-networks/:id",
+      "handler": "social-assistance-network.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

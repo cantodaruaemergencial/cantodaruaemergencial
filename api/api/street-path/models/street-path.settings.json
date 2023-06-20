@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "street_paths",
+  "info": {
+    "name": "StreetPath"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "time_homeless": {
+      "type": "integer"
+    },
+    "homeless_reason": {
+      "type": "text"
+    },
+    "had_any_family_ties_interrupted_quantity": {
+      "type": "integer"
+    },
+    "already_been_in_shelter_quantity_months": {
+      "type": "integer"
+    },
+    "already_been_in_hostel_quantity_months": {
+      "type": "integer"
+    },
+    "time_lived_in_bh_months": {
+      "type": "integer"
+    },
+    "lived_on_streets_in_another_city": {
+      "type": "text"
+    },
+    "any_family_member_have_been_homeless": {
+      "type": "text"
+    },
+    "reason_past_street_path_unemployment": {
+      "type": "boolean"
+    },
+    "reason_past_street_path_family_problems": {
+      "type": "boolean"
+    },
+    "reason_past_street_path_drugs": {
+      "type": "boolean"
+    },
+    "reason_past_street_path_comment": {
+      "type": "text"
+    },
+    "time_past_street_path": {
+      "type": "integer"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "person": {
+      "model": "person"
+    },
+    "volunteer": {
+      "model": "volunteer"
+    }
+  }
+}

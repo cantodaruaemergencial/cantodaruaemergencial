@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_sectors",
+  "info": {
+    "name": "WorkSector"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

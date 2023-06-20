@@ -41,193 +41,666 @@ type UserPermissionsPasswordPayload {
   ok: Boolean!
 }
 
-type Benefit {
+type Culture {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  benefit: String
+  exercises_practiced: String
+  exercises_quantity_by_week: Int
+  know_some_cultural_place: Boolean
+  usually_go_to_some_culture_place: Boolean
+  went_somewhere_place_last_twelve_months: Boolean
+  has_reading_habitat: Boolean
+  has_listening_music_habitat: Boolean
+  has_drawing_habit: Boolean
+  other_habit: String
+  volunteer: Volunteer
+  person: Person
   published_at: DateTime
 }
 
-type BenefitConnection {
-  values: [Benefit]
-  groupBy: BenefitGroupBy
-  aggregate: BenefitAggregator
+type CultureConnection {
+  values: [Culture]
+  groupBy: CultureGroupBy
+  aggregate: CultureAggregator
 }
 
-type BenefitAggregator {
+type CultureAggregator {
+  count: Int
+  totalCount: Int
+  sum: CultureAggregatorSum
+  avg: CultureAggregatorAvg
+  min: CultureAggregatorMin
+  max: CultureAggregatorMax
+}
+
+type CultureAggregatorSum {
+  exercises_quantity_by_week: Float
+}
+
+type CultureAggregatorAvg {
+  exercises_quantity_by_week: Float
+}
+
+type CultureAggregatorMin {
+  exercises_quantity_by_week: Float
+}
+
+type CultureAggregatorMax {
+  exercises_quantity_by_week: Float
+}
+
+type CultureGroupBy {
+  id: [CultureConnectionId]
+  created_at: [CultureConnectionCreated_at]
+  updated_at: [CultureConnectionUpdated_at]
+  exercises_practiced: [CultureConnectionExercises_practiced]
+  exercises_quantity_by_week: [CultureConnectionExercises_quantity_by_week]
+  know_some_cultural_place: [CultureConnectionKnow_some_cultural_place]
+  usually_go_to_some_culture_place: [CultureConnectionUsually_go_to_some_culture_place]
+  went_somewhere_place_last_twelve_months: [CultureConnectionWent_somewhere_place_last_twelve_months]
+  has_reading_habitat: [CultureConnectionHas_reading_habitat]
+  has_listening_music_habitat: [CultureConnectionHas_listening_music_habitat]
+  has_drawing_habit: [CultureConnectionHas_drawing_habit]
+  other_habit: [CultureConnectionOther_habit]
+  volunteer: [CultureConnectionVolunteer]
+  person: [CultureConnectionPerson]
+  published_at: [CultureConnectionPublished_at]
+}
+
+type CultureConnectionId {
+  key: ID
+  connection: CultureConnection
+}
+
+type CultureConnectionCreated_at {
+  key: DateTime
+  connection: CultureConnection
+}
+
+type CultureConnectionUpdated_at {
+  key: DateTime
+  connection: CultureConnection
+}
+
+type CultureConnectionExercises_practiced {
+  key: String
+  connection: CultureConnection
+}
+
+type CultureConnectionExercises_quantity_by_week {
+  key: Int
+  connection: CultureConnection
+}
+
+type CultureConnectionKnow_some_cultural_place {
+  key: Boolean
+  connection: CultureConnection
+}
+
+type CultureConnectionUsually_go_to_some_culture_place {
+  key: Boolean
+  connection: CultureConnection
+}
+
+type CultureConnectionWent_somewhere_place_last_twelve_months {
+  key: Boolean
+  connection: CultureConnection
+}
+
+type CultureConnectionHas_reading_habitat {
+  key: Boolean
+  connection: CultureConnection
+}
+
+type CultureConnectionHas_listening_music_habitat {
+  key: Boolean
+  connection: CultureConnection
+}
+
+type CultureConnectionHas_drawing_habit {
+  key: Boolean
+  connection: CultureConnection
+}
+
+type CultureConnectionOther_habit {
+  key: String
+  connection: CultureConnection
+}
+
+type CultureConnectionVolunteer {
+  key: ID
+  connection: CultureConnection
+}
+
+type CultureConnectionPerson {
+  key: ID
+  connection: CultureConnection
+}
+
+type CultureConnectionPublished_at {
+  key: DateTime
+  connection: CultureConnection
+}
+
+input CultureInput {
+  exercises_practiced: String
+  exercises_quantity_by_week: Int
+  know_some_cultural_place: Boolean
+  usually_go_to_some_culture_place: Boolean
+  went_somewhere_place_last_twelve_months: Boolean
+  has_reading_habitat: Boolean
+  has_listening_music_habitat: Boolean
+  has_drawing_habit: Boolean
+  other_habit: String
+  volunteer: ID
+  person: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editCultureInput {
+  exercises_practiced: String
+  exercises_quantity_by_week: Int
+  know_some_cultural_place: Boolean
+  usually_go_to_some_culture_place: Boolean
+  went_somewhere_place_last_twelve_months: Boolean
+  has_reading_habitat: Boolean
+  has_listening_music_habitat: Boolean
+  has_drawing_habit: Boolean
+  other_habit: String
+  volunteer: ID
+  person: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createCultureInput {
+  data: CultureInput
+}
+
+type createCulturePayload {
+  culture: Culture
+}
+
+input updateCultureInput {
+  where: InputID
+  data: editCultureInput
+}
+
+type updateCulturePayload {
+  culture: Culture
+}
+
+input deleteCultureInput {
+  where: InputID
+}
+
+type deleteCulturePayload {
+  culture: Culture
+}
+
+type DrugsOften {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  published_at: DateTime
+}
+
+type DrugsOftenConnection {
+  values: [DrugsOften]
+  groupBy: DrugsOftenGroupBy
+  aggregate: DrugsOftenAggregator
+}
+
+type DrugsOftenAggregator {
   count: Int
   totalCount: Int
 }
 
-type BenefitGroupBy {
-  id: [BenefitConnectionId]
-  created_at: [BenefitConnectionCreated_at]
-  updated_at: [BenefitConnectionUpdated_at]
-  benefit: [BenefitConnectionBenefit]
-  published_at: [BenefitConnectionPublished_at]
+type DrugsOftenGroupBy {
+  id: [DrugsOftenConnectionId]
+  created_at: [DrugsOftenConnectionCreated_at]
+  updated_at: [DrugsOftenConnectionUpdated_at]
+  name: [DrugsOftenConnectionName]
+  published_at: [DrugsOftenConnectionPublished_at]
 }
 
-type BenefitConnectionId {
+type DrugsOftenConnectionId {
   key: ID
-  connection: BenefitConnection
+  connection: DrugsOftenConnection
 }
 
-type BenefitConnectionCreated_at {
+type DrugsOftenConnectionCreated_at {
   key: DateTime
-  connection: BenefitConnection
+  connection: DrugsOftenConnection
 }
 
-type BenefitConnectionUpdated_at {
+type DrugsOftenConnectionUpdated_at {
   key: DateTime
-  connection: BenefitConnection
+  connection: DrugsOftenConnection
 }
 
-type BenefitConnectionBenefit {
+type DrugsOftenConnectionName {
   key: String
-  connection: BenefitConnection
+  connection: DrugsOftenConnection
 }
 
-type BenefitConnectionPublished_at {
+type DrugsOftenConnectionPublished_at {
   key: DateTime
-  connection: BenefitConnection
+  connection: DrugsOftenConnection
 }
 
-input BenefitInput {
-  benefit: String
+input DrugsOftenInput {
+  name: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input editBenefitInput {
-  benefit: String
+input editDrugsOftenInput {
+  name: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input createBenefitInput {
-  data: BenefitInput
+input createDrugsOftenInput {
+  data: DrugsOftenInput
 }
 
-type createBenefitPayload {
-  benefit: Benefit
+type createDrugsOftenPayload {
+  drugsOften: DrugsOften
 }
 
-input updateBenefitInput {
+input updateDrugsOftenInput {
   where: InputID
-  data: editBenefitInput
+  data: editDrugsOftenInput
 }
 
-type updateBenefitPayload {
-  benefit: Benefit
+type updateDrugsOftenPayload {
+  drugsOften: DrugsOften
 }
 
-input deleteBenefitInput {
+input deleteDrugsOftenInput {
   where: InputID
 }
 
-type deleteBenefitPayload {
-  benefit: Benefit
+type deleteDrugsOftenPayload {
+  drugsOften: DrugsOften
 }
 
-type ExternalService {
+type EducationDegreeOptions {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  ExternalService: String!
+  name: String!
   published_at: DateTime
 }
 
-type ExternalServiceConnection {
-  values: [ExternalService]
-  groupBy: ExternalServiceGroupBy
-  aggregate: ExternalServiceAggregator
+type EducationDegreeOptionsConnection {
+  values: [EducationDegreeOptions]
+  groupBy: EducationDegreeOptionsGroupBy
+  aggregate: EducationDegreeOptionsAggregator
 }
 
-type ExternalServiceAggregator {
+type EducationDegreeOptionsAggregator {
   count: Int
   totalCount: Int
 }
 
-type ExternalServiceGroupBy {
-  id: [ExternalServiceConnectionId]
-  created_at: [ExternalServiceConnectionCreated_at]
-  updated_at: [ExternalServiceConnectionUpdated_at]
-  ExternalService: [ExternalServiceConnectionExternalService]
-  published_at: [ExternalServiceConnectionPublished_at]
+type EducationDegreeOptionsGroupBy {
+  id: [EducationDegreeOptionsConnectionId]
+  created_at: [EducationDegreeOptionsConnectionCreated_at]
+  updated_at: [EducationDegreeOptionsConnectionUpdated_at]
+  name: [EducationDegreeOptionsConnectionName]
+  published_at: [EducationDegreeOptionsConnectionPublished_at]
 }
 
-type ExternalServiceConnectionId {
+type EducationDegreeOptionsConnectionId {
   key: ID
-  connection: ExternalServiceConnection
+  connection: EducationDegreeOptionsConnection
 }
 
-type ExternalServiceConnectionCreated_at {
+type EducationDegreeOptionsConnectionCreated_at {
   key: DateTime
-  connection: ExternalServiceConnection
+  connection: EducationDegreeOptionsConnection
 }
 
-type ExternalServiceConnectionUpdated_at {
+type EducationDegreeOptionsConnectionUpdated_at {
   key: DateTime
-  connection: ExternalServiceConnection
+  connection: EducationDegreeOptionsConnection
 }
 
-type ExternalServiceConnectionExternalService {
+type EducationDegreeOptionsConnectionName {
   key: String
-  connection: ExternalServiceConnection
+  connection: EducationDegreeOptionsConnection
 }
 
-type ExternalServiceConnectionPublished_at {
+type EducationDegreeOptionsConnectionPublished_at {
   key: DateTime
-  connection: ExternalServiceConnection
+  connection: EducationDegreeOptionsConnection
 }
 
-input ExternalServiceInput {
-  ExternalService: String!
+input EducationDegreeOptionInput {
+  name: String!
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input editExternalServiceInput {
-  ExternalService: String
+input editEducationDegreeOptionInput {
+  name: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input createExternalServiceInput {
-  data: ExternalServiceInput
+input createEducationDegreeOptionInput {
+  data: EducationDegreeOptionInput
 }
 
-type createExternalServicePayload {
-  externalService: ExternalService
+type createEducationDegreeOptionPayload {
+  educationDegreeOption: EducationDegreeOptions
 }
 
-input updateExternalServiceInput {
+input updateEducationDegreeOptionInput {
   where: InputID
-  data: editExternalServiceInput
+  data: editEducationDegreeOptionInput
 }
 
-type updateExternalServicePayload {
-  externalService: ExternalService
+type updateEducationDegreeOptionPayload {
+  educationDegreeOption: EducationDegreeOptions
 }
 
-input deleteExternalServiceInput {
+input deleteEducationDegreeOptionInput {
   where: InputID
 }
 
-type deleteExternalServicePayload {
-  externalService: ExternalService
+type deleteEducationDegreeOptionPayload {
+  educationDegreeOption: EducationDegreeOptions
+}
+
+type Education {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  is_currently_studying: Boolean!
+  study_degree: EducationDegreeOptions
+  is_interested_returning_study: Boolean!
+  has_extra_course: Boolean!
+  is_interested_doing_some_course: Boolean!
+  desired_extra_course: String
+  person: Person
+  volunteer: Volunteer
+  published_at: DateTime
+}
+
+type EducationConnection {
+  values: [Education]
+  groupBy: EducationGroupBy
+  aggregate: EducationAggregator
+}
+
+type EducationAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type EducationGroupBy {
+  id: [EducationConnectionId]
+  created_at: [EducationConnectionCreated_at]
+  updated_at: [EducationConnectionUpdated_at]
+  is_currently_studying: [EducationConnectionIs_currently_studying]
+  study_degree: [EducationConnectionStudy_degree]
+  is_interested_returning_study: [EducationConnectionIs_interested_returning_study]
+  has_extra_course: [EducationConnectionHas_extra_course]
+  is_interested_doing_some_course: [EducationConnectionIs_interested_doing_some_course]
+  desired_extra_course: [EducationConnectionDesired_extra_course]
+  person: [EducationConnectionPerson]
+  volunteer: [EducationConnectionVolunteer]
+  published_at: [EducationConnectionPublished_at]
+}
+
+type EducationConnectionId {
+  key: ID
+  connection: EducationConnection
+}
+
+type EducationConnectionCreated_at {
+  key: DateTime
+  connection: EducationConnection
+}
+
+type EducationConnectionUpdated_at {
+  key: DateTime
+  connection: EducationConnection
+}
+
+type EducationConnectionIs_currently_studying {
+  key: Boolean
+  connection: EducationConnection
+}
+
+type EducationConnectionStudy_degree {
+  key: ID
+  connection: EducationConnection
+}
+
+type EducationConnectionIs_interested_returning_study {
+  key: Boolean
+  connection: EducationConnection
+}
+
+type EducationConnectionHas_extra_course {
+  key: Boolean
+  connection: EducationConnection
+}
+
+type EducationConnectionIs_interested_doing_some_course {
+  key: Boolean
+  connection: EducationConnection
+}
+
+type EducationConnectionDesired_extra_course {
+  key: String
+  connection: EducationConnection
+}
+
+type EducationConnectionPerson {
+  key: ID
+  connection: EducationConnection
+}
+
+type EducationConnectionVolunteer {
+  key: ID
+  connection: EducationConnection
+}
+
+type EducationConnectionPublished_at {
+  key: DateTime
+  connection: EducationConnection
+}
+
+input EducationInput {
+  is_currently_studying: Boolean!
+  study_degree: ID
+  is_interested_returning_study: Boolean!
+  has_extra_course: Boolean!
+  is_interested_doing_some_course: Boolean!
+  desired_extra_course: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editEducationInput {
+  is_currently_studying: Boolean
+  study_degree: ID
+  is_interested_returning_study: Boolean
+  has_extra_course: Boolean
+  is_interested_doing_some_course: Boolean
+  desired_extra_course: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createEducationInput {
+  data: EducationInput
+}
+
+type createEducationPayload {
+  education: Education
+}
+
+input updateEducationInput {
+  where: InputID
+  data: editEducationInput
+}
+
+type updateEducationPayload {
+  education: Education
+}
+
+input deleteEducationInput {
+  where: InputID
+}
+
+type deleteEducationPayload {
+  education: Education
+}
+
+type FamilyReference {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  description: String
+  comment: String
+  person: Person
+  volunteer: Volunteer
+  published_at: DateTime
+}
+
+type FamilyReferenceConnection {
+  values: [FamilyReference]
+  groupBy: FamilyReferenceGroupBy
+  aggregate: FamilyReferenceAggregator
+}
+
+type FamilyReferenceAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type FamilyReferenceGroupBy {
+  id: [FamilyReferenceConnectionId]
+  created_at: [FamilyReferenceConnectionCreated_at]
+  updated_at: [FamilyReferenceConnectionUpdated_at]
+  description: [FamilyReferenceConnectionDescription]
+  comment: [FamilyReferenceConnectionComment]
+  person: [FamilyReferenceConnectionPerson]
+  volunteer: [FamilyReferenceConnectionVolunteer]
+  published_at: [FamilyReferenceConnectionPublished_at]
+}
+
+type FamilyReferenceConnectionId {
+  key: ID
+  connection: FamilyReferenceConnection
+}
+
+type FamilyReferenceConnectionCreated_at {
+  key: DateTime
+  connection: FamilyReferenceConnection
+}
+
+type FamilyReferenceConnectionUpdated_at {
+  key: DateTime
+  connection: FamilyReferenceConnection
+}
+
+type FamilyReferenceConnectionDescription {
+  key: String
+  connection: FamilyReferenceConnection
+}
+
+type FamilyReferenceConnectionComment {
+  key: String
+  connection: FamilyReferenceConnection
+}
+
+type FamilyReferenceConnectionPerson {
+  key: ID
+  connection: FamilyReferenceConnection
+}
+
+type FamilyReferenceConnectionVolunteer {
+  key: ID
+  connection: FamilyReferenceConnection
+}
+
+type FamilyReferenceConnectionPublished_at {
+  key: DateTime
+  connection: FamilyReferenceConnection
+}
+
+input FamilyReferenceInput {
+  description: String
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editFamilyReferenceInput {
+  description: String
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createFamilyReferenceInput {
+  data: FamilyReferenceInput
+}
+
+type createFamilyReferencePayload {
+  familyReference: FamilyReference
+}
+
+input updateFamilyReferenceInput {
+  where: InputID
+  data: editFamilyReferenceInput
+}
+
+type updateFamilyReferencePayload {
+  familyReference: FamilyReference
+}
+
+input deleteFamilyReferenceInput {
+  where: InputID
+}
+
+type deleteFamilyReferencePayload {
+  familyReference: FamilyReference
 }
 
 type Gender {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  Gender: String
+  name: String!
   published_at: DateTime
 }
 
@@ -246,7 +719,7 @@ type GenderGroupBy {
   id: [GenderConnectionId]
   created_at: [GenderConnectionCreated_at]
   updated_at: [GenderConnectionUpdated_at]
-  Gender: [GenderConnectionGender]
+  name: [GenderConnectionName]
   published_at: [GenderConnectionPublished_at]
 }
 
@@ -265,7 +738,7 @@ type GenderConnectionUpdated_at {
   connection: GenderConnection
 }
 
-type GenderConnectionGender {
+type GenderConnectionName {
   key: String
   connection: GenderConnection
 }
@@ -276,14 +749,14 @@ type GenderConnectionPublished_at {
 }
 
 input GenderInput {
-  Gender: String
+  name: String!
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
 input editGenderInput {
-  Gender: String
+  name: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -314,11 +787,911 @@ type deleteGenderPayload {
   gender: Gender
 }
 
+type HealthSituation {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  self_health_evaluation: String
+  date_last_medical_appointment: Date
+  date_last_medical_dentist: Date
+  use_medication_often: Boolean
+  medication_details: String
+  was_hospitalized_last_twelve_months: Boolean
+  hospitalized_reason: String
+  time_hospitalized_days: Int
+  did_any_surgery: String
+  has_vaccination_card: Boolean
+  is_updated_vaccination_covid19: Boolean
+  is_updated_vaccination_hepatite: Boolean
+  is_updated_vaccination_tetano: Boolean
+  is_updated_vaccination_influenza: Boolean
+  is_updated_vaccination_febre_amarela: Boolean
+  questions_regarding_physical_or_mental_health: String
+  do_some_follow_up: String
+  use_alcohol_or_other_drugs: String
+  drugs_often: DrugsOften
+  has_ever_been_admitted_to_therapeutic_community: String
+  need_dental_care: Boolean
+  describe_dental_care: String
+  need_psychological_care: Boolean
+  describe_psychological_care: String
+  need_psychiatric_care: Boolean
+  describe_psychiatric_care: String
+  other_specific_care: String
+  has_any_disabilities: String
+  describe_need_special_equipment: String
+  has_any_comorbidities_hipertensao: Boolean
+  has_any_comorbidities_diabetes: Boolean
+  has_any_comorbidities_cardiovascular_problem: Boolean
+  has_any_comorbidities_depression: Boolean
+  has_any_comorbidities_asma: Boolean
+  has_any_comorbidities_cancer: Boolean
+  has_any_comorbidities_none: Boolean
+  has_any_comorbidities_other: String
+  man_health_last_prostate_exam_date: Date
+  man_health_last_ist_exam_date: Date
+  woman_health_last_preventive_exam_date: Date
+  woman_health_last_mammography_exam_date: Date
+  woman_health_last_gynecological_consultation_exam_date: Date
+  woman_health_suspected_pregnancy_week_quantity: Int
+  woman_health_use_some_contraceptive_method: Boolean
+  use_condom: Boolean
+  comment: String
+  person: Person
+  volunteer: Volunteer
+  published_at: DateTime
+}
+
+type HealthSituationConnection {
+  values: [HealthSituation]
+  groupBy: HealthSituationGroupBy
+  aggregate: HealthSituationAggregator
+}
+
+type HealthSituationAggregator {
+  count: Int
+  totalCount: Int
+  sum: HealthSituationAggregatorSum
+  avg: HealthSituationAggregatorAvg
+  min: HealthSituationAggregatorMin
+  max: HealthSituationAggregatorMax
+}
+
+type HealthSituationAggregatorSum {
+  time_hospitalized_days: Float
+  woman_health_suspected_pregnancy_week_quantity: Float
+}
+
+type HealthSituationAggregatorAvg {
+  time_hospitalized_days: Float
+  woman_health_suspected_pregnancy_week_quantity: Float
+}
+
+type HealthSituationAggregatorMin {
+  time_hospitalized_days: Float
+  woman_health_suspected_pregnancy_week_quantity: Float
+}
+
+type HealthSituationAggregatorMax {
+  time_hospitalized_days: Float
+  woman_health_suspected_pregnancy_week_quantity: Float
+}
+
+type HealthSituationGroupBy {
+  id: [HealthSituationConnectionId]
+  created_at: [HealthSituationConnectionCreated_at]
+  updated_at: [HealthSituationConnectionUpdated_at]
+  self_health_evaluation: [HealthSituationConnectionSelf_health_evaluation]
+  date_last_medical_appointment: [HealthSituationConnectionDate_last_medical_appointment]
+  date_last_medical_dentist: [HealthSituationConnectionDate_last_medical_dentist]
+  use_medication_often: [HealthSituationConnectionUse_medication_often]
+  medication_details: [HealthSituationConnectionMedication_details]
+  was_hospitalized_last_twelve_months: [HealthSituationConnectionWas_hospitalized_last_twelve_months]
+  hospitalized_reason: [HealthSituationConnectionHospitalized_reason]
+  time_hospitalized_days: [HealthSituationConnectionTime_hospitalized_days]
+  did_any_surgery: [HealthSituationConnectionDid_any_surgery]
+  has_vaccination_card: [HealthSituationConnectionHas_vaccination_card]
+  is_updated_vaccination_covid19: [HealthSituationConnectionIs_updated_vaccination_covid19]
+  is_updated_vaccination_hepatite: [HealthSituationConnectionIs_updated_vaccination_hepatite]
+  is_updated_vaccination_tetano: [HealthSituationConnectionIs_updated_vaccination_tetano]
+  is_updated_vaccination_influenza: [HealthSituationConnectionIs_updated_vaccination_influenza]
+  is_updated_vaccination_febre_amarela: [HealthSituationConnectionIs_updated_vaccination_febre_amarela]
+  questions_regarding_physical_or_mental_health: [HealthSituationConnectionQuestions_regarding_physical_or_mental_health]
+  do_some_follow_up: [HealthSituationConnectionDo_some_follow_up]
+  use_alcohol_or_other_drugs: [HealthSituationConnectionUse_alcohol_or_other_drugs]
+  drugs_often: [HealthSituationConnectionDrugs_often]
+  has_ever_been_admitted_to_therapeutic_community: [HealthSituationConnectionHas_ever_been_admitted_to_therapeutic_community]
+  need_dental_care: [HealthSituationConnectionNeed_dental_care]
+  describe_dental_care: [HealthSituationConnectionDescribe_dental_care]
+  need_psychological_care: [HealthSituationConnectionNeed_psychological_care]
+  describe_psychological_care: [HealthSituationConnectionDescribe_psychological_care]
+  need_psychiatric_care: [HealthSituationConnectionNeed_psychiatric_care]
+  describe_psychiatric_care: [HealthSituationConnectionDescribe_psychiatric_care]
+  other_specific_care: [HealthSituationConnectionOther_specific_care]
+  has_any_disabilities: [HealthSituationConnectionHas_any_disabilities]
+  describe_need_special_equipment: [HealthSituationConnectionDescribe_need_special_equipment]
+  has_any_comorbidities_hipertensao: [HealthSituationConnectionHas_any_comorbidities_hipertensao]
+  has_any_comorbidities_diabetes: [HealthSituationConnectionHas_any_comorbidities_diabetes]
+  has_any_comorbidities_cardiovascular_problem: [HealthSituationConnectionHas_any_comorbidities_cardiovascular_problem]
+  has_any_comorbidities_depression: [HealthSituationConnectionHas_any_comorbidities_depression]
+  has_any_comorbidities_asma: [HealthSituationConnectionHas_any_comorbidities_asma]
+  has_any_comorbidities_cancer: [HealthSituationConnectionHas_any_comorbidities_cancer]
+  has_any_comorbidities_none: [HealthSituationConnectionHas_any_comorbidities_none]
+  has_any_comorbidities_other: [HealthSituationConnectionHas_any_comorbidities_other]
+  man_health_last_prostate_exam_date: [HealthSituationConnectionMan_health_last_prostate_exam_date]
+  man_health_last_ist_exam_date: [HealthSituationConnectionMan_health_last_ist_exam_date]
+  woman_health_last_preventive_exam_date: [HealthSituationConnectionWoman_health_last_preventive_exam_date]
+  woman_health_last_mammography_exam_date: [HealthSituationConnectionWoman_health_last_mammography_exam_date]
+  woman_health_last_gynecological_consultation_exam_date: [HealthSituationConnectionWoman_health_last_gynecological_consultation_exam_date]
+  woman_health_suspected_pregnancy_week_quantity: [HealthSituationConnectionWoman_health_suspected_pregnancy_week_quantity]
+  woman_health_use_some_contraceptive_method: [HealthSituationConnectionWoman_health_use_some_contraceptive_method]
+  use_condom: [HealthSituationConnectionUse_condom]
+  comment: [HealthSituationConnectionComment]
+  person: [HealthSituationConnectionPerson]
+  volunteer: [HealthSituationConnectionVolunteer]
+  published_at: [HealthSituationConnectionPublished_at]
+}
+
+type HealthSituationConnectionId {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionCreated_at {
+  key: DateTime
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionUpdated_at {
+  key: DateTime
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionSelf_health_evaluation {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionDate_last_medical_appointment {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionDate_last_medical_dentist {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionUse_medication_often {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionMedication_details {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionWas_hospitalized_last_twelve_months {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHospitalized_reason {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionTime_hospitalized_days {
+  key: Int
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionDid_any_surgery {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_vaccination_card {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionIs_updated_vaccination_covid19 {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionIs_updated_vaccination_hepatite {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionIs_updated_vaccination_tetano {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionIs_updated_vaccination_influenza {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionIs_updated_vaccination_febre_amarela {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionQuestions_regarding_physical_or_mental_health {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionDo_some_follow_up {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionUse_alcohol_or_other_drugs {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionDrugs_often {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_ever_been_admitted_to_therapeutic_community {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionNeed_dental_care {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionDescribe_dental_care {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionNeed_psychological_care {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionDescribe_psychological_care {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionNeed_psychiatric_care {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionDescribe_psychiatric_care {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionOther_specific_care {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_any_disabilities {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionDescribe_need_special_equipment {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_any_comorbidities_hipertensao {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_any_comorbidities_diabetes {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_any_comorbidities_cardiovascular_problem {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_any_comorbidities_depression {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_any_comorbidities_asma {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_any_comorbidities_cancer {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_any_comorbidities_none {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionHas_any_comorbidities_other {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionMan_health_last_prostate_exam_date {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionMan_health_last_ist_exam_date {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionWoman_health_last_preventive_exam_date {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionWoman_health_last_mammography_exam_date {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionWoman_health_last_gynecological_consultation_exam_date {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionWoman_health_suspected_pregnancy_week_quantity {
+  key: Int
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionWoman_health_use_some_contraceptive_method {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionUse_condom {
+  key: Boolean
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionComment {
+  key: String
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionPerson {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionVolunteer {
+  key: ID
+  connection: HealthSituationConnection
+}
+
+type HealthSituationConnectionPublished_at {
+  key: DateTime
+  connection: HealthSituationConnection
+}
+
+input HealthSituationInput {
+  self_health_evaluation: String
+  date_last_medical_appointment: Date
+  date_last_medical_dentist: Date
+  use_medication_often: Boolean
+  medication_details: String
+  was_hospitalized_last_twelve_months: Boolean
+  hospitalized_reason: String
+  time_hospitalized_days: Int
+  did_any_surgery: String
+  has_vaccination_card: Boolean
+  is_updated_vaccination_covid19: Boolean
+  is_updated_vaccination_hepatite: Boolean
+  is_updated_vaccination_tetano: Boolean
+  is_updated_vaccination_influenza: Boolean
+  is_updated_vaccination_febre_amarela: Boolean
+  questions_regarding_physical_or_mental_health: String
+  do_some_follow_up: String
+  use_alcohol_or_other_drugs: String
+  drugs_often: ID
+  has_ever_been_admitted_to_therapeutic_community: String
+  need_dental_care: Boolean
+  describe_dental_care: String
+  need_psychological_care: Boolean
+  describe_psychological_care: String
+  need_psychiatric_care: Boolean
+  describe_psychiatric_care: String
+  other_specific_care: String
+  has_any_disabilities: String
+  describe_need_special_equipment: String
+  has_any_comorbidities_hipertensao: Boolean
+  has_any_comorbidities_diabetes: Boolean
+  has_any_comorbidities_cardiovascular_problem: Boolean
+  has_any_comorbidities_depression: Boolean
+  has_any_comorbidities_asma: Boolean
+  has_any_comorbidities_cancer: Boolean
+  has_any_comorbidities_none: Boolean
+  has_any_comorbidities_other: String
+  man_health_last_prostate_exam_date: Date
+  man_health_last_ist_exam_date: Date
+  woman_health_last_preventive_exam_date: Date
+  woman_health_last_mammography_exam_date: Date
+  woman_health_last_gynecological_consultation_exam_date: Date
+  woman_health_suspected_pregnancy_week_quantity: Int
+  woman_health_use_some_contraceptive_method: Boolean
+  use_condom: Boolean
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editHealthSituationInput {
+  self_health_evaluation: String
+  date_last_medical_appointment: Date
+  date_last_medical_dentist: Date
+  use_medication_often: Boolean
+  medication_details: String
+  was_hospitalized_last_twelve_months: Boolean
+  hospitalized_reason: String
+  time_hospitalized_days: Int
+  did_any_surgery: String
+  has_vaccination_card: Boolean
+  is_updated_vaccination_covid19: Boolean
+  is_updated_vaccination_hepatite: Boolean
+  is_updated_vaccination_tetano: Boolean
+  is_updated_vaccination_influenza: Boolean
+  is_updated_vaccination_febre_amarela: Boolean
+  questions_regarding_physical_or_mental_health: String
+  do_some_follow_up: String
+  use_alcohol_or_other_drugs: String
+  drugs_often: ID
+  has_ever_been_admitted_to_therapeutic_community: String
+  need_dental_care: Boolean
+  describe_dental_care: String
+  need_psychological_care: Boolean
+  describe_psychological_care: String
+  need_psychiatric_care: Boolean
+  describe_psychiatric_care: String
+  other_specific_care: String
+  has_any_disabilities: String
+  describe_need_special_equipment: String
+  has_any_comorbidities_hipertensao: Boolean
+  has_any_comorbidities_diabetes: Boolean
+  has_any_comorbidities_cardiovascular_problem: Boolean
+  has_any_comorbidities_depression: Boolean
+  has_any_comorbidities_asma: Boolean
+  has_any_comorbidities_cancer: Boolean
+  has_any_comorbidities_none: Boolean
+  has_any_comorbidities_other: String
+  man_health_last_prostate_exam_date: Date
+  man_health_last_ist_exam_date: Date
+  woman_health_last_preventive_exam_date: Date
+  woman_health_last_mammography_exam_date: Date
+  woman_health_last_gynecological_consultation_exam_date: Date
+  woman_health_suspected_pregnancy_week_quantity: Int
+  woman_health_use_some_contraceptive_method: Boolean
+  use_condom: Boolean
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createHealthSituationInput {
+  data: HealthSituationInput
+}
+
+type createHealthSituationPayload {
+  healthSituation: HealthSituation
+}
+
+input updateHealthSituationInput {
+  where: InputID
+  data: editHealthSituationInput
+}
+
+type updateHealthSituationPayload {
+  healthSituation: HealthSituation
+}
+
+input deleteHealthSituationInput {
+  where: InputID
+}
+
+type deleteHealthSituationPayload {
+  healthSituation: HealthSituation
+}
+
+type Infrastructure {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  has_access_to_clean_water: Boolean
+  has_access_to_adequate_toilets: Boolean
+  has_access_to_a_bed: Boolean
+  has_access_to_safety_spot: Boolean
+  place_of_stay_has_adequate_hygiene: Boolean
+  place_of_stay_has_adequate_structure: Boolean
+  place_of_stay_has_proximity_to_basic_services: Boolean
+  place_of_stay_has_adequate_sound_condition: Boolean
+  has_any_furniture: Boolean
+  comment: String
+  person: Person
+  volunteer: Volunteer
+  published_at: DateTime
+}
+
+type InfrastructureConnection {
+  values: [Infrastructure]
+  groupBy: InfrastructureGroupBy
+  aggregate: InfrastructureAggregator
+}
+
+type InfrastructureAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type InfrastructureGroupBy {
+  id: [InfrastructureConnectionId]
+  created_at: [InfrastructureConnectionCreated_at]
+  updated_at: [InfrastructureConnectionUpdated_at]
+  has_access_to_clean_water: [InfrastructureConnectionHas_access_to_clean_water]
+  has_access_to_adequate_toilets: [InfrastructureConnectionHas_access_to_adequate_toilets]
+  has_access_to_a_bed: [InfrastructureConnectionHas_access_to_a_bed]
+  has_access_to_safety_spot: [InfrastructureConnectionHas_access_to_safety_spot]
+  place_of_stay_has_adequate_hygiene: [InfrastructureConnectionPlace_of_stay_has_adequate_hygiene]
+  place_of_stay_has_adequate_structure: [InfrastructureConnectionPlace_of_stay_has_adequate_structure]
+  place_of_stay_has_proximity_to_basic_services: [InfrastructureConnectionPlace_of_stay_has_proximity_to_basic_services]
+  place_of_stay_has_adequate_sound_condition: [InfrastructureConnectionPlace_of_stay_has_adequate_sound_condition]
+  has_any_furniture: [InfrastructureConnectionHas_any_furniture]
+  comment: [InfrastructureConnectionComment]
+  person: [InfrastructureConnectionPerson]
+  volunteer: [InfrastructureConnectionVolunteer]
+  published_at: [InfrastructureConnectionPublished_at]
+}
+
+type InfrastructureConnectionId {
+  key: ID
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionCreated_at {
+  key: DateTime
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionUpdated_at {
+  key: DateTime
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionHas_access_to_clean_water {
+  key: Boolean
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionHas_access_to_adequate_toilets {
+  key: Boolean
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionHas_access_to_a_bed {
+  key: Boolean
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionHas_access_to_safety_spot {
+  key: Boolean
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionPlace_of_stay_has_adequate_hygiene {
+  key: Boolean
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionPlace_of_stay_has_adequate_structure {
+  key: Boolean
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionPlace_of_stay_has_proximity_to_basic_services {
+  key: Boolean
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionPlace_of_stay_has_adequate_sound_condition {
+  key: Boolean
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionHas_any_furniture {
+  key: Boolean
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionComment {
+  key: String
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionPerson {
+  key: ID
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionVolunteer {
+  key: ID
+  connection: InfrastructureConnection
+}
+
+type InfrastructureConnectionPublished_at {
+  key: DateTime
+  connection: InfrastructureConnection
+}
+
+input InfrastructureInput {
+  has_access_to_clean_water: Boolean
+  has_access_to_adequate_toilets: Boolean
+  has_access_to_a_bed: Boolean
+  has_access_to_safety_spot: Boolean
+  place_of_stay_has_adequate_hygiene: Boolean
+  place_of_stay_has_adequate_structure: Boolean
+  place_of_stay_has_proximity_to_basic_services: Boolean
+  place_of_stay_has_adequate_sound_condition: Boolean
+  has_any_furniture: Boolean
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editInfrastructureInput {
+  has_access_to_clean_water: Boolean
+  has_access_to_adequate_toilets: Boolean
+  has_access_to_a_bed: Boolean
+  has_access_to_safety_spot: Boolean
+  place_of_stay_has_adequate_hygiene: Boolean
+  place_of_stay_has_adequate_structure: Boolean
+  place_of_stay_has_proximity_to_basic_services: Boolean
+  place_of_stay_has_adequate_sound_condition: Boolean
+  has_any_furniture: Boolean
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createInfrastructureInput {
+  data: InfrastructureInput
+}
+
+type createInfrastructurePayload {
+  infrastructure: Infrastructure
+}
+
+input updateInfrastructureInput {
+  where: InputID
+  data: editInfrastructureInput
+}
+
+type updateInfrastructurePayload {
+  infrastructure: Infrastructure
+}
+
+input deleteInfrastructureInput {
+  where: InputID
+}
+
+type deleteInfrastructurePayload {
+  infrastructure: Infrastructure
+}
+
+type JudicialSituation {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  has_already_been_through_the_socioeducational_system: Boolean
+  has_already_been_through_the_prision_system: Boolean
+  has_an_active_lawsuit: Boolean
+  has_outstanding_writ_of_execution: Boolean
+  wear_anklet: Boolean
+  is_accompanied_by_a_defender: Boolean
+  is_this_follow_up_enough: Boolean
+  comment: String
+  volunteer: Volunteer
+  person: Person
+  published_at: DateTime
+}
+
+type JudicialSituationConnection {
+  values: [JudicialSituation]
+  groupBy: JudicialSituationGroupBy
+  aggregate: JudicialSituationAggregator
+}
+
+type JudicialSituationAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type JudicialSituationGroupBy {
+  id: [JudicialSituationConnectionId]
+  created_at: [JudicialSituationConnectionCreated_at]
+  updated_at: [JudicialSituationConnectionUpdated_at]
+  has_already_been_through_the_socioeducational_system: [JudicialSituationConnectionHas_already_been_through_the_socioeducational_system]
+  has_already_been_through_the_prision_system: [JudicialSituationConnectionHas_already_been_through_the_prision_system]
+  has_an_active_lawsuit: [JudicialSituationConnectionHas_an_active_lawsuit]
+  has_outstanding_writ_of_execution: [JudicialSituationConnectionHas_outstanding_writ_of_execution]
+  wear_anklet: [JudicialSituationConnectionWear_anklet]
+  is_accompanied_by_a_defender: [JudicialSituationConnectionIs_accompanied_by_a_defender]
+  is_this_follow_up_enough: [JudicialSituationConnectionIs_this_follow_up_enough]
+  comment: [JudicialSituationConnectionComment]
+  volunteer: [JudicialSituationConnectionVolunteer]
+  person: [JudicialSituationConnectionPerson]
+  published_at: [JudicialSituationConnectionPublished_at]
+}
+
+type JudicialSituationConnectionId {
+  key: ID
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionCreated_at {
+  key: DateTime
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionUpdated_at {
+  key: DateTime
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionHas_already_been_through_the_socioeducational_system {
+  key: Boolean
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionHas_already_been_through_the_prision_system {
+  key: Boolean
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionHas_an_active_lawsuit {
+  key: Boolean
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionHas_outstanding_writ_of_execution {
+  key: Boolean
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionWear_anklet {
+  key: Boolean
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionIs_accompanied_by_a_defender {
+  key: Boolean
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionIs_this_follow_up_enough {
+  key: Boolean
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionComment {
+  key: String
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionVolunteer {
+  key: ID
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionPerson {
+  key: ID
+  connection: JudicialSituationConnection
+}
+
+type JudicialSituationConnectionPublished_at {
+  key: DateTime
+  connection: JudicialSituationConnection
+}
+
+input JudicialSituationInput {
+  has_already_been_through_the_socioeducational_system: Boolean
+  has_already_been_through_the_prision_system: Boolean
+  has_an_active_lawsuit: Boolean
+  has_outstanding_writ_of_execution: Boolean
+  wear_anklet: Boolean
+  is_accompanied_by_a_defender: Boolean
+  is_this_follow_up_enough: Boolean
+  comment: String
+  volunteer: ID
+  person: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editJudicialSituationInput {
+  has_already_been_through_the_socioeducational_system: Boolean
+  has_already_been_through_the_prision_system: Boolean
+  has_an_active_lawsuit: Boolean
+  has_outstanding_writ_of_execution: Boolean
+  wear_anklet: Boolean
+  is_accompanied_by_a_defender: Boolean
+  is_this_follow_up_enough: Boolean
+  comment: String
+  volunteer: ID
+  person: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createJudicialSituationInput {
+  data: JudicialSituationInput
+}
+
+type createJudicialSituationPayload {
+  judicialSituation: JudicialSituation
+}
+
+input updateJudicialSituationInput {
+  where: InputID
+  data: editJudicialSituationInput
+}
+
+type updateJudicialSituationPayload {
+  judicialSituation: JudicialSituation
+}
+
+input deleteJudicialSituationInput {
+  where: InputID
+}
+
+type deleteJudicialSituationPayload {
+  judicialSituation: JudicialSituation
+}
+
 type MaritalStatus {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  MaritalStatus: String
+  name: String!
   published_at: DateTime
 }
 
@@ -337,7 +1710,7 @@ type MaritalStatusGroupBy {
   id: [MaritalStatusConnectionId]
   created_at: [MaritalStatusConnectionCreated_at]
   updated_at: [MaritalStatusConnectionUpdated_at]
-  MaritalStatus: [MaritalStatusConnectionMaritalStatus]
+  name: [MaritalStatusConnectionName]
   published_at: [MaritalStatusConnectionPublished_at]
 }
 
@@ -356,7 +1729,7 @@ type MaritalStatusConnectionUpdated_at {
   connection: MaritalStatusConnection
 }
 
-type MaritalStatusConnectionMaritalStatus {
+type MaritalStatusConnectionName {
   key: String
   connection: MaritalStatusConnection
 }
@@ -367,14 +1740,14 @@ type MaritalStatusConnectionPublished_at {
 }
 
 input MaritalStatusInput {
-  MaritalStatus: String
+  name: String!
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
 input editMaritalStatusInput {
-  MaritalStatus: String
+  name: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -405,150 +1778,43 @@ type deleteMaritalStatusPayload {
   maritalStatus: MaritalStatus
 }
 
-type PersonEntrance {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  person: Person
-  DateTime: DateTime!
-  published_at: DateTime
-}
-
-type PersonEntranceConnection {
-  values: [PersonEntrance]
-  groupBy: PersonEntranceGroupBy
-  aggregate: PersonEntranceAggregator
-}
-
-type PersonEntranceAggregator {
-  count: Int
-  totalCount: Int
-}
-
-type PersonEntranceGroupBy {
-  id: [PersonEntranceConnectionId]
-  created_at: [PersonEntranceConnectionCreated_at]
-  updated_at: [PersonEntranceConnectionUpdated_at]
-  person: [PersonEntranceConnectionPerson]
-  DateTime: [PersonEntranceConnectionDateTime]
-  published_at: [PersonEntranceConnectionPublished_at]
-}
-
-type PersonEntranceConnectionId {
-  key: ID
-  connection: PersonEntranceConnection
-}
-
-type PersonEntranceConnectionCreated_at {
-  key: DateTime
-  connection: PersonEntranceConnection
-}
-
-type PersonEntranceConnectionUpdated_at {
-  key: DateTime
-  connection: PersonEntranceConnection
-}
-
-type PersonEntranceConnectionPerson {
-  key: ID
-  connection: PersonEntranceConnection
-}
-
-type PersonEntranceConnectionDateTime {
-  key: DateTime
-  connection: PersonEntranceConnection
-}
-
-type PersonEntranceConnectionPublished_at {
-  key: DateTime
-  connection: PersonEntranceConnection
-}
-
-input PersonEntranceInput {
-  person: ID
-  DateTime: DateTime!
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editPersonEntranceInput {
-  person: ID
-  DateTime: DateTime
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input createPersonEntranceInput {
-  data: PersonEntranceInput
-}
-
-type createPersonEntrancePayload {
-  personEntrance: PersonEntrance
-}
-
-input updatePersonEntranceInput {
-  where: InputID
-  data: editPersonEntranceInput
-}
-
-type updatePersonEntrancePayload {
-  personEntrance: PersonEntrance
-}
-
-input deletePersonEntranceInput {
-  where: InputID
-}
-
-type deletePersonEntrancePayload {
-  personEntrance: PersonEntrance
-}
-
 type Person {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  Name: String
-  SocialName: String
-  MotherName: String
-  BirthDate: Date
-  BirthPlace: String
-  gender: Gender
-  GeneralRegister: String
-  Childrens: Int
-  HasHabitation: Boolean
-  HasEmergencyAid: Boolean
-  HasPbhBasket: Boolean
-  HasUniqueRegister: Boolean
-  HasGeneralRegister: Boolean
-  HasCpf: Boolean
-  Cpf: String
-  HasCtps: Boolean
-  HasBirthCertificate: Boolean
+  name: String!
+  social_name: String!
+  birth_date: Date!
+  mother_name: String!
+  father_name: String
+  birth_state: String!
+  nationality: String!
+  occupation: String!
+  email: String!
+  phone_number: String!
+  birth_document_number: String
+  wedding_document_number: String
+  rg_document_number: String
+  cpf_document_number: String
+  reservist_document_number: String
+  voter_registration_document_number: String
+  cnh_document_number: String
+  ctps_document_number: String
+  nis_document_number: String
+  caduni_document_number: String
+  has_govbr_registration: Boolean!
   marital_status: MaritalStatus
-  school_training: SchoolTraining
-  ReferenceLocation: String
-  Occupation: String
-  Profession: String
-  ContactPhone: String
-  ReferenceAddress: String
-  Observation: String
-  skin_color: SkinColor
-  CardNumber: String
-  Preferential: Boolean
-  HomelessSince: Date
-  HomelessTime: String
-  BirthPlaceState: String
-  BirthPlaceCity: String
-  Demands: String
-  Checked: Boolean
-  CheckedBy: String
-  CheckedAt: Date
+  self_declaration: SelfDeclaration
+  gender: Gender
+  sexual_orientation: SexualOrientation
+  child_quantity: Int
+  child_care_person: String
+  moradia_last_update: DateTime
+  pastoral_last_update: DateTime
+  empvidas_last_update: DateTime
+  comment: String
+  volunteer: Volunteer
   published_at: DateTime
-  services(sort: String, limit: Int, start: Int, where: JSON): [Service]
-  external_services(sort: String, limit: Int, start: Int, where: JSON): [ExternalService]
-  benefits(sort: String, limit: Int, start: Int, where: JSON): [Benefit]
 }
 
 type PersonConnection {
@@ -567,61 +1833,57 @@ type PersonAggregator {
 }
 
 type PersonAggregatorSum {
-  Childrens: Float
+  child_quantity: Float
 }
 
 type PersonAggregatorAvg {
-  Childrens: Float
+  child_quantity: Float
 }
 
 type PersonAggregatorMin {
-  Childrens: Float
+  child_quantity: Float
 }
 
 type PersonAggregatorMax {
-  Childrens: Float
+  child_quantity: Float
 }
 
 type PersonGroupBy {
   id: [PersonConnectionId]
   created_at: [PersonConnectionCreated_at]
   updated_at: [PersonConnectionUpdated_at]
-  Name: [PersonConnectionName]
-  SocialName: [PersonConnectionSocialName]
-  MotherName: [PersonConnectionMotherName]
-  BirthDate: [PersonConnectionBirthDate]
-  BirthPlace: [PersonConnectionBirthPlace]
-  gender: [PersonConnectionGender]
-  GeneralRegister: [PersonConnectionGeneralRegister]
-  Childrens: [PersonConnectionChildrens]
-  HasHabitation: [PersonConnectionHasHabitation]
-  HasEmergencyAid: [PersonConnectionHasEmergencyAid]
-  HasPbhBasket: [PersonConnectionHasPbhBasket]
-  HasUniqueRegister: [PersonConnectionHasUniqueRegister]
-  HasGeneralRegister: [PersonConnectionHasGeneralRegister]
-  HasCpf: [PersonConnectionHasCpf]
-  Cpf: [PersonConnectionCpf]
-  HasCtps: [PersonConnectionHasCtps]
-  HasBirthCertificate: [PersonConnectionHasBirthCertificate]
+  name: [PersonConnectionName]
+  social_name: [PersonConnectionSocial_name]
+  birth_date: [PersonConnectionBirth_date]
+  mother_name: [PersonConnectionMother_name]
+  father_name: [PersonConnectionFather_name]
+  birth_state: [PersonConnectionBirth_state]
+  nationality: [PersonConnectionNationality]
+  occupation: [PersonConnectionOccupation]
+  email: [PersonConnectionEmail]
+  phone_number: [PersonConnectionPhone_number]
+  birth_document_number: [PersonConnectionBirth_document_number]
+  wedding_document_number: [PersonConnectionWedding_document_number]
+  rg_document_number: [PersonConnectionRg_document_number]
+  cpf_document_number: [PersonConnectionCpf_document_number]
+  reservist_document_number: [PersonConnectionReservist_document_number]
+  voter_registration_document_number: [PersonConnectionVoter_registration_document_number]
+  cnh_document_number: [PersonConnectionCnh_document_number]
+  ctps_document_number: [PersonConnectionCtps_document_number]
+  nis_document_number: [PersonConnectionNis_document_number]
+  caduni_document_number: [PersonConnectionCaduni_document_number]
+  has_govbr_registration: [PersonConnectionHas_govbr_registration]
   marital_status: [PersonConnectionMarital_status]
-  school_training: [PersonConnectionSchool_training]
-  ReferenceLocation: [PersonConnectionReferenceLocation]
-  Occupation: [PersonConnectionOccupation]
-  Profession: [PersonConnectionProfession]
-  ContactPhone: [PersonConnectionContactPhone]
-  ReferenceAddress: [PersonConnectionReferenceAddress]
-  Observation: [PersonConnectionObservation]
-  skin_color: [PersonConnectionSkin_color]
-  CardNumber: [PersonConnectionCardNumber]
-  Preferential: [PersonConnectionPreferential]
-  HomelessSince: [PersonConnectionHomelessSince]
-  HomelessTime: [PersonConnectionHomelessTime]
-  BirthPlaceState: [PersonConnectionBirthPlaceState]
-  BirthPlaceCity: [PersonConnectionBirthPlaceCity]
-  Demands: [PersonConnectionDemands]
-  Checked: [PersonConnectionChecked]
-  CheckedBy: [PersonConnectionCheckedBy]
-  CheckedAt: [PersonConnectionCheckedAt]
+  self_declaration: [PersonConnectionSelf_declaration]
+  gender: [PersonConnectionGender]
+  sexual_orientation: [PersonConnectionSexual_orientation]
+  child_quantity: [PersonConnectionChild_quantity]
+  child_care_person: [PersonConnectionChild_care_person]
+  moradia_last_update: [PersonConnectionMoradia_last_update]
+  pastoral_last_update: [PersonConnectionPastoral_last_update]
+  empvidas_last_update: [PersonConnectionEmpvidas_last_update]
+  comment: [PersonConnectionComment]
+  volunteer: [PersonConnectionVolunteer]
   published_at: [PersonConnectionPublished_at]
 }
 
@@ -645,97 +1907,32 @@ type PersonConnectionName {
   connection: PersonConnection
 }
 
-type PersonConnectionSocialName {
+type PersonConnectionSocial_name {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionMotherName {
-  key: String
-  connection: PersonConnection
-}
-
-type PersonConnectionBirthDate {
+type PersonConnectionBirth_date {
   key: ID
   connection: PersonConnection
 }
 
-type PersonConnectionBirthPlace {
+type PersonConnectionMother_name {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionGender {
-  key: ID
-  connection: PersonConnection
-}
-
-type PersonConnectionGeneralRegister {
+type PersonConnectionFather_name {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionChildrens {
-  key: Int
-  connection: PersonConnection
-}
-
-type PersonConnectionHasHabitation {
-  key: Boolean
-  connection: PersonConnection
-}
-
-type PersonConnectionHasEmergencyAid {
-  key: Boolean
-  connection: PersonConnection
-}
-
-type PersonConnectionHasPbhBasket {
-  key: Boolean
-  connection: PersonConnection
-}
-
-type PersonConnectionHasUniqueRegister {
-  key: Boolean
-  connection: PersonConnection
-}
-
-type PersonConnectionHasGeneralRegister {
-  key: Boolean
-  connection: PersonConnection
-}
-
-type PersonConnectionHasCpf {
-  key: Boolean
-  connection: PersonConnection
-}
-
-type PersonConnectionCpf {
+type PersonConnectionBirth_state {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionHasCtps {
-  key: Boolean
-  connection: PersonConnection
-}
-
-type PersonConnectionHasBirthCertificate {
-  key: Boolean
-  connection: PersonConnection
-}
-
-type PersonConnectionMarital_status {
-  key: ID
-  connection: PersonConnection
-}
-
-type PersonConnectionSchool_training {
-  key: ID
-  connection: PersonConnection
-}
-
-type PersonConnectionReferenceLocation {
+type PersonConnectionNationality {
   key: String
   connection: PersonConnection
 }
@@ -745,77 +1942,122 @@ type PersonConnectionOccupation {
   connection: PersonConnection
 }
 
-type PersonConnectionProfession {
+type PersonConnectionEmail {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionContactPhone {
+type PersonConnectionPhone_number {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionReferenceAddress {
+type PersonConnectionBirth_document_number {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionObservation {
+type PersonConnectionWedding_document_number {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionSkin_color {
-  key: ID
-  connection: PersonConnection
-}
-
-type PersonConnectionCardNumber {
+type PersonConnectionRg_document_number {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionPreferential {
+type PersonConnectionCpf_document_number {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionReservist_document_number {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionVoter_registration_document_number {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionCnh_document_number {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionCtps_document_number {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionNis_document_number {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionCaduni_document_number {
+  key: String
+  connection: PersonConnection
+}
+
+type PersonConnectionHas_govbr_registration {
   key: Boolean
   connection: PersonConnection
 }
 
-type PersonConnectionHomelessSince {
+type PersonConnectionMarital_status {
   key: ID
   connection: PersonConnection
 }
 
-type PersonConnectionHomelessTime {
+type PersonConnectionSelf_declaration {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionGender {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionSexual_orientation {
+  key: ID
+  connection: PersonConnection
+}
+
+type PersonConnectionChild_quantity {
+  key: Int
+  connection: PersonConnection
+}
+
+type PersonConnectionChild_care_person {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionBirthPlaceState {
+type PersonConnectionMoradia_last_update {
+  key: DateTime
+  connection: PersonConnection
+}
+
+type PersonConnectionPastoral_last_update {
+  key: DateTime
+  connection: PersonConnection
+}
+
+type PersonConnectionEmpvidas_last_update {
+  key: DateTime
+  connection: PersonConnection
+}
+
+type PersonConnectionComment {
   key: String
   connection: PersonConnection
 }
 
-type PersonConnectionBirthPlaceCity {
-  key: String
-  connection: PersonConnection
-}
-
-type PersonConnectionDemands {
-  key: String
-  connection: PersonConnection
-}
-
-type PersonConnectionChecked {
-  key: Boolean
-  connection: PersonConnection
-}
-
-type PersonConnectionCheckedBy {
-  key: String
-  connection: PersonConnection
-}
-
-type PersonConnectionCheckedAt {
+type PersonConnectionVolunteer {
   key: ID
   connection: PersonConnection
 }
@@ -826,90 +2068,76 @@ type PersonConnectionPublished_at {
 }
 
 input PersonInput {
-  Name: String
-  SocialName: String
-  MotherName: String
-  BirthDate: Date
-  BirthPlace: String
-  gender: ID
-  GeneralRegister: String
-  Childrens: Int
-  HasHabitation: Boolean
-  HasEmergencyAid: Boolean
-  HasPbhBasket: Boolean
-  HasUniqueRegister: Boolean
-  HasGeneralRegister: Boolean
-  HasCpf: Boolean
-  Cpf: String
-  HasCtps: Boolean
-  HasBirthCertificate: Boolean
+  name: String!
+  social_name: String!
+  birth_date: Date!
+  mother_name: String!
+  father_name: String
+  birth_state: String!
+  nationality: String!
+  occupation: String!
+  email: String!
+  phone_number: String!
+  birth_document_number: String
+  wedding_document_number: String
+  rg_document_number: String
+  cpf_document_number: String
+  reservist_document_number: String
+  voter_registration_document_number: String
+  cnh_document_number: String
+  ctps_document_number: String
+  nis_document_number: String
+  caduni_document_number: String
+  has_govbr_registration: Boolean!
   marital_status: ID
-  school_training: ID
-  ReferenceLocation: String
-  Occupation: String
-  Profession: String
-  ContactPhone: String
-  ReferenceAddress: String
-  Observation: String
-  skin_color: ID
-  CardNumber: String
-  Preferential: Boolean
-  HomelessSince: Date
-  services: [ID]
-  HomelessTime: String
-  BirthPlaceState: String
-  BirthPlaceCity: String
-  external_services: [ID]
-  benefits: [ID]
-  Demands: String
-  Checked: Boolean
-  CheckedBy: String
-  CheckedAt: Date
+  self_declaration: ID
+  gender: ID
+  sexual_orientation: ID
+  child_quantity: Int
+  child_care_person: String
+  moradia_last_update: DateTime
+  pastoral_last_update: DateTime
+  empvidas_last_update: DateTime
+  comment: String
+  volunteer: ID
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
 input editPersonInput {
-  Name: String
-  SocialName: String
-  MotherName: String
-  BirthDate: Date
-  BirthPlace: String
-  gender: ID
-  GeneralRegister: String
-  Childrens: Int
-  HasHabitation: Boolean
-  HasEmergencyAid: Boolean
-  HasPbhBasket: Boolean
-  HasUniqueRegister: Boolean
-  HasGeneralRegister: Boolean
-  HasCpf: Boolean
-  Cpf: String
-  HasCtps: Boolean
-  HasBirthCertificate: Boolean
+  name: String
+  social_name: String
+  birth_date: Date
+  mother_name: String
+  father_name: String
+  birth_state: String
+  nationality: String
+  occupation: String
+  email: String
+  phone_number: String
+  birth_document_number: String
+  wedding_document_number: String
+  rg_document_number: String
+  cpf_document_number: String
+  reservist_document_number: String
+  voter_registration_document_number: String
+  cnh_document_number: String
+  ctps_document_number: String
+  nis_document_number: String
+  caduni_document_number: String
+  has_govbr_registration: Boolean
   marital_status: ID
-  school_training: ID
-  ReferenceLocation: String
-  Occupation: String
-  Profession: String
-  ContactPhone: String
-  ReferenceAddress: String
-  Observation: String
-  skin_color: ID
-  CardNumber: String
-  Preferential: Boolean
-  HomelessSince: Date
-  services: [ID]
-  HomelessTime: String
-  BirthPlaceState: String
-  BirthPlaceCity: String
-  external_services: [ID]
-  benefits: [ID]
-  Demands: String
-  Checked: Boolean
-  CheckedBy: String
-  CheckedAt: Date
+  self_declaration: ID
+  gender: ID
+  sexual_orientation: ID
+  child_quantity: Int
+  child_care_person: String
+  moradia_last_update: DateTime
+  pastoral_last_update: DateTime
+  empvidas_last_update: DateTime
+  comment: String
+  volunteer: ID
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -940,418 +2168,1558 @@ type deletePersonPayload {
   person: Person
 }
 
-type SchoolTraining {
+type Safety {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  SchoolTraining: String
+  quantity_victim_of_crimes_against_property_last_three_months: Int
+  quantity_victim_of_crimes_against_person_last_three_months: Int
+  quantity_victim_of_institutional_violence_last_three_months: Int
+  comment: String
+  volunteer: Volunteer
+  person: Person
   published_at: DateTime
 }
 
-type SchoolTrainingConnection {
-  values: [SchoolTraining]
-  groupBy: SchoolTrainingGroupBy
-  aggregate: SchoolTrainingAggregator
+type SafetyConnection {
+  values: [Safety]
+  groupBy: SafetyGroupBy
+  aggregate: SafetyAggregator
 }
 
-type SchoolTrainingAggregator {
+type SafetyAggregator {
   count: Int
   totalCount: Int
+  sum: SafetyAggregatorSum
+  avg: SafetyAggregatorAvg
+  min: SafetyAggregatorMin
+  max: SafetyAggregatorMax
 }
 
-type SchoolTrainingGroupBy {
-  id: [SchoolTrainingConnectionId]
-  created_at: [SchoolTrainingConnectionCreated_at]
-  updated_at: [SchoolTrainingConnectionUpdated_at]
-  SchoolTraining: [SchoolTrainingConnectionSchoolTraining]
-  published_at: [SchoolTrainingConnectionPublished_at]
+type SafetyAggregatorSum {
+  quantity_victim_of_crimes_against_property_last_three_months: Float
+  quantity_victim_of_crimes_against_person_last_three_months: Float
+  quantity_victim_of_institutional_violence_last_three_months: Float
 }
 
-type SchoolTrainingConnectionId {
+type SafetyAggregatorAvg {
+  quantity_victim_of_crimes_against_property_last_three_months: Float
+  quantity_victim_of_crimes_against_person_last_three_months: Float
+  quantity_victim_of_institutional_violence_last_three_months: Float
+}
+
+type SafetyAggregatorMin {
+  quantity_victim_of_crimes_against_property_last_three_months: Float
+  quantity_victim_of_crimes_against_person_last_three_months: Float
+  quantity_victim_of_institutional_violence_last_three_months: Float
+}
+
+type SafetyAggregatorMax {
+  quantity_victim_of_crimes_against_property_last_three_months: Float
+  quantity_victim_of_crimes_against_person_last_three_months: Float
+  quantity_victim_of_institutional_violence_last_three_months: Float
+}
+
+type SafetyGroupBy {
+  id: [SafetyConnectionId]
+  created_at: [SafetyConnectionCreated_at]
+  updated_at: [SafetyConnectionUpdated_at]
+  quantity_victim_of_crimes_against_property_last_three_months: [SafetyConnectionQuantity_victim_of_crimes_against_property_last_three_months]
+  quantity_victim_of_crimes_against_person_last_three_months: [SafetyConnectionQuantity_victim_of_crimes_against_person_last_three_months]
+  quantity_victim_of_institutional_violence_last_three_months: [SafetyConnectionQuantity_victim_of_institutional_violence_last_three_months]
+  comment: [SafetyConnectionComment]
+  volunteer: [SafetyConnectionVolunteer]
+  person: [SafetyConnectionPerson]
+  published_at: [SafetyConnectionPublished_at]
+}
+
+type SafetyConnectionId {
   key: ID
-  connection: SchoolTrainingConnection
+  connection: SafetyConnection
 }
 
-type SchoolTrainingConnectionCreated_at {
+type SafetyConnectionCreated_at {
   key: DateTime
-  connection: SchoolTrainingConnection
+  connection: SafetyConnection
 }
 
-type SchoolTrainingConnectionUpdated_at {
+type SafetyConnectionUpdated_at {
   key: DateTime
-  connection: SchoolTrainingConnection
+  connection: SafetyConnection
 }
 
-type SchoolTrainingConnectionSchoolTraining {
-  key: String
-  connection: SchoolTrainingConnection
-}
-
-type SchoolTrainingConnectionPublished_at {
-  key: DateTime
-  connection: SchoolTrainingConnection
-}
-
-input SchoolTrainingInput {
-  SchoolTraining: String
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editSchoolTrainingInput {
-  SchoolTraining: String
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input createSchoolTrainingInput {
-  data: SchoolTrainingInput
-}
-
-type createSchoolTrainingPayload {
-  schoolTraining: SchoolTraining
-}
-
-input updateSchoolTrainingInput {
-  where: InputID
-  data: editSchoolTrainingInput
-}
-
-type updateSchoolTrainingPayload {
-  schoolTraining: SchoolTraining
-}
-
-input deleteSchoolTrainingInput {
-  where: InputID
-}
-
-type deleteSchoolTrainingPayload {
-  schoolTraining: SchoolTraining
-}
-
-type ServiceAttendance {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  service: Service
-  Date: Date!
-  Attendances: Int!
-  published_at: DateTime
-}
-
-type ServiceAttendanceConnection {
-  values: [ServiceAttendance]
-  groupBy: ServiceAttendanceGroupBy
-  aggregate: ServiceAttendanceAggregator
-}
-
-type ServiceAttendanceAggregator {
-  count: Int
-  totalCount: Int
-  sum: ServiceAttendanceAggregatorSum
-  avg: ServiceAttendanceAggregatorAvg
-  min: ServiceAttendanceAggregatorMin
-  max: ServiceAttendanceAggregatorMax
-}
-
-type ServiceAttendanceAggregatorSum {
-  Attendances: Float
-}
-
-type ServiceAttendanceAggregatorAvg {
-  Attendances: Float
-}
-
-type ServiceAttendanceAggregatorMin {
-  Attendances: Float
-}
-
-type ServiceAttendanceAggregatorMax {
-  Attendances: Float
-}
-
-type ServiceAttendanceGroupBy {
-  id: [ServiceAttendanceConnectionId]
-  created_at: [ServiceAttendanceConnectionCreated_at]
-  updated_at: [ServiceAttendanceConnectionUpdated_at]
-  service: [ServiceAttendanceConnectionService]
-  Date: [ServiceAttendanceConnectionDate]
-  Attendances: [ServiceAttendanceConnectionAttendances]
-  published_at: [ServiceAttendanceConnectionPublished_at]
-}
-
-type ServiceAttendanceConnectionId {
-  key: ID
-  connection: ServiceAttendanceConnection
-}
-
-type ServiceAttendanceConnectionCreated_at {
-  key: DateTime
-  connection: ServiceAttendanceConnection
-}
-
-type ServiceAttendanceConnectionUpdated_at {
-  key: DateTime
-  connection: ServiceAttendanceConnection
-}
-
-type ServiceAttendanceConnectionService {
-  key: ID
-  connection: ServiceAttendanceConnection
-}
-
-type ServiceAttendanceConnectionDate {
-  key: ID
-  connection: ServiceAttendanceConnection
-}
-
-type ServiceAttendanceConnectionAttendances {
+type SafetyConnectionQuantity_victim_of_crimes_against_property_last_three_months {
   key: Int
-  connection: ServiceAttendanceConnection
+  connection: SafetyConnection
 }
 
-type ServiceAttendanceConnectionPublished_at {
+type SafetyConnectionQuantity_victim_of_crimes_against_person_last_three_months {
+  key: Int
+  connection: SafetyConnection
+}
+
+type SafetyConnectionQuantity_victim_of_institutional_violence_last_three_months {
+  key: Int
+  connection: SafetyConnection
+}
+
+type SafetyConnectionComment {
+  key: String
+  connection: SafetyConnection
+}
+
+type SafetyConnectionVolunteer {
+  key: ID
+  connection: SafetyConnection
+}
+
+type SafetyConnectionPerson {
+  key: ID
+  connection: SafetyConnection
+}
+
+type SafetyConnectionPublished_at {
   key: DateTime
-  connection: ServiceAttendanceConnection
+  connection: SafetyConnection
 }
 
-input ServiceAttendanceInput {
-  service: ID
-  Date: Date!
-  Attendances: Int!
+input SafetyInput {
+  quantity_victim_of_crimes_against_property_last_three_months: Int
+  quantity_victim_of_crimes_against_person_last_three_months: Int
+  quantity_victim_of_institutional_violence_last_three_months: Int
+  comment: String
+  volunteer: ID
+  person: ID
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input editServiceAttendanceInput {
-  service: ID
-  Date: Date
-  Attendances: Int
+input editSafetyInput {
+  quantity_victim_of_crimes_against_property_last_three_months: Int
+  quantity_victim_of_crimes_against_person_last_three_months: Int
+  quantity_victim_of_institutional_violence_last_three_months: Int
+  comment: String
+  volunteer: ID
+  person: ID
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input createServiceAttendanceInput {
-  data: ServiceAttendanceInput
+input createSafetyInput {
+  data: SafetyInput
 }
 
-type createServiceAttendancePayload {
-  serviceAttendance: ServiceAttendance
+type createSafetyPayload {
+  safety: Safety
 }
 
-input updateServiceAttendanceInput {
+input updateSafetyInput {
   where: InputID
-  data: editServiceAttendanceInput
+  data: editSafetyInput
 }
 
-type updateServiceAttendancePayload {
-  serviceAttendance: ServiceAttendance
+type updateSafetyPayload {
+  safety: Safety
 }
 
-input deleteServiceAttendanceInput {
+input deleteSafetyInput {
   where: InputID
 }
 
-type deleteServiceAttendancePayload {
-  serviceAttendance: ServiceAttendance
+type deleteSafetyPayload {
+  safety: Safety
 }
 
-type Service {
+type SelfDeclaration {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  Service: String
-  icon: String
+  name: String!
   published_at: DateTime
-  people(sort: String, limit: Int, start: Int, where: JSON): [Person]
 }
 
-type ServiceConnection {
-  values: [Service]
-  groupBy: ServiceGroupBy
-  aggregate: ServiceAggregator
+type SelfDeclarationConnection {
+  values: [SelfDeclaration]
+  groupBy: SelfDeclarationGroupBy
+  aggregate: SelfDeclarationAggregator
 }
 
-type ServiceAggregator {
+type SelfDeclarationAggregator {
   count: Int
   totalCount: Int
 }
 
-type ServiceGroupBy {
-  id: [ServiceConnectionId]
-  created_at: [ServiceConnectionCreated_at]
-  updated_at: [ServiceConnectionUpdated_at]
-  Service: [ServiceConnectionService]
-  icon: [ServiceConnectionIcon]
-  published_at: [ServiceConnectionPublished_at]
+type SelfDeclarationGroupBy {
+  id: [SelfDeclarationConnectionId]
+  created_at: [SelfDeclarationConnectionCreated_at]
+  updated_at: [SelfDeclarationConnectionUpdated_at]
+  name: [SelfDeclarationConnectionName]
+  published_at: [SelfDeclarationConnectionPublished_at]
 }
 
-type ServiceConnectionId {
+type SelfDeclarationConnectionId {
   key: ID
-  connection: ServiceConnection
+  connection: SelfDeclarationConnection
 }
 
-type ServiceConnectionCreated_at {
+type SelfDeclarationConnectionCreated_at {
   key: DateTime
-  connection: ServiceConnection
+  connection: SelfDeclarationConnection
 }
 
-type ServiceConnectionUpdated_at {
+type SelfDeclarationConnectionUpdated_at {
   key: DateTime
-  connection: ServiceConnection
+  connection: SelfDeclarationConnection
 }
 
-type ServiceConnectionService {
+type SelfDeclarationConnectionName {
   key: String
-  connection: ServiceConnection
+  connection: SelfDeclarationConnection
 }
 
-type ServiceConnectionIcon {
-  key: String
-  connection: ServiceConnection
-}
-
-type ServiceConnectionPublished_at {
+type SelfDeclarationConnectionPublished_at {
   key: DateTime
-  connection: ServiceConnection
+  connection: SelfDeclarationConnection
 }
 
-input ServiceInput {
-  Service: String
-  people: [ID]
-  icon: String
+input SelfDeclarationInput {
+  name: String!
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input editServiceInput {
-  Service: String
-  people: [ID]
-  icon: String
+input editSelfDeclarationInput {
+  name: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input createServiceInput {
-  data: ServiceInput
+input createSelfDeclarationInput {
+  data: SelfDeclarationInput
 }
 
-type createServicePayload {
-  service: Service
+type createSelfDeclarationPayload {
+  selfDeclaration: SelfDeclaration
 }
 
-input updateServiceInput {
+input updateSelfDeclarationInput {
   where: InputID
-  data: editServiceInput
+  data: editSelfDeclarationInput
 }
 
-type updateServicePayload {
-  service: Service
+type updateSelfDeclarationPayload {
+  selfDeclaration: SelfDeclaration
 }
 
-input deleteServiceInput {
+input deleteSelfDeclarationInput {
   where: InputID
 }
 
-type deleteServicePayload {
-  service: Service
+type deleteSelfDeclarationPayload {
+  selfDeclaration: SelfDeclaration
 }
 
-type SkinColor {
+type SexualOrientation {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  SkinColor: String
+  name: String!
   published_at: DateTime
 }
 
-type SkinColorConnection {
-  values: [SkinColor]
-  groupBy: SkinColorGroupBy
-  aggregate: SkinColorAggregator
+type SexualOrientationConnection {
+  values: [SexualOrientation]
+  groupBy: SexualOrientationGroupBy
+  aggregate: SexualOrientationAggregator
 }
 
-type SkinColorAggregator {
+type SexualOrientationAggregator {
   count: Int
   totalCount: Int
 }
 
-type SkinColorGroupBy {
-  id: [SkinColorConnectionId]
-  created_at: [SkinColorConnectionCreated_at]
-  updated_at: [SkinColorConnectionUpdated_at]
-  SkinColor: [SkinColorConnectionSkinColor]
-  published_at: [SkinColorConnectionPublished_at]
+type SexualOrientationGroupBy {
+  id: [SexualOrientationConnectionId]
+  created_at: [SexualOrientationConnectionCreated_at]
+  updated_at: [SexualOrientationConnectionUpdated_at]
+  name: [SexualOrientationConnectionName]
+  published_at: [SexualOrientationConnectionPublished_at]
 }
 
-type SkinColorConnectionId {
+type SexualOrientationConnectionId {
   key: ID
-  connection: SkinColorConnection
+  connection: SexualOrientationConnection
 }
 
-type SkinColorConnectionCreated_at {
+type SexualOrientationConnectionCreated_at {
   key: DateTime
-  connection: SkinColorConnection
+  connection: SexualOrientationConnection
 }
 
-type SkinColorConnectionUpdated_at {
+type SexualOrientationConnectionUpdated_at {
   key: DateTime
-  connection: SkinColorConnection
+  connection: SexualOrientationConnection
 }
 
-type SkinColorConnectionSkinColor {
+type SexualOrientationConnectionName {
   key: String
-  connection: SkinColorConnection
+  connection: SexualOrientationConnection
 }
 
-type SkinColorConnectionPublished_at {
+type SexualOrientationConnectionPublished_at {
   key: DateTime
-  connection: SkinColorConnection
+  connection: SexualOrientationConnection
 }
 
-input SkinColorInput {
-  SkinColor: String
+input SexualOrientationInput {
+  name: String!
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input editSkinColorInput {
-  SkinColor: String
+input editSexualOrientationInput {
+  name: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input createSkinColorInput {
-  data: SkinColorInput
+input createSexualOrientationInput {
+  data: SexualOrientationInput
 }
 
-type createSkinColorPayload {
-  skinColor: SkinColor
+type createSexualOrientationPayload {
+  sexualOrientation: SexualOrientation
 }
 
-input updateSkinColorInput {
+input updateSexualOrientationInput {
   where: InputID
-  data: editSkinColorInput
+  data: editSexualOrientationInput
 }
 
-type updateSkinColorPayload {
-  skinColor: SkinColor
+type updateSexualOrientationPayload {
+  sexualOrientation: SexualOrientation
 }
 
-input deleteSkinColorInput {
+input deleteSexualOrientationInput {
   where: InputID
 }
 
-type deleteSkinColorPayload {
-  skinColor: SkinColor
+type deleteSexualOrientationPayload {
+  sexualOrientation: SexualOrientation
+}
+
+type SocialAssistanceNetwork {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  is_attended_to_a_network_services: Boolean
+  has_crea_service: Boolean
+  has_cras_service: Boolean
+  has_shelter_service: Boolean
+  has_council_of_rights_service: Boolean
+  has_health_service: Boolean
+  has_education_service: Boolean
+  has_pastoral_povo_da_rua_service: Boolean
+  details: String
+  volunteer: Volunteer
+  person: Person
+  published_at: DateTime
+}
+
+type SocialAssistanceNetworkConnection {
+  values: [SocialAssistanceNetwork]
+  groupBy: SocialAssistanceNetworkGroupBy
+  aggregate: SocialAssistanceNetworkAggregator
+}
+
+type SocialAssistanceNetworkAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type SocialAssistanceNetworkGroupBy {
+  id: [SocialAssistanceNetworkConnectionId]
+  created_at: [SocialAssistanceNetworkConnectionCreated_at]
+  updated_at: [SocialAssistanceNetworkConnectionUpdated_at]
+  is_attended_to_a_network_services: [SocialAssistanceNetworkConnectionIs_attended_to_a_network_services]
+  has_crea_service: [SocialAssistanceNetworkConnectionHas_crea_service]
+  has_cras_service: [SocialAssistanceNetworkConnectionHas_cras_service]
+  has_shelter_service: [SocialAssistanceNetworkConnectionHas_shelter_service]
+  has_council_of_rights_service: [SocialAssistanceNetworkConnectionHas_council_of_rights_service]
+  has_health_service: [SocialAssistanceNetworkConnectionHas_health_service]
+  has_education_service: [SocialAssistanceNetworkConnectionHas_education_service]
+  has_pastoral_povo_da_rua_service: [SocialAssistanceNetworkConnectionHas_pastoral_povo_da_rua_service]
+  details: [SocialAssistanceNetworkConnectionDetails]
+  volunteer: [SocialAssistanceNetworkConnectionVolunteer]
+  person: [SocialAssistanceNetworkConnectionPerson]
+  published_at: [SocialAssistanceNetworkConnectionPublished_at]
+}
+
+type SocialAssistanceNetworkConnectionId {
+  key: ID
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionCreated_at {
+  key: DateTime
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionUpdated_at {
+  key: DateTime
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionIs_attended_to_a_network_services {
+  key: Boolean
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionHas_crea_service {
+  key: Boolean
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionHas_cras_service {
+  key: Boolean
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionHas_shelter_service {
+  key: Boolean
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionHas_council_of_rights_service {
+  key: Boolean
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionHas_health_service {
+  key: Boolean
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionHas_education_service {
+  key: Boolean
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionHas_pastoral_povo_da_rua_service {
+  key: Boolean
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionDetails {
+  key: String
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionVolunteer {
+  key: ID
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionPerson {
+  key: ID
+  connection: SocialAssistanceNetworkConnection
+}
+
+type SocialAssistanceNetworkConnectionPublished_at {
+  key: DateTime
+  connection: SocialAssistanceNetworkConnection
+}
+
+input SocialAssistanceNetworkInput {
+  is_attended_to_a_network_services: Boolean
+  has_crea_service: Boolean
+  has_cras_service: Boolean
+  has_shelter_service: Boolean
+  has_council_of_rights_service: Boolean
+  has_health_service: Boolean
+  has_education_service: Boolean
+  has_pastoral_povo_da_rua_service: Boolean
+  details: String
+  volunteer: ID
+  person: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editSocialAssistanceNetworkInput {
+  is_attended_to_a_network_services: Boolean
+  has_crea_service: Boolean
+  has_cras_service: Boolean
+  has_shelter_service: Boolean
+  has_council_of_rights_service: Boolean
+  has_health_service: Boolean
+  has_education_service: Boolean
+  has_pastoral_povo_da_rua_service: Boolean
+  details: String
+  volunteer: ID
+  person: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createSocialAssistanceNetworkInput {
+  data: SocialAssistanceNetworkInput
+}
+
+type createSocialAssistanceNetworkPayload {
+  socialAssistanceNetwork: SocialAssistanceNetwork
+}
+
+input updateSocialAssistanceNetworkInput {
+  where: InputID
+  data: editSocialAssistanceNetworkInput
+}
+
+type updateSocialAssistanceNetworkPayload {
+  socialAssistanceNetwork: SocialAssistanceNetwork
+}
+
+input deleteSocialAssistanceNetworkInput {
+  where: InputID
+}
+
+type deleteSocialAssistanceNetworkPayload {
+  socialAssistanceNetwork: SocialAssistanceNetwork
+}
+
+type StreetPath {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  time_homeless: Int
+  homeless_reason: String
+  had_any_family_ties_interrupted_quantity: Int
+  already_been_in_shelter_quantity_months: Int
+  already_been_in_hostel_quantity_months: Int
+  time_lived_in_bh_months: Int
+  lived_on_streets_in_another_city: String
+  any_family_member_have_been_homeless: String
+  reason_past_street_path_unemployment: Boolean
+  reason_past_street_path_family_problems: Boolean
+  reason_past_street_path_drugs: Boolean
+  reason_past_street_path_comment: String
+  time_past_street_path: Int
+  comment: String
+  person: Person
+  volunteer: Volunteer
+  published_at: DateTime
+}
+
+type StreetPathConnection {
+  values: [StreetPath]
+  groupBy: StreetPathGroupBy
+  aggregate: StreetPathAggregator
+}
+
+type StreetPathAggregator {
+  count: Int
+  totalCount: Int
+  sum: StreetPathAggregatorSum
+  avg: StreetPathAggregatorAvg
+  min: StreetPathAggregatorMin
+  max: StreetPathAggregatorMax
+}
+
+type StreetPathAggregatorSum {
+  time_homeless: Float
+  had_any_family_ties_interrupted_quantity: Float
+  already_been_in_shelter_quantity_months: Float
+  already_been_in_hostel_quantity_months: Float
+  time_lived_in_bh_months: Float
+  time_past_street_path: Float
+}
+
+type StreetPathAggregatorAvg {
+  time_homeless: Float
+  had_any_family_ties_interrupted_quantity: Float
+  already_been_in_shelter_quantity_months: Float
+  already_been_in_hostel_quantity_months: Float
+  time_lived_in_bh_months: Float
+  time_past_street_path: Float
+}
+
+type StreetPathAggregatorMin {
+  time_homeless: Float
+  had_any_family_ties_interrupted_quantity: Float
+  already_been_in_shelter_quantity_months: Float
+  already_been_in_hostel_quantity_months: Float
+  time_lived_in_bh_months: Float
+  time_past_street_path: Float
+}
+
+type StreetPathAggregatorMax {
+  time_homeless: Float
+  had_any_family_ties_interrupted_quantity: Float
+  already_been_in_shelter_quantity_months: Float
+  already_been_in_hostel_quantity_months: Float
+  time_lived_in_bh_months: Float
+  time_past_street_path: Float
+}
+
+type StreetPathGroupBy {
+  id: [StreetPathConnectionId]
+  created_at: [StreetPathConnectionCreated_at]
+  updated_at: [StreetPathConnectionUpdated_at]
+  time_homeless: [StreetPathConnectionTime_homeless]
+  homeless_reason: [StreetPathConnectionHomeless_reason]
+  had_any_family_ties_interrupted_quantity: [StreetPathConnectionHad_any_family_ties_interrupted_quantity]
+  already_been_in_shelter_quantity_months: [StreetPathConnectionAlready_been_in_shelter_quantity_months]
+  already_been_in_hostel_quantity_months: [StreetPathConnectionAlready_been_in_hostel_quantity_months]
+  time_lived_in_bh_months: [StreetPathConnectionTime_lived_in_bh_months]
+  lived_on_streets_in_another_city: [StreetPathConnectionLived_on_streets_in_another_city]
+  any_family_member_have_been_homeless: [StreetPathConnectionAny_family_member_have_been_homeless]
+  reason_past_street_path_unemployment: [StreetPathConnectionReason_past_street_path_unemployment]
+  reason_past_street_path_family_problems: [StreetPathConnectionReason_past_street_path_family_problems]
+  reason_past_street_path_drugs: [StreetPathConnectionReason_past_street_path_drugs]
+  reason_past_street_path_comment: [StreetPathConnectionReason_past_street_path_comment]
+  time_past_street_path: [StreetPathConnectionTime_past_street_path]
+  comment: [StreetPathConnectionComment]
+  person: [StreetPathConnectionPerson]
+  volunteer: [StreetPathConnectionVolunteer]
+  published_at: [StreetPathConnectionPublished_at]
+}
+
+type StreetPathConnectionId {
+  key: ID
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionCreated_at {
+  key: DateTime
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionUpdated_at {
+  key: DateTime
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionTime_homeless {
+  key: Int
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionHomeless_reason {
+  key: String
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionHad_any_family_ties_interrupted_quantity {
+  key: Int
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionAlready_been_in_shelter_quantity_months {
+  key: Int
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionAlready_been_in_hostel_quantity_months {
+  key: Int
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionTime_lived_in_bh_months {
+  key: Int
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionLived_on_streets_in_another_city {
+  key: String
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionAny_family_member_have_been_homeless {
+  key: String
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionReason_past_street_path_unemployment {
+  key: Boolean
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionReason_past_street_path_family_problems {
+  key: Boolean
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionReason_past_street_path_drugs {
+  key: Boolean
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionReason_past_street_path_comment {
+  key: String
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionTime_past_street_path {
+  key: Int
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionComment {
+  key: String
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionPerson {
+  key: ID
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionVolunteer {
+  key: ID
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionPublished_at {
+  key: DateTime
+  connection: StreetPathConnection
+}
+
+input StreetPathInput {
+  time_homeless: Int
+  homeless_reason: String
+  had_any_family_ties_interrupted_quantity: Int
+  already_been_in_shelter_quantity_months: Int
+  already_been_in_hostel_quantity_months: Int
+  time_lived_in_bh_months: Int
+  lived_on_streets_in_another_city: String
+  any_family_member_have_been_homeless: String
+  reason_past_street_path_unemployment: Boolean
+  reason_past_street_path_family_problems: Boolean
+  reason_past_street_path_drugs: Boolean
+  reason_past_street_path_comment: String
+  time_past_street_path: Int
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editStreetPathInput {
+  time_homeless: Int
+  homeless_reason: String
+  had_any_family_ties_interrupted_quantity: Int
+  already_been_in_shelter_quantity_months: Int
+  already_been_in_hostel_quantity_months: Int
+  time_lived_in_bh_months: Int
+  lived_on_streets_in_another_city: String
+  any_family_member_have_been_homeless: String
+  reason_past_street_path_unemployment: Boolean
+  reason_past_street_path_family_problems: Boolean
+  reason_past_street_path_drugs: Boolean
+  reason_past_street_path_comment: String
+  time_past_street_path: Int
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createStreetPathInput {
+  data: StreetPathInput
+}
+
+type createStreetPathPayload {
+  streetPath: StreetPath
+}
+
+input updateStreetPathInput {
+  where: InputID
+  data: editStreetPathInput
+}
+
+type updateStreetPathPayload {
+  streetPath: StreetPath
+}
+
+input deleteStreetPathInput {
+  where: InputID
+}
+
+type deleteStreetPathPayload {
+  streetPath: StreetPath
+}
+
+type VacancyReservationBenefit {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  published_at: DateTime
+}
+
+type VacancyReservationBenefitConnection {
+  values: [VacancyReservationBenefit]
+  groupBy: VacancyReservationBenefitGroupBy
+  aggregate: VacancyReservationBenefitAggregator
+}
+
+type VacancyReservationBenefitAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type VacancyReservationBenefitGroupBy {
+  id: [VacancyReservationBenefitConnectionId]
+  created_at: [VacancyReservationBenefitConnectionCreated_at]
+  updated_at: [VacancyReservationBenefitConnectionUpdated_at]
+  name: [VacancyReservationBenefitConnectionName]
+  published_at: [VacancyReservationBenefitConnectionPublished_at]
+}
+
+type VacancyReservationBenefitConnectionId {
+  key: ID
+  connection: VacancyReservationBenefitConnection
+}
+
+type VacancyReservationBenefitConnectionCreated_at {
+  key: DateTime
+  connection: VacancyReservationBenefitConnection
+}
+
+type VacancyReservationBenefitConnectionUpdated_at {
+  key: DateTime
+  connection: VacancyReservationBenefitConnection
+}
+
+type VacancyReservationBenefitConnectionName {
+  key: String
+  connection: VacancyReservationBenefitConnection
+}
+
+type VacancyReservationBenefitConnectionPublished_at {
+  key: DateTime
+  connection: VacancyReservationBenefitConnection
+}
+
+input VacancyReservationBenefitInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editVacancyReservationBenefitInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createVacancyReservationBenefitInput {
+  data: VacancyReservationBenefitInput
+}
+
+type createVacancyReservationBenefitPayload {
+  vacancyReservationBenefit: VacancyReservationBenefit
+}
+
+input updateVacancyReservationBenefitInput {
+  where: InputID
+  data: editVacancyReservationBenefitInput
+}
+
+type updateVacancyReservationBenefitPayload {
+  vacancyReservationBenefit: VacancyReservationBenefit
+}
+
+input deleteVacancyReservationBenefitInput {
+  where: InputID
+}
+
+type deleteVacancyReservationBenefitPayload {
+  vacancyReservationBenefit: VacancyReservationBenefit
+}
+
+type Volunteer {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String!
+  email: String!
+  published_at: DateTime
+}
+
+type VolunteerConnection {
+  values: [Volunteer]
+  groupBy: VolunteerGroupBy
+  aggregate: VolunteerAggregator
+}
+
+type VolunteerAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type VolunteerGroupBy {
+  id: [VolunteerConnectionId]
+  created_at: [VolunteerConnectionCreated_at]
+  updated_at: [VolunteerConnectionUpdated_at]
+  name: [VolunteerConnectionName]
+  email: [VolunteerConnectionEmail]
+  published_at: [VolunteerConnectionPublished_at]
+}
+
+type VolunteerConnectionId {
+  key: ID
+  connection: VolunteerConnection
+}
+
+type VolunteerConnectionCreated_at {
+  key: DateTime
+  connection: VolunteerConnection
+}
+
+type VolunteerConnectionUpdated_at {
+  key: DateTime
+  connection: VolunteerConnection
+}
+
+type VolunteerConnectionName {
+  key: String
+  connection: VolunteerConnection
+}
+
+type VolunteerConnectionEmail {
+  key: String
+  connection: VolunteerConnection
+}
+
+type VolunteerConnectionPublished_at {
+  key: DateTime
+  connection: VolunteerConnection
+}
+
+input VolunteerInput {
+  name: String!
+  email: String!
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editVolunteerInput {
+  name: String
+  email: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createVolunteerInput {
+  data: VolunteerInput
+}
+
+type createVolunteerPayload {
+  volunteer: Volunteer
+}
+
+input updateVolunteerInput {
+  where: InputID
+  data: editVolunteerInput
+}
+
+type updateVolunteerPayload {
+  volunteer: Volunteer
+}
+
+input deleteVolunteerInput {
+  where: InputID
+}
+
+type deleteVolunteerPayload {
+  volunteer: Volunteer
+}
+
+type WorkAndIncome {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  already_has_paid_work: Boolean
+  describe_past_paid_work: String
+  work_type: WorkType
+  participate_in_any_income_generation_projects: Boolean
+  what_is_being_done_to_get_out_of_this_situation: String
+  retirement_benefit_value: Float
+  continuing_provision_benefit_value: Float
+  sick_pay_benefit_value: Float
+  bolsa_familia_benefit_value: Float
+  brazil_financial_assistance_benefit_value: Float
+  other_benefit_value: Float
+  family_average_monthly_income_value: Float
+  work_category: WorkCategory
+  work_sector: WorkSector
+  vacancy_reservation_benefit: VacancyReservationBenefit
+  vacancy_reservation_benefit_details: String
+  comment: String
+  person: Person
+  volunteer: Volunteer
+  published_at: DateTime
+}
+
+type WorkAndIncomeConnection {
+  values: [WorkAndIncome]
+  groupBy: WorkAndIncomeGroupBy
+  aggregate: WorkAndIncomeAggregator
+}
+
+type WorkAndIncomeAggregator {
+  count: Int
+  totalCount: Int
+  sum: WorkAndIncomeAggregatorSum
+  avg: WorkAndIncomeAggregatorAvg
+  min: WorkAndIncomeAggregatorMin
+  max: WorkAndIncomeAggregatorMax
+}
+
+type WorkAndIncomeAggregatorSum {
+  retirement_benefit_value: Float
+  continuing_provision_benefit_value: Float
+  sick_pay_benefit_value: Float
+  bolsa_familia_benefit_value: Float
+  brazil_financial_assistance_benefit_value: Float
+  other_benefit_value: Float
+  family_average_monthly_income_value: Float
+}
+
+type WorkAndIncomeAggregatorAvg {
+  retirement_benefit_value: Float
+  continuing_provision_benefit_value: Float
+  sick_pay_benefit_value: Float
+  bolsa_familia_benefit_value: Float
+  brazil_financial_assistance_benefit_value: Float
+  other_benefit_value: Float
+  family_average_monthly_income_value: Float
+}
+
+type WorkAndIncomeAggregatorMin {
+  retirement_benefit_value: Float
+  continuing_provision_benefit_value: Float
+  sick_pay_benefit_value: Float
+  bolsa_familia_benefit_value: Float
+  brazil_financial_assistance_benefit_value: Float
+  other_benefit_value: Float
+  family_average_monthly_income_value: Float
+}
+
+type WorkAndIncomeAggregatorMax {
+  retirement_benefit_value: Float
+  continuing_provision_benefit_value: Float
+  sick_pay_benefit_value: Float
+  bolsa_familia_benefit_value: Float
+  brazil_financial_assistance_benefit_value: Float
+  other_benefit_value: Float
+  family_average_monthly_income_value: Float
+}
+
+type WorkAndIncomeGroupBy {
+  id: [WorkAndIncomeConnectionId]
+  created_at: [WorkAndIncomeConnectionCreated_at]
+  updated_at: [WorkAndIncomeConnectionUpdated_at]
+  already_has_paid_work: [WorkAndIncomeConnectionAlready_has_paid_work]
+  describe_past_paid_work: [WorkAndIncomeConnectionDescribe_past_paid_work]
+  work_type: [WorkAndIncomeConnectionWork_type]
+  participate_in_any_income_generation_projects: [WorkAndIncomeConnectionParticipate_in_any_income_generation_projects]
+  what_is_being_done_to_get_out_of_this_situation: [WorkAndIncomeConnectionWhat_is_being_done_to_get_out_of_this_situation]
+  retirement_benefit_value: [WorkAndIncomeConnectionRetirement_benefit_value]
+  continuing_provision_benefit_value: [WorkAndIncomeConnectionContinuing_provision_benefit_value]
+  sick_pay_benefit_value: [WorkAndIncomeConnectionSick_pay_benefit_value]
+  bolsa_familia_benefit_value: [WorkAndIncomeConnectionBolsa_familia_benefit_value]
+  brazil_financial_assistance_benefit_value: [WorkAndIncomeConnectionBrazil_financial_assistance_benefit_value]
+  other_benefit_value: [WorkAndIncomeConnectionOther_benefit_value]
+  family_average_monthly_income_value: [WorkAndIncomeConnectionFamily_average_monthly_income_value]
+  work_category: [WorkAndIncomeConnectionWork_category]
+  work_sector: [WorkAndIncomeConnectionWork_sector]
+  vacancy_reservation_benefit: [WorkAndIncomeConnectionVacancy_reservation_benefit]
+  vacancy_reservation_benefit_details: [WorkAndIncomeConnectionVacancy_reservation_benefit_details]
+  comment: [WorkAndIncomeConnectionComment]
+  person: [WorkAndIncomeConnectionPerson]
+  volunteer: [WorkAndIncomeConnectionVolunteer]
+  published_at: [WorkAndIncomeConnectionPublished_at]
+}
+
+type WorkAndIncomeConnectionId {
+  key: ID
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionCreated_at {
+  key: DateTime
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionUpdated_at {
+  key: DateTime
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionAlready_has_paid_work {
+  key: Boolean
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionDescribe_past_paid_work {
+  key: String
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionWork_type {
+  key: ID
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionParticipate_in_any_income_generation_projects {
+  key: Boolean
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionWhat_is_being_done_to_get_out_of_this_situation {
+  key: String
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionRetirement_benefit_value {
+  key: Float
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionContinuing_provision_benefit_value {
+  key: Float
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionSick_pay_benefit_value {
+  key: Float
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionBolsa_familia_benefit_value {
+  key: Float
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionBrazil_financial_assistance_benefit_value {
+  key: Float
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionOther_benefit_value {
+  key: Float
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionFamily_average_monthly_income_value {
+  key: Float
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionWork_category {
+  key: ID
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionWork_sector {
+  key: ID
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionVacancy_reservation_benefit {
+  key: ID
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionVacancy_reservation_benefit_details {
+  key: String
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionComment {
+  key: String
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionPerson {
+  key: ID
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionVolunteer {
+  key: ID
+  connection: WorkAndIncomeConnection
+}
+
+type WorkAndIncomeConnectionPublished_at {
+  key: DateTime
+  connection: WorkAndIncomeConnection
+}
+
+input WorkAndIncomeInput {
+  already_has_paid_work: Boolean
+  describe_past_paid_work: String
+  work_type: ID
+  participate_in_any_income_generation_projects: Boolean
+  what_is_being_done_to_get_out_of_this_situation: String
+  retirement_benefit_value: Float
+  continuing_provision_benefit_value: Float
+  sick_pay_benefit_value: Float
+  bolsa_familia_benefit_value: Float
+  brazil_financial_assistance_benefit_value: Float
+  other_benefit_value: Float
+  family_average_monthly_income_value: Float
+  work_category: ID
+  work_sector: ID
+  vacancy_reservation_benefit: ID
+  vacancy_reservation_benefit_details: String
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editWorkAndIncomeInput {
+  already_has_paid_work: Boolean
+  describe_past_paid_work: String
+  work_type: ID
+  participate_in_any_income_generation_projects: Boolean
+  what_is_being_done_to_get_out_of_this_situation: String
+  retirement_benefit_value: Float
+  continuing_provision_benefit_value: Float
+  sick_pay_benefit_value: Float
+  bolsa_familia_benefit_value: Float
+  brazil_financial_assistance_benefit_value: Float
+  other_benefit_value: Float
+  family_average_monthly_income_value: Float
+  work_category: ID
+  work_sector: ID
+  vacancy_reservation_benefit: ID
+  vacancy_reservation_benefit_details: String
+  comment: String
+  person: ID
+  volunteer: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createWorkAndIncomeInput {
+  data: WorkAndIncomeInput
+}
+
+type createWorkAndIncomePayload {
+  workAndIncome: WorkAndIncome
+}
+
+input updateWorkAndIncomeInput {
+  where: InputID
+  data: editWorkAndIncomeInput
+}
+
+type updateWorkAndIncomePayload {
+  workAndIncome: WorkAndIncome
+}
+
+input deleteWorkAndIncomeInput {
+  where: InputID
+}
+
+type deleteWorkAndIncomePayload {
+  workAndIncome: WorkAndIncome
+}
+
+type WorkCategory {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  published_at: DateTime
+}
+
+type WorkCategoryConnection {
+  values: [WorkCategory]
+  groupBy: WorkCategoryGroupBy
+  aggregate: WorkCategoryAggregator
+}
+
+type WorkCategoryAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type WorkCategoryGroupBy {
+  id: [WorkCategoryConnectionId]
+  created_at: [WorkCategoryConnectionCreated_at]
+  updated_at: [WorkCategoryConnectionUpdated_at]
+  name: [WorkCategoryConnectionName]
+  published_at: [WorkCategoryConnectionPublished_at]
+}
+
+type WorkCategoryConnectionId {
+  key: ID
+  connection: WorkCategoryConnection
+}
+
+type WorkCategoryConnectionCreated_at {
+  key: DateTime
+  connection: WorkCategoryConnection
+}
+
+type WorkCategoryConnectionUpdated_at {
+  key: DateTime
+  connection: WorkCategoryConnection
+}
+
+type WorkCategoryConnectionName {
+  key: String
+  connection: WorkCategoryConnection
+}
+
+type WorkCategoryConnectionPublished_at {
+  key: DateTime
+  connection: WorkCategoryConnection
+}
+
+input WorkCategoryInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editWorkCategoryInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createWorkCategoryInput {
+  data: WorkCategoryInput
+}
+
+type createWorkCategoryPayload {
+  workCategory: WorkCategory
+}
+
+input updateWorkCategoryInput {
+  where: InputID
+  data: editWorkCategoryInput
+}
+
+type updateWorkCategoryPayload {
+  workCategory: WorkCategory
+}
+
+input deleteWorkCategoryInput {
+  where: InputID
+}
+
+type deleteWorkCategoryPayload {
+  workCategory: WorkCategory
+}
+
+type WorkSector {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  published_at: DateTime
+}
+
+type WorkSectorConnection {
+  values: [WorkSector]
+  groupBy: WorkSectorGroupBy
+  aggregate: WorkSectorAggregator
+}
+
+type WorkSectorAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type WorkSectorGroupBy {
+  id: [WorkSectorConnectionId]
+  created_at: [WorkSectorConnectionCreated_at]
+  updated_at: [WorkSectorConnectionUpdated_at]
+  name: [WorkSectorConnectionName]
+  published_at: [WorkSectorConnectionPublished_at]
+}
+
+type WorkSectorConnectionId {
+  key: ID
+  connection: WorkSectorConnection
+}
+
+type WorkSectorConnectionCreated_at {
+  key: DateTime
+  connection: WorkSectorConnection
+}
+
+type WorkSectorConnectionUpdated_at {
+  key: DateTime
+  connection: WorkSectorConnection
+}
+
+type WorkSectorConnectionName {
+  key: String
+  connection: WorkSectorConnection
+}
+
+type WorkSectorConnectionPublished_at {
+  key: DateTime
+  connection: WorkSectorConnection
+}
+
+input WorkSectorInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editWorkSectorInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createWorkSectorInput {
+  data: WorkSectorInput
+}
+
+type createWorkSectorPayload {
+  workSector: WorkSector
+}
+
+input updateWorkSectorInput {
+  where: InputID
+  data: editWorkSectorInput
+}
+
+type updateWorkSectorPayload {
+  workSector: WorkSector
+}
+
+input deleteWorkSectorInput {
+  where: InputID
+}
+
+type deleteWorkSectorPayload {
+  workSector: WorkSector
+}
+
+type WorkType {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  published_at: DateTime
+}
+
+type WorkTypeConnection {
+  values: [WorkType]
+  groupBy: WorkTypeGroupBy
+  aggregate: WorkTypeAggregator
+}
+
+type WorkTypeAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type WorkTypeGroupBy {
+  id: [WorkTypeConnectionId]
+  created_at: [WorkTypeConnectionCreated_at]
+  updated_at: [WorkTypeConnectionUpdated_at]
+  name: [WorkTypeConnectionName]
+  published_at: [WorkTypeConnectionPublished_at]
+}
+
+type WorkTypeConnectionId {
+  key: ID
+  connection: WorkTypeConnection
+}
+
+type WorkTypeConnectionCreated_at {
+  key: DateTime
+  connection: WorkTypeConnection
+}
+
+type WorkTypeConnectionUpdated_at {
+  key: DateTime
+  connection: WorkTypeConnection
+}
+
+type WorkTypeConnectionName {
+  key: String
+  connection: WorkTypeConnection
+}
+
+type WorkTypeConnectionPublished_at {
+  key: DateTime
+  connection: WorkTypeConnection
+}
+
+input WorkTypeInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editWorkTypeInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createWorkTypeInput {
+  data: WorkTypeInput
+}
+
+type createWorkTypePayload {
+  workType: WorkType
+}
+
+input updateWorkTypeInput {
+  where: InputID
+  data: editWorkTypeInput
+}
+
+type updateWorkTypePayload {
+  workType: WorkType
+}
+
+input deleteWorkTypeInput {
+  where: InputID
+}
+
+type deleteWorkTypePayload {
+  workType: WorkType
 }
 
 type UploadFile {
@@ -1802,7 +4170,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Benefit | BenefitConnection | BenefitAggregator | BenefitGroupBy | BenefitConnectionId | BenefitConnectionCreated_at | BenefitConnectionUpdated_at | BenefitConnectionBenefit | BenefitConnectionPublished_at | createBenefitPayload | updateBenefitPayload | deleteBenefitPayload | ExternalService | ExternalServiceConnection | ExternalServiceAggregator | ExternalServiceGroupBy | ExternalServiceConnectionId | ExternalServiceConnectionCreated_at | ExternalServiceConnectionUpdated_at | ExternalServiceConnectionExternalService | ExternalServiceConnectionPublished_at | createExternalServicePayload | updateExternalServicePayload | deleteExternalServicePayload | Gender | GenderConnection | GenderAggregator | GenderGroupBy | GenderConnectionId | GenderConnectionCreated_at | GenderConnectionUpdated_at | GenderConnectionGender | GenderConnectionPublished_at | createGenderPayload | updateGenderPayload | deleteGenderPayload | MaritalStatus | MaritalStatusConnection | MaritalStatusAggregator | MaritalStatusGroupBy | MaritalStatusConnectionId | MaritalStatusConnectionCreated_at | MaritalStatusConnectionUpdated_at | MaritalStatusConnectionMaritalStatus | MaritalStatusConnectionPublished_at | createMaritalStatusPayload | updateMaritalStatusPayload | deleteMaritalStatusPayload | PersonEntrance | PersonEntranceConnection | PersonEntranceAggregator | PersonEntranceGroupBy | PersonEntranceConnectionId | PersonEntranceConnectionCreated_at | PersonEntranceConnectionUpdated_at | PersonEntranceConnectionPerson | PersonEntranceConnectionDateTime | PersonEntranceConnectionPublished_at | createPersonEntrancePayload | updatePersonEntrancePayload | deletePersonEntrancePayload | Person | PersonConnection | PersonAggregator | PersonAggregatorSum | PersonAggregatorAvg | PersonAggregatorMin | PersonAggregatorMax | PersonGroupBy | PersonConnectionId | PersonConnectionCreated_at | PersonConnectionUpdated_at | PersonConnectionName | PersonConnectionSocialName | PersonConnectionMotherName | PersonConnectionBirthDate | PersonConnectionBirthPlace | PersonConnectionGender | PersonConnectionGeneralRegister | PersonConnectionChildrens | PersonConnectionHasHabitation | PersonConnectionHasEmergencyAid | PersonConnectionHasPbhBasket | PersonConnectionHasUniqueRegister | PersonConnectionHasGeneralRegister | PersonConnectionHasCpf | PersonConnectionCpf | PersonConnectionHasCtps | PersonConnectionHasBirthCertificate | PersonConnectionMarital_status | PersonConnectionSchool_training | PersonConnectionReferenceLocation | PersonConnectionOccupation | PersonConnectionProfession | PersonConnectionContactPhone | PersonConnectionReferenceAddress | PersonConnectionObservation | PersonConnectionSkin_color | PersonConnectionCardNumber | PersonConnectionPreferential | PersonConnectionHomelessSince | PersonConnectionHomelessTime | PersonConnectionBirthPlaceState | PersonConnectionBirthPlaceCity | PersonConnectionDemands | PersonConnectionChecked | PersonConnectionCheckedBy | PersonConnectionCheckedAt | PersonConnectionPublished_at | createPersonPayload | updatePersonPayload | deletePersonPayload | SchoolTraining | SchoolTrainingConnection | SchoolTrainingAggregator | SchoolTrainingGroupBy | SchoolTrainingConnectionId | SchoolTrainingConnectionCreated_at | SchoolTrainingConnectionUpdated_at | SchoolTrainingConnectionSchoolTraining | SchoolTrainingConnectionPublished_at | createSchoolTrainingPayload | updateSchoolTrainingPayload | deleteSchoolTrainingPayload | ServiceAttendance | ServiceAttendanceConnection | ServiceAttendanceAggregator | ServiceAttendanceAggregatorSum | ServiceAttendanceAggregatorAvg | ServiceAttendanceAggregatorMin | ServiceAttendanceAggregatorMax | ServiceAttendanceGroupBy | ServiceAttendanceConnectionId | ServiceAttendanceConnectionCreated_at | ServiceAttendanceConnectionUpdated_at | ServiceAttendanceConnectionService | ServiceAttendanceConnectionDate | ServiceAttendanceConnectionAttendances | ServiceAttendanceConnectionPublished_at | createServiceAttendancePayload | updateServiceAttendancePayload | deleteServiceAttendancePayload | Service | ServiceConnection | ServiceAggregator | ServiceGroupBy | ServiceConnectionId | ServiceConnectionCreated_at | ServiceConnectionUpdated_at | ServiceConnectionService | ServiceConnectionIcon | ServiceConnectionPublished_at | createServicePayload | updateServicePayload | deleteServicePayload | SkinColor | SkinColorConnection | SkinColorAggregator | SkinColorGroupBy | SkinColorConnectionId | SkinColorConnectionCreated_at | SkinColorConnectionUpdated_at | SkinColorConnectionSkinColor | SkinColorConnectionPublished_at | createSkinColorPayload | updateSkinColorPayload | deleteSkinColorPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Culture | CultureConnection | CultureAggregator | CultureAggregatorSum | CultureAggregatorAvg | CultureAggregatorMin | CultureAggregatorMax | CultureGroupBy | CultureConnectionId | CultureConnectionCreated_at | CultureConnectionUpdated_at | CultureConnectionExercises_practiced | CultureConnectionExercises_quantity_by_week | CultureConnectionKnow_some_cultural_place | CultureConnectionUsually_go_to_some_culture_place | CultureConnectionWent_somewhere_place_last_twelve_months | CultureConnectionHas_reading_habitat | CultureConnectionHas_listening_music_habitat | CultureConnectionHas_drawing_habit | CultureConnectionOther_habit | CultureConnectionVolunteer | CultureConnectionPerson | CultureConnectionPublished_at | createCulturePayload | updateCulturePayload | deleteCulturePayload | DrugsOften | DrugsOftenConnection | DrugsOftenAggregator | DrugsOftenGroupBy | DrugsOftenConnectionId | DrugsOftenConnectionCreated_at | DrugsOftenConnectionUpdated_at | DrugsOftenConnectionName | DrugsOftenConnectionPublished_at | createDrugsOftenPayload | updateDrugsOftenPayload | deleteDrugsOftenPayload | EducationDegreeOptions | EducationDegreeOptionsConnection | EducationDegreeOptionsAggregator | EducationDegreeOptionsGroupBy | EducationDegreeOptionsConnectionId | EducationDegreeOptionsConnectionCreated_at | EducationDegreeOptionsConnectionUpdated_at | EducationDegreeOptionsConnectionName | EducationDegreeOptionsConnectionPublished_at | createEducationDegreeOptionPayload | updateEducationDegreeOptionPayload | deleteEducationDegreeOptionPayload | Education | EducationConnection | EducationAggregator | EducationGroupBy | EducationConnectionId | EducationConnectionCreated_at | EducationConnectionUpdated_at | EducationConnectionIs_currently_studying | EducationConnectionStudy_degree | EducationConnectionIs_interested_returning_study | EducationConnectionHas_extra_course | EducationConnectionIs_interested_doing_some_course | EducationConnectionDesired_extra_course | EducationConnectionPerson | EducationConnectionVolunteer | EducationConnectionPublished_at | createEducationPayload | updateEducationPayload | deleteEducationPayload | FamilyReference | FamilyReferenceConnection | FamilyReferenceAggregator | FamilyReferenceGroupBy | FamilyReferenceConnectionId | FamilyReferenceConnectionCreated_at | FamilyReferenceConnectionUpdated_at | FamilyReferenceConnectionDescription | FamilyReferenceConnectionComment | FamilyReferenceConnectionPerson | FamilyReferenceConnectionVolunteer | FamilyReferenceConnectionPublished_at | createFamilyReferencePayload | updateFamilyReferencePayload | deleteFamilyReferencePayload | Gender | GenderConnection | GenderAggregator | GenderGroupBy | GenderConnectionId | GenderConnectionCreated_at | GenderConnectionUpdated_at | GenderConnectionName | GenderConnectionPublished_at | createGenderPayload | updateGenderPayload | deleteGenderPayload | HealthSituation | HealthSituationConnection | HealthSituationAggregator | HealthSituationAggregatorSum | HealthSituationAggregatorAvg | HealthSituationAggregatorMin | HealthSituationAggregatorMax | HealthSituationGroupBy | HealthSituationConnectionId | HealthSituationConnectionCreated_at | HealthSituationConnectionUpdated_at | HealthSituationConnectionSelf_health_evaluation | HealthSituationConnectionDate_last_medical_appointment | HealthSituationConnectionDate_last_medical_dentist | HealthSituationConnectionUse_medication_often | HealthSituationConnectionMedication_details | HealthSituationConnectionWas_hospitalized_last_twelve_months | HealthSituationConnectionHospitalized_reason | HealthSituationConnectionTime_hospitalized_days | HealthSituationConnectionDid_any_surgery | HealthSituationConnectionHas_vaccination_card | HealthSituationConnectionIs_updated_vaccination_covid19 | HealthSituationConnectionIs_updated_vaccination_hepatite | HealthSituationConnectionIs_updated_vaccination_tetano | HealthSituationConnectionIs_updated_vaccination_influenza | HealthSituationConnectionIs_updated_vaccination_febre_amarela | HealthSituationConnectionQuestions_regarding_physical_or_mental_health | HealthSituationConnectionDo_some_follow_up | HealthSituationConnectionUse_alcohol_or_other_drugs | HealthSituationConnectionDrugs_often | HealthSituationConnectionHas_ever_been_admitted_to_therapeutic_community | HealthSituationConnectionNeed_dental_care | HealthSituationConnectionDescribe_dental_care | HealthSituationConnectionNeed_psychological_care | HealthSituationConnectionDescribe_psychological_care | HealthSituationConnectionNeed_psychiatric_care | HealthSituationConnectionDescribe_psychiatric_care | HealthSituationConnectionOther_specific_care | HealthSituationConnectionHas_any_disabilities | HealthSituationConnectionDescribe_need_special_equipment | HealthSituationConnectionHas_any_comorbidities_hipertensao | HealthSituationConnectionHas_any_comorbidities_diabetes | HealthSituationConnectionHas_any_comorbidities_cardiovascular_problem | HealthSituationConnectionHas_any_comorbidities_depression | HealthSituationConnectionHas_any_comorbidities_asma | HealthSituationConnectionHas_any_comorbidities_cancer | HealthSituationConnectionHas_any_comorbidities_none | HealthSituationConnectionHas_any_comorbidities_other | HealthSituationConnectionMan_health_last_prostate_exam_date | HealthSituationConnectionMan_health_last_ist_exam_date | HealthSituationConnectionWoman_health_last_preventive_exam_date | HealthSituationConnectionWoman_health_last_mammography_exam_date | HealthSituationConnectionWoman_health_last_gynecological_consultation_exam_date | HealthSituationConnectionWoman_health_suspected_pregnancy_week_quantity | HealthSituationConnectionWoman_health_use_some_contraceptive_method | HealthSituationConnectionUse_condom | HealthSituationConnectionComment | HealthSituationConnectionPerson | HealthSituationConnectionVolunteer | HealthSituationConnectionPublished_at | createHealthSituationPayload | updateHealthSituationPayload | deleteHealthSituationPayload | Infrastructure | InfrastructureConnection | InfrastructureAggregator | InfrastructureGroupBy | InfrastructureConnectionId | InfrastructureConnectionCreated_at | InfrastructureConnectionUpdated_at | InfrastructureConnectionHas_access_to_clean_water | InfrastructureConnectionHas_access_to_adequate_toilets | InfrastructureConnectionHas_access_to_a_bed | InfrastructureConnectionHas_access_to_safety_spot | InfrastructureConnectionPlace_of_stay_has_adequate_hygiene | InfrastructureConnectionPlace_of_stay_has_adequate_structure | InfrastructureConnectionPlace_of_stay_has_proximity_to_basic_services | InfrastructureConnectionPlace_of_stay_has_adequate_sound_condition | InfrastructureConnectionHas_any_furniture | InfrastructureConnectionComment | InfrastructureConnectionPerson | InfrastructureConnectionVolunteer | InfrastructureConnectionPublished_at | createInfrastructurePayload | updateInfrastructurePayload | deleteInfrastructurePayload | JudicialSituation | JudicialSituationConnection | JudicialSituationAggregator | JudicialSituationGroupBy | JudicialSituationConnectionId | JudicialSituationConnectionCreated_at | JudicialSituationConnectionUpdated_at | JudicialSituationConnectionHas_already_been_through_the_socioeducational_system | JudicialSituationConnectionHas_already_been_through_the_prision_system | JudicialSituationConnectionHas_an_active_lawsuit | JudicialSituationConnectionHas_outstanding_writ_of_execution | JudicialSituationConnectionWear_anklet | JudicialSituationConnectionIs_accompanied_by_a_defender | JudicialSituationConnectionIs_this_follow_up_enough | JudicialSituationConnectionComment | JudicialSituationConnectionVolunteer | JudicialSituationConnectionPerson | JudicialSituationConnectionPublished_at | createJudicialSituationPayload | updateJudicialSituationPayload | deleteJudicialSituationPayload | MaritalStatus | MaritalStatusConnection | MaritalStatusAggregator | MaritalStatusGroupBy | MaritalStatusConnectionId | MaritalStatusConnectionCreated_at | MaritalStatusConnectionUpdated_at | MaritalStatusConnectionName | MaritalStatusConnectionPublished_at | createMaritalStatusPayload | updateMaritalStatusPayload | deleteMaritalStatusPayload | Person | PersonConnection | PersonAggregator | PersonAggregatorSum | PersonAggregatorAvg | PersonAggregatorMin | PersonAggregatorMax | PersonGroupBy | PersonConnectionId | PersonConnectionCreated_at | PersonConnectionUpdated_at | PersonConnectionName | PersonConnectionSocial_name | PersonConnectionBirth_date | PersonConnectionMother_name | PersonConnectionFather_name | PersonConnectionBirth_state | PersonConnectionNationality | PersonConnectionOccupation | PersonConnectionEmail | PersonConnectionPhone_number | PersonConnectionBirth_document_number | PersonConnectionWedding_document_number | PersonConnectionRg_document_number | PersonConnectionCpf_document_number | PersonConnectionReservist_document_number | PersonConnectionVoter_registration_document_number | PersonConnectionCnh_document_number | PersonConnectionCtps_document_number | PersonConnectionNis_document_number | PersonConnectionCaduni_document_number | PersonConnectionHas_govbr_registration | PersonConnectionMarital_status | PersonConnectionSelf_declaration | PersonConnectionGender | PersonConnectionSexual_orientation | PersonConnectionChild_quantity | PersonConnectionChild_care_person | PersonConnectionMoradia_last_update | PersonConnectionPastoral_last_update | PersonConnectionEmpvidas_last_update | PersonConnectionComment | PersonConnectionVolunteer | PersonConnectionPublished_at | createPersonPayload | updatePersonPayload | deletePersonPayload | Safety | SafetyConnection | SafetyAggregator | SafetyAggregatorSum | SafetyAggregatorAvg | SafetyAggregatorMin | SafetyAggregatorMax | SafetyGroupBy | SafetyConnectionId | SafetyConnectionCreated_at | SafetyConnectionUpdated_at | SafetyConnectionQuantity_victim_of_crimes_against_property_last_three_months | SafetyConnectionQuantity_victim_of_crimes_against_person_last_three_months | SafetyConnectionQuantity_victim_of_institutional_violence_last_three_months | SafetyConnectionComment | SafetyConnectionVolunteer | SafetyConnectionPerson | SafetyConnectionPublished_at | createSafetyPayload | updateSafetyPayload | deleteSafetyPayload | SelfDeclaration | SelfDeclarationConnection | SelfDeclarationAggregator | SelfDeclarationGroupBy | SelfDeclarationConnectionId | SelfDeclarationConnectionCreated_at | SelfDeclarationConnectionUpdated_at | SelfDeclarationConnectionName | SelfDeclarationConnectionPublished_at | createSelfDeclarationPayload | updateSelfDeclarationPayload | deleteSelfDeclarationPayload | SexualOrientation | SexualOrientationConnection | SexualOrientationAggregator | SexualOrientationGroupBy | SexualOrientationConnectionId | SexualOrientationConnectionCreated_at | SexualOrientationConnectionUpdated_at | SexualOrientationConnectionName | SexualOrientationConnectionPublished_at | createSexualOrientationPayload | updateSexualOrientationPayload | deleteSexualOrientationPayload | SocialAssistanceNetwork | SocialAssistanceNetworkConnection | SocialAssistanceNetworkAggregator | SocialAssistanceNetworkGroupBy | SocialAssistanceNetworkConnectionId | SocialAssistanceNetworkConnectionCreated_at | SocialAssistanceNetworkConnectionUpdated_at | SocialAssistanceNetworkConnectionIs_attended_to_a_network_services | SocialAssistanceNetworkConnectionHas_crea_service | SocialAssistanceNetworkConnectionHas_cras_service | SocialAssistanceNetworkConnectionHas_shelter_service | SocialAssistanceNetworkConnectionHas_council_of_rights_service | SocialAssistanceNetworkConnectionHas_health_service | SocialAssistanceNetworkConnectionHas_education_service | SocialAssistanceNetworkConnectionHas_pastoral_povo_da_rua_service | SocialAssistanceNetworkConnectionDetails | SocialAssistanceNetworkConnectionVolunteer | SocialAssistanceNetworkConnectionPerson | SocialAssistanceNetworkConnectionPublished_at | createSocialAssistanceNetworkPayload | updateSocialAssistanceNetworkPayload | deleteSocialAssistanceNetworkPayload | StreetPath | StreetPathConnection | StreetPathAggregator | StreetPathAggregatorSum | StreetPathAggregatorAvg | StreetPathAggregatorMin | StreetPathAggregatorMax | StreetPathGroupBy | StreetPathConnectionId | StreetPathConnectionCreated_at | StreetPathConnectionUpdated_at | StreetPathConnectionTime_homeless | StreetPathConnectionHomeless_reason | StreetPathConnectionHad_any_family_ties_interrupted_quantity | StreetPathConnectionAlready_been_in_shelter_quantity_months | StreetPathConnectionAlready_been_in_hostel_quantity_months | StreetPathConnectionTime_lived_in_bh_months | StreetPathConnectionLived_on_streets_in_another_city | StreetPathConnectionAny_family_member_have_been_homeless | StreetPathConnectionReason_past_street_path_unemployment | StreetPathConnectionReason_past_street_path_family_problems | StreetPathConnectionReason_past_street_path_drugs | StreetPathConnectionReason_past_street_path_comment | StreetPathConnectionTime_past_street_path | StreetPathConnectionComment | StreetPathConnectionPerson | StreetPathConnectionVolunteer | StreetPathConnectionPublished_at | createStreetPathPayload | updateStreetPathPayload | deleteStreetPathPayload | VacancyReservationBenefit | VacancyReservationBenefitConnection | VacancyReservationBenefitAggregator | VacancyReservationBenefitGroupBy | VacancyReservationBenefitConnectionId | VacancyReservationBenefitConnectionCreated_at | VacancyReservationBenefitConnectionUpdated_at | VacancyReservationBenefitConnectionName | VacancyReservationBenefitConnectionPublished_at | createVacancyReservationBenefitPayload | updateVacancyReservationBenefitPayload | deleteVacancyReservationBenefitPayload | Volunteer | VolunteerConnection | VolunteerAggregator | VolunteerGroupBy | VolunteerConnectionId | VolunteerConnectionCreated_at | VolunteerConnectionUpdated_at | VolunteerConnectionName | VolunteerConnectionEmail | VolunteerConnectionPublished_at | createVolunteerPayload | updateVolunteerPayload | deleteVolunteerPayload | WorkAndIncome | WorkAndIncomeConnection | WorkAndIncomeAggregator | WorkAndIncomeAggregatorSum | WorkAndIncomeAggregatorAvg | WorkAndIncomeAggregatorMin | WorkAndIncomeAggregatorMax | WorkAndIncomeGroupBy | WorkAndIncomeConnectionId | WorkAndIncomeConnectionCreated_at | WorkAndIncomeConnectionUpdated_at | WorkAndIncomeConnectionAlready_has_paid_work | WorkAndIncomeConnectionDescribe_past_paid_work | WorkAndIncomeConnectionWork_type | WorkAndIncomeConnectionParticipate_in_any_income_generation_projects | WorkAndIncomeConnectionWhat_is_being_done_to_get_out_of_this_situation | WorkAndIncomeConnectionRetirement_benefit_value | WorkAndIncomeConnectionContinuing_provision_benefit_value | WorkAndIncomeConnectionSick_pay_benefit_value | WorkAndIncomeConnectionBolsa_familia_benefit_value | WorkAndIncomeConnectionBrazil_financial_assistance_benefit_value | WorkAndIncomeConnectionOther_benefit_value | WorkAndIncomeConnectionFamily_average_monthly_income_value | WorkAndIncomeConnectionWork_category | WorkAndIncomeConnectionWork_sector | WorkAndIncomeConnectionVacancy_reservation_benefit | WorkAndIncomeConnectionVacancy_reservation_benefit_details | WorkAndIncomeConnectionComment | WorkAndIncomeConnectionPerson | WorkAndIncomeConnectionVolunteer | WorkAndIncomeConnectionPublished_at | createWorkAndIncomePayload | updateWorkAndIncomePayload | deleteWorkAndIncomePayload | WorkCategory | WorkCategoryConnection | WorkCategoryAggregator | WorkCategoryGroupBy | WorkCategoryConnectionId | WorkCategoryConnectionCreated_at | WorkCategoryConnectionUpdated_at | WorkCategoryConnectionName | WorkCategoryConnectionPublished_at | createWorkCategoryPayload | updateWorkCategoryPayload | deleteWorkCategoryPayload | WorkSector | WorkSectorConnection | WorkSectorAggregator | WorkSectorGroupBy | WorkSectorConnectionId | WorkSectorConnectionCreated_at | WorkSectorConnectionUpdated_at | WorkSectorConnectionName | WorkSectorConnectionPublished_at | createWorkSectorPayload | updateWorkSectorPayload | deleteWorkSectorPayload | WorkType | WorkTypeConnection | WorkTypeAggregator | WorkTypeGroupBy | WorkTypeConnectionId | WorkTypeConnectionCreated_at | WorkTypeConnectionUpdated_at | WorkTypeConnectionName | WorkTypeConnectionPublished_at | createWorkTypePayload | updateWorkTypePayload | deleteWorkTypePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
@@ -1821,36 +4189,72 @@ type AdminUser {
 }
 
 type Query {
-  benefit(id: ID!, publicationState: PublicationState): Benefit
-  benefits(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Benefit]
-  benefitsConnection(sort: String, limit: Int, start: Int, where: JSON): BenefitConnection
-  externalService(id: ID!, publicationState: PublicationState): ExternalService
-  externalServices(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ExternalService]
-  externalServicesConnection(sort: String, limit: Int, start: Int, where: JSON): ExternalServiceConnection
+  culture(id: ID!, publicationState: PublicationState): Culture
+  cultures(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Culture]
+  culturesConnection(sort: String, limit: Int, start: Int, where: JSON): CultureConnection
+  drugsOften(id: ID!, publicationState: PublicationState): DrugsOften
+  drugsOftens(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [DrugsOften]
+  drugsOftensConnection(sort: String, limit: Int, start: Int, where: JSON): DrugsOftenConnection
+  educationDegreeOption(id: ID!, publicationState: PublicationState): EducationDegreeOptions
+  educationDegreeOptions(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [EducationDegreeOptions]
+  educationDegreeOptionsConnection(sort: String, limit: Int, start: Int, where: JSON): EducationDegreeOptionsConnection
+  education(id: ID!, publicationState: PublicationState): Education
+  educations(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Education]
+  educationsConnection(sort: String, limit: Int, start: Int, where: JSON): EducationConnection
+  familyReference(id: ID!, publicationState: PublicationState): FamilyReference
+  familyReferences(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [FamilyReference]
+  familyReferencesConnection(sort: String, limit: Int, start: Int, where: JSON): FamilyReferenceConnection
   gender(id: ID!, publicationState: PublicationState): Gender
   genders(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Gender]
   gendersConnection(sort: String, limit: Int, start: Int, where: JSON): GenderConnection
+  healthSituation(id: ID!, publicationState: PublicationState): HealthSituation
+  healthSituations(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [HealthSituation]
+  healthSituationsConnection(sort: String, limit: Int, start: Int, where: JSON): HealthSituationConnection
+  infrastructure(id: ID!, publicationState: PublicationState): Infrastructure
+  infrastructures(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Infrastructure]
+  infrastructuresConnection(sort: String, limit: Int, start: Int, where: JSON): InfrastructureConnection
+  judicialSituation(id: ID!, publicationState: PublicationState): JudicialSituation
+  judicialSituations(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [JudicialSituation]
+  judicialSituationsConnection(sort: String, limit: Int, start: Int, where: JSON): JudicialSituationConnection
   maritalStatus(id: ID!, publicationState: PublicationState): MaritalStatus
   maritalStatuses(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [MaritalStatus]
   maritalStatusesConnection(sort: String, limit: Int, start: Int, where: JSON): MaritalStatusConnection
-  personEntrance(id: ID!, publicationState: PublicationState): PersonEntrance
-  personEntrances(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [PersonEntrance]
-  personEntrancesConnection(sort: String, limit: Int, start: Int, where: JSON): PersonEntranceConnection
   person(id: ID!, publicationState: PublicationState): Person
   people(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Person]
   peopleConnection(sort: String, limit: Int, start: Int, where: JSON): PersonConnection
-  schoolTraining(id: ID!, publicationState: PublicationState): SchoolTraining
-  schoolTrainings(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [SchoolTraining]
-  schoolTrainingsConnection(sort: String, limit: Int, start: Int, where: JSON): SchoolTrainingConnection
-  serviceAttendance(id: ID!, publicationState: PublicationState): ServiceAttendance
-  serviceAttendances(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ServiceAttendance]
-  serviceAttendancesConnection(sort: String, limit: Int, start: Int, where: JSON): ServiceAttendanceConnection
-  service(id: ID!, publicationState: PublicationState): Service
-  services(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Service]
-  servicesConnection(sort: String, limit: Int, start: Int, where: JSON): ServiceConnection
-  skinColor(id: ID!, publicationState: PublicationState): SkinColor
-  skinColors(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [SkinColor]
-  skinColorsConnection(sort: String, limit: Int, start: Int, where: JSON): SkinColorConnection
+  safety(id: ID!, publicationState: PublicationState): Safety
+  safeties(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Safety]
+  safetiesConnection(sort: String, limit: Int, start: Int, where: JSON): SafetyConnection
+  selfDeclaration(id: ID!, publicationState: PublicationState): SelfDeclaration
+  selfDeclarations(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [SelfDeclaration]
+  selfDeclarationsConnection(sort: String, limit: Int, start: Int, where: JSON): SelfDeclarationConnection
+  sexualOrientation(id: ID!, publicationState: PublicationState): SexualOrientation
+  sexualOrientations(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [SexualOrientation]
+  sexualOrientationsConnection(sort: String, limit: Int, start: Int, where: JSON): SexualOrientationConnection
+  socialAssistanceNetwork(id: ID!, publicationState: PublicationState): SocialAssistanceNetwork
+  socialAssistanceNetworks(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [SocialAssistanceNetwork]
+  socialAssistanceNetworksConnection(sort: String, limit: Int, start: Int, where: JSON): SocialAssistanceNetworkConnection
+  streetPath(id: ID!, publicationState: PublicationState): StreetPath
+  streetPaths(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [StreetPath]
+  streetPathsConnection(sort: String, limit: Int, start: Int, where: JSON): StreetPathConnection
+  vacancyReservationBenefit(id: ID!, publicationState: PublicationState): VacancyReservationBenefit
+  vacancyReservationBenefits(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [VacancyReservationBenefit]
+  vacancyReservationBenefitsConnection(sort: String, limit: Int, start: Int, where: JSON): VacancyReservationBenefitConnection
+  volunteer(id: ID!, publicationState: PublicationState): Volunteer
+  volunteers(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Volunteer]
+  volunteersConnection(sort: String, limit: Int, start: Int, where: JSON): VolunteerConnection
+  workAndIncome(id: ID!, publicationState: PublicationState): WorkAndIncome
+  workAndIncomes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [WorkAndIncome]
+  workAndIncomesConnection(sort: String, limit: Int, start: Int, where: JSON): WorkAndIncomeConnection
+  workCategory(id: ID!, publicationState: PublicationState): WorkCategory
+  workCategories(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [WorkCategory]
+  workCategoriesConnection(sort: String, limit: Int, start: Int, where: JSON): WorkCategoryConnection
+  workSector(id: ID!, publicationState: PublicationState): WorkSector
+  workSectors(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [WorkSector]
+  workSectorsConnection(sort: String, limit: Int, start: Int, where: JSON): WorkSectorConnection
+  workType(id: ID!, publicationState: PublicationState): WorkType
+  workTypes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [WorkType]
+  workTypesConnection(sort: String, limit: Int, start: Int, where: JSON): WorkTypeConnection
   files(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UploadFile]
   filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
   role(id: ID!, publicationState: PublicationState): UsersPermissionsRole
@@ -1867,36 +4271,72 @@ type Query {
 }
 
 type Mutation {
-  createBenefit(input: createBenefitInput): createBenefitPayload
-  updateBenefit(input: updateBenefitInput): updateBenefitPayload
-  deleteBenefit(input: deleteBenefitInput): deleteBenefitPayload
-  createExternalService(input: createExternalServiceInput): createExternalServicePayload
-  updateExternalService(input: updateExternalServiceInput): updateExternalServicePayload
-  deleteExternalService(input: deleteExternalServiceInput): deleteExternalServicePayload
+  createCulture(input: createCultureInput): createCulturePayload
+  updateCulture(input: updateCultureInput): updateCulturePayload
+  deleteCulture(input: deleteCultureInput): deleteCulturePayload
+  createDrugsOften(input: createDrugsOftenInput): createDrugsOftenPayload
+  updateDrugsOften(input: updateDrugsOftenInput): updateDrugsOftenPayload
+  deleteDrugsOften(input: deleteDrugsOftenInput): deleteDrugsOftenPayload
+  createEducationDegreeOption(input: createEducationDegreeOptionInput): createEducationDegreeOptionPayload
+  updateEducationDegreeOption(input: updateEducationDegreeOptionInput): updateEducationDegreeOptionPayload
+  deleteEducationDegreeOption(input: deleteEducationDegreeOptionInput): deleteEducationDegreeOptionPayload
+  createEducation(input: createEducationInput): createEducationPayload
+  updateEducation(input: updateEducationInput): updateEducationPayload
+  deleteEducation(input: deleteEducationInput): deleteEducationPayload
+  createFamilyReference(input: createFamilyReferenceInput): createFamilyReferencePayload
+  updateFamilyReference(input: updateFamilyReferenceInput): updateFamilyReferencePayload
+  deleteFamilyReference(input: deleteFamilyReferenceInput): deleteFamilyReferencePayload
   createGender(input: createGenderInput): createGenderPayload
   updateGender(input: updateGenderInput): updateGenderPayload
   deleteGender(input: deleteGenderInput): deleteGenderPayload
+  createHealthSituation(input: createHealthSituationInput): createHealthSituationPayload
+  updateHealthSituation(input: updateHealthSituationInput): updateHealthSituationPayload
+  deleteHealthSituation(input: deleteHealthSituationInput): deleteHealthSituationPayload
+  createInfrastructure(input: createInfrastructureInput): createInfrastructurePayload
+  updateInfrastructure(input: updateInfrastructureInput): updateInfrastructurePayload
+  deleteInfrastructure(input: deleteInfrastructureInput): deleteInfrastructurePayload
+  createJudicialSituation(input: createJudicialSituationInput): createJudicialSituationPayload
+  updateJudicialSituation(input: updateJudicialSituationInput): updateJudicialSituationPayload
+  deleteJudicialSituation(input: deleteJudicialSituationInput): deleteJudicialSituationPayload
   createMaritalStatus(input: createMaritalStatusInput): createMaritalStatusPayload
   updateMaritalStatus(input: updateMaritalStatusInput): updateMaritalStatusPayload
   deleteMaritalStatus(input: deleteMaritalStatusInput): deleteMaritalStatusPayload
-  createPersonEntrance(input: createPersonEntranceInput): createPersonEntrancePayload
-  updatePersonEntrance(input: updatePersonEntranceInput): updatePersonEntrancePayload
-  deletePersonEntrance(input: deletePersonEntranceInput): deletePersonEntrancePayload
   createPerson(input: createPersonInput): createPersonPayload
   updatePerson(input: updatePersonInput): updatePersonPayload
   deletePerson(input: deletePersonInput): deletePersonPayload
-  createSchoolTraining(input: createSchoolTrainingInput): createSchoolTrainingPayload
-  updateSchoolTraining(input: updateSchoolTrainingInput): updateSchoolTrainingPayload
-  deleteSchoolTraining(input: deleteSchoolTrainingInput): deleteSchoolTrainingPayload
-  createServiceAttendance(input: createServiceAttendanceInput): createServiceAttendancePayload
-  updateServiceAttendance(input: updateServiceAttendanceInput): updateServiceAttendancePayload
-  deleteServiceAttendance(input: deleteServiceAttendanceInput): deleteServiceAttendancePayload
-  createService(input: createServiceInput): createServicePayload
-  updateService(input: updateServiceInput): updateServicePayload
-  deleteService(input: deleteServiceInput): deleteServicePayload
-  createSkinColor(input: createSkinColorInput): createSkinColorPayload
-  updateSkinColor(input: updateSkinColorInput): updateSkinColorPayload
-  deleteSkinColor(input: deleteSkinColorInput): deleteSkinColorPayload
+  createSafety(input: createSafetyInput): createSafetyPayload
+  updateSafety(input: updateSafetyInput): updateSafetyPayload
+  deleteSafety(input: deleteSafetyInput): deleteSafetyPayload
+  createSelfDeclaration(input: createSelfDeclarationInput): createSelfDeclarationPayload
+  updateSelfDeclaration(input: updateSelfDeclarationInput): updateSelfDeclarationPayload
+  deleteSelfDeclaration(input: deleteSelfDeclarationInput): deleteSelfDeclarationPayload
+  createSexualOrientation(input: createSexualOrientationInput): createSexualOrientationPayload
+  updateSexualOrientation(input: updateSexualOrientationInput): updateSexualOrientationPayload
+  deleteSexualOrientation(input: deleteSexualOrientationInput): deleteSexualOrientationPayload
+  createSocialAssistanceNetwork(input: createSocialAssistanceNetworkInput): createSocialAssistanceNetworkPayload
+  updateSocialAssistanceNetwork(input: updateSocialAssistanceNetworkInput): updateSocialAssistanceNetworkPayload
+  deleteSocialAssistanceNetwork(input: deleteSocialAssistanceNetworkInput): deleteSocialAssistanceNetworkPayload
+  createStreetPath(input: createStreetPathInput): createStreetPathPayload
+  updateStreetPath(input: updateStreetPathInput): updateStreetPathPayload
+  deleteStreetPath(input: deleteStreetPathInput): deleteStreetPathPayload
+  createVacancyReservationBenefit(input: createVacancyReservationBenefitInput): createVacancyReservationBenefitPayload
+  updateVacancyReservationBenefit(input: updateVacancyReservationBenefitInput): updateVacancyReservationBenefitPayload
+  deleteVacancyReservationBenefit(input: deleteVacancyReservationBenefitInput): deleteVacancyReservationBenefitPayload
+  createVolunteer(input: createVolunteerInput): createVolunteerPayload
+  updateVolunteer(input: updateVolunteerInput): updateVolunteerPayload
+  deleteVolunteer(input: deleteVolunteerInput): deleteVolunteerPayload
+  createWorkAndIncome(input: createWorkAndIncomeInput): createWorkAndIncomePayload
+  updateWorkAndIncome(input: updateWorkAndIncomeInput): updateWorkAndIncomePayload
+  deleteWorkAndIncome(input: deleteWorkAndIncomeInput): deleteWorkAndIncomePayload
+  createWorkCategory(input: createWorkCategoryInput): createWorkCategoryPayload
+  updateWorkCategory(input: updateWorkCategoryInput): updateWorkCategoryPayload
+  deleteWorkCategory(input: deleteWorkCategoryInput): deleteWorkCategoryPayload
+  createWorkSector(input: createWorkSectorInput): createWorkSectorPayload
+  updateWorkSector(input: updateWorkSectorInput): updateWorkSectorPayload
+  deleteWorkSector(input: deleteWorkSectorInput): deleteWorkSectorPayload
+  createWorkType(input: createWorkTypeInput): createWorkTypePayload
+  updateWorkType(input: updateWorkTypeInput): updateWorkTypePayload
+  deleteWorkType(input: deleteWorkTypeInput): deleteWorkTypePayload
 
   """Delete one file"""
   deleteFile(input: deleteFileInput): deleteFilePayload

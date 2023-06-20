@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "people",
+  "collectionName": "Person",
   "info": {
-    "name": "Person",
+    "name": "person",
     "description": ""
   },
   "options": {
@@ -11,124 +11,128 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Name": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "social_name": {
+      "type": "string",
+      "required": true
+    },
+    "birth_date": {
+      "type": "date",
+      "required": true
+    },
+    "mother_name": {
+      "type": "string",
+      "required": true
+    },
+    "father_name": {
       "type": "string"
     },
-    "SocialName": {
-      "type": "string"
+    "birth_state": {
+      "type": "string",
+      "required": true,
+      "unique": true
     },
-    "MotherName": {
-      "type": "string"
+    "nationality": {
+      "type": "string",
+      "required": true,
+      "unique": true
     },
-    "BirthDate": {
-      "type": "date"
+    "occupation": {
+      "type": "string",
+      "required": true,
+      "unique": true
     },
-    "BirthPlace": {
-      "type": "string"
+    "email": {
+      "type": "string",
+      "required": true,
+      "unique": true
     },
-    "gender": {
-      "model": "gender"
+    "phone_number": {
+      "type": "string",
+      "required": true,
+      "unique": false
     },
-    "GeneralRegister": {
-      "type": "string"
+    "birth_document_number": {
+      "type": "string",
+      "required": false,
+      "unique": true
     },
-    "Childrens": {
-      "type": "integer"
+    "wedding_document_number": {
+      "type": "string",
+      "required": false,
+      "unique": true
     },
-    "HasHabitation": {
-      "type": "boolean"
+    "rg_document_number": {
+      "type": "string",
+      "unique": true
     },
-    "HasEmergencyAid": {
-      "type": "boolean"
+    "cpf_document_number": {
+      "type": "string",
+      "unique": true
     },
-    "HasPbhBasket": {
-      "type": "boolean"
+    "reservist_document_number": {
+      "type": "string",
+      "unique": true
     },
-    "HasUniqueRegister": {
-      "type": "boolean"
+    "voter_registration_document_number": {
+      "type": "string",
+      "unique": true
     },
-    "HasGeneralRegister": {
-      "type": "boolean"
+    "cnh_document_number": {
+      "type": "string",
+      "unique": true
     },
-    "HasCpf": {
-      "type": "boolean"
+    "ctps_document_number": {
+      "type": "string",
+      "unique": true
     },
-    "Cpf": {
-      "type": "string"
+    "nis_document_number": {
+      "type": "string",
+      "unique": true
     },
-    "HasCtps": {
-      "type": "boolean"
+    "caduni_document_number": {
+      "type": "string",
+      "unique": true
     },
-    "HasBirthCertificate": {
-      "type": "boolean"
+    "has_govbr_registration": {
+      "type": "boolean",
+      "required": true
     },
     "marital_status": {
       "model": "marital-status"
     },
-    "school_training": {
-      "model": "school-training"
+    "self_declaration": {
+      "model": "self-declaration"
     },
-    "ReferenceLocation": {
+    "gender": {
+      "model": "gender"
+    },
+    "sexual_orientation": {
+      "model": "sexual-orientation"
+    },
+    "child_quantity": {
+      "type": "integer"
+    },
+    "child_care_person": {
+      "type": "string"
+    },
+    "moradia_last_update": {
+      "type": "datetime"
+    },
+    "pastoral_last_update": {
+      "type": "datetime"
+    },
+    "empvidas_last_update": {
+      "type": "datetime"
+    },
+    "comment": {
       "type": "text"
     },
-    "Occupation": {
-      "type": "string"
-    },
-    "Profession": {
-      "type": "string"
-    },
-    "ContactPhone": {
-      "type": "string"
-    },
-    "ReferenceAddress": {
-      "type": "text"
-    },
-    "Observation": {
-      "type": "string"
-    },
-    "skin_color": {
-      "model": "skin-color"
-    },
-    "CardNumber": {
-      "type": "string"
-    },
-    "Preferential": {
-      "type": "boolean"
-    },
-    "HomelessSince": {
-      "type": "date"
-    },
-    "services": {
-      "via": "people",
-      "collection": "service",
-      "dominant": true
-    },
-    "HomelessTime": {
-      "type": "string"
-    },
-    "BirthPlaceState": {
-      "type": "string"
-    },
-    "BirthPlaceCity": {
-      "type": "string"
-    },
-    "external_services": {
-      "collection": "external-service"
-    },
-    "benefits": {
-      "collection": "benefit"
-    },
-    "Demands": {
-      "type": "string"
-    },
-    "Checked": {
-      "type": "boolean"
-    },
-    "CheckedBy": {
-      "type": "string"
-    },
-    "CheckedAt": {
-      "type": "date"
+    "volunteer": {
+      "model": "volunteer"
     }
   }
 }

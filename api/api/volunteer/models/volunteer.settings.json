@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "Volunteer",
+  "info": {
+    "name": "volunteer"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "email": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

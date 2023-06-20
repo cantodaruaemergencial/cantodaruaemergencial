@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "family_references",
+  "info": {
+    "name": "FamilyReference"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "person": {
+      "model": "person"
+    },
+    "volunteer": {
+      "model": "volunteer"
+    }
+  }
+}

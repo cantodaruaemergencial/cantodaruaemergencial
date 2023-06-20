@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/education-degree-options",
+      "handler": "education-degree-options.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/education-degree-options/count",
+      "handler": "education-degree-options.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/education-degree-options/:id",
+      "handler": "education-degree-options.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/education-degree-options",
+      "handler": "education-degree-options.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/education-degree-options/:id",
+      "handler": "education-degree-options.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/education-degree-options/:id",
+      "handler": "education-degree-options.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

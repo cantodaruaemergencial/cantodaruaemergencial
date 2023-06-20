@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "self_declarations",
+  "info": {
+    "name": "SelfDeclaration"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

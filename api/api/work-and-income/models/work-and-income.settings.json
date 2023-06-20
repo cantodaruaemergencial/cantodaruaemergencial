@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_and_incomes",
+  "info": {
+    "name": "WorkAndIncome"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "already_has_paid_work": {
+      "type": "boolean"
+    },
+    "describe_past_paid_work": {
+      "type": "text"
+    },
+    "work_type": {
+      "model": "work-type"
+    },
+    "participate_in_any_income_generation_projects": {
+      "type": "boolean"
+    },
+    "what_is_being_done_to_get_out_of_this_situation": {
+      "type": "text"
+    },
+    "retirement_benefit_value": {
+      "type": "decimal"
+    },
+    "continuing_provision_benefit_value": {
+      "type": "decimal"
+    },
+    "sick_pay_benefit_value": {
+      "type": "decimal"
+    },
+    "bolsa_familia_benefit_value": {
+      "type": "decimal"
+    },
+    "brazil_financial_assistance_benefit_value": {
+      "type": "decimal"
+    },
+    "other_benefit_value": {
+      "type": "decimal"
+    },
+    "family_average_monthly_income_value": {
+      "type": "decimal"
+    },
+    "work_category": {
+      "model": "work-category"
+    },
+    "work_sector": {
+      "model": "work-sector"
+    },
+    "vacancy_reservation_benefit": {
+      "model": "vacancy-reservation-benefit"
+    },
+    "vacancy_reservation_benefit_details": {
+      "type": "text"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "person": {
+      "model": "person"
+    },
+    "volunteer": {
+      "model": "volunteer"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "educations",
+  "info": {
+    "name": "Education"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "is_currently_studying": {
+      "type": "boolean",
+      "required": true
+    },
+    "study_degree": {
+      "model": "education-degree-options"
+    },
+    "is_interested_returning_study": {
+      "type": "boolean",
+      "required": true
+    },
+    "has_extra_course": {
+      "type": "boolean",
+      "required": true
+    },
+    "is_interested_doing_some_course": {
+      "type": "boolean",
+      "required": true
+    },
+    "desired_extra_course": {
+      "type": "text"
+    },
+    "person": {
+      "model": "person"
+    },
+    "volunteer": {
+      "model": "volunteer"
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "marital_statuses",
   "info": {
-    "name": "Marital Status"
+    "name": "MaritalStatus"
   },
   "options": {
     "increments": true,
@@ -10,8 +10,10 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "MaritalStatus": {
-      "type": "string"
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

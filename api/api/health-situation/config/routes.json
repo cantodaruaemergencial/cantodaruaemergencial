@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/health-situations",
+      "handler": "health-situation.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/health-situations/count",
+      "handler": "health-situation.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/health-situations/:id",
+      "handler": "health-situation.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/health-situations",
+      "handler": "health-situation.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/health-situations/:id",
+      "handler": "health-situation.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/health-situations/:id",
+      "handler": "health-situation.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -529,13 +529,14 @@
     "schemas": {
       "Marital-status": {
         "required": [
-          "id"
+          "id",
+          "name"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "MaritalStatus": {
+          "name": {
             "type": "string"
           },
           "published_at": {
@@ -545,8 +546,11 @@
         }
       },
       "NewMarital-status": {
+        "required": [
+          "name"
+        ],
         "properties": {
-          "MaritalStatus": {
+          "name": {
             "type": "string"
           },
           "published_at": {

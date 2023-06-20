@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/work-and-incomes",
+      "handler": "work-and-income.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/work-and-incomes/count",
+      "handler": "work-and-income.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/work-and-incomes/:id",
+      "handler": "work-and-income.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/work-and-incomes",
+      "handler": "work-and-income.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/work-and-incomes/:id",
+      "handler": "work-and-income.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/work-and-incomes/:id",
+      "handler": "work-and-income.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
