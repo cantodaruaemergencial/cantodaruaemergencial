@@ -1,6 +1,6 @@
 {
   "kind": "collectionType",
-  "collectionName": "EducationDegreeOptions",
+  "collectionName": "education_degree_options",
   "info": {
     "name": "EducationDegreeOptions",
     "description": ""

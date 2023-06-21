@@ -1,6 +1,6 @@
 {
   "kind": "collectionType",
-  "collectionName": "Person",
+  "collectionName": "person",
   "info": {
     "name": "person",
     "description": ""
