@@ -591,7 +591,7 @@
           "use_alcohol_or_other_drugs": {
             "type": "string"
           },
-          "drugs_often": {
+          "drugs_frequency": {
             "required": [
               "id"
             ],
@@ -915,7 +915,7 @@
           "use_alcohol_or_other_drugs": {
             "type": "string"
           },
-          "drugs_often": {
+          "drugs_frequency": {
             "type": "string"
           },
           "has_ever_been_admitted_to_therapeutic_community": {

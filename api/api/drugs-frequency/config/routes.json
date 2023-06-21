@@ -1,0 +1,52 @@
+{
+	"routes": [
+		{
+			"method": "GET",
+			"path": "/drugs-frequencies",
+			"handler": "drugs-frequency.find",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "GET",
+			"path": "/drugs-frequencies/count",
+			"handler": "drugs-frequency.count",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "GET",
+			"path": "/drugs-frequencies/:id",
+			"handler": "drugs-frequency.findOne",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "POST",
+			"path": "/drugs-frequencies",
+			"handler": "drugs-frequency.create",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "PUT",
+			"path": "/drugs-frequencies/:id",
+			"handler": "drugs-frequency.update",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "DELETE",
+			"path": "/drugs-frequencies/:id",
+			"handler": "drugs-frequency.delete",
+			"config": {
+				"policies": []
+			}
+		}
+	]
+}

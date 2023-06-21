@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "person_vacancy_reservation_benefits",
+  "info": {
+    "name": "PersonVacancyReservationBenefit"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "person": {
+      "model": "person"
+    },
+    "vacancy_reservation_benefit": {
+      "model": "vacancy-reservation-benefit"
+    },
+    "details": {
+      "type": "text"
+    }
+  }
+}

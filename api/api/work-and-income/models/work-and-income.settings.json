@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "work_and_incomes",
   "info": {
-    "name": "WorkAndIncome"
+    "name": "WorkAndIncome",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -46,17 +47,11 @@
     "family_average_monthly_income_value": {
       "type": "decimal"
     },
-    "work_category": {
-      "model": "work-category"
+    "past_work_category": {
+      "model": "past-work-category"
     },
-    "work_sector": {
-      "model": "work-sector"
-    },
-    "vacancy_reservation_benefit": {
-      "model": "vacancy-reservation-benefit"
-    },
-    "vacancy_reservation_benefit_details": {
-      "type": "text"
+    "past_work_sector": {
+      "model": "past-work-sector"
     },
     "comment": {
       "type": "text"

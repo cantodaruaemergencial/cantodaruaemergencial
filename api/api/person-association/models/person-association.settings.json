@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "person_associations",
+  "info": {
+    "name": "PersonAssociation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "person": {
+      "model": "person"
+    },
+    "association": {
+      "model": "association"
+    }
+  }
+}

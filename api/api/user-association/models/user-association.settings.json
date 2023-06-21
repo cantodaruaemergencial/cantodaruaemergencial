@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_associations",
+  "info": {
+    "name": "UserAssociation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "association": {
+      "model": "association"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/person-associations",
+      "handler": "person-association.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/person-associations/count",
+      "handler": "person-association.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/person-associations/:id",
+      "handler": "person-association.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/person-associations",
+      "handler": "person-association.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/person-associations/:id",
+      "handler": "person-association.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/person-associations/:id",
+      "handler": "person-association.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

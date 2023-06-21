@@ -590,7 +590,7 @@
           "family_average_monthly_income_value": {
             "type": "number"
           },
-          "work_category": {
+          "past_work_category": {
             "required": [
               "id"
             ],
@@ -612,7 +612,7 @@
               }
             }
           },
-          "work_sector": {
+          "past_work_sector": {
             "required": [
               "id"
             ],
@@ -633,31 +633,6 @@
                 "type": "string"
               }
             }
-          },
-          "vacancy_reservation_benefit": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "vacancy_reservation_benefit_details": {
-            "type": "string"
           },
           "comment": {
             "type": "string"
@@ -858,16 +833,10 @@
           "family_average_monthly_income_value": {
             "type": "number"
           },
-          "work_category": {
+          "past_work_category": {
             "type": "string"
           },
-          "work_sector": {
-            "type": "string"
-          },
-          "vacancy_reservation_benefit": {
-            "type": "string"
-          },
-          "vacancy_reservation_benefit_details": {
+          "past_work_sector": {
             "type": "string"
           },
           "comment": {
