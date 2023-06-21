@@ -38,8 +38,9 @@
     "other_habit": {
       "type": "text"
     },
-    "volunteer": {
-      "model": "volunteer"
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     },
     "person": {
       "model": "person"

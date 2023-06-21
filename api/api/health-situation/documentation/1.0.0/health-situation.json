@@ -810,7 +810,7 @@
               "comment": {
                 "type": "string"
               },
-              "volunteer": {
+              "user": {
                 "type": "string"
               },
               "published_at": {
@@ -824,23 +824,41 @@
               }
             }
           },
-          "volunteer": {
+          "user": {
             "required": [
               "id",
-              "name",
+              "username",
               "email"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "username": {
                 "type": "string"
               },
               "email": {
                 "type": "string"
               },
-              "published_at": {
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
                 "type": "string"
               },
               "created_by": {
@@ -1007,7 +1025,7 @@
           "person": {
             "type": "string"
           },
-          "volunteer": {
+          "user": {
             "type": "string"
           },
           "published_at": {

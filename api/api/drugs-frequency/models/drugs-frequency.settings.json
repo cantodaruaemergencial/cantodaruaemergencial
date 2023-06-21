@@ -1,19 +1,19 @@
 {
-	"kind": "collectionType",
-	"collectionName": "drugs_frequency",
-	"info": {
-		"name": "DrugsFrequency",
-		"description": ""
-	},
-	"options": {
-		"increments": true,
-		"timestamps": true,
-		"draftAndPublish": true
-	},
-	"attributes": {
-		"name": {
-			"type": "string",
-			"unique": true
-		}
-	}
+  "kind": "collectionType",
+  "collectionName": "drugs_frequency",
+  "info": {
+    "name": "DrugsFrequency",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true
+    }
+  }
 }

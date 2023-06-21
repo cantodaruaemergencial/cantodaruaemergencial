@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "person_vacancy_reservation_benefits",
   "info": {
-    "name": "PersonVacancyReservationBenefit"
+    "name": "PersonVacancyReservationBenefit",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -18,6 +19,10 @@
     },
     "details": {
       "type": "text"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

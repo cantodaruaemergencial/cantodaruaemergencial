@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "street_paths",
   "info": {
-    "name": "StreetPath"
+    "name": "StreetPath",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -55,8 +56,9 @@
     "person": {
       "model": "person"
     },
-    "volunteer": {
-      "model": "volunteer"
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

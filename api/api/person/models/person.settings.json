@@ -131,8 +131,9 @@
     "comment": {
       "type": "text"
     },
-    "volunteer": {
-      "model": "volunteer"
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

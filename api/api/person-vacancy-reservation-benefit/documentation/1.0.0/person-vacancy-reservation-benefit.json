@@ -646,7 +646,7 @@
               "comment": {
                 "type": "string"
               },
-              "volunteer": {
+              "user": {
                 "type": "string"
               },
               "published_at": {
@@ -685,6 +685,51 @@
           "details": {
             "type": "string"
           },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -700,6 +745,9 @@
             "type": "string"
           },
           "details": {
+            "type": "string"
+          },
+          "user": {
             "type": "string"
           },
           "published_at": {
