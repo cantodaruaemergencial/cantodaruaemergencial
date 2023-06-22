@@ -119,15 +119,6 @@
     "child_care_person": {
       "type": "string"
     },
-    "moradia_last_update": {
-      "type": "datetime"
-    },
-    "pastoral_last_update": {
-      "type": "datetime"
-    },
-    "empvidas_last_update": {
-      "type": "datetime"
-    },
     "comment": {
       "type": "text"
     },

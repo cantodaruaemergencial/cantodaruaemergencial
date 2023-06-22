@@ -703,15 +703,6 @@
               "child_care_person": {
                 "type": "string"
               },
-              "moradia_last_update": {
-                "type": "string"
-              },
-              "pastoral_last_update": {
-                "type": "string"
-              },
-              "empvidas_last_update": {
-                "type": "string"
-              },
               "comment": {
                 "type": "string"
               },

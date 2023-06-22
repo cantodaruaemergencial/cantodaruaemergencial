@@ -694,18 +694,6 @@
           "child_care_person": {
             "type": "string"
           },
-          "moradia_last_update": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "pastoral_last_update": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "empvidas_last_update": {
-            "type": "string",
-            "format": "date-time"
-          },
           "comment": {
             "type": "string"
           },
@@ -855,18 +843,6 @@
           },
           "child_care_person": {
             "type": "string"
-          },
-          "moradia_last_update": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "pastoral_last_update": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "empvidas_last_update": {
-            "type": "string",
-            "format": "date-time"
           },
           "comment": {
             "type": "string"
