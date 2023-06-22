@@ -537,10 +537,10 @@
           "went_somewhere_place_last_twelve_months": {
             "type": "boolean"
           },
-          "has_reading_habitat": {
+          "has_reading_habit": {
             "type": "boolean"
           },
-          "has_listening_music_habitat": {
+          "has_listening_music_habit": {
             "type": "boolean"
           },
           "has_drawing_habit": {
@@ -693,15 +693,6 @@
               "child_care_person": {
                 "type": "string"
               },
-              "moradia_last_update": {
-                "type": "string"
-              },
-              "pastoral_last_update": {
-                "type": "string"
-              },
-              "empvidas_last_update": {
-                "type": "string"
-              },
               "comment": {
                 "type": "string"
               },
@@ -742,10 +733,10 @@
           "went_somewhere_place_last_twelve_months": {
             "type": "boolean"
           },
-          "has_reading_habitat": {
+          "has_reading_habit": {
             "type": "boolean"
           },
-          "has_listening_music_habitat": {
+          "has_listening_music_habit": {
             "type": "boolean"
           },
           "has_drawing_habit": {

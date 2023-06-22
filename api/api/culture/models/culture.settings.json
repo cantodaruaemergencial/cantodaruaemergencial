@@ -26,10 +26,10 @@
     "went_somewhere_place_last_twelve_months": {
       "type": "boolean"
     },
-    "has_reading_habitat": {
+    "has_reading_habit": {
       "type": "boolean"
     },
-    "has_listening_music_habitat": {
+    "has_listening_music_habit": {
       "type": "boolean"
     },
     "has_drawing_habit": {
