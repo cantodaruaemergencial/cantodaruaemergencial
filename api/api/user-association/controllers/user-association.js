@@ -18,7 +18,7 @@ const getQuery = async (ctx, q, isArray = true) => {
 module.exports = {
 	findByUser: async (ctx) => {
 		const userId = ctx.params.userid;
-		if (typeof Number(userId) !== "number") return ctx.send("");
+		if (isNaN(Number(userId))) throw Error("Internal server error");
 		return getQuery(
 			ctx,
 			`select * from user_associations where user = '${userId}'`
