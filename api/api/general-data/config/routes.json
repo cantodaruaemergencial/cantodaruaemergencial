@@ -1,0 +1,9 @@
+{
+	"routes": [
+		{
+			"method": "GET",
+			"path": "/general-data/person/:personid",
+			"handler": "general-data.findByPerson"
+		}
+	]
+}
