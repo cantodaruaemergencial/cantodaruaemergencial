@@ -674,7 +674,7 @@ type FamilyReference {
   created_at: DateTime!
   updated_at: DateTime!
   description: String
-  comment: String
+  comment_family_references: String
   person: Person
   user: UsersPermissionsUser
   published_at: DateTime
@@ -696,7 +696,7 @@ type FamilyReferenceGroupBy {
   created_at: [FamilyReferenceConnectionCreated_at]
   updated_at: [FamilyReferenceConnectionUpdated_at]
   description: [FamilyReferenceConnectionDescription]
-  comment: [FamilyReferenceConnectionComment]
+  comment_family_references: [FamilyReferenceConnectionComment_family_references]
   person: [FamilyReferenceConnectionPerson]
   user: [FamilyReferenceConnectionUser]
   published_at: [FamilyReferenceConnectionPublished_at]
@@ -722,7 +722,7 @@ type FamilyReferenceConnectionDescription {
   connection: FamilyReferenceConnection
 }
 
-type FamilyReferenceConnectionComment {
+type FamilyReferenceConnectionComment_family_references {
   key: String
   connection: FamilyReferenceConnection
 }
@@ -744,7 +744,7 @@ type FamilyReferenceConnectionPublished_at {
 
 input FamilyReferenceInput {
   description: String
-  comment: String
+  comment_family_references: String
   person: ID
   user: ID
   published_at: DateTime
@@ -754,7 +754,7 @@ input FamilyReferenceInput {
 
 input editFamilyReferenceInput {
   description: String
-  comment: String
+  comment_family_references: String
   person: ID
   user: ID
   published_at: DateTime
@@ -927,7 +927,7 @@ type HealthSituation {
   woman_health_suspected_pregnancy_week_quantity: Int
   woman_health_use_some_contraceptive_method: Boolean
   use_condom: Boolean
-  comment: String
+  comment_health_situation: String
   person: Person
   user: UsersPermissionsUser
   published_at: DateTime
@@ -1017,7 +1017,7 @@ type HealthSituationGroupBy {
   woman_health_suspected_pregnancy_week_quantity: [HealthSituationConnectionWoman_health_suspected_pregnancy_week_quantity]
   woman_health_use_some_contraceptive_method: [HealthSituationConnectionWoman_health_use_some_contraceptive_method]
   use_condom: [HealthSituationConnectionUse_condom]
-  comment: [HealthSituationConnectionComment]
+  comment_health_situation: [HealthSituationConnectionComment_health_situation]
   person: [HealthSituationConnectionPerson]
   user: [HealthSituationConnectionUser]
   published_at: [HealthSituationConnectionPublished_at]
@@ -1263,7 +1263,7 @@ type HealthSituationConnectionUse_condom {
   connection: HealthSituationConnection
 }
 
-type HealthSituationConnectionComment {
+type HealthSituationConnectionComment_health_situation {
   key: String
   connection: HealthSituationConnection
 }
@@ -1329,7 +1329,7 @@ input HealthSituationInput {
   woman_health_suspected_pregnancy_week_quantity: Int
   woman_health_use_some_contraceptive_method: Boolean
   use_condom: Boolean
-  comment: String
+  comment_health_situation: String
   person: ID
   user: ID
   published_at: DateTime
@@ -1383,7 +1383,7 @@ input editHealthSituationInput {
   woman_health_suspected_pregnancy_week_quantity: Int
   woman_health_use_some_contraceptive_method: Boolean
   use_condom: Boolean
-  comment: String
+  comment_health_situation: String
   person: ID
   user: ID
   published_at: DateTime
@@ -1429,7 +1429,7 @@ type Infrastructure {
   place_of_stay_has_proximity_to_basic_services: Boolean
   place_of_stay_has_adequate_sound_condition: Boolean
   has_any_furniture: Boolean
-  comment: String
+  comment_infrastructure: String
   person: Person
   user: UsersPermissionsUser
   published_at: DateTime
@@ -1459,7 +1459,7 @@ type InfrastructureGroupBy {
   place_of_stay_has_proximity_to_basic_services: [InfrastructureConnectionPlace_of_stay_has_proximity_to_basic_services]
   place_of_stay_has_adequate_sound_condition: [InfrastructureConnectionPlace_of_stay_has_adequate_sound_condition]
   has_any_furniture: [InfrastructureConnectionHas_any_furniture]
-  comment: [InfrastructureConnectionComment]
+  comment_infrastructure: [InfrastructureConnectionComment_infrastructure]
   person: [InfrastructureConnectionPerson]
   user: [InfrastructureConnectionUser]
   published_at: [InfrastructureConnectionPublished_at]
@@ -1525,7 +1525,7 @@ type InfrastructureConnectionHas_any_furniture {
   connection: InfrastructureConnection
 }
 
-type InfrastructureConnectionComment {
+type InfrastructureConnectionComment_infrastructure {
   key: String
   connection: InfrastructureConnection
 }
@@ -1555,7 +1555,7 @@ input InfrastructureInput {
   place_of_stay_has_proximity_to_basic_services: Boolean
   place_of_stay_has_adequate_sound_condition: Boolean
   has_any_furniture: Boolean
-  comment: String
+  comment_infrastructure: String
   person: ID
   user: ID
   published_at: DateTime
@@ -1573,7 +1573,7 @@ input editInfrastructureInput {
   place_of_stay_has_proximity_to_basic_services: Boolean
   place_of_stay_has_adequate_sound_condition: Boolean
   has_any_furniture: Boolean
-  comment: String
+  comment_infrastructure: String
   person: ID
   user: ID
   published_at: DateTime
@@ -1617,7 +1617,7 @@ type JudicialSituation {
   wear_anklet: Boolean
   is_accompanied_by_a_defender: Boolean
   is_this_follow_up_enough: Boolean
-  comment: String
+  comment_judicial_situation: String
   user: UsersPermissionsUser
   person: Person
   published_at: DateTime
@@ -1645,7 +1645,7 @@ type JudicialSituationGroupBy {
   wear_anklet: [JudicialSituationConnectionWear_anklet]
   is_accompanied_by_a_defender: [JudicialSituationConnectionIs_accompanied_by_a_defender]
   is_this_follow_up_enough: [JudicialSituationConnectionIs_this_follow_up_enough]
-  comment: [JudicialSituationConnectionComment]
+  comment_judicial_situation: [JudicialSituationConnectionComment_judicial_situation]
   user: [JudicialSituationConnectionUser]
   person: [JudicialSituationConnectionPerson]
   published_at: [JudicialSituationConnectionPublished_at]
@@ -1701,7 +1701,7 @@ type JudicialSituationConnectionIs_this_follow_up_enough {
   connection: JudicialSituationConnection
 }
 
-type JudicialSituationConnectionComment {
+type JudicialSituationConnectionComment_judicial_situation {
   key: String
   connection: JudicialSituationConnection
 }
@@ -1729,7 +1729,7 @@ input JudicialSituationInput {
   wear_anklet: Boolean
   is_accompanied_by_a_defender: Boolean
   is_this_follow_up_enough: Boolean
-  comment: String
+  comment_judicial_situation: String
   user: ID
   person: ID
   published_at: DateTime
@@ -1745,7 +1745,7 @@ input editJudicialSituationInput {
   wear_anklet: Boolean
   is_accompanied_by_a_defender: Boolean
   is_this_follow_up_enough: Boolean
-  comment: String
+  comment_judicial_situation: String
   user: ID
   person: ID
   published_at: DateTime
@@ -2157,7 +2157,7 @@ type PersonVacancyReservationBenefit {
   updated_at: DateTime!
   person: Person
   vacancy_reservation_benefit: VacancyReservationBenefit
-  details: String
+  details_person_vacancy_reservation_benefit: String
   user: UsersPermissionsUser
   published_at: DateTime
 }
@@ -2179,7 +2179,7 @@ type PersonVacancyReservationBenefitGroupBy {
   updated_at: [PersonVacancyReservationBenefitConnectionUpdated_at]
   person: [PersonVacancyReservationBenefitConnectionPerson]
   vacancy_reservation_benefit: [PersonVacancyReservationBenefitConnectionVacancy_reservation_benefit]
-  details: [PersonVacancyReservationBenefitConnectionDetails]
+  details_person_vacancy_reservation_benefit: [PersonVacancyReservationBenefitConnectionDetails_person_vacancy_reservation_benefit]
   user: [PersonVacancyReservationBenefitConnectionUser]
   published_at: [PersonVacancyReservationBenefitConnectionPublished_at]
 }
@@ -2209,7 +2209,7 @@ type PersonVacancyReservationBenefitConnectionVacancy_reservation_benefit {
   connection: PersonVacancyReservationBenefitConnection
 }
 
-type PersonVacancyReservationBenefitConnectionDetails {
+type PersonVacancyReservationBenefitConnectionDetails_person_vacancy_reservation_benefit {
   key: String
   connection: PersonVacancyReservationBenefitConnection
 }
@@ -2227,7 +2227,7 @@ type PersonVacancyReservationBenefitConnectionPublished_at {
 input PersonVacancyReservationBenefitInput {
   person: ID
   vacancy_reservation_benefit: ID
-  details: String
+  details_person_vacancy_reservation_benefit: String
   user: ID
   published_at: DateTime
   created_by: ID
@@ -2237,7 +2237,7 @@ input PersonVacancyReservationBenefitInput {
 input editPersonVacancyReservationBenefitInput {
   person: ID
   vacancy_reservation_benefit: ID
-  details: String
+  details_person_vacancy_reservation_benefit: String
   user: ID
   published_at: DateTime
   created_by: ID
@@ -2300,7 +2300,7 @@ type Person {
   sexual_orientation: SexualOrientation
   child_quantity: Int
   child_care_person: String
-  comment: String
+  comment_person: String
   user: UsersPermissionsUser
   published_at: DateTime
 }
@@ -2367,7 +2367,7 @@ type PersonGroupBy {
   sexual_orientation: [PersonConnectionSexual_orientation]
   child_quantity: [PersonConnectionChild_quantity]
   child_care_person: [PersonConnectionChild_care_person]
-  comment: [PersonConnectionComment]
+  comment_person: [PersonConnectionComment_person]
   user: [PersonConnectionUser]
   published_at: [PersonConnectionPublished_at]
 }
@@ -2522,7 +2522,7 @@ type PersonConnectionChild_care_person {
   connection: PersonConnection
 }
 
-type PersonConnectionComment {
+type PersonConnectionComment_person {
   key: String
   connection: PersonConnection
 }
@@ -2565,7 +2565,7 @@ input PersonInput {
   sexual_orientation: ID
   child_quantity: Int
   child_care_person: String
-  comment: String
+  comment_person: String
   user: ID
   published_at: DateTime
   created_by: ID
@@ -2600,7 +2600,7 @@ input editPersonInput {
   sexual_orientation: ID
   child_quantity: Int
   child_care_person: String
-  comment: String
+  comment_person: String
   user: ID
   published_at: DateTime
   created_by: ID
@@ -2639,7 +2639,7 @@ type Safety {
   quantity_victim_of_crimes_against_property_last_three_months: Int
   quantity_victim_of_crimes_against_person_last_three_months: Int
   quantity_victim_of_institutional_violence_last_three_months: Int
-  comment: String
+  comment_safety: String
   user: UsersPermissionsUser
   person: Person
   published_at: DateTime
@@ -2691,7 +2691,7 @@ type SafetyGroupBy {
   quantity_victim_of_crimes_against_property_last_three_months: [SafetyConnectionQuantity_victim_of_crimes_against_property_last_three_months]
   quantity_victim_of_crimes_against_person_last_three_months: [SafetyConnectionQuantity_victim_of_crimes_against_person_last_three_months]
   quantity_victim_of_institutional_violence_last_three_months: [SafetyConnectionQuantity_victim_of_institutional_violence_last_three_months]
-  comment: [SafetyConnectionComment]
+  comment_safety: [SafetyConnectionComment_safety]
   user: [SafetyConnectionUser]
   person: [SafetyConnectionPerson]
   published_at: [SafetyConnectionPublished_at]
@@ -2727,7 +2727,7 @@ type SafetyConnectionQuantity_victim_of_institutional_violence_last_three_months
   connection: SafetyConnection
 }
 
-type SafetyConnectionComment {
+type SafetyConnectionComment_safety {
   key: String
   connection: SafetyConnection
 }
@@ -2751,7 +2751,7 @@ input SafetyInput {
   quantity_victim_of_crimes_against_property_last_three_months: Int
   quantity_victim_of_crimes_against_person_last_three_months: Int
   quantity_victim_of_institutional_violence_last_three_months: Int
-  comment: String
+  comment_safety: String
   user: ID
   person: ID
   published_at: DateTime
@@ -2763,7 +2763,7 @@ input editSafetyInput {
   quantity_victim_of_crimes_against_property_last_three_months: Int
   quantity_victim_of_crimes_against_person_last_three_months: Int
   quantity_victim_of_institutional_violence_last_three_months: Int
-  comment: String
+  comment_safety: String
   user: ID
   person: ID
   published_at: DateTime
@@ -2990,7 +2990,7 @@ type SocialAssistanceNetwork {
   has_health_service: Boolean
   has_education_service: Boolean
   has_pastoral_povo_da_rua_service: Boolean
-  details: String
+  comment_social_assistance_network: String
   user: UsersPermissionsUser
   person: Person
   published_at: DateTime
@@ -3019,7 +3019,7 @@ type SocialAssistanceNetworkGroupBy {
   has_health_service: [SocialAssistanceNetworkConnectionHas_health_service]
   has_education_service: [SocialAssistanceNetworkConnectionHas_education_service]
   has_pastoral_povo_da_rua_service: [SocialAssistanceNetworkConnectionHas_pastoral_povo_da_rua_service]
-  details: [SocialAssistanceNetworkConnectionDetails]
+  comment_social_assistance_network: [SocialAssistanceNetworkConnectionComment_social_assistance_network]
   user: [SocialAssistanceNetworkConnectionUser]
   person: [SocialAssistanceNetworkConnectionPerson]
   published_at: [SocialAssistanceNetworkConnectionPublished_at]
@@ -3080,7 +3080,7 @@ type SocialAssistanceNetworkConnectionHas_pastoral_povo_da_rua_service {
   connection: SocialAssistanceNetworkConnection
 }
 
-type SocialAssistanceNetworkConnectionDetails {
+type SocialAssistanceNetworkConnectionComment_social_assistance_network {
   key: String
   connection: SocialAssistanceNetworkConnection
 }
@@ -3109,7 +3109,7 @@ input SocialAssistanceNetworkInput {
   has_health_service: Boolean
   has_education_service: Boolean
   has_pastoral_povo_da_rua_service: Boolean
-  details: String
+  comment_social_assistance_network: String
   user: ID
   person: ID
   published_at: DateTime
@@ -3126,7 +3126,7 @@ input editSocialAssistanceNetworkInput {
   has_health_service: Boolean
   has_education_service: Boolean
   has_pastoral_povo_da_rua_service: Boolean
-  details: String
+  comment_social_assistance_network: String
   user: ID
   person: ID
   published_at: DateTime
@@ -3176,9 +3176,10 @@ type StreetPath {
   reason_past_street_path_drugs: Boolean
   reason_past_street_path_comment: String
   time_past_street_path: Int
-  comment: String
+  comment_street_path: String
   person: Person
   user: UsersPermissionsUser
+  is_currently_homeless: Boolean
   published_at: DateTime
 }
 
@@ -3250,9 +3251,10 @@ type StreetPathGroupBy {
   reason_past_street_path_drugs: [StreetPathConnectionReason_past_street_path_drugs]
   reason_past_street_path_comment: [StreetPathConnectionReason_past_street_path_comment]
   time_past_street_path: [StreetPathConnectionTime_past_street_path]
-  comment: [StreetPathConnectionComment]
+  comment_street_path: [StreetPathConnectionComment_street_path]
   person: [StreetPathConnectionPerson]
   user: [StreetPathConnectionUser]
+  is_currently_homeless: [StreetPathConnectionIs_currently_homeless]
   published_at: [StreetPathConnectionPublished_at]
 }
 
@@ -3336,7 +3338,7 @@ type StreetPathConnectionTime_past_street_path {
   connection: StreetPathConnection
 }
 
-type StreetPathConnectionComment {
+type StreetPathConnectionComment_street_path {
   key: String
   connection: StreetPathConnection
 }
@@ -3348,6 +3350,11 @@ type StreetPathConnectionPerson {
 
 type StreetPathConnectionUser {
   key: ID
+  connection: StreetPathConnection
+}
+
+type StreetPathConnectionIs_currently_homeless {
+  key: Boolean
   connection: StreetPathConnection
 }
 
@@ -3370,9 +3377,10 @@ input StreetPathInput {
   reason_past_street_path_drugs: Boolean
   reason_past_street_path_comment: String
   time_past_street_path: Int
-  comment: String
+  comment_street_path: String
   person: ID
   user: ID
+  is_currently_homeless: Boolean
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -3392,9 +3400,10 @@ input editStreetPathInput {
   reason_past_street_path_drugs: Boolean
   reason_past_street_path_comment: String
   time_past_street_path: Int
-  comment: String
+  comment_street_path: String
   person: ID
   user: ID
+  is_currently_homeless: Boolean
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -4434,7 +4443,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Association | AssociationConnection | AssociationAggregator | AssociationGroupBy | AssociationConnectionId | AssociationConnectionCreated_at | AssociationConnectionUpdated_at | AssociationConnectionName | AssociationConnectionPublished_at | createAssociationPayload | updateAssociationPayload | deleteAssociationPayload | Culture | CultureConnection | CultureAggregator | CultureAggregatorSum | CultureAggregatorAvg | CultureAggregatorMin | CultureAggregatorMax | CultureGroupBy | CultureConnectionId | CultureConnectionCreated_at | CultureConnectionUpdated_at | CultureConnectionExercises_practiced | CultureConnectionExercises_quantity_by_week | CultureConnectionKnow_some_cultural_place | CultureConnectionUsually_go_to_some_culture_place | CultureConnectionWent_somewhere_place_last_twelve_months | CultureConnectionHas_reading_habit | CultureConnectionHas_listening_music_habit | CultureConnectionHas_drawing_habit | CultureConnectionOther_habit | CultureConnectionUser | CultureConnectionPerson | CultureConnectionPublished_at | createCulturePayload | updateCulturePayload | deleteCulturePayload | DrugsFrequency | DrugsFrequencyConnection | DrugsFrequencyAggregator | DrugsFrequencyGroupBy | DrugsFrequencyConnectionId | DrugsFrequencyConnectionCreated_at | DrugsFrequencyConnectionUpdated_at | DrugsFrequencyConnectionName | DrugsFrequencyConnectionPublished_at | createDrugsFrequencyPayload | updateDrugsFrequencyPayload | deleteDrugsFrequencyPayload | EducationDegreeOptions | EducationDegreeOptionsConnection | EducationDegreeOptionsAggregator | EducationDegreeOptionsGroupBy | EducationDegreeOptionsConnectionId | EducationDegreeOptionsConnectionCreated_at | EducationDegreeOptionsConnectionUpdated_at | EducationDegreeOptionsConnectionName | EducationDegreeOptionsConnectionPublished_at | createEducationDegreeOptionPayload | updateEducationDegreeOptionPayload | deleteEducationDegreeOptionPayload | Education | EducationConnection | EducationAggregator | EducationGroupBy | EducationConnectionId | EducationConnectionCreated_at | EducationConnectionUpdated_at | EducationConnectionIs_currently_studying | EducationConnectionStudy_degree | EducationConnectionIs_interested_returning_study | EducationConnectionHas_extra_course | EducationConnectionIs_interested_doing_some_course | EducationConnectionDesired_extra_course | EducationConnectionPerson | EducationConnectionUser | EducationConnectionPublished_at | createEducationPayload | updateEducationPayload | deleteEducationPayload | FamilyReference | FamilyReferenceConnection | FamilyReferenceAggregator | FamilyReferenceGroupBy | FamilyReferenceConnectionId | FamilyReferenceConnectionCreated_at | FamilyReferenceConnectionUpdated_at | FamilyReferenceConnectionDescription | FamilyReferenceConnectionComment | FamilyReferenceConnectionPerson | FamilyReferenceConnectionUser | FamilyReferenceConnectionPublished_at | createFamilyReferencePayload | updateFamilyReferencePayload | deleteFamilyReferencePayload | Gender | GenderConnection | GenderAggregator | GenderGroupBy | GenderConnectionId | GenderConnectionCreated_at | GenderConnectionUpdated_at | GenderConnectionName | GenderConnectionPublished_at | createGenderPayload | updateGenderPayload | deleteGenderPayload | HealthSituation | HealthSituationConnection | HealthSituationAggregator | HealthSituationAggregatorSum | HealthSituationAggregatorAvg | HealthSituationAggregatorMin | HealthSituationAggregatorMax | HealthSituationGroupBy | HealthSituationConnectionId | HealthSituationConnectionCreated_at | HealthSituationConnectionUpdated_at | HealthSituationConnectionSelf_health_evaluation | HealthSituationConnectionDate_last_medical_appointment | HealthSituationConnectionDate_last_medical_dentist | HealthSituationConnectionUse_medication_often | HealthSituationConnectionMedication_details | HealthSituationConnectionWas_hospitalized_last_twelve_months | HealthSituationConnectionHospitalized_reason | HealthSituationConnectionTime_hospitalized_days | HealthSituationConnectionDid_any_surgery | HealthSituationConnectionHas_vaccination_card | HealthSituationConnectionIs_updated_vaccination_covid19 | HealthSituationConnectionIs_updated_vaccination_hepatite | HealthSituationConnectionIs_updated_vaccination_tetano | HealthSituationConnectionIs_updated_vaccination_influenza | HealthSituationConnectionIs_updated_vaccination_febre_amarela | HealthSituationConnectionQuestions_regarding_physical_or_mental_health | HealthSituationConnectionDo_some_follow_up | HealthSituationConnectionUse_alcohol_or_other_drugs | HealthSituationConnectionDrugs_frequency | HealthSituationConnectionHas_ever_been_admitted_to_therapeutic_community | HealthSituationConnectionNeed_dental_care | HealthSituationConnectionDescribe_dental_care | HealthSituationConnectionNeed_psychological_care | HealthSituationConnectionDescribe_psychological_care | HealthSituationConnectionNeed_psychiatric_care | HealthSituationConnectionDescribe_psychiatric_care | HealthSituationConnectionOther_specific_care | HealthSituationConnectionHas_any_disabilities | HealthSituationConnectionDescribe_need_special_equipment | HealthSituationConnectionHas_any_comorbidities_hipertensao | HealthSituationConnectionHas_any_comorbidities_diabetes | HealthSituationConnectionHas_any_comorbidities_cardiovascular_problem | HealthSituationConnectionHas_any_comorbidities_depression | HealthSituationConnectionHas_any_comorbidities_asma | HealthSituationConnectionHas_any_comorbidities_cancer | HealthSituationConnectionHas_any_comorbidities_none | HealthSituationConnectionHas_any_comorbidities_other | HealthSituationConnectionMan_health_last_prostate_exam_date | HealthSituationConnectionMan_health_last_ist_exam_date | HealthSituationConnectionWoman_health_last_preventive_exam_date | HealthSituationConnectionWoman_health_last_mammography_exam_date | HealthSituationConnectionWoman_health_last_gynecological_consultation_exam_date | HealthSituationConnectionWoman_health_suspected_pregnancy_week_quantity | HealthSituationConnectionWoman_health_use_some_contraceptive_method | HealthSituationConnectionUse_condom | HealthSituationConnectionComment | HealthSituationConnectionPerson | HealthSituationConnectionUser | HealthSituationConnectionPublished_at | createHealthSituationPayload | updateHealthSituationPayload | deleteHealthSituationPayload | Infrastructure | InfrastructureConnection | InfrastructureAggregator | InfrastructureGroupBy | InfrastructureConnectionId | InfrastructureConnectionCreated_at | InfrastructureConnectionUpdated_at | InfrastructureConnectionHas_access_to_clean_water | InfrastructureConnectionHas_access_to_adequate_toilets | InfrastructureConnectionHas_access_to_a_bed | InfrastructureConnectionHas_access_to_safety_spot | InfrastructureConnectionPlace_of_stay_has_adequate_hygiene | InfrastructureConnectionPlace_of_stay_has_adequate_structure | InfrastructureConnectionPlace_of_stay_has_proximity_to_basic_services | InfrastructureConnectionPlace_of_stay_has_adequate_sound_condition | InfrastructureConnectionHas_any_furniture | InfrastructureConnectionComment | InfrastructureConnectionPerson | InfrastructureConnectionUser | InfrastructureConnectionPublished_at | createInfrastructurePayload | updateInfrastructurePayload | deleteInfrastructurePayload | JudicialSituation | JudicialSituationConnection | JudicialSituationAggregator | JudicialSituationGroupBy | JudicialSituationConnectionId | JudicialSituationConnectionCreated_at | JudicialSituationConnectionUpdated_at | JudicialSituationConnectionHas_already_been_through_the_socioeducational_system | JudicialSituationConnectionHas_already_been_through_the_prision_system | JudicialSituationConnectionHas_an_active_lawsuit | JudicialSituationConnectionHas_outstanding_writ_of_execution | JudicialSituationConnectionWear_anklet | JudicialSituationConnectionIs_accompanied_by_a_defender | JudicialSituationConnectionIs_this_follow_up_enough | JudicialSituationConnectionComment | JudicialSituationConnectionUser | JudicialSituationConnectionPerson | JudicialSituationConnectionPublished_at | createJudicialSituationPayload | updateJudicialSituationPayload | deleteJudicialSituationPayload | MaritalStatus | MaritalStatusConnection | MaritalStatusAggregator | MaritalStatusGroupBy | MaritalStatusConnectionId | MaritalStatusConnectionCreated_at | MaritalStatusConnectionUpdated_at | MaritalStatusConnectionName | MaritalStatusConnectionPublished_at | createMaritalStatusPayload | updateMaritalStatusPayload | deleteMaritalStatusPayload | PastWorkCategory | PastWorkCategoryConnection | PastWorkCategoryAggregator | PastWorkCategoryGroupBy | PastWorkCategoryConnectionId | PastWorkCategoryConnectionCreated_at | PastWorkCategoryConnectionUpdated_at | PastWorkCategoryConnectionName | PastWorkCategoryConnectionPublished_at | createPastWorkCategoryPayload | updatePastWorkCategoryPayload | deletePastWorkCategoryPayload | PastWorkSector | PastWorkSectorConnection | PastWorkSectorAggregator | PastWorkSectorGroupBy | PastWorkSectorConnectionId | PastWorkSectorConnectionCreated_at | PastWorkSectorConnectionUpdated_at | PastWorkSectorConnectionName | PastWorkSectorConnectionPublished_at | createPastWorkSectorPayload | updatePastWorkSectorPayload | deletePastWorkSectorPayload | PersonAssociation | PersonAssociationConnection | PersonAssociationAggregator | PersonAssociationGroupBy | PersonAssociationConnectionId | PersonAssociationConnectionCreated_at | PersonAssociationConnectionUpdated_at | PersonAssociationConnectionPerson | PersonAssociationConnectionAssociation | PersonAssociationConnectionPublished_at | createPersonAssociationPayload | updatePersonAssociationPayload | deletePersonAssociationPayload | PersonVacancyReservationBenefit | PersonVacancyReservationBenefitConnection | PersonVacancyReservationBenefitAggregator | PersonVacancyReservationBenefitGroupBy | PersonVacancyReservationBenefitConnectionId | PersonVacancyReservationBenefitConnectionCreated_at | PersonVacancyReservationBenefitConnectionUpdated_at | PersonVacancyReservationBenefitConnectionPerson | PersonVacancyReservationBenefitConnectionVacancy_reservation_benefit | PersonVacancyReservationBenefitConnectionDetails | PersonVacancyReservationBenefitConnectionUser | PersonVacancyReservationBenefitConnectionPublished_at | createPersonVacancyReservationBenefitPayload | updatePersonVacancyReservationBenefitPayload | deletePersonVacancyReservationBenefitPayload | Person | PersonConnection | PersonAggregator | PersonAggregatorSum | PersonAggregatorAvg | PersonAggregatorMin | PersonAggregatorMax | PersonGroupBy | PersonConnectionId | PersonConnectionCreated_at | PersonConnectionUpdated_at | PersonConnectionName | PersonConnectionSocial_name | PersonConnectionBirth_date | PersonConnectionMother_name | PersonConnectionFather_name | PersonConnectionBirth_state | PersonConnectionNationality | PersonConnectionOccupation | PersonConnectionEmail | PersonConnectionPhone_number | PersonConnectionBirth_document_number | PersonConnectionWedding_document_number | PersonConnectionRg_document_number | PersonConnectionCpf_document_number | PersonConnectionReservist_document_number | PersonConnectionVoter_registration_document_number | PersonConnectionCnh_document_number | PersonConnectionCtps_document_number | PersonConnectionNis_document_number | PersonConnectionCaduni_document_number | PersonConnectionHas_govbr_registration | PersonConnectionMarital_status | PersonConnectionSelf_declaration | PersonConnectionGender | PersonConnectionSexual_orientation | PersonConnectionChild_quantity | PersonConnectionChild_care_person | PersonConnectionComment | PersonConnectionUser | PersonConnectionPublished_at | createPersonPayload | updatePersonPayload | deletePersonPayload | Safety | SafetyConnection | SafetyAggregator | SafetyAggregatorSum | SafetyAggregatorAvg | SafetyAggregatorMin | SafetyAggregatorMax | SafetyGroupBy | SafetyConnectionId | SafetyConnectionCreated_at | SafetyConnectionUpdated_at | SafetyConnectionQuantity_victim_of_crimes_against_property_last_three_months | SafetyConnectionQuantity_victim_of_crimes_against_person_last_three_months | SafetyConnectionQuantity_victim_of_institutional_violence_last_three_months | SafetyConnectionComment | SafetyConnectionUser | SafetyConnectionPerson | SafetyConnectionPublished_at | createSafetyPayload | updateSafetyPayload | deleteSafetyPayload | SelfDeclaration | SelfDeclarationConnection | SelfDeclarationAggregator | SelfDeclarationGroupBy | SelfDeclarationConnectionId | SelfDeclarationConnectionCreated_at | SelfDeclarationConnectionUpdated_at | SelfDeclarationConnectionName | SelfDeclarationConnectionPublished_at | createSelfDeclarationPayload | updateSelfDeclarationPayload | deleteSelfDeclarationPayload | SexualOrientation | SexualOrientationConnection | SexualOrientationAggregator | SexualOrientationGroupBy | SexualOrientationConnectionId | SexualOrientationConnectionCreated_at | SexualOrientationConnectionUpdated_at | SexualOrientationConnectionName | SexualOrientationConnectionPublished_at | createSexualOrientationPayload | updateSexualOrientationPayload | deleteSexualOrientationPayload | SocialAssistanceNetwork | SocialAssistanceNetworkConnection | SocialAssistanceNetworkAggregator | SocialAssistanceNetworkGroupBy | SocialAssistanceNetworkConnectionId | SocialAssistanceNetworkConnectionCreated_at | SocialAssistanceNetworkConnectionUpdated_at | SocialAssistanceNetworkConnectionIs_attended_to_a_network_services | SocialAssistanceNetworkConnectionHas_crea_service | SocialAssistanceNetworkConnectionHas_cras_service | SocialAssistanceNetworkConnectionHas_shelter_service | SocialAssistanceNetworkConnectionHas_council_of_rights_service | SocialAssistanceNetworkConnectionHas_health_service | SocialAssistanceNetworkConnectionHas_education_service | SocialAssistanceNetworkConnectionHas_pastoral_povo_da_rua_service | SocialAssistanceNetworkConnectionDetails | SocialAssistanceNetworkConnectionUser | SocialAssistanceNetworkConnectionPerson | SocialAssistanceNetworkConnectionPublished_at | createSocialAssistanceNetworkPayload | updateSocialAssistanceNetworkPayload | deleteSocialAssistanceNetworkPayload | StreetPath | StreetPathConnection | StreetPathAggregator | StreetPathAggregatorSum | StreetPathAggregatorAvg | StreetPathAggregatorMin | StreetPathAggregatorMax | StreetPathGroupBy | StreetPathConnectionId | StreetPathConnectionCreated_at | StreetPathConnectionUpdated_at | StreetPathConnectionTime_homeless | StreetPathConnectionHomeless_reason | StreetPathConnectionHad_any_family_ties_interrupted_quantity | StreetPathConnectionAlready_been_in_shelter_quantity_months | StreetPathConnectionAlready_been_in_hostel_quantity_months | StreetPathConnectionTime_lived_in_bh_months | StreetPathConnectionLived_on_streets_in_another_city | StreetPathConnectionAny_family_member_have_been_homeless | StreetPathConnectionReason_past_street_path_unemployment | StreetPathConnectionReason_past_street_path_family_problems | StreetPathConnectionReason_past_street_path_drugs | StreetPathConnectionReason_past_street_path_comment | StreetPathConnectionTime_past_street_path | StreetPathConnectionComment | StreetPathConnectionPerson | StreetPathConnectionUser | StreetPathConnectionPublished_at | createStreetPathPayload | updateStreetPathPayload | deleteStreetPathPayload | UserAssociation | UserAssociationConnection | UserAssociationAggregator | UserAssociationGroupBy | UserAssociationConnectionId | UserAssociationConnectionCreated_at | UserAssociationConnectionUpdated_at | UserAssociationConnectionUser | UserAssociationConnectionAssociation | UserAssociationConnectionPublished_at | createUserAssociationPayload | updateUserAssociationPayload | deleteUserAssociationPayload | VacancyReservationBenefit | VacancyReservationBenefitConnection | VacancyReservationBenefitAggregator | VacancyReservationBenefitGroupBy | VacancyReservationBenefitConnectionId | VacancyReservationBenefitConnectionCreated_at | VacancyReservationBenefitConnectionUpdated_at | VacancyReservationBenefitConnectionName | VacancyReservationBenefitConnectionPublished_at | createVacancyReservationBenefitPayload | updateVacancyReservationBenefitPayload | deleteVacancyReservationBenefitPayload | WorkAndIncome | WorkAndIncomeConnection | WorkAndIncomeAggregator | WorkAndIncomeAggregatorSum | WorkAndIncomeAggregatorAvg | WorkAndIncomeAggregatorMin | WorkAndIncomeAggregatorMax | WorkAndIncomeGroupBy | WorkAndIncomeConnectionId | WorkAndIncomeConnectionCreated_at | WorkAndIncomeConnectionUpdated_at | WorkAndIncomeConnectionAlready_has_paid_work | WorkAndIncomeConnectionDescribe_past_paid_work | WorkAndIncomeConnectionWork_type | WorkAndIncomeConnectionParticipate_in_any_income_generation_projects | WorkAndIncomeConnectionWhat_is_being_done_to_get_out_of_this_situation | WorkAndIncomeConnectionRetirement_benefit_value | WorkAndIncomeConnectionContinuing_provision_benefit_value | WorkAndIncomeConnectionSick_pay_benefit_value | WorkAndIncomeConnectionBolsa_familia_benefit_value | WorkAndIncomeConnectionBrazil_financial_assistance_benefit_value | WorkAndIncomeConnectionOther_benefit_value | WorkAndIncomeConnectionFamily_average_monthly_income_value | WorkAndIncomeConnectionPast_work_category | WorkAndIncomeConnectionPast_work_sector | WorkAndIncomeConnectionComment | WorkAndIncomeConnectionPerson | WorkAndIncomeConnectionUser | WorkAndIncomeConnectionPublished_at | createWorkAndIncomePayload | updateWorkAndIncomePayload | deleteWorkAndIncomePayload | WorkType | WorkTypeConnection | WorkTypeAggregator | WorkTypeGroupBy | WorkTypeConnectionId | WorkTypeConnectionCreated_at | WorkTypeConnectionUpdated_at | WorkTypeConnectionName | WorkTypeConnectionPublished_at | createWorkTypePayload | updateWorkTypePayload | deleteWorkTypePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Association | AssociationConnection | AssociationAggregator | AssociationGroupBy | AssociationConnectionId | AssociationConnectionCreated_at | AssociationConnectionUpdated_at | AssociationConnectionName | AssociationConnectionPublished_at | createAssociationPayload | updateAssociationPayload | deleteAssociationPayload | Culture | CultureConnection | CultureAggregator | CultureAggregatorSum | CultureAggregatorAvg | CultureAggregatorMin | CultureAggregatorMax | CultureGroupBy | CultureConnectionId | CultureConnectionCreated_at | CultureConnectionUpdated_at | CultureConnectionExercises_practiced | CultureConnectionExercises_quantity_by_week | CultureConnectionKnow_some_cultural_place | CultureConnectionUsually_go_to_some_culture_place | CultureConnectionWent_somewhere_place_last_twelve_months | CultureConnectionHas_reading_habit | CultureConnectionHas_listening_music_habit | CultureConnectionHas_drawing_habit | CultureConnectionOther_habit | CultureConnectionUser | CultureConnectionPerson | CultureConnectionPublished_at | createCulturePayload | updateCulturePayload | deleteCulturePayload | DrugsFrequency | DrugsFrequencyConnection | DrugsFrequencyAggregator | DrugsFrequencyGroupBy | DrugsFrequencyConnectionId | DrugsFrequencyConnectionCreated_at | DrugsFrequencyConnectionUpdated_at | DrugsFrequencyConnectionName | DrugsFrequencyConnectionPublished_at | createDrugsFrequencyPayload | updateDrugsFrequencyPayload | deleteDrugsFrequencyPayload | EducationDegreeOptions | EducationDegreeOptionsConnection | EducationDegreeOptionsAggregator | EducationDegreeOptionsGroupBy | EducationDegreeOptionsConnectionId | EducationDegreeOptionsConnectionCreated_at | EducationDegreeOptionsConnectionUpdated_at | EducationDegreeOptionsConnectionName | EducationDegreeOptionsConnectionPublished_at | createEducationDegreeOptionPayload | updateEducationDegreeOptionPayload | deleteEducationDegreeOptionPayload | Education | EducationConnection | EducationAggregator | EducationGroupBy | EducationConnectionId | EducationConnectionCreated_at | EducationConnectionUpdated_at | EducationConnectionIs_currently_studying | EducationConnectionStudy_degree | EducationConnectionIs_interested_returning_study | EducationConnectionHas_extra_course | EducationConnectionIs_interested_doing_some_course | EducationConnectionDesired_extra_course | EducationConnectionPerson | EducationConnectionUser | EducationConnectionPublished_at | createEducationPayload | updateEducationPayload | deleteEducationPayload | FamilyReference | FamilyReferenceConnection | FamilyReferenceAggregator | FamilyReferenceGroupBy | FamilyReferenceConnectionId | FamilyReferenceConnectionCreated_at | FamilyReferenceConnectionUpdated_at | FamilyReferenceConnectionDescription | FamilyReferenceConnectionComment_family_references | FamilyReferenceConnectionPerson | FamilyReferenceConnectionUser | FamilyReferenceConnectionPublished_at | createFamilyReferencePayload | updateFamilyReferencePayload | deleteFamilyReferencePayload | Gender | GenderConnection | GenderAggregator | GenderGroupBy | GenderConnectionId | GenderConnectionCreated_at | GenderConnectionUpdated_at | GenderConnectionName | GenderConnectionPublished_at | createGenderPayload | updateGenderPayload | deleteGenderPayload | HealthSituation | HealthSituationConnection | HealthSituationAggregator | HealthSituationAggregatorSum | HealthSituationAggregatorAvg | HealthSituationAggregatorMin | HealthSituationAggregatorMax | HealthSituationGroupBy | HealthSituationConnectionId | HealthSituationConnectionCreated_at | HealthSituationConnectionUpdated_at | HealthSituationConnectionSelf_health_evaluation | HealthSituationConnectionDate_last_medical_appointment | HealthSituationConnectionDate_last_medical_dentist | HealthSituationConnectionUse_medication_often | HealthSituationConnectionMedication_details | HealthSituationConnectionWas_hospitalized_last_twelve_months | HealthSituationConnectionHospitalized_reason | HealthSituationConnectionTime_hospitalized_days | HealthSituationConnectionDid_any_surgery | HealthSituationConnectionHas_vaccination_card | HealthSituationConnectionIs_updated_vaccination_covid19 | HealthSituationConnectionIs_updated_vaccination_hepatite | HealthSituationConnectionIs_updated_vaccination_tetano | HealthSituationConnectionIs_updated_vaccination_influenza | HealthSituationConnectionIs_updated_vaccination_febre_amarela | HealthSituationConnectionQuestions_regarding_physical_or_mental_health | HealthSituationConnectionDo_some_follow_up | HealthSituationConnectionUse_alcohol_or_other_drugs | HealthSituationConnectionDrugs_frequency | HealthSituationConnectionHas_ever_been_admitted_to_therapeutic_community | HealthSituationConnectionNeed_dental_care | HealthSituationConnectionDescribe_dental_care | HealthSituationConnectionNeed_psychological_care | HealthSituationConnectionDescribe_psychological_care | HealthSituationConnectionNeed_psychiatric_care | HealthSituationConnectionDescribe_psychiatric_care | HealthSituationConnectionOther_specific_care | HealthSituationConnectionHas_any_disabilities | HealthSituationConnectionDescribe_need_special_equipment | HealthSituationConnectionHas_any_comorbidities_hipertensao | HealthSituationConnectionHas_any_comorbidities_diabetes | HealthSituationConnectionHas_any_comorbidities_cardiovascular_problem | HealthSituationConnectionHas_any_comorbidities_depression | HealthSituationConnectionHas_any_comorbidities_asma | HealthSituationConnectionHas_any_comorbidities_cancer | HealthSituationConnectionHas_any_comorbidities_none | HealthSituationConnectionHas_any_comorbidities_other | HealthSituationConnectionMan_health_last_prostate_exam_date | HealthSituationConnectionMan_health_last_ist_exam_date | HealthSituationConnectionWoman_health_last_preventive_exam_date | HealthSituationConnectionWoman_health_last_mammography_exam_date | HealthSituationConnectionWoman_health_last_gynecological_consultation_exam_date | HealthSituationConnectionWoman_health_suspected_pregnancy_week_quantity | HealthSituationConnectionWoman_health_use_some_contraceptive_method | HealthSituationConnectionUse_condom | HealthSituationConnectionComment_health_situation | HealthSituationConnectionPerson | HealthSituationConnectionUser | HealthSituationConnectionPublished_at | createHealthSituationPayload | updateHealthSituationPayload | deleteHealthSituationPayload | Infrastructure | InfrastructureConnection | InfrastructureAggregator | InfrastructureGroupBy | InfrastructureConnectionId | InfrastructureConnectionCreated_at | InfrastructureConnectionUpdated_at | InfrastructureConnectionHas_access_to_clean_water | InfrastructureConnectionHas_access_to_adequate_toilets | InfrastructureConnectionHas_access_to_a_bed | InfrastructureConnectionHas_access_to_safety_spot | InfrastructureConnectionPlace_of_stay_has_adequate_hygiene | InfrastructureConnectionPlace_of_stay_has_adequate_structure | InfrastructureConnectionPlace_of_stay_has_proximity_to_basic_services | InfrastructureConnectionPlace_of_stay_has_adequate_sound_condition | InfrastructureConnectionHas_any_furniture | InfrastructureConnectionComment_infrastructure | InfrastructureConnectionPerson | InfrastructureConnectionUser | InfrastructureConnectionPublished_at | createInfrastructurePayload | updateInfrastructurePayload | deleteInfrastructurePayload | JudicialSituation | JudicialSituationConnection | JudicialSituationAggregator | JudicialSituationGroupBy | JudicialSituationConnectionId | JudicialSituationConnectionCreated_at | JudicialSituationConnectionUpdated_at | JudicialSituationConnectionHas_already_been_through_the_socioeducational_system | JudicialSituationConnectionHas_already_been_through_the_prision_system | JudicialSituationConnectionHas_an_active_lawsuit | JudicialSituationConnectionHas_outstanding_writ_of_execution | JudicialSituationConnectionWear_anklet | JudicialSituationConnectionIs_accompanied_by_a_defender | JudicialSituationConnectionIs_this_follow_up_enough | JudicialSituationConnectionComment_judicial_situation | JudicialSituationConnectionUser | JudicialSituationConnectionPerson | JudicialSituationConnectionPublished_at | createJudicialSituationPayload | updateJudicialSituationPayload | deleteJudicialSituationPayload | MaritalStatus | MaritalStatusConnection | MaritalStatusAggregator | MaritalStatusGroupBy | MaritalStatusConnectionId | MaritalStatusConnectionCreated_at | MaritalStatusConnectionUpdated_at | MaritalStatusConnectionName | MaritalStatusConnectionPublished_at | createMaritalStatusPayload | updateMaritalStatusPayload | deleteMaritalStatusPayload | PastWorkCategory | PastWorkCategoryConnection | PastWorkCategoryAggregator | PastWorkCategoryGroupBy | PastWorkCategoryConnectionId | PastWorkCategoryConnectionCreated_at | PastWorkCategoryConnectionUpdated_at | PastWorkCategoryConnectionName | PastWorkCategoryConnectionPublished_at | createPastWorkCategoryPayload | updatePastWorkCategoryPayload | deletePastWorkCategoryPayload | PastWorkSector | PastWorkSectorConnection | PastWorkSectorAggregator | PastWorkSectorGroupBy | PastWorkSectorConnectionId | PastWorkSectorConnectionCreated_at | PastWorkSectorConnectionUpdated_at | PastWorkSectorConnectionName | PastWorkSectorConnectionPublished_at | createPastWorkSectorPayload | updatePastWorkSectorPayload | deletePastWorkSectorPayload | PersonAssociation | PersonAssociationConnection | PersonAssociationAggregator | PersonAssociationGroupBy | PersonAssociationConnectionId | PersonAssociationConnectionCreated_at | PersonAssociationConnectionUpdated_at | PersonAssociationConnectionPerson | PersonAssociationConnectionAssociation | PersonAssociationConnectionPublished_at | createPersonAssociationPayload | updatePersonAssociationPayload | deletePersonAssociationPayload | PersonVacancyReservationBenefit | PersonVacancyReservationBenefitConnection | PersonVacancyReservationBenefitAggregator | PersonVacancyReservationBenefitGroupBy | PersonVacancyReservationBenefitConnectionId | PersonVacancyReservationBenefitConnectionCreated_at | PersonVacancyReservationBenefitConnectionUpdated_at | PersonVacancyReservationBenefitConnectionPerson | PersonVacancyReservationBenefitConnectionVacancy_reservation_benefit | PersonVacancyReservationBenefitConnectionDetails_person_vacancy_reservation_benefit | PersonVacancyReservationBenefitConnectionUser | PersonVacancyReservationBenefitConnectionPublished_at | createPersonVacancyReservationBenefitPayload | updatePersonVacancyReservationBenefitPayload | deletePersonVacancyReservationBenefitPayload | Person | PersonConnection | PersonAggregator | PersonAggregatorSum | PersonAggregatorAvg | PersonAggregatorMin | PersonAggregatorMax | PersonGroupBy | PersonConnectionId | PersonConnectionCreated_at | PersonConnectionUpdated_at | PersonConnectionName | PersonConnectionSocial_name | PersonConnectionBirth_date | PersonConnectionMother_name | PersonConnectionFather_name | PersonConnectionBirth_state | PersonConnectionNationality | PersonConnectionOccupation | PersonConnectionEmail | PersonConnectionPhone_number | PersonConnectionBirth_document_number | PersonConnectionWedding_document_number | PersonConnectionRg_document_number | PersonConnectionCpf_document_number | PersonConnectionReservist_document_number | PersonConnectionVoter_registration_document_number | PersonConnectionCnh_document_number | PersonConnectionCtps_document_number | PersonConnectionNis_document_number | PersonConnectionCaduni_document_number | PersonConnectionHas_govbr_registration | PersonConnectionMarital_status | PersonConnectionSelf_declaration | PersonConnectionGender | PersonConnectionSexual_orientation | PersonConnectionChild_quantity | PersonConnectionChild_care_person | PersonConnectionComment_person | PersonConnectionUser | PersonConnectionPublished_at | createPersonPayload | updatePersonPayload | deletePersonPayload | Safety | SafetyConnection | SafetyAggregator | SafetyAggregatorSum | SafetyAggregatorAvg | SafetyAggregatorMin | SafetyAggregatorMax | SafetyGroupBy | SafetyConnectionId | SafetyConnectionCreated_at | SafetyConnectionUpdated_at | SafetyConnectionQuantity_victim_of_crimes_against_property_last_three_months | SafetyConnectionQuantity_victim_of_crimes_against_person_last_three_months | SafetyConnectionQuantity_victim_of_institutional_violence_last_three_months | SafetyConnectionComment_safety | SafetyConnectionUser | SafetyConnectionPerson | SafetyConnectionPublished_at | createSafetyPayload | updateSafetyPayload | deleteSafetyPayload | SelfDeclaration | SelfDeclarationConnection | SelfDeclarationAggregator | SelfDeclarationGroupBy | SelfDeclarationConnectionId | SelfDeclarationConnectionCreated_at | SelfDeclarationConnectionUpdated_at | SelfDeclarationConnectionName | SelfDeclarationConnectionPublished_at | createSelfDeclarationPayload | updateSelfDeclarationPayload | deleteSelfDeclarationPayload | SexualOrientation | SexualOrientationConnection | SexualOrientationAggregator | SexualOrientationGroupBy | SexualOrientationConnectionId | SexualOrientationConnectionCreated_at | SexualOrientationConnectionUpdated_at | SexualOrientationConnectionName | SexualOrientationConnectionPublished_at | createSexualOrientationPayload | updateSexualOrientationPayload | deleteSexualOrientationPayload | SocialAssistanceNetwork | SocialAssistanceNetworkConnection | SocialAssistanceNetworkAggregator | SocialAssistanceNetworkGroupBy | SocialAssistanceNetworkConnectionId | SocialAssistanceNetworkConnectionCreated_at | SocialAssistanceNetworkConnectionUpdated_at | SocialAssistanceNetworkConnectionIs_attended_to_a_network_services | SocialAssistanceNetworkConnectionHas_crea_service | SocialAssistanceNetworkConnectionHas_cras_service | SocialAssistanceNetworkConnectionHas_shelter_service | SocialAssistanceNetworkConnectionHas_council_of_rights_service | SocialAssistanceNetworkConnectionHas_health_service | SocialAssistanceNetworkConnectionHas_education_service | SocialAssistanceNetworkConnectionHas_pastoral_povo_da_rua_service | SocialAssistanceNetworkConnectionComment_social_assistance_network | SocialAssistanceNetworkConnectionUser | SocialAssistanceNetworkConnectionPerson | SocialAssistanceNetworkConnectionPublished_at | createSocialAssistanceNetworkPayload | updateSocialAssistanceNetworkPayload | deleteSocialAssistanceNetworkPayload | StreetPath | StreetPathConnection | StreetPathAggregator | StreetPathAggregatorSum | StreetPathAggregatorAvg | StreetPathAggregatorMin | StreetPathAggregatorMax | StreetPathGroupBy | StreetPathConnectionId | StreetPathConnectionCreated_at | StreetPathConnectionUpdated_at | StreetPathConnectionTime_homeless | StreetPathConnectionHomeless_reason | StreetPathConnectionHad_any_family_ties_interrupted_quantity | StreetPathConnectionAlready_been_in_shelter_quantity_months | StreetPathConnectionAlready_been_in_hostel_quantity_months | StreetPathConnectionTime_lived_in_bh_months | StreetPathConnectionLived_on_streets_in_another_city | StreetPathConnectionAny_family_member_have_been_homeless | StreetPathConnectionReason_past_street_path_unemployment | StreetPathConnectionReason_past_street_path_family_problems | StreetPathConnectionReason_past_street_path_drugs | StreetPathConnectionReason_past_street_path_comment | StreetPathConnectionTime_past_street_path | StreetPathConnectionComment_street_path | StreetPathConnectionPerson | StreetPathConnectionUser | StreetPathConnectionIs_currently_homeless | StreetPathConnectionPublished_at | createStreetPathPayload | updateStreetPathPayload | deleteStreetPathPayload | UserAssociation | UserAssociationConnection | UserAssociationAggregator | UserAssociationGroupBy | UserAssociationConnectionId | UserAssociationConnectionCreated_at | UserAssociationConnectionUpdated_at | UserAssociationConnectionUser | UserAssociationConnectionAssociation | UserAssociationConnectionPublished_at | createUserAssociationPayload | updateUserAssociationPayload | deleteUserAssociationPayload | VacancyReservationBenefit | VacancyReservationBenefitConnection | VacancyReservationBenefitAggregator | VacancyReservationBenefitGroupBy | VacancyReservationBenefitConnectionId | VacancyReservationBenefitConnectionCreated_at | VacancyReservationBenefitConnectionUpdated_at | VacancyReservationBenefitConnectionName | VacancyReservationBenefitConnectionPublished_at | createVacancyReservationBenefitPayload | updateVacancyReservationBenefitPayload | deleteVacancyReservationBenefitPayload | WorkAndIncome | WorkAndIncomeConnection | WorkAndIncomeAggregator | WorkAndIncomeAggregatorSum | WorkAndIncomeAggregatorAvg | WorkAndIncomeAggregatorMin | WorkAndIncomeAggregatorMax | WorkAndIncomeGroupBy | WorkAndIncomeConnectionId | WorkAndIncomeConnectionCreated_at | WorkAndIncomeConnectionUpdated_at | WorkAndIncomeConnectionAlready_has_paid_work | WorkAndIncomeConnectionDescribe_past_paid_work | WorkAndIncomeConnectionWork_type | WorkAndIncomeConnectionParticipate_in_any_income_generation_projects | WorkAndIncomeConnectionWhat_is_being_done_to_get_out_of_this_situation | WorkAndIncomeConnectionRetirement_benefit_value | WorkAndIncomeConnectionContinuing_provision_benefit_value | WorkAndIncomeConnectionSick_pay_benefit_value | WorkAndIncomeConnectionBolsa_familia_benefit_value | WorkAndIncomeConnectionBrazil_financial_assistance_benefit_value | WorkAndIncomeConnectionOther_benefit_value | WorkAndIncomeConnectionFamily_average_monthly_income_value | WorkAndIncomeConnectionPast_work_category | WorkAndIncomeConnectionPast_work_sector | WorkAndIncomeConnectionComment | WorkAndIncomeConnectionPerson | WorkAndIncomeConnectionUser | WorkAndIncomeConnectionPublished_at | createWorkAndIncomePayload | updateWorkAndIncomePayload | deleteWorkAndIncomePayload | WorkType | WorkTypeConnection | WorkTypeAggregator | WorkTypeGroupBy | WorkTypeConnectionId | WorkTypeConnectionCreated_at | WorkTypeConnectionUpdated_at | WorkTypeConnectionName | WorkTypeConnectionPublished_at | createWorkTypePayload | updateWorkTypePayload | deleteWorkTypePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!

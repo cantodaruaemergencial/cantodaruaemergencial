@@ -663,7 +663,7 @@
               "child_care_person": {
                 "type": "string"
               },
-              "comment": {
+              "comment_person": {
                 "type": "string"
               },
               "user": {

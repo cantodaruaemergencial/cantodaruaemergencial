@@ -17,7 +17,7 @@
     "vacancy_reservation_benefit": {
       "model": "vacancy-reservation-benefit"
     },
-    "details": {
+    "details_person_vacancy_reservation_benefit": {
       "type": "text"
     },
     "user": {

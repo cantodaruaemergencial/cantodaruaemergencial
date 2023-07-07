@@ -146,7 +146,7 @@
     "use_condom": {
       "type": "boolean"
     },
-    "comment": {
+    "comment_health_situation": {
       "type": "text"
     },
     "person": {

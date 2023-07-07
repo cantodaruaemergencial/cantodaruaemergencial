@@ -14,7 +14,7 @@
     "description": {
       "type": "text"
     },
-    "comment": {
+    "comment_family_references": {
       "type": "text"
     },
     "person": {

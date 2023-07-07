@@ -574,7 +574,7 @@
           "time_past_street_path": {
             "type": "integer"
           },
-          "comment": {
+          "comment_street_path": {
             "type": "string"
           },
           "person": {
@@ -676,7 +676,7 @@
               "child_care_person": {
                 "type": "string"
               },
-              "comment": {
+              "comment_person": {
                 "type": "string"
               },
               "user": {
@@ -738,6 +738,9 @@
               }
             }
           },
+          "is_currently_homeless": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -785,7 +788,7 @@
           "time_past_street_path": {
             "type": "integer"
           },
-          "comment": {
+          "comment_street_path": {
             "type": "string"
           },
           "person": {
@@ -793,6 +796,9 @@
           },
           "user": {
             "type": "string"
+          },
+          "is_currently_homeless": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",

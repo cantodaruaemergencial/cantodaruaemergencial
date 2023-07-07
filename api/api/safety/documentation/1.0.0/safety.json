@@ -531,7 +531,7 @@
           "quantity_victim_of_institutional_violence_last_three_months": {
             "type": "integer"
           },
-          "comment": {
+          "comment_safety": {
             "type": "string"
           },
           "user": {
@@ -678,7 +678,7 @@
               "child_care_person": {
                 "type": "string"
               },
-              "comment": {
+              "comment_person": {
                 "type": "string"
               },
               "user": {
@@ -712,7 +712,7 @@
           "quantity_victim_of_institutional_violence_last_three_months": {
             "type": "integer"
           },
-          "comment": {
+          "comment_safety": {
             "type": "string"
           },
           "user": {

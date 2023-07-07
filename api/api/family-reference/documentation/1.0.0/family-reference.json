@@ -538,7 +538,7 @@
           "description": {
             "type": "string"
           },
-          "comment": {
+          "comment_family_references": {
             "type": "string"
           },
           "person": {
@@ -640,7 +640,7 @@
               "child_care_person": {
                 "type": "string"
               },
-              "comment": {
+              "comment_person": {
                 "type": "string"
               },
               "user": {
@@ -713,7 +713,7 @@
           "description": {
             "type": "string"
           },
-          "comment": {
+          "comment_family_references": {
             "type": "string"
           },
           "person": {

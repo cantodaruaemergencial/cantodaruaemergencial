@@ -35,7 +35,7 @@
     "has_pastoral_povo_da_rua_service": {
       "type": "boolean"
     },
-    "details": {
+    "comment_social_assistance_network": {
       "type": "text"
     },
     "user": {

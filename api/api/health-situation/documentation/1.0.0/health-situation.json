@@ -696,7 +696,7 @@
           "use_condom": {
             "type": "boolean"
           },
-          "comment": {
+          "comment_health_situation": {
             "type": "string"
           },
           "person": {
@@ -798,7 +798,7 @@
               "child_care_person": {
                 "type": "string"
               },
-              "comment": {
+              "comment_person": {
                 "type": "string"
               },
               "user": {
@@ -1010,7 +1010,7 @@
           "use_condom": {
             "type": "boolean"
           },
-          "comment": {
+          "comment_health_situation": {
             "type": "string"
           },
           "person": {

@@ -20,7 +20,7 @@
     "quantity_victim_of_institutional_violence_last_three_months": {
       "type": "integer"
     },
-    "comment": {
+    "comment_safety": {
       "type": "text"
     },
     "user": {

@@ -559,7 +559,7 @@
           "has_pastoral_povo_da_rua_service": {
             "type": "boolean"
           },
-          "details": {
+          "comment_social_assistance_network": {
             "type": "string"
           },
           "user": {
@@ -706,7 +706,7 @@
               "child_care_person": {
                 "type": "string"
               },
-              "comment": {
+              "comment_person": {
                 "type": "string"
               },
               "user": {
@@ -755,7 +755,7 @@
           "has_pastoral_povo_da_rua_service": {
             "type": "boolean"
           },
-          "details": {
+          "comment_social_assistance_network": {
             "type": "string"
           },
           "user": {

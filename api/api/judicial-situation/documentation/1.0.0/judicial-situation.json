@@ -556,7 +556,7 @@
           "is_this_follow_up_enough": {
             "type": "boolean"
           },
-          "comment": {
+          "comment_judicial_situation": {
             "type": "string"
           },
           "user": {
@@ -703,7 +703,7 @@
               "child_care_person": {
                 "type": "string"
               },
-              "comment": {
+              "comment_person": {
                 "type": "string"
               },
               "user": {
@@ -749,7 +749,7 @@
           "is_this_follow_up_enough": {
             "type": "boolean"
           },
-          "comment": {
+          "comment_judicial_situation": {
             "type": "string"
           },
           "user": {

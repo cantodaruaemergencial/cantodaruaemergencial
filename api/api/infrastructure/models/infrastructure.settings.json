@@ -38,7 +38,7 @@
     "has_any_furniture": {
       "type": "boolean"
     },
-    "comment": {
+    "comment_infrastructure": {
       "type": "text"
     },
     "person": {

@@ -549,7 +549,7 @@
           "has_any_furniture": {
             "type": "boolean"
           },
-          "comment": {
+          "comment_infrastructure": {
             "type": "string"
           },
           "person": {
@@ -651,7 +651,7 @@
               "child_care_person": {
                 "type": "string"
               },
-              "comment": {
+              "comment_person": {
                 "type": "string"
               },
               "user": {
@@ -748,7 +748,7 @@
           "has_any_furniture": {
             "type": "boolean"
           },
-          "comment": {
+          "comment_infrastructure": {
             "type": "string"
           },
           "person": {
