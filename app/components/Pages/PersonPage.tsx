@@ -39,7 +39,7 @@ const PersonPage = ({ personId, form }: Props): ReactElement => {
         .then((person) => {
           if (personId !== null) {
             router.replace('/pessoas');
-            redirectTo(person?.CardNumber);
+            redirectTo(person?.card_number);
             resolve('Cadastro atualizado com sucesso!');
           } else {
             showPersonCardModal(person);
@@ -60,12 +60,12 @@ const PersonPage = ({ personId, form }: Props): ReactElement => {
 
   const handleClosePersonCardModal = () => {
     setPersonModal({ ...personModal, open: false });
-    redirectTo(personModal.person?.CardNumber || '');
+    redirectTo(personModal.person?.card_number || '');
   };
 
   return (
     <Container>
-      <PageHeader title={'Cadastro'} />
+      <PageHeader title={'Cadastro de Pessoa'} />
       {form && <Form form={form} onSubmit={onSubmit} />}
       <PersonCardModal
         {...personModal}

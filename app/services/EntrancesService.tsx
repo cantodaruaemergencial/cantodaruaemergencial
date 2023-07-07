@@ -5,7 +5,7 @@ import { BasePerson } from '#/types/People';
 class EntrancesService {
   static post = async (person: BasePerson) => {
     const body = {
-      person: person.Id,
+      person: person.id,
       DateTime: new Date(),
     };
 

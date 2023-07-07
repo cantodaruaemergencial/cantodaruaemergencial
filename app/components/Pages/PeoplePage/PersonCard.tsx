@@ -3,14 +3,12 @@ import { Color } from '#/types/Color';
 import { Entrance } from '#/types/Entrance';
 import { BasePerson } from '#/types/People';
 import { Person } from '#/types/People';
+import { Box, Button, Typography, withTheme, Tooltip } from '@material-ui/core';
 import {
-  Box,
-  Button,
-  Typography,
-  withTheme,
-  Tooltip
-} from '@material-ui/core';
-import { AddCircleRounded, InfoRounded, PanToolRounded } from '@material-ui/icons';
+  AddCircleRounded,
+  InfoRounded,
+  PanToolRounded,
+} from '@material-ui/icons';
 import { Skeleton } from '@material-ui/lab';
 import moment from 'moment';
 import Link from 'next/link';
@@ -132,8 +130,15 @@ const PersonCard = ({
 
   if (!isRowLoaded) return renderSkeleton();
 
-  const { Id, Preferential, Name, SocialName, CardNumber, EnteredToday, LastEntranceDate } =
-    item;
+  const {
+    id: Id,
+    Preferential,
+    Name,
+    SocialName,
+    CardNumber,
+    EnteredToday,
+    LastEntranceDate,
+  } = item;
 
   const [entrance, setEntrance] = useState({ LastEntranceDate, EnteredToday });
 
@@ -179,10 +184,11 @@ const PersonCard = ({
           <PersonInfo>
             <Link href={`/pessoas/cadastro/${Id}`}>
               <Title variant="body2">
-                {Preferential &&
-                  <Tooltip title='Preferencial'>
+                {Preferential && (
+                  <Tooltip title="Preferencial">
                     <PanToolRounded style={{ fill: 'rgb(76, 175, 80)' }} />
-                  </Tooltip>}
+                  </Tooltip>
+                )}
                 {Name}
               </Title>
             </Link>
@@ -192,9 +198,12 @@ const PersonCard = ({
           </PersonInfo>
         </Info>
         <Options>
-          <Chip label={lastEntranceLabel()}
+          <Chip
+            label={lastEntranceLabel()}
             color={getColor()}
-            tooltip={moment(entrance.LastEntranceDate).format('DD/MM/YYYY HH:mm').toString()}
+            tooltip={moment(entrance.LastEntranceDate)
+              .format('DD/MM/YYYY HH:mm')
+              .toString()}
           />
           {!entrance.EnteredToday && (
             <Button
@@ -211,7 +220,7 @@ const PersonCard = ({
             size="small"
             startIcon={<InfoRounded />}
             onClick={async () => {
-              const people = await PeopleService.getPerson(item.Id);
+              const people = await PeopleService.getPerson(item.id);
               showPersonCardModal(people);
             }}
           >
@@ -224,7 +233,7 @@ const PersonCard = ({
         handleClose={handleClosePersonCardModal}
         newPerson={false}
       />
-    </PersonWrapper >
+    </PersonWrapper>
   );
 };
 

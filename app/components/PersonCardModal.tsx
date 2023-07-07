@@ -106,11 +106,11 @@ const PersonCardModal = ({
   if (!person) return null;
 
   const {
-    Name,
-    CardNumber,
-    BirthDate,
-    BirthPlace,
-    MotherName,
+    name: Name,
+    card_number: CardNumber,
+    birth_date: BirthDate,
+    birth_place: BirthPlace,
+    mother_name: MotherName,
     Cpf,
     GeneralRegister,
     created_at,

@@ -124,8 +124,8 @@ class PeopleService {
         label: 'Dados Pessoais',
         fields: [
           {
-            property: 'CardNumber',
-            value: person?.CardNumber,
+            property: 'card_number',
+            value: person?.card_number,
             label: 'Cartão',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -135,8 +135,8 @@ class PeopleService {
             disabled: true,
           },
           {
-            property: 'Name',
-            value: person?.Name,
+            property: 'name',
+            value: person?.name,
             label: 'Nome',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -145,29 +145,29 @@ class PeopleService {
             },
           },
           {
-            property: 'SocialName',
-            value: person?.SocialName,
+            property: 'social_name',
+            value: person?.social_name,
             label: 'Nome Social',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'MotherName',
-            value: person?.MotherName,
+            property: 'mother_name',
+            value: person?.mother_name,
             label: 'Nome da Mãe',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'FatherName',
-            value: person?.FatherName,
+            property: 'father_name',
+            value: person?.father_name,
             label: 'Nome do Pai',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'BirthDate',
-            value: person?.BirthDate ? moment(person.BirthDate) : null,
+            property: 'birth_date',
+            value: person?.birth_date ? moment(person.birth_date) : null,
             label: 'Data de Nascimento',
             type: FieldType.date,
             dateConfig: { disableFuture: true },
@@ -176,8 +176,8 @@ class PeopleService {
             },
           },
           {
-            property: 'BirthPlace',
-            value: person?.BirthPlace,
+            property: 'birth_place',
+            value: person?.birth_place,
             label: 'Naturalidade',
             description: 'Exemplo: Belo Horizonte - MG',
             type: FieldType.input,
@@ -187,8 +187,8 @@ class PeopleService {
             },
           },
           {
-            property: 'Nationality',
-            value: person?.Nationality,
+            property: 'nationality',
+            value: person?.nationality,
             label: 'Nacionalidade',
             description: 'Exemplo: Brasileiro',
             type: FieldType.input,
@@ -198,8 +198,8 @@ class PeopleService {
             },
           },
           {
-            property: 'Occupation',
-            value: person?.Occupation,
+            property: 'occupation',
+            value: person?.occupation,
             label: 'Ocupação',
             description: 'Profissão',
             type: FieldType.input,
@@ -209,10 +209,9 @@ class PeopleService {
             },
           },
           {
-            property: 'Email',
-            value: person?.Email,
+            property: 'email',
+            value: person?.email,
             label: 'E-mail',
-            description: '',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
             rules: {
@@ -220,116 +219,116 @@ class PeopleService {
             },
           },
           {
-            property: 'ContactPhone',
+            property: 'phone_number',
             label: 'Telefone de Contato',
-            value: person?.ContactPhone,
+            value: person?.phone_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'BirthDocument',
+            property: 'birth_document_number',
             label: 'Número Certidão de Nascimento',
-            value: person?.BirthDocument,
+            value: person?.birth_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'WeddingDocument',
+            property: 'wedding_document_number',
             label: 'Número Certidão de Casamento',
-            value: person?.WeddingDocument,
+            value: person?.wedding_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'RgDocument',
+            property: 'rg_document_number',
             label: 'Número Documento RG',
-            value: person?.RgDocument,
+            value: person?.rg_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'CPFDocument',
+            property: 'cpf_document_number',
             label: 'Número Documento CPF',
-            value: person?.CpfDocument,
+            value: person?.cpf_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'ReservistDocument',
+            property: 'reservist_document_number',
             label: 'Número do Certificado de Reservista',
-            value: person?.ReservistDocument,
+            value: person?.reservist_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'VoterRegistrationDocument',
+            property: 'voter_registration_document_number',
             label: 'Número do Título de Eleitor',
-            value: person?.VoterRegistrationDocument,
+            value: person?.voter_registration_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'CNHDocument',
+            property: 'cnh_document_number',
             label: 'Número Documento CNH',
-            value: person?.CnhDocument,
+            value: person?.cnh_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'CTPSDocument',
+            property: 'cpf_document_number',
             label: 'Número Documento CTPS',
-            value: person?.CtpsDocument,
+            value: person?.ctps_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'NISDocument',
+            property: 'nis_document_number',
             label: 'Número Documento NIS',
-            value: person?.NisDocument,
+            value: person?.nis_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'CADUNIDocument',
+            property: 'caduni_document_number',
             label: 'Número Documento CADUNI',
-            value: person?.CadUniDocument,
+            value: person?.caduni_document_number,
             type: FieldType.input,
             rules: {
               required: false,
             },
           },
           {
-            property: 'hasGovBrRegistration',
+            property: 'has_govbr_registration',
             label: 'Possui registro no Gov BR?',
-            value: person?.HasGovBrRegistration,
+            value: person?.has_govbr_registration,
             type: FieldType.boolean,
             rules: {
               required: false,
             },
           },
           {
-            property: 'Gender',
-            value: person?.Gender?.id,
+            property: 'gender',
+            value: person?.gender?.id,
             label: 'Identidade de Gênero',
             type: FieldType.select,
             options: genders.map(
@@ -343,8 +342,8 @@ class PeopleService {
             },
           },
           {
-            property: 'SelfDeclaration',
-            value: person?.SelfDeclaration?.id,
+            property: 'self_declaration',
+            value: person?.self_declaration?.id,
             label: 'Autodeclaração de Cor/Raça',
             type: FieldType.select,
             options: selfDeclaration.map(
@@ -358,9 +357,9 @@ class PeopleService {
             },
           },
           {
-            property: 'MaritalStatus',
+            property: 'marital_status',
             label: 'Situação Civil',
-            value: person?.Marital_status?.id,
+            value: person?.marital_status?.id,
             type: FieldType.select,
             options: maritalStatuses.map(
               (ms): FormFieldOption => ({
@@ -373,9 +372,9 @@ class PeopleService {
             },
           },
           {
-            property: 'SexualOrientation',
+            property: 'sexual_orientation',
             label: 'Orientação Sexual',
-            value: person?.SexualOrientation?.id,
+            value: person?.sexual_orientation?.id,
             type: FieldType.select,
             options: sexualOrientations.map(
               (ms): FormFieldOption => ({
@@ -388,17 +387,17 @@ class PeopleService {
             },
           },
           {
-            property: 'ChildQuantity',
-            value: person?.ChildQuantity,
-            label: 'Número de Filhos',
+            property: 'child_quantity',
+            value: person?.child_quantity,
+            label: 'Possui filhos? Se sim, quantos?',
             type: FieldType.number,
             rules: {
               required: true,
             },
           },
           {
-            property: 'ChildCarePerson',
-            value: person?.ChildCarePerson,
+            property: 'child_care_person',
+            value: person?.child_care_person,
             label: 'Quem cuida dos filhos?',
             type: FieldType.input,
             rules: {
@@ -406,8 +405,8 @@ class PeopleService {
             },
           },
           {
-            property: 'Comment',
-            value: person?.Comment,
+            property: 'comment_person',
+            value: person?.comment_person,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -421,15 +420,15 @@ class PeopleService {
         label: 'Educação',
         fields: [
           {
-            property: 'IsCurrentlyStudying',
-            value: personCompleteData?.education.IsCurrentlyStudying,
+            property: 'is_currently_studying',
+            value: personCompleteData?.education.is_currently_studying,
             label: 'Está atualmente estudando?',
             type: FieldType.boolean,
           },
           {
-            property: 'StudyDegree',
+            property: 'study_degree',
             label: 'Escolaridade',
-            value: personCompleteData?.education.StudyDegree.id,
+            value: personCompleteData?.education.study_degree.id,
             type: FieldType.select,
             options: educationDegreeOptions.map(
               (ms): FormFieldOption => ({
@@ -442,26 +441,27 @@ class PeopleService {
             },
           },
           {
-            property: 'IsInterestedReturningStudying',
-            value: personCompleteData?.education.IsCurrentlyStudying,
-            label: 'Está interessada em voltar a estudar?',
+            property: 'is_interested_returning_study',
+            value: personCompleteData?.education.is_currently_studying,
+            label: 'Deseja voltar a estudar?',
             type: FieldType.boolean,
           },
           {
-            property: 'HsExtraCourses',
-            value: personCompleteData?.education.HasExtraCourse,
+            property: 'has_extra_course',
+            value: personCompleteData?.education.has_extra_course,
             label: 'Possui algum curso além da escola regular?',
             type: FieldType.boolean,
           },
           {
-            property: 'IsInterestedToDoSomeCourse',
-            value: personCompleteData?.education.IsInterestedToDoSomeCourse,
+            property: 'is_interested_doing_some_course',
+            value:
+              personCompleteData?.education.is_interested_doing_some_course,
             label: 'Está interessada(o) em fazer algum curso?',
             type: FieldType.boolean,
           },
           {
-            property: 'DesiredExtraCourse',
-            value: personCompleteData?.education.DesiredExtraCourse,
+            property: 'desired_extra_course',
+            value: personCompleteData?.education.desired_extra_course,
             label: 'Descreva os cursos de interesse',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -472,62 +472,64 @@ class PeopleService {
         label: 'Cultura',
         fields: [
           {
-            property: 'ExercisesPracticed',
-            value: personCompleteData?.culture.ExercisesPraticed,
+            property: 'exercises_practiced',
+            value: personCompleteData?.culture.exercises_practiced,
             label: 'Pratica exercício físico? Descreva',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'ExercisesQuantityByWeek',
-            value: personCompleteData?.culture.ExercisesQuantityByWeek,
+            property: 'exercises_quantity_by_week',
+            value: personCompleteData?.culture.exercises_quantity_by_week,
             label: 'Quantidade de vezes por semana que pratica exercício',
             type: FieldType.number,
           },
           {
-            property: 'KnowSomeCulturalPlace',
-            value: personCompleteData?.culture.KnowSomeCulturalPlace,
+            property: 'know_some_cultural_place',
+            value: personCompleteData?.culture.know_some_cultural_place,
             label: 'Conhece algum espaço cultural?',
             description:
               'Biblioteca, teatro, cinemas, centros culturais, parques e praças públicas, estádio, etc.',
             type: FieldType.boolean,
           },
           {
-            property: 'UsuallyGoToSomeCulturePlace',
-            value: personCompleteData?.culture.UsuallyGoToSomeCulturalPlace,
+            property: 'usually_go_to_some_culture_place',
+            value: personCompleteData?.culture.usually_go_to_some_culture_place,
             label: 'Frequenta algum espaço cultural?',
             description:
               'Biblioteca, teatro, cinemas, centros culturais, parques e praças públicas, estádio, etc.',
             type: FieldType.boolean,
           },
           {
-            property: 'WentSomewherePlaceLastTwelveMonths',
-            value: personCompleteData?.culture.WentSomewherePlaceLast12Months,
+            property: 'went_somewhere_place_last_twelve_months',
+            value:
+              personCompleteData?.culture
+                .went_somewhere_place_last_twelve_months,
             label: 'Foi em algum espaço cultural nos últimos 12 meses?',
             description: 'Algum show ou espaço cultural da cidade',
             type: FieldType.boolean,
           },
           {
-            property: 'HasReadingHabit',
-            value: personCompleteData?.culture.HasReadingHabit,
+            property: 'has_reading_habit',
+            value: personCompleteData?.culture.has_reading_habit,
             label: 'Tem hábito de ler?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasListeningMusicHabit',
-            value: personCompleteData?.culture.HasListeningMusicHabit,
+            property: 'has_listening_music_habit',
+            value: personCompleteData?.culture.has_listening_music_habit,
             label: 'Tem hábito de ouvir música?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasDrawingHabit',
-            value: personCompleteData?.culture.HasDrawingHabit,
+            property: 'has_drawing_habit',
+            value: personCompleteData?.culture.has_drawing_habit,
             label: 'Tem hábito de desenhar?',
             type: FieldType.boolean,
           },
           {
-            property: 'OtherHabit',
-            value: personCompleteData?.culture.OtherHabit,
+            property: 'other_habit',
+            value: personCompleteData?.culture.other_habit,
             label: 'Tem outros hábitos? Descreva',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -550,58 +552,60 @@ class PeopleService {
         label: 'Situação Judicial',
         fields: [
           {
-            property: 'HasAlreadyBeenThroughTheSocioeducacionalSystem',
+            property: 'has_already_been_through_the_socioeducational_system',
             value:
               personCompleteData?.judicialSituation
-                .HasAlreadyBeenThroughTheSocioeducationalSystem,
+                .has_already_been_through_the_socioeducational_system,
             label: 'Já passou pelo sistema socioeducativo?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAlreadyBeenThroughThePrisionSystem',
+            property: 'has_already_been_through_the_prision_system',
             value:
               personCompleteData?.judicialSituation
-                .HasAlreadyBeenThroughThePrisionSystem,
+                .has_already_been_through_the_prision_system,
             label: 'Já passou pelo sistema prisional?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAnActiveLawsuit',
-            value: personCompleteData?.judicialSituation.HasAnActiveLawsuit,
+            property: 'has_an_active_lawsuit',
+            value: personCompleteData?.judicialSituation.has_an_active_lawsuit,
             label: 'Possui algum processo judicial ativo?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasOutstandingWritOfExecution',
+            property: 'has_outstanding_writ_of_execution',
             value:
               personCompleteData?.judicialSituation
-                .HasAnOutstandingWritOfExecution,
+                .has_outstanding_writ_of_execution,
             label: 'Possui mandado de execução em aberto?',
             type: FieldType.boolean,
           },
           {
-            property: 'WearAnklet',
-            value: personCompleteData?.judicialSituation.WearAnklet,
+            property: 'wear_anklet',
+            value: personCompleteData?.judicialSituation.wear_anklet,
             label: 'Usa tornozeleira eletrônica?',
             type: FieldType.boolean,
           },
           {
-            property: 'IsAccompaniedByADefender',
+            property: 'is_accompanied_by_a_defender',
             value:
-              personCompleteData?.judicialSituation.IsAccompaniedByADefender,
+              personCompleteData?.judicialSituation
+                .is_accompanied_by_a_defender,
             label: 'Está sendo acompanhado por defensor',
             type: FieldType.boolean,
           },
           {
-            property: 'IsThisFollowUpEnough',
+            property: 'is_this_follow_up_enough',
             value:
-              personCompleteData?.judicialSituation.IsAccompaniedByADefender,
+              personCompleteData?.judicialSituation.is_this_follow_up_enough,
             label: 'Este acompanhamento está sendo suficiente?',
             type: FieldType.boolean,
           },
           {
-            property: 'Observation',
-            value: personCompleteData?.judicialSituation.Comment,
+            property: 'comment_judicial_situation',
+            value:
+              personCompleteData?.judicialSituation.comment_judicial_situation,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -612,70 +616,79 @@ class PeopleService {
         label: 'Infraestrutura',
         fields: [
           {
-            property: 'HasAccessToCleanWater',
-            value: personCompleteData?.infrastructure.HasAccessToCleanWater,
+            property: 'has_access_to_clean_water',
+            value: personCompleteData?.infrastructure.has_access_to_clean_water,
             label: 'Tem acesso diário a água potável?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAccessToAdequateToilets',
+            property: 'has_access_to_adequate_toilets',
             value:
-              personCompleteData?.infrastructure.HasAccessToAdequateToilets,
+              personCompleteData?.infrastructure.has_access_to_adequate_toilets,
             label: 'Tem acesso diário a sanitário adequado?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAccessToSafetySpot',
-            value: personCompleteData?.infrastructure.HasAccessToSafetySpot,
+            property: 'has_access_to_a_bed',
+            value: personCompleteData?.infrastructure.has_access_to_a_bed,
+            label: 'Tem acesso diário a uma cama?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'has_access_to_safety_spot',
+            value: personCompleteData?.infrastructure.has_access_to_safety_spot,
             label: 'Tem acesso diário a um lugar seguro?',
             description:
               'Cama para pernoitar e lugar fechado para se abrigar da chuva e sol',
             type: FieldType.boolean,
           },
           {
-            property: 'PlaceOfStayHasAdequateHygiene',
+            property: 'place_of_stay_has_adequate_hygiene',
             value:
-              personCompleteData?.infrastructure.PlaceOfStayHasAdequateHygiene,
+              personCompleteData?.infrastructure
+                .place_of_stay_has_adequate_hygiene,
             label: 'O lugar de estadia tem higiene adequada?',
             type: FieldType.boolean,
           },
           {
-            property: 'PlaceOfStayHasAdequateStructure',
+            property: 'place_of_stay_has_adequate_structure',
             value:
               personCompleteData?.infrastructure
-                .PlaceOfStayHasAdequateStructure,
+                .place_of_stay_has_adequate_structure,
             label: 'O lugar de estadia tem estrutura adequada?',
             description:
               'Materiais utilizados, tamanho, disposição de cômodos, iluminação e ventilação',
             type: FieldType.boolean,
           },
           {
-            property: 'PlaceOfStayHasProximityToBasicServices',
+            property: 'place_of_stay_has_proximity_to_basic_services',
             value:
               personCompleteData?.infrastructure
-                .PlaceOfStayHasProximityToBasicServices,
+                .place_of_stay_has_proximity_to_basic_services,
             label: 'O lugar de estadia é próximo de serviços básicos?',
             description: 'Mercado, escola, hospitais, transporte público, etc',
             type: FieldType.boolean,
           },
           {
-            property: 'PlaceOfStayHasAdequateSoundCondition',
+            property: 'place_of_stay_has_adequate_sound_condition',
             value:
               personCompleteData?.infrastructure
-                .PlaceOfStayHasAdequateSoundCondition,
+                .place_of_stay_has_adequate_sound_condition,
             label: 'O lugar de estadia tem condição sonora adequada?',
             description: 'Sem barulho ou ruídos que perturbem o descanso',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAnyFurniture',
-            value: personCompleteData?.infrastructure.HasAnyFurniture,
+            property: 'has_any_furniture',
+            value: personCompleteData?.infrastructure.has_any_furniture,
             label: 'Você possui alguma mobília?',
+            description:
+              'Algo que pretende levar para a moradia, caso seja contemplado',
             type: FieldType.boolean,
           },
           {
-            property: 'Observation',
-            value: personCompleteData?.infrastructure.Comment,
+            property: 'comment_infrastructure',
+            value: personCompleteData?.infrastructure.comment_infrastructure,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -686,33 +699,37 @@ class PeopleService {
         label: 'Segurança',
         fields: [
           {
-            property: 'VictimOfCrimesAgainstPropertyLastThreeMonths',
+            property:
+              'quantity_victim_of_crimes_against_property_last_three_months',
             value:
               personCompleteData?.safeties
-                .VictimOfCrimesAgainstPropertyLastThreeMonths,
-            label: 'Foi vítima de crime contra a propridade (Últimos 3 meses)?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'VictimOfCrimesAgainstPerson',
-            value:
-              personCompleteData?.safeties
-                .VictimOfCrimesAgainstPersonLastThreeMonths,
-            label: 'Foi vítima de crime contra a pessoa (Últimos 3 meses)?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'VictimOfInstitucionalViolenceLastThreeMonths',
-            value:
-              personCompleteData?.safeties
-                .VictimOfInstitucionalViolenceLastThreeMonths,
+                .quantity_victim_of_crimes_against_property_last_three_months,
             label:
-              'Foi vítima de crime de violência institucional (Últimos 3 meses)?',
+              'Foi vítima de crimes contra a propridade (Últimos 3 meses)?',
             type: FieldType.boolean,
           },
           {
-            property: 'Observation',
-            value: personCompleteData?.judicialSituation.Comment,
+            property:
+              'quantity_victim_of_crimes_against_person_last_three_months',
+            value:
+              personCompleteData?.safeties
+                .quantity_victim_of_crimes_against_person_last_three_months,
+            label: 'Foi vítima de crimes contra a pessoa (Últimos 3 meses)?',
+            type: FieldType.boolean,
+          },
+          {
+            property:
+              'quantity_victim_of_institutional_violence_last_three_months',
+            value:
+              personCompleteData?.safeties
+                .quantity_victim_of_institutional_violence_last_three_months,
+            label:
+              'Foi vítima de crimes de violência institucional (Últimos 3 meses)?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'comment_safety',
+            value: personCompleteData?.safeties.comment_safety,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -723,104 +740,118 @@ class PeopleService {
         label: 'Trajetória de Rua',
         fields: [
           {
-            property: 'IsCurrentlyHomeless',
-            value: personCompleteData?.streetPaths.IsCurrentlyHomeless,
-            label: 'Atualmente é morador de rua?',
+            property: 'is_currently_homeless',
+            value: personCompleteData?.streetPaths.is_currently_homeless,
+            label: 'Atualmente está em situação de rua?',
             type: FieldType.boolean,
           },
           {
-            property: 'TimeHomeless',
-            value: personCompleteData?.streetPaths.TimeHomeless,
-            label: 'Tempo morando na rua',
+            property: 'time_homeless',
+            value: personCompleteData?.streetPaths.time_homeless,
+            label: 'Há quanto tempo está em situação de rua?',
             type: FieldType.number,
           },
           {
-            property: 'HomelessReason',
-            value: personCompleteData?.streetPaths.HomelessReason,
-            label: 'Motivo de estar na rua',
+            property: 'homeless_reason',
+            value: personCompleteData?.streetPaths.homeless_reason,
+            label: 'Motivo de estar em situação de rua',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'HadAnyFamilyTiesInterrupted',
-            value: personCompleteData?.streetPaths.HadAnyFamilyTiesInterrupted,
+            property: 'had_any_family_ties_interrupted_quantity',
+            value:
+              personCompleteData?.streetPaths
+                .had_any_family_ties_interrupted_quantity,
             label:
-              'Possui algum vínculo familiar interrompido? Se sim, quantos?',
+              'Teve algum vínculo familiar interrompido? Se sim, há quanto tempo? (Em anos)',
             type: FieldType.number,
           },
           {
-            property: 'AlreadyBeenInShelter',
-            value: personCompleteData?.streetPaths.AlreadyBeenInShelter,
+            property: 'already_been_in_shelter_quantity_months',
+            value:
+              personCompleteData?.streetPaths
+                .already_been_in_shelter_quantity_months,
             label: 'Já esteve em um abrigo? Se sim, por quantos meses?',
             type: FieldType.number,
           },
           {
-            property: 'AlreadyBeenInHostel',
-            value: personCompleteData?.streetPaths.AlreadyBeenInHostel,
-            label: 'Já esteve em uma pensão? Se sim, por quantos meses?',
+            property: 'already_been_in_hostel_quantity_months',
+            value:
+              personCompleteData?.streetPaths
+                .already_been_in_hostel_quantity_months,
+            label:
+              'Já esteve em uma casa de passagem? Se sim, por quantos meses?',
             type: FieldType.number,
           },
           {
-            property: 'TimeLivedInBH',
-            value: personCompleteData?.streetPaths.TimeLivedInBH,
+            property: 'time_lived_in_bh_months',
+            value: personCompleteData?.streetPaths.time_lived_in_bh_months,
             label:
               'Há quanto tempo mora em Belo Horizonte? (Quantidade em meses)',
             type: FieldType.number,
           },
           {
-            property: 'LivedOnTheStreetsInAnotherCity',
+            property: 'lived_on_streets_in_another_city',
             value:
-              personCompleteData?.streetPaths.LivedOnTheStreetsInAnotherCity,
-            label: 'Já morou em outra cidade? Se sim, quais?',
-            type: FieldType.input,
-            inputConfig: { maxLength: 255 },
-          },
-          {
-            property: 'AnyFamilyMemberHaveBeenHomeless',
-            value:
-              personCompleteData?.streetPaths.AnyFamilyMemberHaveBeenHomeless,
+              personCompleteData?.streetPaths.lived_on_streets_in_another_city,
             label:
-              'Algum membro da família já foi morador de rua? Se sim, quem?',
+              'Já viveu em situação de rua em outra cidade? Se sim, quais?',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'ReasonPastStreetPathUnemployment',
-            value:
-              personCompleteData?.streetPaths.ReasonPastStreetPathUnemployment,
-            label: 'O motivo de estar na rua é desemprego?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'ReasonPastStreetPathFamilyProblems',
+            property: 'any_family_member_have_been_homeless',
             value:
               personCompleteData?.streetPaths
-                .ReasonPastStreetPathFamilyProblems,
-            label: 'O motivo de estar na rua é problemas familiares?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'ReasonPastStreetPathDrugs',
-            value: personCompleteData?.streetPaths.ReasonPastStreetPathDrugs,
-            label: 'O motivo de estar na rua é drogas?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'ReasonPastStreetPathComment',
-            value: personCompleteData?.streetPaths.ReasonPastStreetPathComment,
-            label: 'Há outros motivos por ser morador de rua? Se sim, quais?',
+                .any_family_member_have_been_homeless,
+            label:
+              'Algum membro da família está ou esteve em situação de rua? Se sim, quem?',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'TimePastStreetPath',
-            value: personCompleteData?.streetPaths.TimePastStreetPath,
+            property: 'reason_past_street_path_unemployment',
+            value:
+              personCompleteData?.streetPaths
+                .reason_past_street_path_unemployment,
+            label: 'O motivo de estar em situação de rua é desemprego?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'reason_past_street_path_family_problems',
+            value:
+              personCompleteData?.streetPaths
+                .reason_past_street_path_family_problems,
+            label:
+              'O motivo de estar em situação de rua é problemas familiares?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'reason_past_street_path_drugs',
+            value:
+              personCompleteData?.streetPaths.reason_past_street_path_drugs,
+            label: 'O motivo de estar em situação de rua é drogas?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'reason_past_street_path_comment',
+            value:
+              personCompleteData?.streetPaths.reason_past_street_path_comment,
+            label:
+              'Há outros motivos por estar em situação de rua? Se sim, quais?',
+            type: FieldType.input,
+            inputConfig: { maxLength: 255 },
+          },
+          {
+            property: 'time_past_street_path',
+            value: personCompleteData?.streetPaths.time_past_street_path,
             label: 'Já morou na rua antes? Quanto tempo? Em meses',
             type: FieldType.number,
           },
           {
-            property: 'Observation',
-            value: personCompleteData?.streetPaths.Comment,
+            property: 'comment_street_path',
+            value: personCompleteData?.streetPaths.comment_street_path,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -831,22 +862,22 @@ class PeopleService {
         label: 'Trabalho e renda',
         fields: [
           {
-            property: 'AlreadyHasAPaidWork',
-            value: personCompleteData?.workAndIncomes.AlreadyHasAPaidWork,
+            property: 'already_has_paid_work',
+            value: personCompleteData?.workAndIncomes.already_has_paid_work,
             label: 'Já possuiu um trabalho remunerado?',
             type: FieldType.boolean,
           },
           {
-            property: 'DescribePastPaidWork',
-            value: personCompleteData?.workAndIncomes.DescribePastPaidWork,
+            property: 'describe_past_paid_work',
+            value: personCompleteData?.workAndIncomes.describe_past_paid_work,
             label: 'Descreva quais trabalhos já possuiu',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'DoYouCurrentlyWork',
+            property: 'work_type',
             label: 'Trabalha atualmente?',
-            value: personCompleteData?.workAndIncomes?.DoYouCurrentlyWork.id,
+            value: personCompleteData?.workAndIncomes?.work_type.id,
             type: FieldType.select,
             options: workTypes.map(
               (ms): FormFieldOption => ({
@@ -856,74 +887,76 @@ class PeopleService {
             ),
           },
           {
-            property: 'ParticipateInAnyIncomeGenerationProjects',
+            property: 'participate_in_any_income_generation_projects',
             value:
               personCompleteData?.workAndIncomes
-                .ParticipateInAnyIncomeGenerationProjects,
-            label: 'Já participou de algum projeto de geração de renda?',
+                .participate_in_any_income_generation_projects,
+            label: 'Participa de algum projeto de geração de renda?',
             type: FieldType.boolean,
           },
           {
-            property: 'WhatIsBeingDoneToGetOutOfThisSituation',
+            property: 'what_is_being_done_to_get_out_of_this_situation',
             value:
               personCompleteData?.workAndIncomes
-                .WhatIsBeingDoneToGetOutOfThisSituation,
+                .what_is_being_done_to_get_out_of_this_situation,
             label: 'O que está sendo feito para sair dessa situação?',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'RetirementBenefitValue',
-            value: personCompleteData?.workAndIncomes.RetirementBenefitValue,
-            label: 'Possui auxílio de aposentadoria? Se sim, qual o valor?',
+            property: 'retirement_benefit_value',
+            value: personCompleteData?.workAndIncomes.retirement_benefit_value,
+            label: 'Possui benefício de aposentadoria? Se sim, qual o valor?',
             type: FieldType.number,
           },
           {
-            property: 'ContinuingProvisionBenefitValue',
+            property: 'continuing_provision_benefit_value',
             value:
               personCompleteData?.workAndIncomes
-                .ContinuingProvisionBenefitValue,
+                .continuing_provision_benefit_value,
             label:
-              'Possui auxílio de provisão continuada? Se sim, qual o valor?',
+              'Possui benefício de prestação continuada? Se sim, qual o valor?',
             type: FieldType.number,
           },
           {
-            property: 'SickPayBenefitValue',
-            value: personCompleteData?.workAndIncomes.SickPayBenefitValue,
+            property: 'sick_pay_benefit_value',
+            value: personCompleteData?.workAndIncomes.sick_pay_benefit_value,
             label: 'Possui auxílio doença? Se sim, qual o valor?',
             type: FieldType.number,
           },
           {
-            property: 'BolsaFamiliaBenefitValue',
-            value: personCompleteData?.workAndIncomes.BolsaFamiliaBenefitValue,
-            label: 'Possui auxílio de Bolsa Família? Se sim, qual o valor?',
+            property: 'bolsa_familia_benefit_value',
+            value:
+              personCompleteData?.workAndIncomes.bolsa_familia_benefit_value,
+            label: 'Possui benefício de Bolsa Família? Se sim, qual o valor?',
             type: FieldType.number,
           },
           {
-            property: 'BrazilFinancialAssistanceBenefitValue',
+            property: 'brazil_financial_assistance_benefit_value',
             value:
               personCompleteData?.workAndIncomes
-                .BrazilFinancialAssistanceBenefitValue,
+                .brazil_financial_assistance_benefit_value,
             label: 'Possui auxílio Brasil? Se sim, qual o valor?',
             type: FieldType.number,
           },
           {
-            property: 'OtherBenefitValue',
-            value: personCompleteData?.workAndIncomes.OtherBenefitValue,
-            label: 'Possui outro auxílio? Se sim, qual o valor?',
+            property: 'other_benefit_value',
+            value: personCompleteData?.workAndIncomes.other_benefit_value,
+            label: 'Possui outro benefício? Se sim, qual o valor?',
             type: FieldType.number,
           },
           {
-            property: 'FamilysAverageMonthlyIncome',
+            property: 'family_average_monthly_income_value',
             value:
-              personCompleteData?.workAndIncomes.FamilysAverageMonthlyIncome,
+              personCompleteData?.workAndIncomes
+                .family_average_monthly_income_value,
             label: 'Renda média familiar mensal',
             type: FieldType.number,
           },
           {
-            property: 'CategoryPastPaidWork',
+            property: 'past_work_category',
             label: 'Em qual categoria já trabalhou?',
-            value: personCompleteData?.workAndIncomes?.CategoryPastPaidWork.id,
+            value: personCompleteData?.workAndIncomes?.past_work_category.id,
             type: FieldType.select,
             options: pastWorkCategories.map(
               (ms): FormFieldOption => ({
@@ -933,9 +966,9 @@ class PeopleService {
             ),
           },
           {
-            property: 'SectorPastPaidWork',
+            property: 'past_work_sector',
             label: 'Em qual setor já trabalhou?',
-            value: personCompleteData?.workAndIncomes?.SectorPastPaidWork.id,
+            value: personCompleteData?.workAndIncomes?.past_work_sector.id,
             type: FieldType.select,
             options: pastWorkSectors.map(
               (ms): FormFieldOption => ({
@@ -945,8 +978,8 @@ class PeopleService {
             ),
           },
           {
-            property: 'Observation',
-            value: personCompleteData?.judicialSituation.Comment,
+            property: 'comment_work_and_income',
+            value: personCompleteData?.workAndIncomes.comment_work_and_income,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -957,15 +990,17 @@ class PeopleService {
         label: 'Referências Familiares',
         fields: [
           {
-            property: 'Description',
-            value: personCompleteData?.familyReferences.Description,
-            label: 'Quem são as pessoas de referência na família?',
+            property: 'description',
+            value: personCompleteData?.familyReferences.description,
+            label:
+              'Quem são as pessoas do núcleo familiar? Descreva nome, parentesco e escolaridade',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'Observation',
-            value: personCompleteData?.familyReferences.Comment,
+            property: 'comment_family_references',
+            value:
+              personCompleteData?.familyReferences.comment_family_references,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -976,64 +1011,67 @@ class PeopleService {
         label: 'Assistência Social',
         fields: [
           {
-            property: 'IsAttendedToANetworkServices',
+            property: 'is_attended_to_a_network_services',
             value:
               personCompleteData?.socialAssistanceNetwork
-                .IsAttendedToANetworkServices,
-            label: 'É atendido por uma rede de serviços?',
+                .is_attended_to_a_network_services,
+            label: 'É atendido por algum serviço da rede?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasCREAService',
-            value: personCompleteData?.socialAssistanceNetwork.HasCREAService,
-            label: 'Possui CREA?',
+            property: 'has_crea_service',
+            value: personCompleteData?.socialAssistanceNetwork.has_crea_service,
+            label: 'Atendido por CREA?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasCRASService',
-            value: personCompleteData?.socialAssistanceNetwork.HasCRASService,
-            label: 'Possui CRAS?',
+            property: 'has_cras_service',
+            value: personCompleteData?.socialAssistanceNetwork.has_cras_service,
+            label: 'Atendido por CRAS?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasShelterService',
+            property: 'has_shelter_service',
             value:
-              personCompleteData?.socialAssistanceNetwork.HasShelterService,
-            label: 'Possui Abrigo?',
+              personCompleteData?.socialAssistanceNetwork.has_shelter_service,
+            label: 'Atendido por Abrigo?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasCouncilOfRightsService',
-            value:
-              personCompleteData?.socialAssistanceNetwork
-                .HasCouncilOfRightsService,
-            label: 'Possui conselho de serviços de direito?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'HasHealthService',
-            value: personCompleteData?.socialAssistanceNetwork.HasHealthService,
-            label: 'Possui serviço de saúde?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'HasEducationService',
-            value:
-              personCompleteData?.socialAssistanceNetwork.HasEducationService,
-            label: 'Possui serviço de educação?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'HasPastoralDeRuaService',
+            property: 'has_council_of_rights_service',
             value:
               personCompleteData?.socialAssistanceNetwork
-                .HasPastoralDeRuaService,
-            label: 'Possui Pastoral de Rua?',
+                .has_council_of_rights_service,
+            label: 'Atendido por conselho de direito?',
             type: FieldType.boolean,
           },
           {
-            property: 'Observation',
-            value: personCompleteData?.socialAssistanceNetwork.Comment,
+            property: 'has_health_service',
+            value:
+              personCompleteData?.socialAssistanceNetwork.has_health_service,
+            label: 'Atendido por saúde?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'has_education_service',
+            value:
+              personCompleteData?.socialAssistanceNetwork.has_education_service,
+            label: 'Atendido por educação?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'has_pastoral_povo_da_rua_service',
+            value:
+              personCompleteData?.socialAssistanceNetwork
+                .has_pastoral_povo_da_rua_service,
+            label: 'Atendido por Pastoral de Rua?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'comment_social_assistance_network',
+            value:
+              personCompleteData?.socialAssistanceNetwork
+                .comment_social_assistance_network,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -1044,11 +1082,11 @@ class PeopleService {
         label: 'Benefício de reserva de vagas',
         fields: [
           {
-            property: 'VacancyReservationBenefit',
+            property: 'vacancy_reservation_benefit',
             label: 'Possui algum benefício de vaga?',
             value:
               personCompleteData?.personVacancyReservationBenefit
-                ?.VacancyReservationBenefit.id,
+                ?.vacancy_reservation_benefit.id,
             type: FieldType.select,
             options: vacancyReservationBenefits.map(
               (ms): FormFieldOption => ({
@@ -1058,8 +1096,10 @@ class PeopleService {
             ),
           },
           {
-            property: 'Details',
-            value: personCompleteData?.personVacancyReservationBenefit.Details,
+            property: 'details_person_vacancy_reservation_benefit',
+            value:
+              personCompleteData?.personVacancyReservationBenefit
+                .details_person_vacancy_reservation_benefit,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -1070,145 +1110,150 @@ class PeopleService {
         label: 'Saúde',
         fields: [
           {
-            property: 'SelfHealthEvaluation',
-            value: personCompleteData?.healthSituation.SelfHealthEvaluation,
+            property: 'self_health_evaluation',
+            value: personCompleteData?.healthSituation.self_health_evaluation,
             label: 'Autoavaliação da saúde',
+            description: 'Boa, Moderada, Ruim ou Péssima',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'DateLastMedicalAppointment',
+            property: 'date_last_medical_appointment',
             value: personCompleteData?.healthSituation
-              .DateLastMedicalAppointment
+              .date_last_medical_appointment
               ? moment(
                   personCompleteData?.healthSituation
-                    .DateLastMedicalAppointment,
+                    .date_last_medical_appointment,
                 )
               : null,
             label: 'Data da última avaliação médica',
             type: FieldType.date,
           },
           {
-            property: 'DateLastMedicalDentist',
-            value: personCompleteData?.healthSituation.DateLastMedicalDentist
+            property: 'date_last_medical_dentist',
+            value: personCompleteData?.healthSituation.date_last_medical_dentist
               ? moment(
-                  personCompleteData?.healthSituation.DateLastMedicalDentist,
+                  personCompleteData?.healthSituation.date_last_medical_dentist,
                 )
               : null,
-            label: 'Data da última avaliação no dentista',
+            label: 'Data da última avaliação com dentista',
             type: FieldType.date,
           },
           {
-            property: 'UseMedicationOften',
-            value: personCompleteData?.healthSituation.UseMedicationOften,
-            label: 'Usa medicação frequente?',
+            property: 'use_medication_often',
+            value: personCompleteData?.healthSituation.use_medication_often,
+            label: 'Faz uso contínuo de medicação?',
             type: FieldType.boolean,
           },
           {
-            property: 'MedicationDetails',
-            value: personCompleteData?.healthSituation.MedicationDetails,
-            label: 'Quais são as medicações frequentes?',
+            property: 'medication_details',
+            value: personCompleteData?.healthSituation.medication_details,
+            label: 'Quais são as medicações contínuas?',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'WasHospitalizedLastTwelveMonths',
+            property: 'was_hospitalized_last_twelve_months',
             value:
               personCompleteData?.healthSituation
-                .WasHospitalizedLastTwelveMonths,
-            label: 'Foi hospitalizado nos últimos 12 meses?',
+                .was_hospitalized_last_twelve_months,
+            label: 'Foi internado nos últimos 12 meses?',
             type: FieldType.boolean,
           },
           {
-            property: 'HospitalizedReason',
-            value: personCompleteData?.healthSituation.HospitalizedReason,
-            label: 'Motivo da hospitalização',
+            property: 'hospitalized_reason',
+            value: personCompleteData?.healthSituation.hospitalized_reason,
+            label: 'Motivo da internação',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'TimeHospitalizedReasonDays',
-            value:
-              personCompleteData?.healthSituation.TimeHospitalizedReasonDays,
-            label: 'Tempo hospitalizado (em meses)',
+            property: 'time_hospitalized_days',
+            value: personCompleteData?.healthSituation.time_hospitalized_days,
+            label: 'Tempo internado (em meses)',
             type: FieldType.number,
           },
           {
-            property: 'DidAnySurgery',
-            value: personCompleteData?.healthSituation.DidAnySurgery,
+            property: 'did_any_surgery',
+            value: personCompleteData?.healthSituation.did_any_surgery,
             label: 'Já fez alguma cirurgia? Se sim, qual?',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'HasVaccinationCard',
-            value: personCompleteData?.healthSituation.HasVaccinationCard,
+            property: 'has_vaccination_card',
+            value: personCompleteData?.healthSituation.has_vaccination_card,
             label: 'Possui cartão de vacinação?',
             type: FieldType.boolean,
           },
           {
-            property: 'IsUpdatedVaccinationCovid19',
+            property: 'is_updated_vaccination_covid19',
             value:
-              personCompleteData?.healthSituation.IsUpdatedVaccinationCovid19,
+              personCompleteData?.healthSituation
+                .is_updated_vaccination_covid19,
             label: 'Tomou a vacina contra COVID19?',
             type: FieldType.boolean,
           },
           {
-            property: 'IsUpdatedVaccinationHepatite',
+            property: 'is_updated_vaccination_hepatite',
             value:
-              personCompleteData?.healthSituation.IsUpdatedVaccinationHepatite,
+              personCompleteData?.healthSituation
+                .is_updated_vaccination_hepatite,
             label: 'Tomou a vacina contra Hepatite?',
             type: FieldType.boolean,
           },
           {
-            property: 'IsUpdatedVaccinationTetano',
+            property: 'is_updated_vaccination_tetano',
             value:
-              personCompleteData?.healthSituation.IsUpdatedVaccinationTetano,
+              personCompleteData?.healthSituation.is_updated_vaccination_tetano,
             label: 'Tomou a vacina contra Tetano?',
             type: FieldType.boolean,
           },
           {
-            property: 'IsUpdatedVaccinationInfluenza',
+            property: 'is_updated_vaccination_influenza',
             value:
-              personCompleteData?.healthSituation.IsUpdatedVaccinationInfluenza,
+              personCompleteData?.healthSituation
+                .is_updated_vaccination_influenza,
             label: 'Tomou a vacina contra Influenza?',
             type: FieldType.boolean,
           },
           {
-            property: 'IsUpdatedVaccinationFebreAmarela',
+            property: 'is_updated_vaccination_febre_amarela',
             value:
               personCompleteData?.healthSituation
-                .IsUpdatedVaccinationFebreAmarela,
+                .is_updated_vaccination_febre_amarela,
             label: 'Tomou a vacina contra Febre Amarela?',
             type: FieldType.boolean,
           },
           {
-            property: 'QuestionsRegardingPhysicalOrMentalHealth',
+            property: 'questions_regarding_physical_or_mental_health',
             value:
               personCompleteData?.healthSituation
-                .QuestionsRegardingPhysicalOrMentalHealth,
-            label: 'Possui alguma dúvida sobre sua saúde física ou mental?',
+                .questions_regarding_physical_or_mental_health,
+            label:
+              'Possui alguma questão (ou queixa) sobre sua saúde física ou mental?',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'DoSomeFollowUp',
-            value: personCompleteData?.healthSituation.DoSomeFollowUp,
+            property: 'do_some_follow_up',
+            value: personCompleteData?.healthSituation.do_some_follow_up,
             label: 'Faz algum acompanhamento? Se sim, qual?',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'UseAlcoholOrOtherDrugs',
-            value: personCompleteData?.healthSituation.UseAlcoholOrOtherDrugs,
+            property: 'use_alcohol_or_other_drugs',
+            value:
+              personCompleteData?.healthSituation.use_alcohol_or_other_drugs,
             label: 'Usa alcool ou outras drogas? Se sim, quais?',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'DrugsFrequency',
+            property: 'drugs_frequency',
             label: 'Frequência de uso da droga',
-            value: personCompleteData?.healthSituation?.DrugsFrequency.id,
+            value: personCompleteData?.healthSituation?.drugs_frequency.id,
             type: FieldType.select,
             options: drugsFrequency.map(
               (ms): FormFieldOption => ({
@@ -1218,215 +1263,226 @@ class PeopleService {
             ),
           },
           {
-            property: 'HasEverBeenAdmittedToTherapeuticCommunity',
+            property: 'has_ever_been_admitted_to_therapeutic_community',
             value:
               personCompleteData?.healthSituation
-                .HasEverBeenAdmittedToTherapeuticCommunity,
+                .has_ever_been_admitted_to_therapeutic_community,
             label:
-              'Já foi admitido em uma comunidade terapêutica? Se sim, quais?',
+              'Já foi internado em uma comunidade terapêutica? Se sim, quais?',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'NeedDentalCare',
-            value: personCompleteData?.healthSituation.NeedDentalCare,
-            label: 'Precisa de tratamento dental?',
+            property: 'need_dental_care',
+            value: personCompleteData?.healthSituation.need_dental_care,
+            label: 'Necessita de tratamento dental?',
             type: FieldType.boolean,
           },
           {
-            property: 'DescribeDentalCare',
-            value: personCompleteData?.healthSituation.DescribeDentalCare,
+            property: 'describe_dental_care',
+            value: personCompleteData?.healthSituation.describe_dental_care,
             label: 'Descreva o tratamento dental necessário',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'NeedPsychologicalCare',
-            value: personCompleteData?.healthSituation.NeedPsychologicalCare,
-            label: 'Precisa de tratamento psicológico?',
+            property: 'need_psychological_care',
+            value: personCompleteData?.healthSituation.need_psychological_care,
+            label: 'Necessita de tratamento psicológico?',
             type: FieldType.boolean,
           },
           {
-            property: 'DescribePsychologicalCare',
+            property: 'describe_psychological_care',
             value:
-              personCompleteData?.healthSituation.DescribePsychologicalCare,
+              personCompleteData?.healthSituation.describe_psychological_care,
             label: 'Descreva o tratamento psicológico necessário',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'NeedPsychiatricCare',
-            value: personCompleteData?.healthSituation.NeedPsychiatricCare,
-            label: 'Precisa de tratamento psiquiátrico?',
+            property: 'need_psychiatric_care',
+            value: personCompleteData?.healthSituation.need_psychiatric_care,
+            label: 'Necessita de tratamento psiquiátrico?',
             type: FieldType.boolean,
           },
           {
-            property: 'DescribePsychiatricCare',
-            value: personCompleteData?.healthSituation.DescribePsychiatricCare,
+            property: 'describe_psychiatric_care',
+            value:
+              personCompleteData?.healthSituation.describe_psychiatric_care,
             label: 'Descreva o tratamento psiquiátrico necessário',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'OtherSpecificCare',
-            value: personCompleteData?.healthSituation.OtherSpecificCare,
+            property: 'other_specific_care',
+            value: personCompleteData?.healthSituation.other_specific_care,
             label: 'Descreva outro tratamento necessário',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'HasAnyDisabilities',
-            value: personCompleteData?.healthSituation.HasAnyDisabilities,
+            property: 'has_any_disabilities',
+            value: personCompleteData?.healthSituation.has_any_disabilities,
             label: 'Possui alguma deficiência? Descreva',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'DescribeNeedSpecialEquipment',
+            property: 'describe_need_special_equipment',
             value:
-              personCompleteData?.healthSituation.DescribeNeedSpecialEquipment,
+              personCompleteData?.healthSituation
+                .describe_need_special_equipment,
             label: 'Precisa de algum equipamento especial? Descreva',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'HasAnyCommorbitiesHipertensao',
-            value:
-              personCompleteData?.healthSituation.HasAnyCommorbitiesHipertensao,
-            label: 'Possui Hipertensão?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'HasAnyCommorbitiesDiabetes',
-            value:
-              personCompleteData?.healthSituation.HasAnyCommorbitiesDiabetes,
-            label: 'Possui Diabetes?',
-            type: FieldType.boolean,
-          },
-          {
-            property: 'HasAnyCommorbitiesCardiovascularProblem',
+            property: 'has_any_comorbidities_hipertensao',
             value:
               personCompleteData?.healthSituation
-                .HasAnyCommorbitiesCardiovascularProblem,
+                .has_any_comorbidities_hipertensao,
+            label: 'Possui hipertensão?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'has_any_comorbidities_diabetes',
+            value:
+              personCompleteData?.healthSituation
+                .has_any_comorbidities_diabetes,
+            label: 'Possui diabetes?',
+            type: FieldType.boolean,
+          },
+          {
+            property: 'has_any_comorbidities_cardiovascular_problem',
+            value:
+              personCompleteData?.healthSituation
+                .has_any_comorbidities_cardiovascular_problem,
             label: 'Possui problema cardiovascular?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAnyCommorbitiesDepression',
+            property: 'has_any_comorbidities_depression',
             value:
-              personCompleteData?.healthSituation.HasAnyCommorbitiesDepression,
+              personCompleteData?.healthSituation
+                .has_any_comorbidities_depression,
             label: 'Possui depressão?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAnyCommorbitiesAsma',
-            value: personCompleteData?.healthSituation.HasAnyCommorbitiesAsma,
+            property: 'has_any_comorbidities_asma',
+            value:
+              personCompleteData?.healthSituation.has_any_comorbidities_asma,
             label: 'Possui asma?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAnyCommorbitiesCancer',
-            value: personCompleteData?.healthSituation.HasAnyCommorbitiesCancer,
+            property: 'has_any_comorbidities_cancer',
+            value:
+              personCompleteData?.healthSituation.has_any_comorbidities_cancer,
             label: 'Possui câncer?',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAnyCommorbitiesNone',
-            value: personCompleteData?.healthSituation.HasAnyCommorbitiesNone,
+            property: 'has_any_comorbidities_none',
+            value:
+              personCompleteData?.healthSituation.has_any_comorbidities_none,
             label: 'Não possui comorbidade',
             type: FieldType.boolean,
           },
           {
-            property: 'HasAnyCommorbitiesOther',
-            value: personCompleteData?.healthSituation.HasAnyCommorbitiesOther,
+            property: 'has_any_comorbidities_other',
+            value:
+              personCompleteData?.healthSituation.has_any_comorbidities_other,
             label: 'Há alguma outra comorbidade? Descreva',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
           {
-            property: 'MenHealthLastProstateExamDate',
+            property: 'man_health_last_prostate_exam_date',
             value: personCompleteData?.healthSituation
-              .MenHealthLastProstateExamDate
+              .man_health_last_prostate_exam_date
               ? moment(
                   personCompleteData?.healthSituation
-                    .MenHealthLastProstateExamDate,
+                    .man_health_last_prostate_exam_date,
                 )
               : null,
             label: 'Saúde do Homem - Data do último exame de próstata',
             type: FieldType.date,
           },
           {
-            property: 'MenHealthLastIstExamDate',
-            value: personCompleteData?.healthSituation.MenHealthLastIstExamDate
+            property: 'man_health_last_ist_exam_date',
+            value: personCompleteData?.healthSituation
+              .man_health_last_ist_exam_date
               ? moment(
-                  personCompleteData?.healthSituation.MenHealthLastIstExamDate,
+                  personCompleteData?.healthSituation
+                    .man_health_last_ist_exam_date,
                 )
               : null,
-            label: 'Saúde do Homem - Data do último exame de X',
+            label: 'Saúde do Homem - Data do último teste rápido (IST)',
             type: FieldType.date,
           },
           {
-            property: 'WomanHealthLastPreventiveExamDate',
+            property: 'woman_health_last_preventive_exam_date',
             value: personCompleteData?.healthSituation
-              .WomanHealthLastPreventiveExamDate
+              .woman_health_last_preventive_exam_date
               ? moment(
                   personCompleteData?.healthSituation
-                    .WomanHealthLastPreventiveExamDate,
+                    .woman_health_last_preventive_exam_date,
                 )
               : null,
             label: 'Saúde da Mulher - Data do último exame preventivo',
             type: FieldType.date,
           },
           {
-            property: 'WomanHealthLastMammographyExamDate',
+            property: 'woman_health_last_mammography_exam_date',
             value: personCompleteData?.healthSituation
-              .WomanHealthLastMammographyExamDate
+              .woman_health_last_mammography_exam_date
               ? moment(
                   personCompleteData?.healthSituation
-                    .WomanHealthLastMammographyExamDate,
+                    .woman_health_last_mammography_exam_date,
                 )
               : null,
             label: 'Saúde da Mulher - Data do último exame de mamografia',
             type: FieldType.date,
           },
           {
-            property: 'WomanHealthLastGynecologicalConsultationExamDate',
+            property: 'woman_health_last_gynecological_consultation_exam_date',
             value: personCompleteData?.healthSituation
-              .WomanHealthLastGynecologicalConsultationExamDate
+              .woman_health_last_gynecological_consultation_exam_date
               ? moment(
                   personCompleteData?.healthSituation
-                    .WomanHealthLastGynecologicalConsultationExamDate,
+                    .woman_health_last_gynecological_consultation_exam_date,
                 )
               : null,
-            label: 'Saúde da Mulher - Data do último exame ginecológico',
+            label: 'Saúde da Mulher - Data da última consulta ginecológica',
             type: FieldType.date,
           },
           {
-            property: 'WomanHealthSuspectedPregnancyWeekQuantity',
+            property: 'woman_health_suspected_pregnancy_week_quantity',
             value:
               personCompleteData?.healthSituation
-                .WomanHealthSuspectedPregnancyWeekQuantity,
+                .woman_health_suspected_pregnancy_week_quantity,
             label:
               'Saúde da Mulher - Há suspeita de gravidez? Quantas semanas?',
             type: FieldType.number,
           },
           {
-            property: 'WomanHealthUseSomeContraceptiveMethod',
+            property: 'woman_health_use_some_contraceptive_method',
             value:
               personCompleteData?.healthSituation
-                .WomanHealthUseSomeContraceptiveMethod,
+                .woman_health_use_some_contraceptive_method,
             label: 'Saúde da Mulher - Usa algum método contraceptivo?',
             type: FieldType.boolean,
           },
           {
-            property: 'UseCondom',
-            value: personCompleteData?.healthSituation.UseCondom,
-            label: 'Saúde da pessoa - Usa camisinha frequentemente?',
+            property: 'use_condom',
+            value: personCompleteData?.healthSituation.use_condom,
+            label: 'Saúde da pessoa - Usa preservativo frequentemente?',
             type: FieldType.boolean,
           },
           {
-            property: 'Observation',
-            value: personCompleteData?.healthSituation.Comment,
+            property: 'comment_health_situation',
+            value: personCompleteData?.healthSituation.comment_health_situation,
             label: 'Observações',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
@@ -1461,6 +1517,42 @@ class PeopleService {
     return { sections };
   };
 
+  static mountPersonData(fullBody: { [key: string]: any }): Partial<Person> {
+    return {
+      birth_date: fullBody.birth_date,
+      birth_document_number: fullBody.birth_document_number,
+      birth_place: fullBody.birth_place,
+      caduni_document_number: fullBody.caduni_document_number,
+      card_number: fullBody.card_number,
+      child_care_person: fullBody.child_care_person,
+      child_quantity: fullBody.child_quantity,
+      cnh_document_number: fullBody.cnh_document_number,
+      comment_person: fullBody.comment,
+      cpf_document_number: fullBody.cpf_document_number,
+      ctps_document_number: fullBody.ctps_document_number,
+      email: fullBody.email,
+      father_name: fullBody.father_name,
+      gender: fullBody.gender,
+      has_govbr_registration: fullBody.has_govbr_registration,
+      marital_status: fullBody.marital_status,
+      mother_name: fullBody.mother_name,
+      name: fullBody.name,
+      nationality: fullBody.nationality,
+      nis_document_number: fullBody.nis_document_number,
+      occupation: fullBody.occupation,
+      phone_number: fullBody.phone_number,
+      Preferential: fullBody.Preferential,
+      reservist_document_number: fullBody.reservist_document_number,
+      rg_document_number: fullBody.rg_document_number,
+      self_declaration: fullBody.self_declaration,
+      sexual_orientation: fullBody.sexual_orientation,
+      social_name: fullBody.social_name,
+      voter_registration_document_number:
+        fullBody.voter_registration_document_number,
+      wedding_document_number: fullBody.wedding_document_number,
+    };
+  }
+
   static savePerson = async (
     formData: {
       [key: string]: unknown;
@@ -1471,7 +1563,7 @@ class PeopleService {
 
     console.log({ formData });
 
-    Object.keys(body).forEach((k) => {
+    Object.keys(body)?.forEach((k) => {
       if (isMoment(body[k])) {
         const momentDate: Moment = body[k] as Moment;
         body[k] = momentDate.format('YYYY-MM-DD');
@@ -1479,6 +1571,8 @@ class PeopleService {
     });
 
     console.log({ body });
+
+    console.log({ person: this.mountPersonData(body) });
 
     // const saveMethod =
     //   personId !== null
