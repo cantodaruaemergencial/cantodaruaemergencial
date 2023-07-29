@@ -33,17 +33,17 @@
     "birth_state": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "nationality": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "occupation": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "email": {
       "type": "string",

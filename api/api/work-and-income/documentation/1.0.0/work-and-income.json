@@ -634,7 +634,7 @@
               }
             }
           },
-          "comment": {
+          "comment_work_and_income": {
             "type": "string"
           },
           "person": {
@@ -848,7 +848,7 @@
           "past_work_sector": {
             "type": "string"
           },
-          "comment": {
+          "comment_work_and_income": {
             "type": "string"
           },
           "person": {

@@ -53,7 +53,7 @@
     "past_work_sector": {
       "model": "past-work-sector"
     },
-    "comment": {
+    "comment_work_and_income": {
       "type": "text"
     },
     "person": {
