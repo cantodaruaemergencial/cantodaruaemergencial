@@ -14,15 +14,27 @@
     "person": {
       "model": "person"
     },
-    "vacancy_reservation_benefit": {
-      "model": "vacancy-reservation-benefit"
-    },
     "details_person_vacancy_reservation_benefit": {
       "type": "text"
     },
     "user": {
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "has_vacancy_reservation_benefits_racial_quota": {
+      "type": "boolean"
+    },
+    "has_vacancy_reservation_benefits_egress_prision_system": {
+      "type": "boolean"
+    },
+    "has_vacancy_reservation_benefits_lgbt": {
+      "type": "boolean"
+    },
+    "has_vacancy_reservation_benefits_others": {
+      "type": "boolean"
+    },
+    "has_vacancy_reservation_benefits_pcd": {
+      "type": "boolean"
     }
   }
 }

@@ -16,8 +16,6 @@ module.exports = {
 		const nextCardNumber = await knex.raw(
 			"select max(cast(card_number as unsigned)) + 1 as nextCardNumber from person p"
 		);
-		console.log({ k: JSON.stringify(nextCardNumber) });
-		console.log({ aqui: nextCardNumber[0][0]["nextCardNumber"] });
 		if (
 			nextCardNumber &&
 			nextCardNumber[0] &&
@@ -28,7 +26,6 @@ module.exports = {
 		} else {
 			inputEntity.card_number = "1";
 		}
-		console.log({ inputEntity });
 		let outputEntity = await strapi.services.person.create(inputEntity);
 		return sanitizeEntity(outputEntity, { model: strapi.models.person });
 	},
