@@ -742,6 +742,9 @@
               }
             }
           },
+          "card_number": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -848,6 +851,9 @@
             "type": "string"
           },
           "user": {
+            "type": "string"
+          },
+          "card_number": {
             "type": "string"
           },
           "published_at": {

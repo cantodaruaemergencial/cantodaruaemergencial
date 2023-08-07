@@ -699,6 +699,9 @@
               "user": {
                 "type": "string"
               },
+              "card_number": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/28/2023 9:35:57 PM"
+    "x-generation-date": "08/07/2023 8:13:12 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17520,6 +17520,9 @@
               "user": {
                 "type": "string"
               },
+              "card_number": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -17811,6 +17814,9 @@
               "user": {
                 "type": "string"
               },
+              "card_number": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -18034,6 +18040,9 @@
                 "type": "string"
               },
               "user": {
+                "type": "string"
+              },
+              "card_number": {
                 "type": "string"
               },
               "published_at": {
@@ -18439,6 +18448,9 @@
               "user": {
                 "type": "string"
               },
+              "card_number": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -18809,6 +18821,9 @@
               "user": {
                 "type": "string"
               },
+              "card_number": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -19101,6 +19116,9 @@
                 "type": "string"
               },
               "user": {
+                "type": "string"
+              },
+              "card_number": {
                 "type": "string"
               },
               "published_at": {
@@ -19417,6 +19435,9 @@
               "user": {
                 "type": "string"
               },
+              "card_number": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -19587,6 +19608,9 @@
                 "type": "string"
               },
               "user": {
+                "type": "string"
+              },
+              "card_number": {
                 "type": "string"
               },
               "published_at": {
@@ -19930,6 +19954,9 @@
               }
             }
           },
+          "card_number": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -20036,6 +20063,9 @@
             "type": "string"
           },
           "user": {
+            "type": "string"
+          },
+          "card_number": {
             "type": "string"
           },
           "published_at": {
@@ -20218,6 +20248,9 @@
                 "type": "string"
               },
               "user": {
+                "type": "string"
+              },
+              "card_number": {
                 "type": "string"
               },
               "published_at": {
@@ -20530,6 +20563,9 @@
               "user": {
                 "type": "string"
               },
+              "card_number": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -20747,6 +20783,9 @@
                 "type": "string"
               },
               "user": {
+                "type": "string"
+              },
+              "card_number": {
                 "type": "string"
               },
               "published_at": {
@@ -21227,6 +21266,9 @@
                 "type": "string"
               },
               "user": {
+                "type": "string"
+              },
+              "card_number": {
                 "type": "string"
               },
               "published_at": {

@@ -125,6 +125,10 @@
     "user": {
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "card_number": {
+      "type": "string",
+      "unique": true
     }
   }
 }
