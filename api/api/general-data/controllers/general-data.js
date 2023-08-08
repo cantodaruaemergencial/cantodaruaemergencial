@@ -54,7 +54,7 @@ module.exports = {
 			education: educationByUser,
 			familyReferences: familyReferenceByUser,
 			healthSituation: healthSituationByUser,
-			infrastruture: infrastrutureByUser,
+			infrastructure: infrastrutureByUser,
 			judicialSituation: judicialSituationsByUser,
 			personVacancyReservationBenefit: personVacancyReservationBenefitByUser,
 			safeties: safetiesByUser,

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "person_entrances",
+  "info": {
+    "name": "PersonEntrance",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "person": {
+      "model": "person"
+    },
+    "date": {
+      "type": "datetime"
+    }
+  }
+}

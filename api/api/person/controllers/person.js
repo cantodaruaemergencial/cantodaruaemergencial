@@ -8,6 +8,40 @@ const { sanitizeEntity } = require("strapi-utils");
  */
 
 module.exports = {
+	async find2(ctx) {
+		const knex = strapi.connections.default;
+
+		const f = ctx.query.filter;
+
+		const params = {
+			limit: Number(ctx.query.limit),
+			offset: Number(ctx.query.start),
+			filter: f ? "%" + f + "%" : "%",
+			numericFilter: f ? f : "0",
+			isFilter: f ? true : false,
+			isNumeric: /^\d+$/.test(f),
+		};
+
+		const result = await knex.raw(
+			"select * from person p " +
+				"where ( " +
+				"(:isFilter = 0) or " +
+				"(:isFilter = 1 and :isNumeric = 1 and p.card_number like :numericFilter) or " +
+				"(:isFilter = 1 and :isNumeric = 0 and ( " +
+				"   p.name like :filter " +
+				"   or soundex(p.name) like concat(soundex(:numericFilter), '%') " +
+				"   or p.social_name like :filter " +
+				"   or soundex(p.social_name) like concat(soundex(:numericFilter), '%') " +
+				")) " +
+				") " +
+				"order by cast(p.card_number as unsigned) " +
+				"limit :limit offset :offset;",
+			params
+		);
+
+		ctx.send(result[0]);
+	},
+
 	async create(ctx) {
 		const knex = strapi.connections.default;
 

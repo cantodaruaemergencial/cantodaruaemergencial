@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/people": {
+    "/person-entrances": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,9 +10,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Person"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Person"
+          "Person-entrance"
         ],
         "parameters": [
           {
@@ -201,7 +202,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Person"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -239,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Person"
+          "Person-entrance"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPerson"
+                "$ref": "#/components/schemas/NewPerson-entrance"
               }
             }
           }
         }
       }
     },
-    "/people2": {
+    "/person-entrances/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "Person"
+          "Person-entrance"
         ],
         "parameters": []
       }
     },
-    "/people/count": {
+    "/person-entrances/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -322,8 +327,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -363,60 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "Person"
-        ],
-        "parameters": []
-      }
-    },
-    "/people/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Person"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Person"
+          "Person-entrance"
         ],
         "parameters": [
           {
@@ -440,7 +392,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Person"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -478,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Person"
+          "Person-entrance"
         ],
         "requestBody": {
           "description": "",
@@ -486,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPerson"
+                "$ref": "#/components/schemas/NewPerson-entrance"
               }
             }
           }
@@ -552,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Person"
+          "Person-entrance"
         ],
         "parameters": [
           {
@@ -571,92 +527,27 @@
   },
   "components": {
     "schemas": {
-      "Person": {
+      "Person-entrance": {
         "required": [
-          "id",
-          "name",
-          "social_name",
-          "birth_date",
-          "mother_name",
-          "birth_state",
-          "nationality",
-          "occupation",
-          "email",
-          "phone_number",
-          "has_govbr_registration"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
-          },
-          "social_name": {
-            "type": "string"
-          },
-          "birth_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "mother_name": {
-            "type": "string"
-          },
-          "father_name": {
-            "type": "string"
-          },
-          "birth_state": {
-            "type": "string"
-          },
-          "nationality": {
-            "type": "string"
-          },
-          "occupation": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "phone_number": {
-            "type": "string"
-          },
-          "birth_document_number": {
-            "type": "string"
-          },
-          "wedding_document_number": {
-            "type": "string"
-          },
-          "rg_document_number": {
-            "type": "string"
-          },
-          "cpf_document_number": {
-            "type": "string"
-          },
-          "reservist_document_number": {
-            "type": "string"
-          },
-          "voter_registration_document_number": {
-            "type": "string"
-          },
-          "cnh_document_number": {
-            "type": "string"
-          },
-          "ctps_document_number": {
-            "type": "string"
-          },
-          "nis_document_number": {
-            "type": "string"
-          },
-          "caduni_document_number": {
-            "type": "string"
-          },
-          "has_govbr_registration": {
-            "type": "boolean"
-          },
-          "marital_status": {
+          "person": {
             "required": [
               "id",
-              "name"
+              "name",
+              "social_name",
+              "birth_date",
+              "mother_name",
+              "birth_state",
+              "nationality",
+              "occupation",
+              "email",
+              "phone_number",
+              "has_govbr_registration"
             ],
             "properties": {
               "id": {
@@ -665,130 +556,94 @@
               "name": {
                 "type": "string"
               },
-              "published_at": {
+              "social_name": {
                 "type": "string"
               },
-              "created_by": {
+              "birth_date": {
                 "type": "string"
               },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "self_declaration": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
+              "mother_name": {
                 "type": "string"
               },
-              "name": {
+              "father_name": {
                 "type": "string"
               },
-              "published_at": {
+              "birth_state": {
                 "type": "string"
               },
-              "created_by": {
+              "nationality": {
                 "type": "string"
               },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "gender": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "sexual_orientation": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "child_quantity": {
-            "type": "integer"
-          },
-          "child_care_person": {
-            "type": "string"
-          },
-          "comment_person": {
-            "type": "string"
-          },
-          "user": {
-            "required": [
-              "id",
-              "username",
-              "email"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
+              "occupation": {
                 "type": "string"
               },
               "email": {
                 "type": "string"
               },
-              "provider": {
+              "phone_number": {
                 "type": "string"
               },
-              "password": {
+              "birth_document_number": {
                 "type": "string"
               },
-              "resetPasswordToken": {
+              "wedding_document_number": {
                 "type": "string"
               },
-              "confirmationToken": {
+              "rg_document_number": {
                 "type": "string"
               },
-              "confirmed": {
+              "cpf_document_number": {
+                "type": "string"
+              },
+              "reservist_document_number": {
+                "type": "string"
+              },
+              "voter_registration_document_number": {
+                "type": "string"
+              },
+              "cnh_document_number": {
+                "type": "string"
+              },
+              "ctps_document_number": {
+                "type": "string"
+              },
+              "nis_document_number": {
+                "type": "string"
+              },
+              "caduni_document_number": {
+                "type": "string"
+              },
+              "has_govbr_registration": {
                 "type": "boolean"
               },
-              "blocked": {
-                "type": "boolean"
+              "marital_status": {
+                "type": "string"
               },
-              "role": {
+              "self_declaration": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "sexual_orientation": {
+                "type": "string"
+              },
+              "child_quantity": {
+                "type": "integer"
+              },
+              "child_care_person": {
+                "type": "string"
+              },
+              "comment_person": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "card_number": {
+                "type": "string"
+              },
+              "published_at": {
                 "type": "string"
               },
               "created_by": {
@@ -799,8 +654,9 @@
               }
             }
           },
-          "card_number": {
-            "type": "string"
+          "date": {
+            "type": "string",
+            "format": "date-time"
           },
           "published_at": {
             "type": "string",
@@ -808,110 +664,14 @@
           }
         }
       },
-      "NewPerson": {
-        "required": [
-          "name",
-          "social_name",
-          "birth_date",
-          "mother_name",
-          "birth_state",
-          "nationality",
-          "occupation",
-          "email",
-          "phone_number",
-          "has_govbr_registration"
-        ],
+      "NewPerson-entrance": {
         "properties": {
-          "name": {
+          "person": {
             "type": "string"
           },
-          "social_name": {
-            "type": "string"
-          },
-          "birth_date": {
+          "date": {
             "type": "string",
-            "format": "date"
-          },
-          "mother_name": {
-            "type": "string"
-          },
-          "father_name": {
-            "type": "string"
-          },
-          "birth_state": {
-            "type": "string"
-          },
-          "nationality": {
-            "type": "string"
-          },
-          "occupation": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "phone_number": {
-            "type": "string"
-          },
-          "birth_document_number": {
-            "type": "string"
-          },
-          "wedding_document_number": {
-            "type": "string"
-          },
-          "rg_document_number": {
-            "type": "string"
-          },
-          "cpf_document_number": {
-            "type": "string"
-          },
-          "reservist_document_number": {
-            "type": "string"
-          },
-          "voter_registration_document_number": {
-            "type": "string"
-          },
-          "cnh_document_number": {
-            "type": "string"
-          },
-          "ctps_document_number": {
-            "type": "string"
-          },
-          "nis_document_number": {
-            "type": "string"
-          },
-          "caduni_document_number": {
-            "type": "string"
-          },
-          "has_govbr_registration": {
-            "type": "boolean"
-          },
-          "marital_status": {
-            "type": "string"
-          },
-          "self_declaration": {
-            "type": "string"
-          },
-          "gender": {
-            "type": "string"
-          },
-          "sexual_orientation": {
-            "type": "string"
-          },
-          "child_quantity": {
-            "type": "integer"
-          },
-          "child_care_person": {
-            "type": "string"
-          },
-          "comment_person": {
-            "type": "string"
-          },
-          "user": {
-            "type": "string"
-          },
-          "card_number": {
-            "type": "string"
+            "format": "date-time"
           },
           "published_at": {
             "type": "string",
@@ -927,9 +687,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Person"
-    }
-  ]
+  "tags": []
 }

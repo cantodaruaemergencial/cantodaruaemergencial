@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/person-entrances",
+      "handler": "person-entrance.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/person-entrances/count",
+      "handler": "person-entrance.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/person-entrances/:id",
+      "handler": "person-entrance.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/person-entrances",
+      "handler": "person-entrance.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/person-entrances/:id",
+      "handler": "person-entrance.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/person-entrances/:id",
+      "handler": "person-entrance.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
