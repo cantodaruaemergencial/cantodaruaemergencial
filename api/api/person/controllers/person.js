@@ -23,17 +23,22 @@ module.exports = {
 		};
 
 		const result = await knex.raw(
-			"select * from person p " +
+			"select " +
+				"p.id, p.name, p.social_name, p.card_number, " +
+				"(select pe1.date from person_entrances pe1 where pe1.person = p.id order by pe1.date desc limit 1) as LastEntranceDate, " +
+				"least(cast((select count(1) from person_entrances pe2 where pe2.person = p.id and date(pe2.date) = date(now())) as unsigned),1) as EnteredToday, " +
+				"greatest(0, cast((select count(1) from person_entrances pe3 where pe3.person = p.id) as unsigned)) as Entrances " +
+				"from person p " +
 				"where ( " +
 				"(:isFilter = 0) or " +
-				"(:isFilter = 1 and :isNumeric = 1 and p.card_number like :numericFilter) or " +
+				"(:isFilter = 1 and :isNumeric = 1 and card_number like :numericFilter) or " +
 				"(:isFilter = 1 and :isNumeric = 0 and ( " +
-				"   p.name like :filter " +
-				"   or soundex(p.name) like concat(soundex(:numericFilter), '%') " +
-				"   or p.social_name like :filter " +
-				"   or soundex(p.social_name) like concat(soundex(:numericFilter), '%') " +
+				"   name like :filter " +
+				"   or soundex(name) like concat(soundex(:numericFilter), '%') " +
+				"   or social_name like :filter " +
+				"   or soundex(social_name) like concat(soundex(:numericFilter), '%') " +
 				")) " +
-				") " +
+				")" +
 				"order by cast(p.card_number as unsigned) " +
 				"limit :limit offset :offset;",
 			params

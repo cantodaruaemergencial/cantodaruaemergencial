@@ -33,6 +33,9 @@ module.exports = {
 		const judicialSituationsByUser = await getQuery(
 			`select * from judicial_situations where person = ${personId}`
 		);
+		const person = await getQuery(
+			`select * from person where id = ${personId}`
+		);
 		const personVacancyReservationBenefitByUser = await getQuery(
 			`select * from person_vacancy_reservation_benefits where person = ${personId}`
 		);
@@ -56,6 +59,7 @@ module.exports = {
 			healthSituation: healthSituationByUser,
 			infrastructure: infrastrutureByUser,
 			judicialSituation: judicialSituationsByUser,
+			person,
 			personVacancyReservationBenefit: personVacancyReservationBenefitByUser,
 			safeties: safetiesByUser,
 			socialAssistanceNetwork: socialAssistanceNetworkByUser,
