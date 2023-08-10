@@ -15,56 +15,93 @@ module.exports = {
 		const personId = ctx.params.personid;
 		if (isNaN(Number(personId))) throw Error("Internal server error");
 
-		const cultureByUser = await getQuery(
-			`select * from cultures where person = ${personId}`
-		);
-		const educationByUser = await getQuery(
-			`select * from educations where person = ${personId}`
-		);
-		const familyReferenceByUser = await getQuery(
-			`select * from family_references where person = ${personId}`
-		);
-		const healthSituationByUser = await getQuery(
-			`select * from health_situations where person = ${personId}`
-		);
-		const infrastrutureByUser = await getQuery(
-			`select * from infrastructures where person = ${personId}`
-		);
-		const judicialSituationsByUser = await getQuery(
-			`select * from judicial_situations where person = ${personId}`
-		);
-		const person = await getQuery(
-			`select * from person where id = ${personId}`
-		);
-		const personVacancyReservationBenefitByUser = await getQuery(
-			`select * from person_vacancy_reservation_benefits where person = ${personId}`
-		);
-		const safetiesByUser = await getQuery(
-			`select * from safeties where person = ${personId}`
-		);
-		const socialAssistanceNetworkByUser = await getQuery(
-			`select * from social_assistance_networks where person = ${personId}`
-		);
-		const streetPathsByUser = await getQuery(
-			`select * from street_paths where person = ${personId}`
-		);
-		const workAndIncomesByUser = await getQuery(
-			`select * from work_and_incomes where person = ${personId}`
-		);
+		const cultureByUser = await strapi
+			.query("culture")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const educationByUser = await strapi
+			.query("education")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const familyReferenceByUser = await strapi
+			.query("family-reference")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const healthSituationByUser = await strapi
+			.query("health-situation")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const infrastrutureByUser = await strapi
+			.query("infrastructure")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const judicialSituationsByUser = await strapi
+			.query("judicial-situation")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const person = await strapi
+			.query("person")
+			.model.query((qb) => {
+				qb.where("id", personId);
+			})
+			.fetch();
+		const personVacancyReservationBenefitByUser = await strapi
+			.query("person-vacancy-reservation-benefit")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const safetiesByUser = await strapi
+			.query("safety")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const socialAssistanceNetworkByUser = await strapi
+			.query("social-assistance-network")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const streetPathsByUser = await strapi
+			.query("street-path")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
+		const workAndIncomesByUser = await strapi
+			.query("work-and-income")
+			.model.query((qb) => {
+				qb.where("person", personId);
+			})
+			.fetch();
 
 		return ctx.send({
-			culture: cultureByUser,
-			education: educationByUser,
-			familyReferences: familyReferenceByUser,
-			healthSituation: healthSituationByUser,
-			infrastructure: infrastrutureByUser,
-			judicialSituation: judicialSituationsByUser,
+			culture: cultureByUser.toJSON(),
+			education: educationByUser.toJSON(),
+			familyReferences: familyReferenceByUser.toJSON(),
+			healthSituation: healthSituationByUser.toJSON(),
+			infrastructure: infrastrutureByUser.toJSON(),
+			judicialSituation: judicialSituationsByUser.toJSON(),
 			person,
-			personVacancyReservationBenefit: personVacancyReservationBenefitByUser,
-			safeties: safetiesByUser,
-			socialAssistanceNetwork: socialAssistanceNetworkByUser,
-			streetPaths: streetPathsByUser,
-			workAndIncomes: workAndIncomesByUser,
+			personVacancyReservationBenefit:
+				personVacancyReservationBenefitByUser.toJSON(),
+			safeties: safetiesByUser.toJSON(),
+			socialAssistanceNetwork: socialAssistanceNetworkByUser.toJSON(),
+			streetPaths: streetPathsByUser.toJSON(),
+			workAndIncomes: workAndIncomesByUser.toJSON(),
 		});
 	},
 
