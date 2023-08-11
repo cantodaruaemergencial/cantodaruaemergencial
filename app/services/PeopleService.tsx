@@ -90,7 +90,7 @@ class PeopleService {
     loggedUser: UserProfile | null,
   ): Promise<FormAndPersonData> => {
     let person;
-    let personCompleteData = {} as PersonCompleteData;
+    let personCompleteData;
 
     if (personId) {
       person = await PeopleService.getPerson(personId);
@@ -431,7 +431,7 @@ class PeopleService {
           {
             property: 'study_degree',
             label: 'Escolaridade',
-            value: personCompleteData?.education.study_degree.id,
+            value: personCompleteData?.education.study_degree?.id,
             type: FieldType.select,
             options: educationDegreeOptions.map(
               (ms): FormFieldOption => ({
@@ -869,7 +869,7 @@ class PeopleService {
           {
             property: 'work_type',
             label: 'Trabalha atualmente?',
-            value: personCompleteData?.workAndIncomes?.work_type.id,
+            value: personCompleteData?.workAndIncomes?.work_type?.id,
             type: FieldType.select,
             options: workTypes.map(
               (ms): FormFieldOption => ({
@@ -948,7 +948,7 @@ class PeopleService {
           {
             property: 'past_work_category',
             label: 'Em qual categoria já trabalhou?',
-            value: personCompleteData?.workAndIncomes?.past_work_category.id,
+            value: personCompleteData?.workAndIncomes?.past_work_category?.id,
             type: FieldType.select,
             options: pastWorkCategories.map(
               (ms): FormFieldOption => ({
@@ -960,7 +960,7 @@ class PeopleService {
           {
             property: 'past_work_sector',
             label: 'Em qual setor já trabalhou?',
-            value: personCompleteData?.workAndIncomes?.past_work_sector.id,
+            value: personCompleteData?.workAndIncomes?.past_work_sector?.id,
             type: FieldType.select,
             options: pastWorkSectors.map(
               (ms): FormFieldOption => ({
@@ -1273,7 +1273,7 @@ class PeopleService {
           {
             property: 'drugs_frequency',
             label: 'Frequência de uso da droga',
-            value: personCompleteData?.healthSituation?.drugs_frequency.id,
+            value: personCompleteData?.healthSituation?.drugs_frequency?.id,
             type: FieldType.select,
             options: drugsFrequency.map(
               (ms): FormFieldOption => ({
@@ -1896,7 +1896,7 @@ class PeopleService {
       }
     });
 
-    const personId = personInformation?.person.id;
+    const personId = personInformation?.person.id ?? null;
 
     const saveMethod =
       personId !== null

@@ -89,19 +89,19 @@ module.exports = {
 			.fetch();
 
 		return ctx.send({
-			culture: cultureByUser.toJSON(),
-			education: educationByUser.toJSON(),
-			familyReferences: familyReferenceByUser.toJSON(),
-			healthSituation: healthSituationByUser.toJSON(),
-			infrastructure: infrastrutureByUser.toJSON(),
-			judicialSituation: judicialSituationsByUser.toJSON(),
+			culture: cultureByUser?.toJSON(),
+			education: educationByUser?.toJSON(),
+			familyReferences: familyReferenceByUser?.toJSON(),
+			healthSituation: healthSituationByUser?.toJSON(),
+			infrastructure: infrastrutureByUser?.toJSON(),
+			judicialSituation: judicialSituationsByUser?.toJSON(),
 			person,
 			personVacancyReservationBenefit:
-				personVacancyReservationBenefitByUser.toJSON(),
-			safeties: safetiesByUser.toJSON(),
-			socialAssistanceNetwork: socialAssistanceNetworkByUser.toJSON(),
-			streetPaths: streetPathsByUser.toJSON(),
-			workAndIncomes: workAndIncomesByUser.toJSON(),
+				personVacancyReservationBenefitByUser?.toJSON(),
+			safeties: safetiesByUser?.toJSON(),
+			socialAssistanceNetwork: socialAssistanceNetworkByUser?.toJSON(),
+			streetPaths: streetPathsByUser?.toJSON(),
+			workAndIncomes: workAndIncomesByUser?.toJSON(),
 		});
 	},
 

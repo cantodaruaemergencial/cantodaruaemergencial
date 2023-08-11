@@ -71,19 +71,19 @@ export const personModalCardData = (personCompleteData: PersonCompleteData) => [
       },
       {
         label: 'Estado Civil',
-        value: personCompleteData.person.marital_status.name,
+        value: personCompleteData.person.marital_status?.name,
       },
       {
         label: 'Auto Declaração de Raça',
-        value: personCompleteData.person.self_declaration.name,
+        value: personCompleteData.person.self_declaration?.name,
       },
       {
         label: 'Gênero',
-        value: personCompleteData.person.gender.name,
+        value: personCompleteData.person.gender?.name,
       },
       {
         label: 'Orientação Sexual',
-        value: personCompleteData.person.sexual_orientation.name,
+        value: personCompleteData.person.sexual_orientation?.name,
       },
       {
         label: 'Nº de Filhos',
@@ -261,7 +261,7 @@ export const personModalCardData = (personCompleteData: PersonCompleteData) => [
       },
       {
         label: 'Escolaridade',
-        value: personCompleteData.education.study_degree.name,
+        value: personCompleteData.education.study_degree?.name,
       },
       {
         label: 'Deseja voltar a estudar?',
@@ -449,7 +449,7 @@ export const personModalCardData = (personCompleteData: PersonCompleteData) => [
       },
       {
         label: 'Frequência de uso das drogas',
-        value: personCompleteData.healthSituation.drugs_frequency.name,
+        value: personCompleteData.healthSituation.drugs_frequency?.name,
       },
       {
         label: 'Já foi internado em uma comunidade terapêutica? Se sim, quais?',
@@ -677,7 +677,7 @@ export const personModalCardData = (personCompleteData: PersonCompleteData) => [
       },
       {
         label: 'Tipo de trabalho atualmente',
-        value: personCompleteData.workAndIncomes.work_type.name,
+        value: personCompleteData.workAndIncomes.work_type?.name,
       },
       {
         label: 'Participa de algum projeto de geração de renda?',
@@ -726,11 +726,11 @@ export const personModalCardData = (personCompleteData: PersonCompleteData) => [
       },
       {
         label: 'Em qual categoria já trabalhou?',
-        value: personCompleteData.workAndIncomes.past_work_category.name,
+        value: personCompleteData.workAndIncomes.past_work_category?.name,
       },
       {
         label: 'Em qual setor já trabalhou?',
-        value: personCompleteData.workAndIncomes.past_work_sector.name,
+        value: personCompleteData.workAndIncomes.past_work_sector?.name,
       },
       {
         label: 'Comentários',

@@ -47,5 +47,5 @@ export interface Form {
 }
 
 export interface FormAndPersonData extends Form {
-  personCompleteData: PersonCompleteData;
+  personCompleteData?: PersonCompleteData;
 }
