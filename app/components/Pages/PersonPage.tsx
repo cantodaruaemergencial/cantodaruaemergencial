@@ -1,13 +1,14 @@
 import PeopleService from '#/services/PeopleService';
 import { Form as FormType } from '#/types/Forms';
-import { Person } from '#/types/People';
+import { PersonCompleteData } from '#/types/People';
 import { Container as MuiContainer } from '@material-ui/core';
 import { useRouter } from 'next/dist/client/router';
 import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
 import Form from '../Form/Form';
 import PageHeader from '../PageHeader';
-import PersonCardModal from '../PersonCardModal';
+import PersonCardModal from '../PersonModalCard/PersonCardModal';
+import GoToButton from '../GoToButton';
 
 const Container = styled(MuiContainer)`
   && {
@@ -16,7 +17,8 @@ const Container = styled(MuiContainer)`
 `;
 
 interface Props {
-  personId?: number | null;
+  userId: number;
+  personInformation?: PersonCompleteData | null;
   form?: FormType | null;
 }
 
@@ -25,24 +27,28 @@ export interface IResult {
   message: string;
 }
 
-const PersonPage = ({ personId, form }: Props): ReactElement => {
+const PersonPage = ({
+  userId,
+  personInformation,
+  form,
+}: Props): ReactElement => {
   const router = useRouter();
 
   const [personModal, setPersonModal] = useState<{
-    person: Person | null;
+    person: PersonCompleteData | null;
     open: boolean;
   }>({ open: false, person: null });
 
   const onSubmit = async (data: { [key: string]: unknown }) => {
     return new Promise<string | null>((resolve, reject) => {
-      PeopleService.savePerson(data, personId)
-        .then((person) => {
-          if (personId !== null) {
+      PeopleService.savePerson(data, userId, personInformation)
+        .then((personCompleteData) => {
+          if (personInformation?.person.id !== null) {
             router.replace('/pessoas');
-            redirectTo(person?.card_number);
+            redirectTo(personCompleteData.person?.card_number);
             resolve('Cadastro atualizado com sucesso!');
           } else {
-            showPersonCardModal(person);
+            showPersonCardModal(personCompleteData);
             resolve(null);
           }
         })
@@ -55,12 +61,12 @@ const PersonPage = ({ personId, form }: Props): ReactElement => {
   const redirectTo = (cardNumber: string) =>
     router.replace(`/pessoas?q=${cardNumber}`);
 
-  const showPersonCardModal = (person: Person) =>
+  const showPersonCardModal = (person: PersonCompleteData) =>
     setPersonModal({ open: true, person });
 
   const handleClosePersonCardModal = () => {
     setPersonModal({ ...personModal, open: false });
-    redirectTo(personModal.person?.card_number || '');
+    redirectTo(personModal.person?.person.card_number || '');
   };
 
   return (
@@ -72,6 +78,7 @@ const PersonPage = ({ personId, form }: Props): ReactElement => {
         handleClose={handleClosePersonCardModal}
         newPerson
       />
+      <GoToButton idGoTo="#saveButton" />
     </Container>
   );
 };

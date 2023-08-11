@@ -1,8 +1,7 @@
 import Chip from '#/components/Chip';
 import { Color } from '#/types/Color';
 import { Entrance } from '#/types/Entrance';
-import { BasePerson } from '#/types/People';
-import { Person } from '#/types/People';
+import { BasePerson, PersonCompleteData } from '#/types/People';
 import { Box, Button, Typography, withTheme, Tooltip } from '@material-ui/core';
 import {
   AddCircleRounded,
@@ -16,7 +15,7 @@ import { ReactElement, useState } from 'react';
 import { ListRowProps } from 'react-virtualized';
 import styled from 'styled-components';
 import TheTag from './../../Tag';
-import PersonCardModal from '#/components/PersonCardModal';
+import PersonCardModal from '#/components/PersonModalCard/PersonCardModal';
 import PeopleService from '#/services/PeopleService';
 
 const PersonWrapper = styled(Box)`
@@ -133,9 +132,9 @@ const PersonCard = ({
   const {
     id: Id,
     Preferential,
-    Name,
-    SocialName,
-    CardNumber,
+    name: Name,
+    social_name: SocialName,
+    card_number: CardNumber,
     EnteredToday,
     LastEntranceDate,
   } = item;
@@ -165,12 +164,12 @@ const PersonCard = ({
     });
 
   const [personModal, setPersonModal] = useState<{
-    person: Person | null;
+    personCompleteData: PersonCompleteData | null;
     open: boolean;
-  }>({ open: false, person: null });
+  }>({ open: false, personCompleteData: null });
 
-  const showPersonCardModal = (person: Person) =>
-    setPersonModal({ open: true, person });
+  const showPersonCardModal = (personCompleteData: PersonCompleteData) =>
+    setPersonModal({ open: true, personCompleteData });
 
   const handleClosePersonCardModal = () => {
     setPersonModal({ ...personModal, open: false });
@@ -220,7 +219,7 @@ const PersonCard = ({
             size="small"
             startIcon={<InfoRounded />}
             onClick={async () => {
-              const people = await PeopleService.getPerson(item.id);
+              const people = await PeopleService.getPersonCompleteData(item.id);
               showPersonCardModal(people);
             }}
           >

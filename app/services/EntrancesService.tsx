@@ -6,10 +6,10 @@ class EntrancesService {
   static post = async (person: BasePerson) => {
     const body = {
       person: person.id,
-      DateTime: new Date(),
+      date: new Date(),
     };
 
-    return Api.post<Entrance>('/person-entrances', body);
+    return Api.post<Entrance>('person-entrances', body);
   };
 }
 

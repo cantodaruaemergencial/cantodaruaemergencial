@@ -1,5 +1,8 @@
-import { Person } from '#/types/People';
+import { PersonCompleteData } from '#/types/People';
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Avatar,
   Box,
   Grow,
@@ -7,10 +10,12 @@ import {
   Typography,
   withTheme,
 } from '@material-ui/core';
+import { ExpandMore, Check, Cancel } from '@material-ui/icons';
 import { CheckCircleRounded } from '@material-ui/icons';
 import moment from 'moment';
 import styled from 'styled-components';
-import TheCard from './Card';
+import TheCard from '../Card';
+import { FormTypes, personModalCardData } from './PersonModalCardUtils';
 
 const Modal = styled(TheModal)`
   display: flex;
@@ -33,6 +38,8 @@ const Card = styled(TheCard)`
     max-width: 90vw;
     position: relative;
     padding: 1.5rem;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 `;
 
@@ -44,6 +51,14 @@ const Logo = withTheme(styled(Avatar)`
     right: 1.5rem;
     top: 1.5rem;
   }
+`);
+
+const CustomAccordionDetails = withTheme(styled(AccordionDetails)`
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  max-height: 50vh;
+  overflow-y: auto;
 `);
 
 const Field = withTheme(styled(Box)`
@@ -91,28 +106,31 @@ const Banner = withTheme(styled(Box)`
 interface Props {
   open: boolean;
   newPerson: boolean;
-  person?: Person | null;
+  personCompleteData?: PersonCompleteData | null;
   className?: string;
   handleClose: () => void;
 }
 
 const PersonCardModal = ({
-  person,
+  personCompleteData,
   open,
   newPerson,
   handleClose,
   className,
 }: Props) => {
+  if (!personCompleteData) return null;
+
+  const { person } = personCompleteData;
+
   if (!person) return null;
 
   const {
     name: Name,
     card_number: CardNumber,
     birth_date: BirthDate,
-    birth_place: BirthPlace,
+    birth_state: BirthPlace,
     mother_name: MotherName,
-    Cpf,
-    GeneralRegister,
+    cpf_document_number: Cpf,
     created_at,
   } = person;
 
@@ -168,17 +186,41 @@ const PersonCardModal = ({
               </HalfField>
             )}
 
-            {!Cpf && GeneralRegister && (
-              <HalfField>
-                <Label>Documento (RG)</Label>
-                <Value>{GeneralRegister}</Value>
-              </HalfField>
-            )}
-
             <HalfField>
               <Label>Data de Expedição</Label>
               <Value>{CreatedAtFormatted}</Value>
             </HalfField>
+
+            {!newPerson &&
+              personModalCardData(personCompleteData).map((data) => (
+                <Field>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMore />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>{data.title}</Typography>
+                    </AccordionSummary>
+                    <CustomAccordionDetails>
+                      {data.fields.map((f) => (
+                        <HalfField>
+                          <Label>{f.label}</Label>
+                          {f.type === FormTypes.bool ? (
+                            f.value ? (
+                              <Check color="secondary" />
+                            ) : (
+                              <Cancel color="error" />
+                            )
+                          ) : (
+                            <Value>{f.value?.toString() || '-'}</Value>
+                          )}
+                        </HalfField>
+                      ))}
+                    </CustomAccordionDetails>
+                  </Accordion>
+                </Field>
+              ))}
           </Card>
         </ModalWrapper>
       </Grow>

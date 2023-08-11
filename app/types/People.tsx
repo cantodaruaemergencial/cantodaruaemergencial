@@ -5,25 +5,14 @@ export interface GeneralOption {
   name: string;
 }
 
-export interface Benefit {
-  id: number;
-  benefit: string;
-}
-
-export interface ExternalService {
-  id: number;
-  ExternalService: string;
-}
-
 export interface Person {
   id: number;
-  Preferential: boolean;
   name: string;
   social_name: string;
   mother_name: string;
   father_name: string;
   birth_date: string;
-  birth_place: string;
+  birth_state: string;
   nationality: string;
   occupation: string;
   email: string;
@@ -49,34 +38,28 @@ export interface Person {
   card_number: string;
   created_at: string;
   created_by: string;
+  user: number | null;
 }
 
 export interface BasePerson {
-  Id: number;
+  id: number;
   Preferential: boolean;
-  Name: string;
-  SocialName: string;
-  CardNumber: string;
+  name: string;
+  social_name: string;
+  card_number: string;
   LastEntranceDate?: Moment | null;
   EnteredToday: boolean;
 }
 
-export interface Education {
+interface BaseEntity {
   id: number;
-  is_currently_studying: boolean;
-  study_degree: GeneralOption;
-  is_interested_returning_study: boolean;
-  has_extra_course: boolean;
-  is_interested_doing_some_course: boolean;
-  desired_extra_course: string;
-
-  id_person: number;
-
-  created_at: string;
-  created_by: string;
+  user: number;
+  person: number;
+  created_at: Date;
+  updated_at: Date;
 }
 
-export interface Culture {
+export interface Culture extends BaseEntity {
   exercises_practiced: string;
   exercises_quantity_by_week: number;
   know_some_cultural_place: boolean;
@@ -86,13 +69,24 @@ export interface Culture {
   has_listening_music_habit: boolean;
   has_drawing_habit: boolean;
   other_habit: string;
-  id_person: number;
-
-  created_at: string;
-  created_by: string;
 }
 
-export interface HealthSituation {
+export interface Education extends BaseEntity {
+  id: number;
+  is_currently_studying: boolean;
+  study_degree: GeneralOption;
+  is_interested_returning_study: boolean;
+  has_extra_course: boolean;
+  is_interested_doing_some_course: boolean;
+  desired_extra_course: string;
+}
+
+export interface FamilyReferences extends BaseEntity {
+  description: string;
+  comment_family_references: string;
+}
+
+export interface HealthSituation extends BaseEntity {
   self_health_evaluation: string;
   date_last_medical_appointment: Date;
   date_last_medical_dentist: Date;
@@ -138,28 +132,10 @@ export interface HealthSituation {
   woman_health_suspected_pregnancy_week_quantity: number;
   woman_health_use_some_contraceptive_method: boolean;
   use_condom: boolean;
-  comment_health_situation: boolean;
-  id_person: number;
-  created_at: string;
-  created_by: string;
+  comment_health_situation: string;
 }
 
-export interface JudicialSituation {
-  has_already_been_through_the_socioeducational_system: boolean;
-  has_already_been_through_the_prision_system: boolean;
-  has_an_active_lawsuit: boolean;
-  has_outstanding_writ_of_execution: boolean;
-  wear_anklet: boolean;
-  is_accompanied_by_a_defender: boolean;
-  is_this_follow_up_enough: boolean;
-  comment_judicial_situation: string;
-  id_person: number;
-
-  created_at: string;
-  created_by: string;
-}
-
-export interface Infrastructure {
+export interface Infrastructure extends BaseEntity {
   has_access_to_clean_water: boolean;
   has_access_to_adequate_toilets: boolean;
   has_access_to_a_bed: boolean;
@@ -170,23 +146,63 @@ export interface Infrastructure {
   place_of_stay_has_adequate_sound_condition: boolean;
   has_any_furniture: boolean;
   comment_infrastructure: string;
-  id_person: number;
-  created_at: string;
-  created_by: string;
 }
 
-export interface Safety {
+export interface JudicialSituation extends BaseEntity {
+  has_already_been_through_the_socioeducational_system: boolean;
+  has_already_been_through_the_prision_system: boolean;
+  has_an_active_lawsuit: boolean;
+  has_outstanding_writ_of_execution: boolean;
+  wear_anklet: boolean;
+  is_accompanied_by_a_defender: boolean;
+  is_this_follow_up_enough: boolean;
+  comment_judicial_situation: string;
+}
+
+export interface PersonVacancyReservationBenefit extends BaseEntity {
+  has_vacancy_reservation_benefits_racial_quota: boolean;
+  has_vacancy_reservation_benefits_egress_prision_system: boolean;
+  has_vacancy_reservation_benefits_lgbt: boolean;
+  has_vacancy_reservation_benefits_others: boolean;
+  has_vacancy_reservation_benefits_pcd: boolean;
+  details_person_vacancy_reservation_benefit: string;
+}
+
+export interface PersonCompleteData {
+  culture: Culture;
+  education: Education;
+  familyReferences: FamilyReferences;
+  healthSituation: HealthSituation;
+  infrastructure: Infrastructure;
+  judicialSituation: JudicialSituation;
+  person: Person;
+  personVacancyReservationBenefit: PersonVacancyReservationBenefit;
+  safeties: Safety;
+  socialAssistanceNetwork: SocialAssistanceNetwork;
+  streetPaths: StreetPath;
+  workAndIncomes: WorkAndIncome;
+}
+
+export interface Safety extends BaseEntity {
   quantity_victim_of_crimes_against_property_last_three_months: number;
   quantity_victim_of_crimes_against_person_last_three_months: number;
   quantity_victim_of_institutional_violence_last_three_months: number;
   comment_safety: string;
-  id_person: number;
-
-  created_at: string;
-  created_by: string;
 }
 
-export interface StreetPath {
+export interface SocialAssistanceNetwork extends BaseEntity {
+  is_attended_to_a_network_services: boolean;
+  has_crea_service: boolean;
+  has_cras_service: boolean;
+  has_shelter_service: boolean;
+  has_council_of_rights_service: boolean;
+  has_health_service: boolean;
+  has_education_service: boolean;
+  has_pastoral_povo_da_rua_service: boolean;
+  comment_social_assistance_network: string;
+}
+
+export interface StreetPath extends BaseEntity {
   is_currently_homeless: boolean;
   time_homeless: number;
   homeless_reason: string;
@@ -201,14 +217,10 @@ export interface StreetPath {
   reason_past_street_path_drugs: boolean;
   reason_past_street_path_comment: string;
   time_past_street_path: number;
-  comment: string;
-  id_person: number;
-
-  created_at: string;
-  created_by: string;
+  comment_street_path: string;
 }
 
-export interface WorkAndIncome {
+export interface WorkAndIncome extends BaseEntity {
   already_has_paid_work: boolean;
   describe_past_paid_work: string;
   work_type: GeneralOption;
@@ -224,55 +236,4 @@ export interface WorkAndIncome {
   past_work_category: GeneralOption;
   past_work_sector: GeneralOption;
   comment_work_and_income: string;
-  id_person: number;
-
-  created_at: string;
-  created_by: string;
-}
-
-export interface FamilyReferences {
-  description: string;
-  comment_family_references: string;
-  id_person: number;
-
-  created_at: string;
-  created_by: string;
-}
-
-export interface SocialAssistanceNetwork {
-  is_attended_to_a_network_services: boolean;
-  has_crea_service: boolean;
-  has_cras_service: boolean;
-  has_shelter_service: boolean;
-  has_council_of_rights_service: boolean;
-  has_health_service: boolean;
-  has_education_service: boolean;
-  has_pastoral_povo_da_rua_service: boolean;
-  comment_social_assistance_network: string;
-  id_person: number;
-
-  created_at: string;
-  created_by: string;
-}
-
-export interface PersonVacancyReservationBenefit {
-  vacancy_reservation_benefit: GeneralOption;
-  details_person_vacancy_reservation_benefit: string;
-  id_person: number;
-
-  created_at: string;
-}
-
-export interface PersonCompleteData {
-  culture: Culture;
-  education: Education;
-  familyReferences: FamilyReferences;
-  healthSituation: HealthSituation;
-  infrastructure: Infrastructure;
-  judicialSituation: JudicialSituation;
-  personVacancyReservationBenefit: PersonVacancyReservationBenefit;
-  safeties: Safety;
-  socialAssistanceNetwork: SocialAssistanceNetwork;
-  streetPaths: StreetPath;
-  workAndIncomes: WorkAndIncome;
 }

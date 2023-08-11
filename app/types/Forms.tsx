@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 import { RegisterOptions } from 'react-hook-form';
+import { PersonCompleteData } from './People';
 
 export enum FieldType {
   input,
@@ -43,4 +44,8 @@ export interface FormSection {
 
 export interface Form {
   sections: FormSection[];
+}
+
+export interface FormAndPersonData extends Form {
+  personCompleteData: PersonCompleteData;
 }

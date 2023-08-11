@@ -1,13 +1,30 @@
 import moment, { isMoment, Moment } from 'moment';
 
 import { Api } from '#/packages/api/strapi';
-import { FieldType, Form, FormFieldOption, FormSection } from '#/types/Forms';
+import {
+  FieldType,
+  FormAndPersonData,
+  FormFieldOption,
+  FormSection,
+} from '#/types/Forms';
 import {
   BasePerson,
   Person,
   GeneralOption,
   PersonCompleteData,
+  Education,
+  Culture,
+  HealthSituation,
+  JudicialSituation,
+  Infrastructure,
+  Safety,
+  StreetPath,
+  WorkAndIncome,
+  FamilyReferences,
+  SocialAssistanceNetwork,
+  PersonVacancyReservationBenefit,
 } from '#/types/People';
+import { UserProfile } from '#/packages/entities/types';
 
 class PeopleService {
   static get = (
@@ -21,20 +38,7 @@ class PeopleService {
       filter: filter?.nameOrCardNumber,
     };
 
-    return Api.get<BasePerson[]>('people2', query)
-      .then((res) => res.data)
-      .then((data) =>
-        data?.map((p) => {
-          p.LastEntranceDate = p.LastEntranceDate
-            ? moment(p.LastEntranceDate)
-            : null;
-
-          p.EnteredToday =
-            !!p.LastEntranceDate && moment().isSame(p.LastEntranceDate, 'day');
-
-          return p;
-        }),
-      );
+    return Api.get<BasePerson[]>('people2', query).then((res) => res.data);
   };
 
   static getAssociations = () =>
@@ -59,11 +63,6 @@ class PeopleService {
   static getPastWorkSector = () =>
     Api.publicGet<GeneralOption[]>('past-work-sectors').then((res) => res.data);
 
-  static getVacancyReservationBenefits = () =>
-    Api.publicGet<GeneralOption[]>('vacancy-reservation-benefits').then(
-      (res) => res.data,
-    );
-
   static getGenders = () =>
     Api.publicGet<GeneralOption[]>('genders').then((res) => res.data);
 
@@ -82,13 +81,16 @@ class PeopleService {
     Api.get<Person>(`people/${personId}`).then((res) => res.data);
 
   static getPersonCompleteData = (personId: number) =>
-    Api.get<PersonCompleteData>(`general-dara/person/${personId}`).then(
+    Api.get<PersonCompleteData>(`general-data/person/${personId}`).then(
       (res) => res.data,
     );
 
-  static getPersonForm = async (personId: number | null): Promise<Form> => {
+  static getPersonForm = async (
+    personId: number | null,
+    loggedUser: UserProfile | null,
+  ): Promise<FormAndPersonData> => {
     let person;
-    let personCompleteData;
+    let personCompleteData = {} as PersonCompleteData;
 
     if (personId) {
       person = await PeopleService.getPerson(personId);
@@ -104,7 +106,6 @@ class PeopleService {
       workTypes,
       pastWorkCategories,
       pastWorkSectors,
-      vacancyReservationBenefits,
       drugsFrequency,
     ] = await Promise.all([
       PeopleService.getGenders(),
@@ -115,7 +116,6 @@ class PeopleService {
       PeopleService.getWorkTypes(),
       PeopleService.getPastWorkCategory(),
       PeopleService.getPastWorkSector(),
-      PeopleService.getVacancyReservationBenefits(),
       PeopleService.getDrugsFrequency(),
     ]);
 
@@ -146,10 +146,13 @@ class PeopleService {
           },
           {
             property: 'social_name',
-            value: person?.social_name,
+            value: person?.social_name ?? '',
             label: 'Nome Social',
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
+            rules: {
+              required: true,
+            },
           },
           {
             property: 'mother_name',
@@ -176,8 +179,8 @@ class PeopleService {
             },
           },
           {
-            property: 'birth_place',
-            value: person?.birth_place,
+            property: 'birth_state',
+            value: person?.birth_state,
             label: 'Naturalidade',
             description: 'Exemplo: Belo Horizonte - MG',
             type: FieldType.input,
@@ -291,7 +294,7 @@ class PeopleService {
             },
           },
           {
-            property: 'cpf_document_number',
+            property: 'ctps_document_number',
             label: 'Número Documento CTPS',
             value: person?.ctps_document_number,
             type: FieldType.input,
@@ -534,18 +537,6 @@ class PeopleService {
             type: FieldType.input,
             inputConfig: { maxLength: 255 },
           },
-          // {
-          //   property: 'benefits',
-          //   value: (person?.SelfDeclaration || []).map((b) => b.id),
-          //   label: 'Recebe algum benefício?',
-          //   type: FieldType.selectMultiple,
-          //   options: selfDeclaration.map(
-          //     (b): FormFieldOption => ({
-          //       value: b.id,
-          //       label: b.benefit,
-          //     }),
-          //   ),
-          // },
         ],
       },
       {
@@ -705,8 +696,8 @@ class PeopleService {
               personCompleteData?.safeties
                 .quantity_victim_of_crimes_against_property_last_three_months,
             label:
-              'Foi vítima de crimes contra a propridade (Últimos 3 meses)?',
-            type: FieldType.boolean,
+              'Foi vítima de crimes contra a propridade (Últimos 3 meses)? Se sim, quantas vezes?',
+            type: FieldType.number,
           },
           {
             property:
@@ -714,8 +705,9 @@ class PeopleService {
             value:
               personCompleteData?.safeties
                 .quantity_victim_of_crimes_against_person_last_three_months,
-            label: 'Foi vítima de crimes contra a pessoa (Últimos 3 meses)?',
-            type: FieldType.boolean,
+            label:
+              'Foi vítima de crimes contra a pessoa (Últimos 3 meses)? Se sim, quantas vezes?',
+            type: FieldType.number,
           },
           {
             property:
@@ -724,8 +716,8 @@ class PeopleService {
               personCompleteData?.safeties
                 .quantity_victim_of_institutional_violence_last_three_months,
             label:
-              'Foi vítima de crimes de violência institucional (Últimos 3 meses)?',
-            type: FieldType.boolean,
+              'Foi vítima de crimes de violência institucional (Últimos 3 meses)? Se sim, quantas vezes?',
+            type: FieldType.number,
           },
           {
             property: 'comment_safety',
@@ -1082,18 +1074,46 @@ class PeopleService {
         label: 'Benefício de reserva de vagas',
         fields: [
           {
-            property: 'vacancy_reservation_benefit',
-            label: 'Possui algum benefício de vaga?',
+            property: 'has_vacancy_reservation_benefits_racial_quota',
+            label: 'Possui algum benefício de vaga relacionado a cota racial?',
             value:
               personCompleteData?.personVacancyReservationBenefit
-                ?.vacancy_reservation_benefit.id,
-            type: FieldType.select,
-            options: vacancyReservationBenefits.map(
-              (ms): FormFieldOption => ({
-                value: ms.id,
-                label: ms.name,
-              }),
-            ),
+                .has_vacancy_reservation_benefits_racial_quota,
+            type: FieldType.boolean,
+          },
+          {
+            property: 'has_vacancy_reservation_benefits_egress_prision_system',
+            label:
+              'Possui algum benefício de vaga relacionado a egresso de sistema prisional?',
+            value:
+              personCompleteData?.personVacancyReservationBenefit
+                .has_vacancy_reservation_benefits_egress_prision_system,
+            type: FieldType.boolean,
+          },
+          {
+            property: 'has_vacancy_reservation_benefits_lgbt',
+            label: 'Possui algum benefício de vaga relacionado a LGBT?',
+            value:
+              personCompleteData?.personVacancyReservationBenefit
+                .has_vacancy_reservation_benefits_lgbt,
+            type: FieldType.boolean,
+          },
+          {
+            property: 'has_vacancy_reservation_benefits_others',
+            label:
+              'Possui algum benefício de vaga relacionado a outros assuntos? Comente',
+            value:
+              personCompleteData?.personVacancyReservationBenefit
+                .has_vacancy_reservation_benefits_others,
+            type: FieldType.boolean,
+          },
+          {
+            property: 'has_vacancy_reservation_benefits_pcd',
+            label: 'Possui algum benefício de vaga relacionado a PCD?',
+            value:
+              personCompleteData?.personVacancyReservationBenefit
+                .has_vacancy_reservation_benefits_pcd,
+            type: FieldType.boolean,
           },
           {
             property: 'details_person_vacancy_reservation_benefit',
@@ -1489,51 +1509,49 @@ class PeopleService {
           },
         ],
       },
-      // {
-      //   label: 'Conferência',
-      //   fields: [
-      //     {
-      //       property: 'Checked',
-      //       value: person?.Checked,
-      //       label: 'Conferido',
-      //       type: FieldType.boolean,
-      //     },
-      //     {
-      //       property: 'CheckedBy',
-      //       value: person?.CheckedBy,
-      //       label: 'Conferido por',
-      //       type: FieldType.input,
-      //     },
-      //     {
-      //       property: 'CheckedAt',
-      //       value: person?.CheckedAt,
-      //       label: 'Conferido em',
-      //       type: FieldType.date,
-      //     },
-      //   ],
-      // },
+      {
+        label: 'Conferência',
+        fields: [
+          {
+            property: 'CheckedBy',
+            label: 'Conferido por',
+            type: FieldType.input,
+            value: loggedUser?.displayName,
+            disabled: true,
+          },
+          {
+            property: 'CheckedAt',
+            value: moment(new Date()),
+            label: 'Conferido em',
+            type: FieldType.date,
+            disabled: true,
+          },
+        ],
+      },
     ];
 
-    return { sections };
+    return { sections, personCompleteData };
   };
 
-  static mountPersonData(fullBody: { [key: string]: any }): Partial<Person> {
+  static mountPersonData(
+    fullBody: { [key: string]: any },
+    userId: number | null | undefined,
+  ): Partial<Person> {
     return {
       birth_date: fullBody.birth_date,
       birth_document_number: fullBody.birth_document_number,
-      birth_place: fullBody.birth_place,
+      birth_state: fullBody.birth_state,
       caduni_document_number: fullBody.caduni_document_number,
-      card_number: fullBody.card_number,
       child_care_person: fullBody.child_care_person,
-      child_quantity: fullBody.child_quantity,
+      child_quantity: Number(fullBody.child_quantity),
       cnh_document_number: fullBody.cnh_document_number,
-      comment_person: fullBody.comment,
+      comment_person: fullBody.comment_person,
       cpf_document_number: fullBody.cpf_document_number,
       ctps_document_number: fullBody.ctps_document_number,
       email: fullBody.email,
       father_name: fullBody.father_name,
       gender: fullBody.gender,
-      has_govbr_registration: fullBody.has_govbr_registration,
+      has_govbr_registration: fullBody.has_govbr_registration ?? false,
       marital_status: fullBody.marital_status,
       mother_name: fullBody.mother_name,
       name: fullBody.name,
@@ -1541,7 +1559,6 @@ class PeopleService {
       nis_document_number: fullBody.nis_document_number,
       occupation: fullBody.occupation,
       phone_number: fullBody.phone_number,
-      Preferential: fullBody.Preferential,
       reservist_document_number: fullBody.reservist_document_number,
       rg_document_number: fullBody.rg_document_number,
       self_declaration: fullBody.self_declaration,
@@ -1550,6 +1567,316 @@ class PeopleService {
       voter_registration_document_number:
         fullBody.voter_registration_document_number,
       wedding_document_number: fullBody.wedding_document_number,
+      user: userId,
+    };
+  }
+
+  static mountEducationData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<Education> {
+    return {
+      is_currently_studying: fullBody.is_currently_studying ?? false,
+      desired_extra_course: fullBody.desired_extra_course,
+      has_extra_course: fullBody.has_extra_course ?? false,
+      is_interested_doing_some_course:
+        fullBody.is_interested_doing_some_course ?? false,
+      is_interested_returning_study:
+        fullBody.is_interested_returning_study ?? false,
+      study_degree: fullBody.study_degree,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountCultureData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<Culture> {
+    return {
+      exercises_practiced: fullBody.exercises_practiced,
+      exercises_quantity_by_week: fullBody.exercises_quantity_by_week,
+      has_drawing_habit: fullBody.has_drawing_habit ?? false,
+      has_listening_music_habit: fullBody.has_listening_music_habit ?? false,
+      has_reading_habit: fullBody.has_reading_habit ?? false,
+      know_some_cultural_place: fullBody.know_some_cultural_place ?? false,
+      other_habit: fullBody.other_habit,
+      usually_go_to_some_culture_place:
+        fullBody.usually_go_to_some_culture_place ?? false,
+      went_somewhere_place_last_twelve_months:
+        fullBody.went_somewhere_place_last_twelve_months ?? false,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountHealthSituationData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<HealthSituation> {
+    return {
+      self_health_evaluation: fullBody.self_health_evaluation,
+      date_last_medical_appointment: fullBody.date_last_medical_appointment,
+      date_last_medical_dentist: fullBody.date_last_medical_dentist,
+      use_medication_often: fullBody.use_medication_often ?? false,
+      medication_details: fullBody.medication_details,
+      was_hospitalized_last_twelve_months:
+        fullBody.was_hospitalized_last_twelve_months ?? false,
+      hospitalized_reason: fullBody.hospitalized_reason,
+      time_hospitalized_days: fullBody.time_hospitalized_days,
+      did_any_surgery: fullBody.did_any_surgery ?? false,
+      has_vaccination_card: fullBody.has_vaccination_card ?? false,
+      is_updated_vaccination_covid19:
+        fullBody.is_updated_vaccination_covid19 ?? false,
+      is_updated_vaccination_hepatite:
+        fullBody.is_updated_vaccination_hepatite ?? false,
+      is_updated_vaccination_tetano:
+        fullBody.is_updated_vaccination_tetano ?? false,
+      is_updated_vaccination_influenza:
+        fullBody.is_updated_vaccination_influenza ?? false,
+      is_updated_vaccination_febre_amarela:
+        fullBody.is_updated_vaccination_febre_amarela ?? false,
+      questions_regarding_physical_or_mental_health:
+        fullBody.questions_regarding_physical_or_mental_health,
+      do_some_follow_up: fullBody.do_some_follow_up,
+      use_alcohol_or_other_drugs: fullBody.use_alcohol_or_other_drugs,
+      drugs_frequency: fullBody.drugs_frequency,
+      has_ever_been_admitted_to_therapeutic_community:
+        fullBody.has_ever_been_admitted_to_therapeutic_community,
+      need_dental_care: fullBody.need_dental_care ?? false,
+      describe_dental_care: fullBody.describe_dental_care,
+      need_psychological_care: fullBody.need_psychological_care ?? false,
+      describe_psychological_care: fullBody.describe_psychological_care,
+      need_psychiatric_care: fullBody.need_psychiatric_care ?? false,
+      describe_psychiatric_care: fullBody.describe_psychiatric_care,
+      other_specific_care: fullBody.other_specific_care,
+      has_any_disabilities: fullBody.has_any_disabilities,
+      describe_need_special_equipment: fullBody.describe_need_special_equipment,
+      has_any_comorbidities_hipertensao:
+        fullBody.has_any_comorbidities_hipertensao ?? false,
+      has_any_comorbidities_diabetes:
+        fullBody.has_any_comorbidities_diabetes ?? false,
+      has_any_comorbidities_cardiovascular_problem:
+        fullBody.has_any_comorbidities_cardiovascular_problem ?? false,
+      has_any_comorbidities_depression:
+        fullBody.has_any_comorbidities_depression ?? false,
+      has_any_comorbidities_asma: fullBody.has_any_comorbidities_asma ?? false,
+      has_any_comorbidities_cancer:
+        fullBody.has_any_comorbidities_cancer ?? false,
+      has_any_comorbidities_none: fullBody.has_any_comorbidities_none ?? false,
+      has_any_comorbidities_other: fullBody.has_any_comorbidities_other,
+      man_health_last_prostate_exam_date:
+        fullBody.man_health_last_prostate_exam_date,
+      man_health_last_ist_exam_date: fullBody.man_health_last_ist_exam_date,
+      woman_health_last_preventive_exam_date:
+        fullBody.woman_health_last_preventive_exam_date,
+      woman_health_last_mammography_exam_date:
+        fullBody.woman_health_last_mammography_exam_date,
+      woman_health_last_gynecological_consultation_exam_date:
+        fullBody.woman_health_last_gynecological_consultation_exam_date,
+      woman_health_suspected_pregnancy_week_quantity:
+        fullBody.woman_health_suspected_pregnancy_week_quantity,
+      woman_health_use_some_contraceptive_method:
+        fullBody.woman_health_use_some_contraceptive_method ?? false,
+      use_condom: fullBody.use_condom ?? false,
+      comment_health_situation: fullBody.comment_health_situation,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountJudicialSituationData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<JudicialSituation> {
+    return {
+      has_already_been_through_the_socioeducational_system:
+        fullBody.has_already_been_through_the_socioeducational_system ?? false,
+      has_already_been_through_the_prision_system:
+        fullBody.has_already_been_through_the_prision_system ?? false,
+      has_an_active_lawsuit: fullBody.has_an_active_lawsuit ?? false,
+      has_outstanding_writ_of_execution:
+        fullBody.has_outstanding_writ_of_execution ?? false,
+      wear_anklet: fullBody.wear_anklet ?? false,
+      is_accompanied_by_a_defender:
+        fullBody.is_accompanied_by_a_defender ?? false,
+      is_this_follow_up_enough: fullBody.is_this_follow_up_enough ?? false,
+      comment_judicial_situation: fullBody.comment_judicial_situation,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountInfrastructureData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<Infrastructure> {
+    return {
+      has_access_to_clean_water: fullBody.has_access_to_clean_water ?? false,
+      has_access_to_adequate_toilets:
+        fullBody.has_access_to_adequate_toilets ?? false,
+      has_access_to_a_bed: fullBody.has_access_to_a_bed ?? false,
+      has_access_to_safety_spot: fullBody.has_access_to_safety_spot ?? false,
+      place_of_stay_has_adequate_hygiene:
+        fullBody.place_of_stay_has_adequate_hygiene ?? false,
+      place_of_stay_has_adequate_structure:
+        fullBody.place_of_stay_has_adequate_structure ?? false,
+      place_of_stay_has_proximity_to_basic_services:
+        fullBody.place_of_stay_has_proximity_to_basic_services ?? false,
+      place_of_stay_has_adequate_sound_condition:
+        fullBody.place_of_stay_has_adequate_sound_condition ?? false,
+      has_any_furniture: fullBody.has_any_furniture ?? false,
+      comment_infrastructure: fullBody.comment_infrastructure,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountSafetyData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<Safety> {
+    return {
+      quantity_victim_of_crimes_against_property_last_three_months:
+        fullBody.quantity_victim_of_crimes_against_property_last_three_months,
+      quantity_victim_of_crimes_against_person_last_three_months:
+        fullBody.quantity_victim_of_crimes_against_person_last_three_months,
+      quantity_victim_of_institutional_violence_last_three_months:
+        fullBody.quantity_victim_of_institutional_violence_last_three_months,
+      comment_safety: fullBody.comment_safety,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountStreetPathData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<StreetPath> {
+    return {
+      is_currently_homeless: fullBody.is_currently_homeless ?? false,
+      time_homeless: fullBody.time_homeless,
+      homeless_reason: fullBody.homeless_reason,
+      had_any_family_ties_interrupted_quantity:
+        fullBody.had_any_family_ties_interrupted_quantity,
+      already_been_in_shelter_quantity_months:
+        fullBody.already_been_in_shelter_quantity_months,
+      already_been_in_hostel_quantity_months:
+        fullBody.already_been_in_hostel_quantity_months,
+      time_lived_in_bh_months: fullBody.time_lived_in_bh_months,
+      lived_on_streets_in_another_city:
+        fullBody.lived_on_streets_in_another_city,
+      any_family_member_have_been_homeless:
+        fullBody.any_family_member_have_been_homeless,
+      reason_past_street_path_unemployment:
+        fullBody.reason_past_street_path_unemployment ?? false,
+      reason_past_street_path_family_problems:
+        fullBody.reason_past_street_path_family_problems ?? false,
+      reason_past_street_path_drugs:
+        fullBody.reason_past_street_path_drugs ?? false,
+      reason_past_street_path_comment: fullBody.reason_past_street_path_comment,
+      time_past_street_path: fullBody.time_past_street_path,
+      comment_street_path: fullBody.comment_street_path,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountWorkAndIncomeData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<WorkAndIncome> {
+    return {
+      already_has_paid_work: fullBody.already_has_paid_work ?? false,
+      describe_past_paid_work: fullBody.describe_past_paid_work,
+      work_type: fullBody.work_type,
+      participate_in_any_income_generation_projects:
+        fullBody.participate_in_any_income_generation_projects ?? false,
+      what_is_being_done_to_get_out_of_this_situation:
+        fullBody.what_is_being_done_to_get_out_of_this_situation,
+      retirement_benefit_value: fullBody.retirement_benefit_value,
+      continuing_provision_benefit_value:
+        fullBody.continuing_provision_benefit_value,
+      sick_pay_benefit_value: fullBody.sick_pay_benefit_value,
+      bolsa_familia_benefit_value: fullBody.bolsa_familia_benefit_value,
+      brazil_financial_assistance_benefit_value:
+        fullBody.brazil_financial_assistance_benefit_value,
+      other_benefit_value: fullBody.other_benefit_value,
+      family_average_monthly_income_value:
+        fullBody.family_average_monthly_income_value,
+      past_work_category: fullBody.past_work_category,
+      past_work_sector: fullBody.past_work_sector,
+      comment_work_and_income: fullBody.comment_work_and_income,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountFamilyReferencesData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<FamilyReferences> {
+    return {
+      description: fullBody.description,
+      comment_family_references: fullBody.comment_family_references,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountSocialAssistanceNetworkData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<SocialAssistanceNetwork> {
+    return {
+      is_attended_to_a_network_services:
+        fullBody.is_attended_to_a_network_services ?? false,
+      has_crea_service: fullBody.has_crea_service ?? false,
+      has_cras_service: fullBody.has_cras_service ?? false,
+      has_shelter_service: fullBody.has_shelter_service ?? false,
+      has_council_of_rights_service:
+        fullBody.has_council_of_rights_service ?? false,
+      has_health_service: fullBody.has_health_service ?? false,
+      has_education_service: fullBody.has_education_service ?? false,
+      has_pastoral_povo_da_rua_service:
+        fullBody.has_pastoral_povo_da_rua_service ?? false,
+      comment_social_assistance_network:
+        fullBody.comment_social_assistance_network,
+      person: personId,
+      user: userId,
+    };
+  }
+
+  static mountPersonVacancyReservationBenefitData(
+    fullBody: { [key: string]: any },
+    personId: number,
+    userId: number,
+  ): Partial<PersonVacancyReservationBenefit> {
+    return {
+      has_vacancy_reservation_benefits_egress_prision_system:
+        fullBody.has_vacancy_reservation_benefits_egress_prision_system,
+      has_vacancy_reservation_benefits_lgbt:
+        fullBody.has_vacancy_reservation_benefits_lgbt,
+      has_vacancy_reservation_benefits_others:
+        fullBody.has_vacancy_reservation_benefits_others,
+      has_vacancy_reservation_benefits_pcd:
+        fullBody.has_vacancy_reservation_benefits_pcd,
+      has_vacancy_reservation_benefits_racial_quota:
+        fullBody.has_vacancy_reservation_benefits_racial_quota,
+      details_person_vacancy_reservation_benefit:
+        fullBody.details_person_vacancy_reservation_benefit,
+      person: personId,
+      user: userId,
     };
   }
 
@@ -1557,11 +1884,10 @@ class PeopleService {
     formData: {
       [key: string]: unknown;
     },
-    personId?: number | null,
-  ): Promise<Person> => {
+    userId: number,
+    personInformation?: PersonCompleteData | null,
+  ): Promise<PersonCompleteData> => {
     const body = { ...formData };
-
-    console.log({ formData });
 
     Object.keys(body)?.forEach((k) => {
       if (isMoment(body[k])) {
@@ -1570,21 +1896,166 @@ class PeopleService {
       }
     });
 
-    console.log({ body });
+    const personId = personInformation?.person.id;
 
-    console.log({ person: this.mountPersonData(body) });
+    const saveMethod =
+      personId !== null
+        ? Api.put<Person>(`people/${personId}`, body)
+        : Api.post<Person>('people', this.mountPersonData(body, userId));
 
-    // const saveMethod =
-    //   personId !== null
-    //     ? Api.put<Person>(`people/${personId}`, body)
-    //     : Api.post<Person>('people', body);
+    const { status, data } = await saveMethod;
 
-    // const { status, data } = await saveMethod;
+    if (status !== 200) throw new Error();
 
-    // if (status !== 200) throw new Error();
+    const saveCultureMethod =
+      personId !== null && personInformation?.culture.id
+        ? Api.put<Culture>(`cultures/${personInformation?.culture.id}`, body)
+        : Api.post<Culture>(
+            'cultures',
+            this.mountCultureData(body, data.id, userId),
+          );
 
-    // return data;
-    return new Promise<Person>(() => null);
+    const saveEducationMethod =
+      personId !== null && personInformation?.education.id
+        ? Api.put<Education>(
+            `educations/${personInformation?.education.id}`,
+            body,
+          )
+        : Api.post<Education>(
+            'educations',
+            this.mountEducationData(body, data.id, userId),
+          );
+
+    const saveFamilyReferencesMethod =
+      personId !== null && personInformation?.familyReferences.id
+        ? Api.put<FamilyReferences>(
+            `family-references/${personInformation?.familyReferences.id}`,
+            body,
+          )
+        : Api.post<FamilyReferences>(
+            'family-references',
+            this.mountFamilyReferencesData(body, data.id, userId),
+          );
+
+    const saveHealthSituationMethod =
+      personId !== null && personInformation?.healthSituation.id
+        ? Api.put<HealthSituation>(
+            `health-situations/${personInformation?.healthSituation.id}`,
+            body,
+          )
+        : Api.post<HealthSituation>(
+            'health-situations',
+            this.mountHealthSituationData(body, data.id, userId),
+          );
+
+    const saveInfrastructureMethod =
+      personId !== null && personInformation?.infrastructure.id
+        ? Api.put<Infrastructure>(
+            `infrastructures/${personInformation?.infrastructure.id}`,
+            body,
+          )
+        : Api.post<Infrastructure>(
+            'infrastructures',
+            this.mountInfrastructureData(body, data.id, userId),
+          );
+
+    const saveJudicialSituationMethod =
+      personId !== null && personInformation?.judicialSituation.id
+        ? Api.put<JudicialSituation>(
+            `judicial-situations/${personInformation?.judicialSituation.id}`,
+            body,
+          )
+        : Api.post<JudicialSituation>(
+            'judicial-situations',
+            this.mountJudicialSituationData(body, data.id, userId),
+          );
+
+    const savePersonVacancyReservationBenefitMethod =
+      personId !== null && personInformation?.personVacancyReservationBenefit.id
+        ? Api.put<PersonVacancyReservationBenefit>(
+            `person-vacancy-reservation-benefits/${personInformation?.personVacancyReservationBenefit.id}`,
+            body,
+          )
+        : Api.post<PersonVacancyReservationBenefit>(
+            'person-vacancy-reservation-benefits',
+            this.mountPersonVacancyReservationBenefitData(
+              body,
+              data.id,
+              userId,
+            ),
+          );
+
+    const saveSafetyMethod =
+      personId !== null && personInformation?.safeties.id
+        ? Api.put<Safety>(`safeties/${personInformation?.safeties.id}`, body)
+        : Api.post<Safety>(
+            'safeties',
+            this.mountSafetyData(body, data.id, userId),
+          );
+
+    const saveSocialAssistanceNetworkMethod =
+      personId !== null && personInformation?.socialAssistanceNetwork.id
+        ? Api.put<SocialAssistanceNetwork>(
+            `social-assistance-networks/${personInformation?.socialAssistanceNetwork.id}`,
+            body,
+          )
+        : Api.post<SocialAssistanceNetwork>(
+            'social-assistance-networks',
+            this.mountSocialAssistanceNetworkData(body, data.id, userId),
+          );
+
+    const saveStreetPathMethod =
+      personId !== null && personInformation?.streetPaths.id
+        ? Api.put<StreetPath>(
+            `street-paths/${personInformation?.streetPaths.id}`,
+            body,
+          )
+        : Api.post<StreetPath>(
+            'street-paths',
+            this.mountStreetPathData(body, data.id, userId),
+          );
+
+    const saveWorkAndIncomeMethod =
+      personId !== null && personInformation?.workAndIncomes.id
+        ? Api.put<WorkAndIncome>(
+            `work-and-incomes/${personInformation?.workAndIncomes.id}`,
+            body,
+          )
+        : Api.post<WorkAndIncome>(
+            'work-and-incomes',
+            this.mountWorkAndIncomeData(body, data.id, userId),
+          );
+
+    const promises = await Promise.all([
+      saveCultureMethod,
+      saveEducationMethod,
+      saveFamilyReferencesMethod,
+      saveHealthSituationMethod,
+      saveInfrastructureMethod,
+      saveJudicialSituationMethod,
+      savePersonVacancyReservationBenefitMethod,
+      saveSafetyMethod,
+      saveSocialAssistanceNetworkMethod,
+      saveStreetPathMethod,
+      saveWorkAndIncomeMethod,
+    ]);
+
+    if (promises.some((prom) => prom.status !== 200)) throw new Error();
+
+    return {
+      culture: promises[0].data,
+      education: promises[1].data,
+      familyReferences: promises[2].data,
+      healthSituation: promises[3].data,
+      infrastructure: promises[4].data,
+      judicialSituation: promises[5].data,
+      person: data,
+      personVacancyReservationBenefit: promises[6].data,
+      safeties: promises[7].data,
+      socialAssistanceNetwork: promises[8].data,
+      streetPaths: promises[9].data,
+      workAndIncomes: promises[10].data,
+    };
   };
 }
 

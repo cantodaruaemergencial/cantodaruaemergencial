@@ -98,13 +98,11 @@ const PeoplePage = (): ReactElement => {
   const [todayRegisters, setTodayRegisters] = useState<number | null>();
   const [isWaitingRequest, setIsWaitingRequest] = useState(false);
 
-  const [
-    confirmationModal,
-    setConfirmationModal,
-  ] = useState<ConfirmationModalType>({
-    title: 'Confirmar entrada',
-    open: false,
-  });
+  const [confirmationModal, setConfirmationModal] =
+    useState<ConfirmationModalType>({
+      title: 'Confirmar entrada',
+      open: false,
+    });
 
   const fetchPeople: InfiniteListFetchRows = (startIndex, limit, filter) =>
     PeopleService.get(startIndex, limit, filter);
@@ -122,7 +120,7 @@ const PeoplePage = (): ReactElement => {
     person: BasePerson,
     callback: (entrance: Entrance) => void,
   ) => {
-    const message = `Deseja confirmar a entrada de **${person.Name} (${person.CardNumber})**?`;
+    const message = `Deseja confirmar a entrada de **${person.name} (${person.card_number})**?`;
 
     setConfirmationModal({
       ...confirmationModal,

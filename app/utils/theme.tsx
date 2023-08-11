@@ -133,5 +133,8 @@ export const globalStyles = () => ({
     '*::-webkit-scrollbar-corner': {
       background: 'transparent',
     },
+    html: {
+      scrollBehavior: 'smooth',
+    },
   },
 });
