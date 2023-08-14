@@ -1,0 +1,52 @@
+{
+	"routes": [
+		{
+			"method": "GET",
+			"path": "/pastoral-de-rua-service-attendances",
+			"handler": "pastoral-de-rua-service-attendances.find",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "GET",
+			"path": "/pastoral-de-rua-service-attendances/count",
+			"handler": "pastoral-de-rua-service-attendances.count",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "GET",
+			"path": "/pastoral-de-rua-service-attendances/:id",
+			"handler": "pastoral-de-rua-service-attendances.findOne",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "POST",
+			"path": "/pastoral-de-rua-service-attendances",
+			"handler": "pastoral-de-rua-service-attendances.create",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "PUT",
+			"path": "/pastoral-de-rua-service-attendances/:id",
+			"handler": "pastoral-de-rua-service-attendances.update",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "DELETE",
+			"path": "/pastoral-de-rua-service-attendances/:id",
+			"handler": "pastoral-de-rua-service-attendances.delete",
+			"config": {
+				"policies": []
+			}
+		}
+	]
+}

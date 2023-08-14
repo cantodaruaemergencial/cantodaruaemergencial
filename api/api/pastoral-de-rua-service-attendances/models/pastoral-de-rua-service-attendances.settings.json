@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "pastoal_de_rua_service_attendances",
+  "collectionName": "pastoral_de_rua_service_attendances",
   "info": {
-    "name": "PastoalDeRuaServiceAttendances",
+    "name": "PastoralDeRuaServiceAttendances",
     "description": ""
   },
   "options": {
