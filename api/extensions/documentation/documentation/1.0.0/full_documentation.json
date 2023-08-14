@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/10/2023 9:34:07 PM"
+    "x-generation-date": "08/14/2023 2:19:03 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8613,6 +8613,530 @@
         "summary": "",
         "tags": [
           "Unclassified"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/pastoal-de-rua-service-attendances": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the pastoal-de-rua-service-attendances's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Pastoal-de-rua-service-attendances"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new pastoal-de-rua-service-attendances record",
+        "responses": {
+          "200": {
+            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Pastoal-de-rua-service-attendances"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPastoal-de-rua-service-attendances"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pastoal-de-rua-service-attendances/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the numver of pastoal-de-rua-service-attendances documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Pastoal-de-rua-service-attendances"
+        ],
+        "parameters": []
+      }
+    },
+    "/pastoal-de-rua-service-attendances/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one pastoal-de-rua-service-attendances record",
+        "responses": {
+          "200": {
+            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Pastoal-de-rua-service-attendances"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single pastoal-de-rua-service-attendances record",
+        "responses": {
+          "200": {
+            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Pastoal-de-rua-service-attendances"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPastoal-de-rua-service-attendances"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single pastoal-de-rua-service-attendances record",
+        "responses": {
+          "200": {
+            "description": "deletes a single pastoal-de-rua-service-attendances based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Pastoal-de-rua-service-attendances"
         ],
         "parameters": [
           {
@@ -19365,6 +19889,294 @@
       "NewPast-work-sector": {
         "properties": {
           "name": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Pastoal-de-rua-service-attendances": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "needs_conversation": {
+            "type": "boolean"
+          },
+          "describe_needs_call": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "describe_needs_health": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "needs_food": {
+            "type": "boolean"
+          },
+          "describe_needs_work": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "needs_house": {
+            "type": "boolean"
+          },
+          "needs_temporary_home": {
+            "type": "boolean"
+          },
+          "needs_documents": {
+            "type": "boolean"
+          },
+          "needs_shelter": {
+            "type": "boolean"
+          },
+          "needs_hygiene_care": {
+            "type": "boolean"
+          },
+          "describe_needs_others": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "service_attendance_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "person": {
+            "required": [
+              "id",
+              "name",
+              "social_name",
+              "birth_date",
+              "mother_name",
+              "birth_state",
+              "nationality",
+              "occupation",
+              "email",
+              "phone_number",
+              "has_govbr_registration"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "social_name": {
+                "type": "string"
+              },
+              "birth_date": {
+                "type": "string"
+              },
+              "mother_name": {
+                "type": "string"
+              },
+              "father_name": {
+                "type": "string"
+              },
+              "birth_state": {
+                "type": "string"
+              },
+              "nationality": {
+                "type": "string"
+              },
+              "occupation": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "phone_number": {
+                "type": "string"
+              },
+              "birth_document_number": {
+                "type": "string"
+              },
+              "wedding_document_number": {
+                "type": "string"
+              },
+              "rg_document_number": {
+                "type": "string"
+              },
+              "cpf_document_number": {
+                "type": "string"
+              },
+              "reservist_document_number": {
+                "type": "string"
+              },
+              "voter_registration_document_number": {
+                "type": "string"
+              },
+              "cnh_document_number": {
+                "type": "string"
+              },
+              "ctps_document_number": {
+                "type": "string"
+              },
+              "nis_document_number": {
+                "type": "string"
+              },
+              "caduni_document_number": {
+                "type": "string"
+              },
+              "has_govbr_registration": {
+                "type": "boolean"
+              },
+              "marital_status": {
+                "type": "string"
+              },
+              "self_declaration": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "sexual_orientation": {
+                "type": "string"
+              },
+              "child_quantity": {
+                "type": "integer"
+              },
+              "child_care_person": {
+                "type": "string"
+              },
+              "comment_person": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "card_number": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewPastoal-de-rua-service-attendances": {
+        "properties": {
+          "needs_conversation": {
+            "type": "boolean"
+          },
+          "describe_needs_call": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "describe_needs_health": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "needs_food": {
+            "type": "boolean"
+          },
+          "describe_needs_work": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "needs_house": {
+            "type": "boolean"
+          },
+          "needs_temporary_home": {
+            "type": "boolean"
+          },
+          "needs_documents": {
+            "type": "boolean"
+          },
+          "needs_shelter": {
+            "type": "boolean"
+          },
+          "needs_hygiene_care": {
+            "type": "boolean"
+          },
+          "describe_needs_others": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "service_attendance_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "person": {
+            "type": "string"
+          },
+          "user": {
             "type": "string"
           },
           "published_at": {

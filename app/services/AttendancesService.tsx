@@ -1,20 +1,19 @@
 import { isMoment, Moment } from 'moment';
 import { Api } from '#/packages/api/strapi';
 import { FieldType, FormSection } from '#/types/Forms';
-import {
-  AttendanceType,
-  ServiceAttendanceOnDatabase,
-} from '#/types/Attendances';
+import { BasePerson } from '#/types/People';
+import { PastoralDeRuaServiceAttendance } from '#/types/PastoralServiceAttendance';
+import { UserProfile } from '#/packages/entities/types';
 
 class AttendancesService {
-  static getAttendancesForm = () => {
+  static getAttendancesForm = (referencePerson?: BasePerson) => {
     const sections: FormSection[] = [
       {
-        label: 'Atendimentos diários',
+        label: `Atendimento - ${referencePerson?.name ?? ''}`,
         fields: [
           {
             label: 'Data de referência',
-            property: AttendancesService.AttendanceEnumToString(AttendanceType.Date),
+            property: 'service_attendance_date',
             value: null,
             type: FieldType.date,
             dateConfig: { disableFuture: true },
@@ -23,68 +22,79 @@ class AttendancesService {
             },
           },
           {
-            label: 'Banheiro Feminino Banho',
-            property: AttendancesService.AttendanceEnumToString(AttendanceType.FemaleBath),
-            rules: {
-              required: true,
-            },
-            type: FieldType.number,
+            label: 'Precisa de conversa/escuta?',
+            property: 'needs_conversation',
+            type: FieldType.boolean,
           },
           {
-            label: 'Banheiro Feminino Sanitário',
-            property: AttendancesService.AttendanceEnumToString(AttendanceType.FemaleRestroom),
+            label: 'Precisa de telefonema? Descreva',
+            property: 'describe_needs_call',
             rules: {
               required: true,
             },
-            type: FieldType.number,
+            type: FieldType.input,
           },
           {
-            label: 'Banheiro Masculino Banho',
-            property: AttendancesService.AttendanceEnumToString(AttendanceType.MaleBath),
+            label: 'Demanda sobre saúde? Descreva',
+            property: 'describe_needs_health',
             rules: {
               required: true,
             },
-            type: FieldType.number,
+            type: FieldType.input,
           },
           {
-            label: 'Banheiro Masculino Sanitário',
-            property: AttendancesService.AttendanceEnumToString(AttendanceType.MaleRestroom),
-            rules: {
-              required: true,
-            },
-            type: FieldType.number,
+            label: 'Demanda sobre alimentação?',
+            property: 'describe_needs_food',
+            type: FieldType.boolean,
           },
           {
-            label: 'Enfermagem',
-            property: AttendancesService.AttendanceEnumToString(AttendanceType.Nursing),
+            label: 'Demanda sobre trabalho? Descreva',
+            property: 'describe_needs_work',
             rules: {
               required: true,
             },
-            type: FieldType.number,
+            type: FieldType.input,
           },
           {
-            label: 'Guarda Volume',
-            property: AttendancesService.AttendanceEnumToString(AttendanceType.Lockers),
-            rules: {
-              required: true,
-            },
-            type: FieldType.number,
+            label: 'Demanda sobre moradia?',
+            property: 'needs_house',
+            type: FieldType.boolean,
           },
           {
-            label: 'Lanche',
-            property: AttendancesService.AttendanceEnumToString(AttendanceType.Snack),
-            rules: {
-              required: true,
-            },
-            type: FieldType.number,
+            label: 'Demanda sobre república?',
+            property: 'needs_temporary_home',
+            type: FieldType.boolean,
           },
           {
-            label: 'Lavanderia',
-            property: AttendancesService.AttendanceEnumToString(AttendanceType.Laundry),
+            label: 'Demanda sobre documentos?',
+            property: 'needs_documents',
+            type: FieldType.boolean,
+          },
+          {
+            label: 'Demanda sobre abrigo/albergue?',
+            property: 'needs_shelter',
+            type: FieldType.boolean,
+          },
+          {
+            label: 'Demanda sobre cuidados de higiene?',
+            property: 'needs_hygiene_care',
+            type: FieldType.boolean,
+          },
+          {
+            label: 'Outras demandas? Descreva',
+            property: 'describe_needs_others',
             rules: {
               required: true,
             },
-            type: FieldType.number,
+            type: FieldType.input,
+          },
+          {
+            label: 'Observações',
+            property: 'comment',
+            rules: {
+              required: true,
+            },
+            type: FieldType.input,
           },
         ],
       },
@@ -93,56 +103,36 @@ class AttendancesService {
     return { sections };
   };
 
-  static AttendanceEnumToString = (whichAttendance: AttendanceType): string => {
-    return whichAttendance.toString();
-  };
-
-  static createAttendanceObjectToSave = (
-    date: Date,
-    value: string,
-    quantity: string,
-  ): ServiceAttendanceOnDatabase => {
-    return {
-      service: parseInt(value,10),
-      Date: date,
-      Attendances: parseInt(quantity, 10),
-    };
-  };
-
-  static saveAttendancesByDay = async (formData: {
-    [key: string]: unknown;
-  }): Promise<any[]> => {
+  static saveAttendancesByDay = async (
+    formData: {
+      [key: string]: unknown;
+    },
+    loggedUser: UserProfile | null,
+    referencePerson?: BasePerson,
+  ): Promise<{ data: PastoralDeRuaServiceAttendance }> => {
     const body = { ...formData };
-    console.log('body', body)
 
     Object.keys(body).forEach((k) => {
       if (isMoment(body[k])) {
         const momentDate: Moment = body[k] as Moment;
-        body[k] = momentDate.format('YYYY-MM-DD');
+        body[k] = momentDate.format('YYYY-MM-DD HH:mm:ss');
       }
     });
 
-    let response: any[] = [];
-    Object.keys(body).forEach(async (key) => {
-      console.log('key', key);
-      if (key !== AttendancesService.AttendanceEnumToString(AttendanceType.Date)) {
-        const objBody = AttendancesService.createAttendanceObjectToSave(
-          new Date(body[AttendancesService.AttendanceEnumToString(AttendanceType.Date)] as number),
-          key,
-          body[key] as string,
-        );
+    const requestBody = {
+      ...body,
+      person: referencePerson?.id,
+      user: loggedUser?.id,
+    };
 
-        const { status, data } = await Api.post<ServiceAttendanceOnDatabase>(
-          'service-attendances',
-          objBody,
-        );
-        response.push(data);
+    const { status, data } = await Api.post<PastoralDeRuaServiceAttendance>(
+      'pastoal-de-rua-service-attendances',
+      requestBody,
+    );
 
-        if (status !== 200) throw new Error();
-      }
-    });
+    if (status !== 200) throw new Error();
 
-    return response;
+    return { data };
   };
 }
 
