@@ -88,21 +88,21 @@ const ButtonAppBar = (): React.ReactElement => {
     <AppBar position="static" color="default">
       <Toolbar>
         <Links>
-          <Link href="/dashboard">
+          <Link href="/pessoas">
             <Logo
               alt="Canto da Rua"
               src={`${process.env.REPO_NAME}/images/logo.png`}
             />
           </Link>
 
-          <NavIconButton>
+          {/* <NavIconButton>
             <Link href="/dashboard">
               <DashboardRounded />
             </Link>
           </NavIconButton>
           <NavButton>
             <Link href="/dashboard">Dashboard</Link>
-          </NavButton>
+          </NavButton> */}
 
           <NavIconButton>
             <Link href="/pessoas">
@@ -114,22 +114,31 @@ const ButtonAppBar = (): React.ReactElement => {
           </NavButton>
 
           <NavIconButton>
-            <Link href="/servicos">
+            <Link href="/servicos/cadastro">
               <TransferWithinAStationRounded />
             </Link>
           </NavIconButton>
           <NavButton>
-            <Link href="/servicos">Serviços</Link>
+            <Link href="/servicos/cadastro">Serviços</Link>
           </NavButton>
 
           <NavIconButton>
+            <Link href="/historico">
+              <TransferWithinAStationRounded />
+            </Link>
+          </NavIconButton>
+          <NavButton>
+            <Link href="/historico">Histórico</Link>
+          </NavButton>
+
+          {/* <NavIconButton>
             <Link href="/relatorios">
               <TransferWithinAStationRounded />
             </Link>
           </NavIconButton>
           <NavButton>
             <Link href="/relatorios">Relatórios</Link>
-          </NavButton>
+          </NavButton> */}
         </Links>
       </Toolbar>
       <FloatingBox>

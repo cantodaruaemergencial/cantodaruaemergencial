@@ -4,6 +4,6 @@ import { Person } from './People';
 
 export interface Entrance {
   id: number;
-  DateTime: Moment;
+  date: Moment;
   person: Person;
 }

@@ -126,7 +126,7 @@ class AttendancesService {
     };
 
     const { status, data } = await Api.post<PastoralDeRuaServiceAttendance>(
-      'pastoal-de-rua-service-attendances',
+      'pastoral-de-rua-service-attendances',
       requestBody,
     );
 

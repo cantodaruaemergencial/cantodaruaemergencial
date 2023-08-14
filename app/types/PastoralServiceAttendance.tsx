@@ -1,4 +1,5 @@
 export interface PastoralDeRuaServiceAttendance {
+  id: number;
   needs_conversation: boolean;
   describe_needs_call: string;
   describe_needs_health: string;
