@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/14/2023 2:19:03 PM"
+    "x-generation-date": "08/14/2023 5:06:31 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8628,13 +8628,13 @@
         ]
       }
     },
-    "/pastoal-de-rua-service-attendances": {
+    "/pastoral-de-rua-service-attendances": {
       "get": {
         "deprecated": false,
-        "description": "Find all the pastoal-de-rua-service-attendances's records",
+        "description": "Find all the pastoral-de-rua-service-attendances's records",
         "responses": {
           "200": {
-            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "description": "Retrieve pastoral-de-rua-service-attendances document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -8680,7 +8680,7 @@
         },
         "summary": "",
         "tags": [
-          "Pastoal-de-rua-service-attendances"
+          "Pastoral-de-rua-service-attendances"
         ],
         "parameters": [
           {
@@ -8823,10 +8823,10 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new pastoal-de-rua-service-attendances record",
+        "description": "Create a new pastoral-de-rua-service-attendances record",
         "responses": {
           "200": {
-            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "description": "Retrieve pastoral-de-rua-service-attendances document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -8872,7 +8872,7 @@
         },
         "summary": "",
         "tags": [
-          "Pastoal-de-rua-service-attendances"
+          "Pastoral-de-rua-service-attendances"
         ],
         "requestBody": {
           "description": "",
@@ -8880,20 +8880,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPastoal-de-rua-service-attendances"
+                "$ref": "#/components/schemas/NewPastoral-de-rua-service-attendances"
               }
             }
           }
         }
       }
     },
-    "/pastoal-de-rua-service-attendances/count": {
+    "/pastoral-de-rua-service-attendances/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of pastoal-de-rua-service-attendances documents",
+        "description": "Retrieve the numver of pastoral-de-rua-service-attendances documents",
         "responses": {
           "200": {
-            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "description": "Retrieve pastoral-de-rua-service-attendances document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -8939,18 +8939,18 @@
         },
         "summary": "",
         "tags": [
-          "Pastoal-de-rua-service-attendances"
+          "Pastoral-de-rua-service-attendances"
         ],
         "parameters": []
       }
     },
-    "/pastoal-de-rua-service-attendances/{id}": {
+    "/pastoral-de-rua-service-attendances/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one pastoal-de-rua-service-attendances record",
+        "description": "Find one pastoral-de-rua-service-attendances record",
         "responses": {
           "200": {
-            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "description": "Retrieve pastoral-de-rua-service-attendances document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -8996,7 +8996,7 @@
         },
         "summary": "",
         "tags": [
-          "Pastoal-de-rua-service-attendances"
+          "Pastoral-de-rua-service-attendances"
         ],
         "parameters": [
           {
@@ -9013,10 +9013,10 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single pastoal-de-rua-service-attendances record",
+        "description": "Update a single pastoral-de-rua-service-attendances record",
         "responses": {
           "200": {
-            "description": "Retrieve pastoal-de-rua-service-attendances document(s)",
+            "description": "Retrieve pastoral-de-rua-service-attendances document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -9062,7 +9062,7 @@
         },
         "summary": "",
         "tags": [
-          "Pastoal-de-rua-service-attendances"
+          "Pastoral-de-rua-service-attendances"
         ],
         "requestBody": {
           "description": "",
@@ -9070,7 +9070,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPastoal-de-rua-service-attendances"
+                "$ref": "#/components/schemas/NewPastoral-de-rua-service-attendances"
               }
             }
           }
@@ -9090,10 +9090,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single pastoal-de-rua-service-attendances record",
+        "description": "Delete a single pastoral-de-rua-service-attendances record",
         "responses": {
           "200": {
-            "description": "deletes a single pastoal-de-rua-service-attendances based on the ID supplied",
+            "description": "deletes a single pastoral-de-rua-service-attendances based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -9136,7 +9136,7 @@
         },
         "summary": "",
         "tags": [
-          "Pastoal-de-rua-service-attendances"
+          "Pastoral-de-rua-service-attendances"
         ],
         "parameters": [
           {
@@ -10189,6 +10189,74 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/person-history/{personid}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Person-history"
+        ],
+        "parameters": [
+          {
+            "name": "personid",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -19903,7 +19971,7 @@
           }
         }
       },
-      "Pastoal-de-rua-service-attendances": {
+      "Pastoral-de-rua-service-attendances": {
         "required": [
           "id"
         ],
@@ -20126,7 +20194,7 @@
           }
         }
       },
-      "NewPastoal-de-rua-service-attendances": {
+      "NewPastoral-de-rua-service-attendances": {
         "properties": {
           "needs_conversation": {
             "type": "boolean"
