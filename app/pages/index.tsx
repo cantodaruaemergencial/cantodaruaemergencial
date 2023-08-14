@@ -1,9 +1,9 @@
 import Layout from '#/components/Layout';
-import DashboardPage from '#/components/Pages/DashboardPage/DashboardPage';
+import MainPersonPage from '#/components/Pages/PeoplePage/MainPersonPage';
 
 const IndexPage = (): React.ReactElement => (
   <Layout title="Canto da Rua">
-    <DashboardPage />
+    <MainPersonPage />
   </Layout>
 );
 

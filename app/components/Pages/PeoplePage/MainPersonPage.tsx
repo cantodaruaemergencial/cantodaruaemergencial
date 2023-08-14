@@ -20,7 +20,7 @@ import InfiniteList, {
   InfiniteListRowRenderer,
 } from '../../InfiniteList';
 import PageHeader from '../../PageHeader';
-import Value from './../../Value';
+import Value from '../../Value';
 import PersonCard from './PersonCard';
 import { useRouter } from 'next/router';
 
@@ -77,7 +77,7 @@ const Search = styled(SearchField)`
   max-width: 400px;
 `;
 
-const PeoplePage = (): ReactElement => {
+const MainPersonPage = (): ReactElement => {
   const { enqueueSnackbar } = useSnackbar();
 
   const route = useRouter();
@@ -223,4 +223,4 @@ const PeoplePage = (): ReactElement => {
   );
 };
 
-export default PeoplePage;
+export default MainPersonPage;

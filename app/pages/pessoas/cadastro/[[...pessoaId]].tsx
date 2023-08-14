@@ -1,5 +1,5 @@
 import Layout from '#/components/Layout';
-import PersonPage from '#/components/Pages/PersonPage';
+import CreatePersonPage from '#/components/Pages/PeoplePage/CreatePersonPage';
 import { useAuthState } from '#/packages/auth/auth-context';
 import PeopleService from '#/services/PeopleService';
 import { Form } from '#/types/Forms';
@@ -32,10 +32,10 @@ const NewPerson = () => {
 
   return (
     <Layout title="Cadastro - Canto da Rua">
-      <PersonPage
+      <CreatePersonPage
         form={form}
         personInformation={personCompleteData}
-        userId={userProfile?.id}
+        userId={userProfile?.id ?? 0}
       />
     </Layout>
   );

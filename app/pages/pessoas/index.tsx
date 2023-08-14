@@ -1,9 +1,9 @@
 import Layout from '#/components/Layout';
-import PeoplePage from '#/components/Pages/PeoplePage/PeoplePage';
+import MainPersonPage from '#/components/Pages/PeoplePage/MainPersonPage';
 
 const People = (): React.ReactElement => (
   <Layout title="Pessoas - Canto da Rua">
-    <PeoplePage />
+    <MainPersonPage />
   </Layout>
 );
 

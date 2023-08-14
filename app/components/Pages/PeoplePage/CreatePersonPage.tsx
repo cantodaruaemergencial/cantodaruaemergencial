@@ -5,10 +5,10 @@ import { Container as MuiContainer } from '@material-ui/core';
 import { useRouter } from 'next/dist/client/router';
 import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
-import Form from '../Form/Form';
-import PageHeader from '../PageHeader';
-import PersonCardModal from '../PersonModalCard/PersonCardModal';
-import GoToButton from '../GoToButton';
+import Form from '../../Form/Form';
+import PageHeader from '../../PageHeader';
+import PersonCardModal from '../../PersonModalCard/PersonCardModal';
+import GoToButton from '../../GoToButton';
 
 const Container = styled(MuiContainer)`
   && {
@@ -27,7 +27,7 @@ export interface IResult {
   message: string;
 }
 
-const PersonPage = ({
+const CreatePersonPage = ({
   userId,
   personInformation,
   form,
@@ -83,4 +83,4 @@ const PersonPage = ({
   );
 };
 
-export default PersonPage;
+export default CreatePersonPage;
