@@ -58,6 +58,11 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "associations": {
+      "collection": "association",
+      "via": "users",
+      "dominant": true
     }
   }
 }

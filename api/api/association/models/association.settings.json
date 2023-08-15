@@ -12,6 +12,11 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "users": {
+      "via": "associations",
+      "plugin": "users-permissions",
+      "collection": "user"
     }
   }
 }
