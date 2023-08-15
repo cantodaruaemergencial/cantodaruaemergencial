@@ -17,8 +17,6 @@ const NewPerson = () => {
 
   const { userProfile } = useAuthState();
 
-  console.log({ userProfile });
-
   useEffect(() => {
     const { pessoaId } = router.query;
 
