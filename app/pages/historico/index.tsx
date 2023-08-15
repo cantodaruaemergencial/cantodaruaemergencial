@@ -20,6 +20,8 @@ import HistoryService from '#/services/HistoryService';
 import { PersonHistory } from '#/types/PersonHistory';
 import ListHistoryPage from '#/components/Pages/HistoryPage/ListHistoryPage';
 import { useSnackbar } from 'notistack';
+import { useAuthState } from '#/packages/auth/auth-context';
+import { AvailableAssociations } from '#/types/Associations';
 
 const Container = withTheme(styled(MuiContainer)`
   && {
@@ -61,6 +63,8 @@ const HistoryPage = () => {
     nameOrCardNumber?: string | null;
   }>({});
 
+  const { userProfile } = useAuthState();
+
   const { enqueueSnackbar } = useSnackbar();
 
   const fetchPeople: InfiniteListFetchRows = (startIndex, limit, filter) =>
@@ -94,6 +98,13 @@ const HistoryPage = () => {
       />
     );
   };
+
+  if (
+    !userProfile?.associations.some((x) =>
+      x.name.includes(AvailableAssociations.PastoralDeRua),
+    )
+  )
+    return <h1>Sem permissão para acessar a página</h1>;
 
   return (
     <Layout title="Histórico de Pessoas">

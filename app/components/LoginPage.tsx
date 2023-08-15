@@ -101,9 +101,9 @@ const LoginPage = (): ReactElement => {
           <Button variant="outlined" type="submit" disabled={isLoading}>
             Login
           </Button>
-          <BackLabelText>
+          {/* <BackLabelText>
             <Link href="/">Voltar para Dashboard</Link>
-          </BackLabelText>
+          </BackLabelText> */}
         </Form>
       </Card>
     </Container>

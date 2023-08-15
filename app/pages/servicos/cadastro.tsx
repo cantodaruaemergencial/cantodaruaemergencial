@@ -20,6 +20,7 @@ import SearchField from '#/components/SearchField';
 import RegisterServicePersonCard from '#/components/Pages/RegisterServicePage/RegisterServicePersonCard';
 import { BasePerson } from '#/types/People';
 import { useAuthState } from '#/packages/auth/auth-context';
+import { AvailableAssociations } from '#/types/Associations';
 
 const Container = withTheme(styled(MuiContainer)`
   && {
@@ -103,6 +104,13 @@ const NewServices = () => {
       />
     );
   };
+
+  if (
+    !userProfile?.associations.some((x) =>
+      x.name.includes(AvailableAssociations.PastoralDeRua),
+    )
+  )
+    return <h1>Sem permissão para acessar a página</h1>;
 
   return (
     <Layout title="Cadastro - Canto da Rua">
