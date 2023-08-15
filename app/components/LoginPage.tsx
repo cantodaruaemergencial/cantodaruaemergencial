@@ -101,14 +101,14 @@ const LoginPage = (): ReactElement => {
             fullWidth
             required
             InputProps={{
-              endAdornment: (
+              endAdornment: password.length ? (
                 <InputAdornment
                   position="end"
                   onClick={() => setShowPassword((oldValue) => !oldValue)}
                 >
                   {!showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
                 </InputAdornment>
-              ),
+              ) : null,
             }}
           />
           <Button variant="outlined" type="submit" disabled={isLoading}>
