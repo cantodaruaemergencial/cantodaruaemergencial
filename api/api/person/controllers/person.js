@@ -39,7 +39,7 @@ module.exports = {
 				"   or soundex(social_name) like concat(soundex(:numericFilter), '%') " +
 				")) " +
 				")" +
-				"order by cast(p.card_number as unsigned) " +
+				"order by cast(p.card_number as unsigned) desc " +
 				"limit :limit offset :offset;",
 			params
 		);
