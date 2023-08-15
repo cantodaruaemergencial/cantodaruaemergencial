@@ -1,5 +1,10 @@
 import Layout from '#/components/Layout';
-import { Box, Container as MuiContainer, Typography } from '@material-ui/core';
+import {
+  Box,
+  Container as MuiContainer,
+  Typography,
+  withTheme,
+} from '@material-ui/core';
 import styled from 'styled-components';
 import PageHeader from '../../components/PageHeader';
 import { Form as FormType } from '#/types/Forms';
@@ -16,11 +21,15 @@ import RegisterServicePersonCard from '#/components/Pages/RegisterServicePage/Re
 import { BasePerson } from '#/types/People';
 import { useAuthState } from '#/packages/auth/auth-context';
 
-const Container = styled(MuiContainer)`
+const Container = withTheme(styled(MuiContainer)`
   && {
+    width: 100%;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     max-width: 600px;
   }
-`;
+`);
 
 const SearchLabel = styled(Typography)`
   margin-bottom: 8px;
@@ -99,7 +108,7 @@ const NewServices = () => {
     <Layout title="Cadastro - Canto da Rua">
       <Container>
         <PageHeader title={'Cadastro de Atendimentos'} />
-        <SearchLabel>Busca a pessoa a ser atendida:</SearchLabel>
+        <SearchLabel>Busque e selecione a pessoa a ser atendida:</SearchLabel>
         <Search placeholder="Nome ou cartão" onFilter={onChangeFilter} />
         <ListWrapper>
           <List

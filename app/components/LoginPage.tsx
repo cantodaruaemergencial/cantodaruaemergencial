@@ -60,7 +60,7 @@ const LoginPage = (): ReactElement => {
   const router = useRouter();
 
   if (isLogged) {
-    router.replace('/dashboard');
+    router.replace('/pessoas');
   }
 
   return (

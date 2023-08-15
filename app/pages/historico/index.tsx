@@ -1,5 +1,10 @@
 import Layout from '#/components/Layout';
-import { Box, Container as MuiContainer, Typography } from '@material-ui/core';
+import {
+  Box,
+  Container as MuiContainer,
+  Typography,
+  withTheme,
+} from '@material-ui/core';
 import styled from 'styled-components';
 import PageHeader from '../../components/PageHeader';
 import { useState, useEffect } from 'react';
@@ -16,11 +21,15 @@ import { PersonHistory } from '#/types/PersonHistory';
 import ListHistoryPage from '#/components/Pages/HistoryPage/ListHistoryPage';
 import { useSnackbar } from 'notistack';
 
-const Container = styled(MuiContainer)`
+const Container = withTheme(styled(MuiContainer)`
   && {
+    width: 100%;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     max-width: 600px;
   }
-`;
+`);
 
 const SearchLabel = styled(Typography)`
   margin-bottom: 8px;
@@ -64,7 +73,7 @@ const HistoryPage = () => {
           setSelectedPersonHistory(data);
         })
         .catch(() => {
-          enqueueSnackbar('Ocorreu um erro .', {
+          enqueueSnackbar('Ocorreu um erro.', {
             variant: 'error',
           });
         });
@@ -90,7 +99,7 @@ const HistoryPage = () => {
     <Layout title="Histórico de Pessoas">
       <Container>
         <PageHeader title={'Histórico'} />
-        <SearchLabel>Busca a pessoa:</SearchLabel>
+        <SearchLabel>Busque e selecione a pessoa a ser consultada:</SearchLabel>
         <Search placeholder="Nome ou cartão" onFilter={onChangeFilter} />
         <ListWrapper>
           <List

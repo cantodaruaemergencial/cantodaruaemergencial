@@ -16,14 +16,19 @@ import {
 } from '@material-ui/lab';
 import AddLocationIcon from '@material-ui/icons/AddLocation';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
-import moment from 'moment';
+import moment, { Moment } from 'moment';
 import { listHistoryData } from './ListHistoryPageUtils';
 import { FormTypes } from '#/components/PersonModalCard/PersonModalCardUtils';
 
-const ListHistoryWrapper = styled(Box)`
-  display: flex;
-  flex-direction: column;
-`;
+const ListHistoryWrapper = withTheme(styled(Box)`
+  display: grid;
+  grid-template-columns: 400px 1fr;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    display: flex;
+    flex-direction: column;
+  }
+`);
 
 const Wrapper = styled(Box)`
   display: grid;
@@ -38,8 +43,6 @@ const OuterSectionWrapper = withTheme(styled(Box)`
   align-items: center;
   height: 100%;
   width: 100%;
-  max-height: 90vh;
-  overflow: auto;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1.5rem 2rem;
 
@@ -91,10 +94,16 @@ const TimelineWrapper = withTheme(styled(Timeline)`
   flex-direction: column;
 
   width: 100%;
+  max-height: 90vh;
+  overflow: auto;
 `);
 
 const TimelineItemWrapper = withTheme(styled(TimelineItem)`
-  height: 100%;
+  min-height: 570px;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    min-height: 100%;
+  }
 `);
 
 const Field = withTheme(styled(Box)`
@@ -111,21 +120,31 @@ const Label = styled(Typography)`
   && {
     font-size: 0.7em;
     font-weight: bold;
+    text-align: left;
   }
 `;
 
 const Value = styled(Typography)`
   && {
     font-size: 1em;
-    width: 80px;
-    white-space: nowrap;
+    max-width: 120px;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
 
     &.bigger {
       font-weight: bold;
       font-size: 2.5em;
     }
+  }
+`;
+
+const DateText = styled(Typography)`
+  && {
+    font-size: 1.5;
+    font-weight: bold;
   }
 `;
 
@@ -142,12 +161,15 @@ interface Props {
 const ListHistoryPage = ({ item }: Props): ReactElement => {
   const { attendances, entrances } = item;
 
+  const formatDate = (dateValue: Date | Moment) =>
+    moment(dateValue).format('DD-MM-YYYY HH:mm:ss');
+
   const renderAttendances = (
     personAttendances: PastoralDeRuaServiceAttendance[],
   ) => {
     return (
       <SectionWrapper>
-        <Title>Atendimentos</Title>
+        <Title>Atendimentos ({personAttendances.length})</Title>
         <TimelineWrapper align="alternate">
           {personAttendances.length === 0 ? (
             <Description>Não há dados cadastrados</Description>
@@ -155,17 +177,23 @@ const ListHistoryPage = ({ item }: Props): ReactElement => {
             personAttendances?.map((pa, index) => (
               <TimelineItemWrapper>
                 <TimelineOppositeContent>
-                  <Typography variant="body2" color="textSecondary">
-                    {moment(pa.service_attendance_date).format(
-                      'DD-MM-YYYY HH:mm:ss',
-                    )}
-                  </Typography>
+                  <DateText variant="body2">
+                    {formatDate(pa.service_attendance_date)}
+                  </DateText>
                 </TimelineOppositeContent>
                 <TimelineSeparator>
-                  <TimelineDot variant={!index ? 'default' : 'outlined'}>
+                  <TimelineDot
+                    variant={
+                      index !== personAttendances.length - 1
+                        ? 'default'
+                        : 'outlined'
+                    }
+                  >
                     <AddLocationIcon />
                   </TimelineDot>
-                  <TimelineConnector />
+                  {index !== personAttendances.length - 1 && (
+                    <TimelineConnector />
+                  )}
                 </TimelineSeparator>
                 <TimelineContent>
                   <Wrapper key={pa.id}>
@@ -198,7 +226,7 @@ const ListHistoryPage = ({ item }: Props): ReactElement => {
   const renderEntrances = (personEntrances: Entrance[]) => {
     return (
       <SectionWrapper>
-        <Title>Entradas</Title>
+        <Title>Entradas ({personEntrances.length})</Title>
         <TimelineWrapper align="alternate">
           {personEntrances.length === 0 ? (
             <Description>Não há dados cadastrados</Description>
@@ -206,14 +234,20 @@ const ListHistoryPage = ({ item }: Props): ReactElement => {
             personEntrances?.map((pe, index) => (
               <TimelineItemWrapper>
                 <TimelineSeparator>
-                  <TimelineDot color={!index ? 'primary' : 'grey'}>
+                  <TimelineDot
+                    variant={
+                      index !== personEntrances.length - 1
+                        ? 'default'
+                        : 'outlined'
+                    }
+                  >
                     <DirectionsRunIcon />
                   </TimelineDot>
-                  <TimelineConnector />
+                  {index !== personEntrances.length - 1 && (
+                    <TimelineConnector />
+                  )}
                 </TimelineSeparator>
-                <TimelineContent>
-                  {moment(pe.date).format('DD-MM-YYYY HH:mm:ss')}
-                </TimelineContent>
+                <TimelineContent>{formatDate(pe.date)}</TimelineContent>
               </TimelineItemWrapper>
             ))
           )}

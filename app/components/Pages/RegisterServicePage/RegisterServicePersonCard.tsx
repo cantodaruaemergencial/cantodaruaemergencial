@@ -3,7 +3,6 @@ import { BasePerson, PersonCompleteData } from '#/types/People';
 import { Box, Button, Typography, withTheme } from '@material-ui/core';
 import { AddCircleRounded, InfoRounded } from '@material-ui/icons';
 import { Skeleton } from '@material-ui/lab';
-import Link from 'next/link';
 import { ReactElement, useState } from 'react';
 import { ListRowProps } from 'react-virtualized';
 import styled from 'styled-components';
@@ -50,11 +49,6 @@ const Info = withTheme(styled(Box)`
 const Title = withTheme(styled(Typography)`
   && {
     font-weight: 600;
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
 
     ${({ theme }) => theme.breakpoints.down('xs')} {
       white-space: nowrap;
@@ -145,15 +139,13 @@ const RegisterServicePersonCard = ({
   return (
     <PersonWrapper
       key={Id}
-      backgroundColor={Id === selectedPerson?.id ? '#8af379' : 'transparent'}
+      backgroundColor={Id === selectedPerson?.id ? '#80f47e' : 'transparent'}
     >
       <PersonBox condensed>
         <Info>
           <Tag label={CardNumber} />
           <PersonInfo>
-            <Link href={`/pessoas/cadastro/${Id}`}>
-              <Title variant="body2">{Name}</Title>
-            </Link>
+            <Title variant="body2">{Name}</Title>
             {SocialName && (
               <Typography variant="caption">{SocialName}</Typography>
             )}

@@ -32,6 +32,9 @@ class AttendancesService {
             rules: {
               required: true,
             },
+            inputConfig: {
+              maxLength: 150,
+            },
             type: FieldType.input,
           },
           {
@@ -39,6 +42,10 @@ class AttendancesService {
             property: 'describe_needs_health',
             rules: {
               required: true,
+            },
+
+            inputConfig: {
+              maxLength: 150,
             },
             type: FieldType.input,
           },
@@ -52,6 +59,9 @@ class AttendancesService {
             property: 'describe_needs_work',
             rules: {
               required: true,
+            },
+            inputConfig: {
+              maxLength: 150,
             },
             type: FieldType.input,
           },
@@ -86,6 +96,9 @@ class AttendancesService {
             rules: {
               required: true,
             },
+            inputConfig: {
+              maxLength: 150,
+            },
             type: FieldType.input,
           },
           {
@@ -93,6 +106,9 @@ class AttendancesService {
             property: 'comment',
             rules: {
               required: true,
+            },
+            inputConfig: {
+              maxLength: 150,
             },
             type: FieldType.input,
           },
