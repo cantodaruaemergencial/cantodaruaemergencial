@@ -539,7 +539,8 @@
             "type": "boolean"
           },
           "describe_past_paid_work": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "work_type": {
             "required": [
@@ -567,7 +568,8 @@
             "type": "boolean"
           },
           "what_is_being_done_to_get_out_of_this_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "retirement_benefit_value": {
             "type": "number"
@@ -635,7 +637,8 @@
             }
           },
           "comment_work_and_income": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "required": [
@@ -819,7 +822,8 @@
             "type": "boolean"
           },
           "describe_past_paid_work": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "work_type": {
             "type": "string"
@@ -828,7 +832,8 @@
             "type": "boolean"
           },
           "what_is_being_done_to_get_out_of_this_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "retirement_benefit_value": {
             "type": "number"
@@ -858,7 +863,8 @@
             "type": "string"
           },
           "comment_work_and_income": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "type": "string"

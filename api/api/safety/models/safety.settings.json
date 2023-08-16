@@ -21,7 +21,8 @@
       "type": "integer"
     },
     "comment_safety": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "user": {
       "plugin": "users-permissions",

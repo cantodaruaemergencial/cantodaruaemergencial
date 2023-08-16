@@ -15,7 +15,8 @@
       "model": "person"
     },
     "details_person_vacancy_reservation_benefit": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "user": {
       "plugin": "users-permissions",

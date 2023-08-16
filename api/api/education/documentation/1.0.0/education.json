@@ -562,7 +562,8 @@
             "type": "boolean"
           },
           "desired_extra_course": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "required": [
@@ -764,7 +765,8 @@
             "type": "boolean"
           },
           "desired_extra_course": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "type": "string"

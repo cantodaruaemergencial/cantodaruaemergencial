@@ -15,7 +15,8 @@
       "type": "integer"
     },
     "homeless_reason": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 255
     },
     "had_any_family_ties_interrupted_quantity": {
       "type": "integer"
@@ -30,10 +31,12 @@
       "type": "integer"
     },
     "lived_on_streets_in_another_city": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "any_family_member_have_been_homeless": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "reason_past_street_path_unemployment": {
       "type": "boolean"
@@ -45,13 +48,15 @@
       "type": "boolean"
     },
     "reason_past_street_path_comment": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 255
     },
     "time_past_street_path": {
       "type": "integer"
     },
     "comment_street_path": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "person": {
       "model": "person"

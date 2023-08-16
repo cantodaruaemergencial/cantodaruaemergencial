@@ -36,7 +36,8 @@
       "type": "boolean"
     },
     "comment_social_assistance_network": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "user": {
       "plugin": "users-permissions",

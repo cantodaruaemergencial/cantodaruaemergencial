@@ -39,7 +39,8 @@
       "type": "boolean"
     },
     "comment_infrastructure": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "person": {
       "model": "person"

@@ -532,7 +532,8 @@
             "type": "integer"
           },
           "comment_safety": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -722,7 +723,8 @@
             "type": "integer"
           },
           "comment_safety": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"

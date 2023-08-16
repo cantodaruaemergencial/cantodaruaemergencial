@@ -655,7 +655,8 @@
             }
           },
           "details_person_vacancy_reservation_benefit": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -735,7 +736,8 @@
             "type": "string"
           },
           "details_person_vacancy_reservation_benefit": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"

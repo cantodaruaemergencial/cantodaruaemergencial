@@ -557,7 +557,8 @@
             "type": "boolean"
           },
           "comment_judicial_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -759,7 +760,8 @@
             "type": "boolean"
           },
           "comment_judicial_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"

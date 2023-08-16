@@ -12,10 +12,12 @@
   },
   "attributes": {
     "description": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 255
     },
     "comment_family_references": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 255
     },
     "person": {
       "model": "person"

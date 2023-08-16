@@ -536,10 +536,12 @@
             "type": "string"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "comment_family_references": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "person": {
             "required": [
@@ -720,10 +722,12 @@
       "NewFamily-reference": {
         "properties": {
           "description": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "comment_family_references": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "person": {
             "type": "string"

@@ -15,7 +15,8 @@
       "type": "boolean"
     },
     "describe_past_paid_work": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 255
     },
     "work_type": {
       "model": "work-type"
@@ -24,7 +25,8 @@
       "type": "boolean"
     },
     "what_is_being_done_to_get_out_of_this_situation": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 255
     },
     "retirement_benefit_value": {
       "type": "decimal"
@@ -54,7 +56,8 @@
       "model": "past-work-sector"
     },
     "comment_work_and_income": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "person": {
       "model": "person"

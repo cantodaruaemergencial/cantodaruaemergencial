@@ -523,7 +523,8 @@
             "type": "string"
           },
           "exercises_practiced": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "exercises_quantity_by_week": {
             "type": "integer"
@@ -547,7 +548,8 @@
             "type": "boolean"
           },
           "other_habit": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -728,7 +730,8 @@
       "NewCulture": {
         "properties": {
           "exercises_practiced": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "exercises_quantity_by_week": {
             "type": "integer"
@@ -752,7 +755,8 @@
             "type": "boolean"
           },
           "other_habit": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"

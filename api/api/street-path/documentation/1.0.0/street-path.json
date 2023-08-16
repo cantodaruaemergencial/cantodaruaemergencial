@@ -539,7 +539,8 @@
             "type": "integer"
           },
           "homeless_reason": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "had_any_family_ties_interrupted_quantity": {
             "type": "integer"
@@ -554,10 +555,12 @@
             "type": "integer"
           },
           "lived_on_streets_in_another_city": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "any_family_member_have_been_homeless": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "reason_past_street_path_unemployment": {
             "type": "boolean"
@@ -569,13 +572,15 @@
             "type": "boolean"
           },
           "reason_past_street_path_comment": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "time_past_street_path": {
             "type": "integer"
           },
           "comment_street_path": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "required": [
@@ -762,7 +767,8 @@
             "type": "integer"
           },
           "homeless_reason": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "had_any_family_ties_interrupted_quantity": {
             "type": "integer"
@@ -777,10 +783,12 @@
             "type": "integer"
           },
           "lived_on_streets_in_another_city": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "any_family_member_have_been_homeless": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "reason_past_street_path_unemployment": {
             "type": "boolean"
@@ -792,13 +800,15 @@
             "type": "boolean"
           },
           "reason_past_street_path_comment": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "time_past_street_path": {
             "type": "integer"
           },
           "comment_street_path": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "type": "string"

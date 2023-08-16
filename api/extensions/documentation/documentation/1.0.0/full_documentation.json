@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/15/2023 12:05:58 AM"
+    "x-generation-date": "08/16/2023 7:21:09 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17461,7 +17461,8 @@
             "type": "string"
           },
           "exercises_practiced": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "exercises_quantity_by_week": {
             "type": "integer"
@@ -17485,7 +17486,8 @@
             "type": "boolean"
           },
           "other_habit": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -17666,7 +17668,8 @@
       "NewCulture": {
         "properties": {
           "exercises_practiced": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "exercises_quantity_by_week": {
             "type": "integer"
@@ -17690,7 +17693,8 @@
             "type": "boolean"
           },
           "other_habit": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"
@@ -17830,7 +17834,8 @@
             "type": "boolean"
           },
           "desired_extra_course": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "required": [
@@ -18032,7 +18037,8 @@
             "type": "boolean"
           },
           "desired_extra_course": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "type": "string"
@@ -18061,10 +18067,12 @@
             "type": "string"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "comment_family_references": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "person": {
             "required": [
@@ -18245,10 +18253,12 @@
       "NewFamily-reference": {
         "properties": {
           "description": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "comment_family_references": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "person": {
             "type": "string"
@@ -18315,7 +18325,8 @@
             "type": "string"
           },
           "self_health_evaluation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "date_last_medical_appointment": {
             "type": "string",
@@ -18329,19 +18340,22 @@
             "type": "boolean"
           },
           "medication_details": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "was_hospitalized_last_twelve_months": {
             "type": "boolean"
           },
           "hospitalized_reason": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "time_hospitalized_days": {
             "type": "integer"
           },
           "did_any_surgery": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "has_vaccination_card": {
             "type": "boolean"
@@ -18362,13 +18376,16 @@
             "type": "boolean"
           },
           "questions_regarding_physical_or_mental_health": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "do_some_follow_up": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "use_alcohol_or_other_drugs": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "drugs_frequency": {
             "required": [
@@ -18393,34 +18410,41 @@
             }
           },
           "has_ever_been_admitted_to_therapeutic_community": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "need_dental_care": {
             "type": "boolean"
           },
           "describe_dental_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "need_psychological_care": {
             "type": "boolean"
           },
           "describe_psychological_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "need_psychiatric_care": {
             "type": "boolean"
           },
           "describe_psychiatric_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "other_specific_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "has_any_disabilities": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "describe_need_special_equipment": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "has_any_comorbidities_hipertensao": {
             "type": "boolean"
@@ -18444,7 +18468,8 @@
             "type": "boolean"
           },
           "has_any_comorbidities_other": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "man_health_last_prostate_exam_date": {
             "type": "string",
@@ -18476,7 +18501,8 @@
             "type": "boolean"
           },
           "comment_health_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "required": [
@@ -18657,7 +18683,8 @@
       "NewHealth-situation": {
         "properties": {
           "self_health_evaluation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "date_last_medical_appointment": {
             "type": "string",
@@ -18671,19 +18698,22 @@
             "type": "boolean"
           },
           "medication_details": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "was_hospitalized_last_twelve_months": {
             "type": "boolean"
           },
           "hospitalized_reason": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "time_hospitalized_days": {
             "type": "integer"
           },
           "did_any_surgery": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "has_vaccination_card": {
             "type": "boolean"
@@ -18704,46 +18734,56 @@
             "type": "boolean"
           },
           "questions_regarding_physical_or_mental_health": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "do_some_follow_up": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "use_alcohol_or_other_drugs": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "drugs_frequency": {
             "type": "string"
           },
           "has_ever_been_admitted_to_therapeutic_community": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "need_dental_care": {
             "type": "boolean"
           },
           "describe_dental_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "need_psychological_care": {
             "type": "boolean"
           },
           "describe_psychological_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "need_psychiatric_care": {
             "type": "boolean"
           },
           "describe_psychiatric_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "other_specific_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "has_any_disabilities": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "describe_need_special_equipment": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "has_any_comorbidities_hipertensao": {
             "type": "boolean"
@@ -18767,7 +18807,8 @@
             "type": "boolean"
           },
           "has_any_comorbidities_other": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "man_health_last_prostate_exam_date": {
             "type": "string",
@@ -18799,7 +18840,8 @@
             "type": "boolean"
           },
           "comment_health_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "type": "string"
@@ -18855,7 +18897,8 @@
             "type": "boolean"
           },
           "comment_infrastructure": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "required": [
@@ -19063,7 +19106,8 @@
             "type": "boolean"
           },
           "comment_infrastructure": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "type": "string"
@@ -19113,7 +19157,8 @@
             "type": "boolean"
           },
           "comment_judicial_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -19315,7 +19360,8 @@
             "type": "boolean"
           },
           "comment_judicial_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"
@@ -20236,7 +20282,8 @@
             }
           },
           "details_person_vacancy_reservation_benefit": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -20316,7 +20363,8 @@
             "type": "string"
           },
           "details_person_vacancy_reservation_benefit": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"
@@ -20367,65 +20415,87 @@
             "type": "string"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "social_name": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "birth_date": {
             "type": "string",
             "format": "date"
           },
           "mother_name": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "father_name": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "birth_state": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "nationality": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "occupation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "phone_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "birth_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "wedding_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "rg_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "cpf_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 11,
+            "minLength": 11
           },
           "reservist_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "voter_registration_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "cnh_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 9,
+            "minLength": 9
           },
           "ctps_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 8,
+            "minLength": 8
           },
           "nis_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "caduni_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "has_govbr_registration": {
             "type": "boolean"
@@ -20526,10 +20596,12 @@
             "type": "integer"
           },
           "child_care_person": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "comment_person": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -20606,65 +20678,87 @@
         ],
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "social_name": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "birth_date": {
             "type": "string",
             "format": "date"
           },
           "mother_name": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "father_name": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "birth_state": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "nationality": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "occupation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "phone_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "birth_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "wedding_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "rg_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "cpf_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 11,
+            "minLength": 11
           },
           "reservist_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "voter_registration_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "cnh_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 9,
+            "minLength": 9
           },
           "ctps_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 8,
+            "minLength": 8
           },
           "nis_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "caduni_document_number": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 20
           },
           "has_govbr_registration": {
             "type": "boolean"
@@ -20685,10 +20779,12 @@
             "type": "integer"
           },
           "child_care_person": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50
           },
           "comment_person": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"
@@ -20726,7 +20822,8 @@
             "type": "integer"
           },
           "comment_safety": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -20916,7 +21013,8 @@
             "type": "integer"
           },
           "comment_safety": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"
@@ -21045,7 +21143,8 @@
             "type": "boolean"
           },
           "comment_social_assistance_network": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "required": [
@@ -21250,7 +21349,8 @@
             "type": "boolean"
           },
           "comment_social_assistance_network": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "user": {
             "type": "string"
@@ -21282,7 +21382,8 @@
             "type": "integer"
           },
           "homeless_reason": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "had_any_family_ties_interrupted_quantity": {
             "type": "integer"
@@ -21297,10 +21398,12 @@
             "type": "integer"
           },
           "lived_on_streets_in_another_city": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "any_family_member_have_been_homeless": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "reason_past_street_path_unemployment": {
             "type": "boolean"
@@ -21312,13 +21415,15 @@
             "type": "boolean"
           },
           "reason_past_street_path_comment": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "time_past_street_path": {
             "type": "integer"
           },
           "comment_street_path": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "required": [
@@ -21505,7 +21610,8 @@
             "type": "integer"
           },
           "homeless_reason": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "had_any_family_ties_interrupted_quantity": {
             "type": "integer"
@@ -21520,10 +21626,12 @@
             "type": "integer"
           },
           "lived_on_streets_in_another_city": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "any_family_member_have_been_homeless": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "reason_past_street_path_unemployment": {
             "type": "boolean"
@@ -21535,13 +21643,15 @@
             "type": "boolean"
           },
           "reason_past_street_path_comment": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "time_past_street_path": {
             "type": "integer"
           },
           "comment_street_path": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "type": "string"
@@ -21576,7 +21686,8 @@
             "type": "boolean"
           },
           "describe_past_paid_work": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "work_type": {
             "required": [
@@ -21604,7 +21715,8 @@
             "type": "boolean"
           },
           "what_is_being_done_to_get_out_of_this_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "retirement_benefit_value": {
             "type": "number"
@@ -21672,7 +21784,8 @@
             }
           },
           "comment_work_and_income": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "required": [
@@ -21856,7 +21969,8 @@
             "type": "boolean"
           },
           "describe_past_paid_work": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "work_type": {
             "type": "string"
@@ -21865,7 +21979,8 @@
             "type": "boolean"
           },
           "what_is_being_done_to_get_out_of_this_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "retirement_benefit_value": {
             "type": "number"
@@ -21895,7 +22010,8 @@
             "type": "string"
           },
           "comment_work_and_income": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "type": "string"

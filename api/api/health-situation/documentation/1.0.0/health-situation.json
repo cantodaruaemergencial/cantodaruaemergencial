@@ -536,7 +536,8 @@
             "type": "string"
           },
           "self_health_evaluation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "date_last_medical_appointment": {
             "type": "string",
@@ -550,19 +551,22 @@
             "type": "boolean"
           },
           "medication_details": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "was_hospitalized_last_twelve_months": {
             "type": "boolean"
           },
           "hospitalized_reason": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "time_hospitalized_days": {
             "type": "integer"
           },
           "did_any_surgery": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "has_vaccination_card": {
             "type": "boolean"
@@ -583,13 +587,16 @@
             "type": "boolean"
           },
           "questions_regarding_physical_or_mental_health": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "do_some_follow_up": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "use_alcohol_or_other_drugs": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "drugs_frequency": {
             "required": [
@@ -614,34 +621,41 @@
             }
           },
           "has_ever_been_admitted_to_therapeutic_community": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "need_dental_care": {
             "type": "boolean"
           },
           "describe_dental_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "need_psychological_care": {
             "type": "boolean"
           },
           "describe_psychological_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "need_psychiatric_care": {
             "type": "boolean"
           },
           "describe_psychiatric_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "other_specific_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "has_any_disabilities": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "describe_need_special_equipment": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "has_any_comorbidities_hipertensao": {
             "type": "boolean"
@@ -665,7 +679,8 @@
             "type": "boolean"
           },
           "has_any_comorbidities_other": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "man_health_last_prostate_exam_date": {
             "type": "string",
@@ -697,7 +712,8 @@
             "type": "boolean"
           },
           "comment_health_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "required": [
@@ -878,7 +894,8 @@
       "NewHealth-situation": {
         "properties": {
           "self_health_evaluation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "date_last_medical_appointment": {
             "type": "string",
@@ -892,19 +909,22 @@
             "type": "boolean"
           },
           "medication_details": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "was_hospitalized_last_twelve_months": {
             "type": "boolean"
           },
           "hospitalized_reason": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "time_hospitalized_days": {
             "type": "integer"
           },
           "did_any_surgery": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "has_vaccination_card": {
             "type": "boolean"
@@ -925,46 +945,56 @@
             "type": "boolean"
           },
           "questions_regarding_physical_or_mental_health": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "do_some_follow_up": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "use_alcohol_or_other_drugs": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "drugs_frequency": {
             "type": "string"
           },
           "has_ever_been_admitted_to_therapeutic_community": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "need_dental_care": {
             "type": "boolean"
           },
           "describe_dental_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "need_psychological_care": {
             "type": "boolean"
           },
           "describe_psychological_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "need_psychiatric_care": {
             "type": "boolean"
           },
           "describe_psychiatric_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "other_specific_care": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "has_any_disabilities": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "describe_need_special_equipment": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "has_any_comorbidities_hipertensao": {
             "type": "boolean"
@@ -988,7 +1018,8 @@
             "type": "boolean"
           },
           "has_any_comorbidities_other": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 255
           },
           "man_health_last_prostate_exam_date": {
             "type": "string",
@@ -1020,7 +1051,8 @@
             "type": "boolean"
           },
           "comment_health_situation": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 150
           },
           "person": {
             "type": "string"

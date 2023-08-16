@@ -31,7 +31,8 @@
       "required": true
     },
     "desired_extra_course": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "person": {
       "model": "person"

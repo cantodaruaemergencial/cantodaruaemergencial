@@ -12,7 +12,8 @@
   },
   "attributes": {
     "exercises_practiced": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "exercises_quantity_by_week": {
       "type": "integer"
@@ -36,7 +37,8 @@
       "type": "boolean"
     },
     "other_habit": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 150
     },
     "user": {
       "plugin": "users-permissions",
