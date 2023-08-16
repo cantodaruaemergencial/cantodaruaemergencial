@@ -94,12 +94,18 @@ const TimelineWrapper = withTheme(styled(Timeline)`
   flex-direction: column;
 
   width: 100%;
-  max-height: 90vh;
-  overflow: auto;
 `);
 
 const TimelineItemWrapper = withTheme(styled(TimelineItem)`
   min-height: 570px;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    min-height: 100%;
+  }
+`);
+
+const ShorterTimelineItemWrapper = withTheme(styled(TimelineItem)`
+  min-height: 100px;
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     min-height: 100%;
@@ -232,7 +238,7 @@ const ListHistoryPage = ({ item }: Props): ReactElement => {
             <Description>Não há dados cadastrados</Description>
           ) : (
             personEntrances?.map((pe, index) => (
-              <TimelineItemWrapper>
+              <ShorterTimelineItemWrapper>
                 <TimelineSeparator>
                   <TimelineDot
                     variant={
@@ -248,7 +254,7 @@ const ListHistoryPage = ({ item }: Props): ReactElement => {
                   )}
                 </TimelineSeparator>
                 <TimelineContent>{formatDate(pe.date)}</TimelineContent>
-              </TimelineItemWrapper>
+              </ShorterTimelineItemWrapper>
             ))
           )}
         </TimelineWrapper>

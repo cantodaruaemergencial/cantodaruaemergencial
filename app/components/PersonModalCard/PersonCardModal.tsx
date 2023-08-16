@@ -80,6 +80,10 @@ const Label = styled(Typography)`
 
 const Value = styled(Typography)`
   && {
+    display: -webkit-box;
+    -webkit-line-clamp: 20;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     font-size: 1em;
 
     &.bigger {

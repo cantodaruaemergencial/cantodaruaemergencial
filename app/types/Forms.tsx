@@ -17,6 +17,7 @@ interface DateConfig {
 
 interface InputConfig {
   maxLength?: number;
+  minLength?: number;
 }
 
 export interface FormField {

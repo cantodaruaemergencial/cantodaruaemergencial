@@ -139,7 +139,7 @@ const RegisterServicePersonCard = ({
   return (
     <PersonWrapper
       key={Id}
-      backgroundColor={Id === selectedPerson?.id ? '#80f47e' : 'transparent'}
+      backgroundColor={Id === selectedPerson?.id ? '#80F49D' : 'transparent'}
     >
       <PersonBox condensed>
         <Info>

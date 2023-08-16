@@ -135,6 +135,7 @@ const FormField = ({
       invalidDateMessage={RulesMessages.invalidDate}
       maxDateMessage={RulesMessages.maxDate}
       disableFuture={dateConfig?.disableFuture || false}
+      disabled={disabled}
     />
   );
 

@@ -78,7 +78,7 @@ const CreatePersonPage = ({
         handleClose={handleClosePersonCardModal}
         newPerson
       />
-      <GoToButton idGoTo="#saveButton" />
+      <GoToButton idGoTo="#saveButton" tooltipLabel="Finalizar formulário" />
     </Container>
   );
 };

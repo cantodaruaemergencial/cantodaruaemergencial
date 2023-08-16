@@ -128,7 +128,6 @@ class PeopleService {
             value: person?.card_number,
             label: 'Cartão',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
             rules: {
               required: false,
             },
@@ -139,7 +138,7 @@ class PeopleService {
             value: person?.name,
             label: 'Nome',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 100 },
             rules: {
               required: true,
             },
@@ -149,7 +148,7 @@ class PeopleService {
             value: person?.social_name ?? '',
             label: 'Nome Social',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 100 },
             rules: {
               required: true,
             },
@@ -159,14 +158,14 @@ class PeopleService {
             value: person?.mother_name,
             label: 'Nome da Mãe',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 100 },
           },
           {
             property: 'father_name',
             value: person?.father_name,
             label: 'Nome do Pai',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 100 },
           },
           {
             property: 'birth_date',
@@ -184,7 +183,7 @@ class PeopleService {
             label: 'Naturalidade',
             description: 'Exemplo: Belo Horizonte - MG',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 50 },
             rules: {
               required: true,
             },
@@ -195,7 +194,7 @@ class PeopleService {
             label: 'Nacionalidade',
             description: 'Exemplo: Brasileiro',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 50 },
             rules: {
               required: true,
             },
@@ -206,7 +205,7 @@ class PeopleService {
             label: 'Ocupação',
             description: 'Profissão',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 100 },
             rules: {
               required: true,
             },
@@ -216,7 +215,7 @@ class PeopleService {
             value: person?.email,
             label: 'E-mail',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 50 },
             rules: {
               required: false,
             },
@@ -226,6 +225,7 @@ class PeopleService {
             label: 'Telefone de Contato',
             value: person?.phone_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 50 },
             rules: {
               required: false,
             },
@@ -235,6 +235,7 @@ class PeopleService {
             label: 'Número Certidão de Nascimento',
             value: person?.birth_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 50 },
             rules: {
               required: false,
             },
@@ -244,6 +245,7 @@ class PeopleService {
             label: 'Número Certidão de Casamento',
             value: person?.wedding_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 50 },
             rules: {
               required: false,
             },
@@ -253,6 +255,7 @@ class PeopleService {
             label: 'Número Documento RG',
             value: person?.rg_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 20 },
             rules: {
               required: false,
             },
@@ -262,6 +265,7 @@ class PeopleService {
             label: 'Número Documento CPF',
             value: person?.cpf_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 11, minLength: 11 },
             rules: {
               required: false,
             },
@@ -271,6 +275,7 @@ class PeopleService {
             label: 'Número do Certificado de Reservista',
             value: person?.reservist_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 20 },
             rules: {
               required: false,
             },
@@ -280,6 +285,7 @@ class PeopleService {
             label: 'Número do Título de Eleitor',
             value: person?.voter_registration_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 20 },
             rules: {
               required: false,
             },
@@ -289,6 +295,7 @@ class PeopleService {
             label: 'Número Documento CNH',
             value: person?.cnh_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 9, minLength: 9 },
             rules: {
               required: false,
             },
@@ -298,6 +305,7 @@ class PeopleService {
             label: 'Número Documento CTPS',
             value: person?.ctps_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 8, minLength: 8 },
             rules: {
               required: false,
             },
@@ -307,6 +315,7 @@ class PeopleService {
             label: 'Número Documento NIS',
             value: person?.nis_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 20 },
             rules: {
               required: false,
             },
@@ -316,6 +325,7 @@ class PeopleService {
             label: 'Número Documento CADUNI',
             value: person?.caduni_document_number,
             type: FieldType.input,
+            inputConfig: { maxLength: 20 },
             rules: {
               required: false,
             },
@@ -403,6 +413,7 @@ class PeopleService {
             value: person?.child_care_person,
             label: 'Quem cuida dos filhos?',
             type: FieldType.input,
+            inputConfig: { maxLength: 50 },
             rules: {
               required: false,
             },
@@ -412,7 +423,7 @@ class PeopleService {
             value: person?.comment_person,
             label: 'Observações',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
             rules: {
               required: false,
             },
@@ -467,7 +478,7 @@ class PeopleService {
             value: personCompleteData?.education.desired_extra_course,
             label: 'Descreva os cursos de interesse',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
@@ -479,7 +490,7 @@ class PeopleService {
             value: personCompleteData?.culture.exercises_practiced,
             label: 'Pratica exercício físico? Descreva',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
           {
             property: 'exercises_quantity_by_week',
@@ -535,7 +546,7 @@ class PeopleService {
             value: personCompleteData?.culture.other_habit,
             label: 'Tem outros hábitos? Descreva',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
@@ -599,7 +610,7 @@ class PeopleService {
               personCompleteData?.judicialSituation.comment_judicial_situation,
             label: 'Observações',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
@@ -682,7 +693,7 @@ class PeopleService {
             value: personCompleteData?.infrastructure.comment_infrastructure,
             label: 'Observações',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
@@ -724,7 +735,7 @@ class PeopleService {
             value: personCompleteData?.safeties.comment_safety,
             label: 'Observações',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
@@ -790,7 +801,7 @@ class PeopleService {
             label:
               'Já viveu em situação de rua em outra cidade? Se sim, quais?',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
           {
             property: 'any_family_member_have_been_homeless',
@@ -800,7 +811,7 @@ class PeopleService {
             label:
               'Algum membro da família está ou esteve em situação de rua? Se sim, quem?',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
           {
             property: 'reason_past_street_path_unemployment',
@@ -846,7 +857,7 @@ class PeopleService {
             value: personCompleteData?.streetPaths.comment_street_path,
             label: 'Observações',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
@@ -974,7 +985,7 @@ class PeopleService {
             value: personCompleteData?.workAndIncomes.comment_work_and_income,
             label: 'Observações',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
@@ -1066,7 +1077,7 @@ class PeopleService {
                 .comment_social_assistance_network,
             label: 'Observações',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
@@ -1122,7 +1133,7 @@ class PeopleService {
                 .details_person_vacancy_reservation_benefit,
             label: 'Observações',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
@@ -1198,7 +1209,7 @@ class PeopleService {
             value: personCompleteData?.healthSituation.did_any_surgery,
             label: 'Já fez alguma cirurgia? Se sim, qual?',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
           {
             property: 'has_vaccination_card',
@@ -1290,7 +1301,7 @@ class PeopleService {
             label:
               'Já foi internado em uma comunidade terapêutica? Se sim, quais?',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
           {
             property: 'need_dental_care',
@@ -1505,7 +1516,7 @@ class PeopleService {
             value: personCompleteData?.healthSituation.comment_health_situation,
             label: 'Observações',
             type: FieldType.input,
-            inputConfig: { maxLength: 255 },
+            inputConfig: { maxLength: 150 },
           },
         ],
       },
