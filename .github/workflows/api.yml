@@ -3,16 +3,16 @@ name: deploy api
 on:
   push:
     branches:
-      - dev
-      - main
+      - development #TODO: Change back to dev branch, when the cloud provider is Google Cloud Platform
+      - master #TODO: Change back to main branch, when the cloud provider is Google Cloud Platform
     paths:
-      - 'api/**'
-      - '.github/workflows/api.yml'
-      
+      - "api/**"
+      - ".github/workflows/api.yml"
+
 env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
   RUN_REGION: us-east1
-  
+
 jobs:
   setup-build-deploy:
     name: build and deploy
@@ -40,11 +40,11 @@ jobs:
       - name: gcloud Set up
         run: |
           gcloud config set project $PROJECT_ID
-      
+
       - name: build
         run: |
           cd api && gcloud builds submit -t gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA
-      
+
       - name: deploy
         run: |
           cd api && gcloud run deploy $SERVICE_NAME \
