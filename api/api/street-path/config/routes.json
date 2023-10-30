@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/street-paths",
+      "handler": "street-path.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/street-paths/count",
+      "handler": "street-path.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/street-paths/:id",
+      "handler": "street-path.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/street-paths",
+      "handler": "street-path.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/street-paths/:id",
+      "handler": "street-path.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/street-paths/:id",
+      "handler": "street-path.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

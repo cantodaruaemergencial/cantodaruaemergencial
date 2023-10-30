@@ -126,11 +126,11 @@ const DashboardPage = (): ReactElement => {
 
   const [dashboardData, setDashboardData] = useState<DashboardData>();
 
-  useEffect(() => {
-    DashboardService.getDashboardData().then((data) => {
-      setDashboardData(data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   DashboardService.getDashboardData().then((data) => {
+  //     setDashboardData(data);
+  //   });
+  // }, []);
 
   if (!dashboardData) return <></>;
 

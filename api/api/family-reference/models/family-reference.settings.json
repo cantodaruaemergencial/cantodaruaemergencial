@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "family_references",
+  "info": {
+    "name": "FamilyReference",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "description": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "comment_family_references": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "person": {
+      "model": "person"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

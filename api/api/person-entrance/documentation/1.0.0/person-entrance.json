@@ -529,8 +529,7 @@
     "schemas": {
       "Person-entrance": {
         "required": [
-          "id",
-          "DateTime"
+          "id"
         ],
         "properties": {
           "id": {
@@ -538,136 +537,110 @@
           },
           "person": {
             "required": [
-              "id"
+              "id",
+              "name",
+              "social_name",
+              "birth_date",
+              "mother_name",
+              "birth_state",
+              "nationality",
+              "occupation",
+              "email",
+              "phone_number",
+              "has_govbr_registration"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "Name": {
+              "name": {
                 "type": "string"
               },
-              "SocialName": {
+              "social_name": {
                 "type": "string"
               },
-              "MotherName": {
+              "birth_date": {
                 "type": "string"
               },
-              "BirthDate": {
+              "mother_name": {
                 "type": "string"
               },
-              "BirthPlace": {
+              "father_name": {
                 "type": "string"
               },
-              "gender": {
+              "birth_state": {
                 "type": "string"
               },
-              "GeneralRegister": {
+              "nationality": {
                 "type": "string"
               },
-              "Childrens": {
-                "type": "integer"
-              },
-              "HasHabitation": {
-                "type": "boolean"
-              },
-              "HasEmergencyAid": {
-                "type": "boolean"
-              },
-              "HasPbhBasket": {
-                "type": "boolean"
-              },
-              "HasUniqueRegister": {
-                "type": "boolean"
-              },
-              "HasGeneralRegister": {
-                "type": "boolean"
-              },
-              "HasCpf": {
-                "type": "boolean"
-              },
-              "Cpf": {
+              "occupation": {
                 "type": "string"
               },
-              "HasCtps": {
-                "type": "boolean"
+              "email": {
+                "type": "string"
               },
-              "HasBirthCertificate": {
+              "phone_number": {
+                "type": "string"
+              },
+              "birth_document_number": {
+                "type": "string"
+              },
+              "wedding_document_number": {
+                "type": "string"
+              },
+              "rg_document_number": {
+                "type": "string"
+              },
+              "cpf_document_number": {
+                "type": "string"
+              },
+              "reservist_document_number": {
+                "type": "string"
+              },
+              "voter_registration_document_number": {
+                "type": "string"
+              },
+              "cnh_document_number": {
+                "type": "string"
+              },
+              "ctps_document_number": {
+                "type": "string"
+              },
+              "nis_document_number": {
+                "type": "string"
+              },
+              "caduni_document_number": {
+                "type": "string"
+              },
+              "has_govbr_registration": {
                 "type": "boolean"
               },
               "marital_status": {
                 "type": "string"
               },
-              "school_training": {
+              "self_declaration": {
                 "type": "string"
               },
-              "ReferenceLocation": {
+              "gender": {
                 "type": "string"
               },
-              "Occupation": {
+              "sexual_orientation": {
                 "type": "string"
               },
-              "Profession": {
+              "child_quantity": {
+                "type": "integer"
+              },
+              "child_care_person": {
                 "type": "string"
               },
-              "ContactPhone": {
+              "comment_person": {
                 "type": "string"
               },
-              "ReferenceAddress": {
+              "user": {
                 "type": "string"
               },
-              "Observation": {
-                "type": "string"
-              },
-              "skin_color": {
-                "type": "string"
-              },
-              "CardNumber": {
-                "type": "string"
-              },
-              "Preferential": {
-                "type": "boolean"
-              },
-              "HomelessSince": {
-                "type": "string"
-              },
-              "services": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "HomelessTime": {
-                "type": "string"
-              },
-              "BirthPlaceState": {
-                "type": "string"
-              },
-              "BirthPlaceCity": {
-                "type": "string"
-              },
-              "external_services": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "benefits": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "Demands": {
-                "type": "string"
-              },
-              "Checked": {
-                "type": "boolean"
-              },
-              "CheckedBy": {
-                "type": "string"
-              },
-              "CheckedAt": {
+              "card_number": {
                 "type": "string"
               },
               "published_at": {
@@ -681,7 +654,7 @@
               }
             }
           },
-          "DateTime": {
+          "date": {
             "type": "string",
             "format": "date-time"
           },
@@ -692,14 +665,11 @@
         }
       },
       "NewPerson-entrance": {
-        "required": [
-          "DateTime"
-        ],
         "properties": {
           "person": {
             "type": "string"
           },
-          "DateTime": {
+          "date": {
             "type": "string",
             "format": "date-time"
           },

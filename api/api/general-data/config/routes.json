@@ -1,0 +1,19 @@
+{
+	"routes": [
+		{
+			"method": "GET",
+			"path": "/general-data/person/:personid",
+			"handler": "general-data.findByPerson"
+		},
+		{
+			"method": "POST",
+			"path": "/general-data/person/:personid",
+			"handler": "general-data.createByPerson"
+		},
+		{
+			"method": "PUT",
+			"path": "/general-data/person/:personid",
+			"handler": "general-data.updateByPerson"
+		}
+	]
+}

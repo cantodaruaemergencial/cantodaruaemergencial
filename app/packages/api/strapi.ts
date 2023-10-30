@@ -1,13 +1,16 @@
 import qs from 'qs';
 
 import { UserProfile } from '#/packages/entities/types';
-import { Auth } from '#/types/Auth';
+import { AuthLocal } from '#/types/Auth';
 
 import { saveAs } from 'file-saver';
 
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 
-const { NEXT_PUBLIC_STRAPI_API_URL = 'https://api-t6n6cgkpra-ue.a.run.app' } =
+// const { NEXT_PUBLIC_STRAPI_API_URL = 'https://api-t6n6cgkpra-ue.a.run.app' } =
+//   process?.env;
+
+const { NEXT_PUBLIC_STRAPI_API_URL_LOCAL = 'http://localhost:1337' } =
   process?.env;
 
 export function getUserProfile(): UserProfile | null {
@@ -46,7 +49,10 @@ export class Api {
       headers: Api.getPublicHeaders(),
     };
 
-    const res = await fetch(`${NEXT_PUBLIC_STRAPI_API_URL}/${url}`, options);
+    const res = await fetch(
+      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}`,
+      options,
+    );
 
     return {
       status: res.status,
@@ -69,7 +75,10 @@ export class Api {
     };
 
     const queryString = params ? `?${qs.stringify(params)}` : '';
-    await fetch(`${NEXT_PUBLIC_STRAPI_API_URL}/${url}${queryString}`, options)
+    await fetch(
+      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}${queryString}`,
+      options,
+    )
       .then((res) => res.blob())
       .then((blob) => saveAs(blob, filename));
   };
@@ -85,7 +94,7 @@ export class Api {
 
     const queryString = params ? `?${qs.stringify(params)}` : '';
     const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL}/${url}${queryString}`,
+      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}${queryString}`,
       options,
     );
 
@@ -105,7 +114,10 @@ export class Api {
       headers: Api.getHeaders(),
     };
 
-    const res = await fetch(`${NEXT_PUBLIC_STRAPI_API_URL}/${url}`, options);
+    const res = await fetch(
+      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}`,
+      options,
+    );
 
     const result = await res.json();
 
@@ -125,7 +137,10 @@ export class Api {
       headers: Api.getHeaders(),
     };
 
-    const res = await fetch(`${NEXT_PUBLIC_STRAPI_API_URL}/${url}`, options);
+    const res = await fetch(
+      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}`,
+      options,
+    );
 
     const result = await res.json();
 
@@ -141,11 +156,8 @@ export async function validateUser(
   password: string,
 ): Promise<UserProfile> {
   try {
-    const {
-      status,
-      data: { data },
-    } = await Api.post<Auth>('admin/login', {
-      email,
+    const { status, data } = await Api.post<AuthLocal>('auth/local', {
+      identifier: email,
       password,
     });
 
@@ -154,11 +166,13 @@ export async function validateUser(
     }
 
     const userProfile: UserProfile = {
+      id: data?.user?.id,
       displayName:
         data?.user?.username ??
         `${data?.user?.firstname ?? ''} ${data?.user?.lastname ?? ''}`,
-      token: data?.token,
+      token: data?.jwt,
       email: data?.user?.email,
+      associations: data?.user?.associations,
     };
 
     localStorage.setItem(

@@ -1,16 +1,13 @@
 import Chip from '#/components/Chip';
 import { Color } from '#/types/Color';
 import { Entrance } from '#/types/Entrance';
-import { BasePerson } from '#/types/People';
-import { Person } from '#/types/People';
+import { BasePerson, PersonCompleteData } from '#/types/People';
+import { Box, Button, Typography, withTheme, Tooltip } from '@material-ui/core';
 import {
-  Box,
-  Button,
-  Typography,
-  withTheme,
-  Tooltip
-} from '@material-ui/core';
-import { AddCircleRounded, InfoRounded, PanToolRounded } from '@material-ui/icons';
+  AddCircleRounded,
+  InfoRounded,
+  PanToolRounded,
+} from '@material-ui/icons';
 import { Skeleton } from '@material-ui/lab';
 import moment from 'moment';
 import Link from 'next/link';
@@ -18,7 +15,7 @@ import { ReactElement, useState } from 'react';
 import { ListRowProps } from 'react-virtualized';
 import styled from 'styled-components';
 import TheTag from './../../Tag';
-import PersonCardModal from '#/components/PersonCardModal';
+import PersonCardModal from '#/components/PersonModalCard/PersonCardModal';
 import PeopleService from '#/services/PeopleService';
 
 const PersonWrapper = styled(Box)`
@@ -132,8 +129,15 @@ const PersonCard = ({
 
   if (!isRowLoaded) return renderSkeleton();
 
-  const { Id, Preferential, Name, SocialName, CardNumber, EnteredToday, LastEntranceDate } =
-    item;
+  const {
+    id: Id,
+    Preferential,
+    name: Name,
+    social_name: SocialName,
+    card_number: CardNumber,
+    EnteredToday,
+    LastEntranceDate,
+  } = item;
 
   const [entrance, setEntrance] = useState({ LastEntranceDate, EnteredToday });
 
@@ -160,12 +164,12 @@ const PersonCard = ({
     });
 
   const [personModal, setPersonModal] = useState<{
-    person: Person | null;
+    personCompleteData: PersonCompleteData | null;
     open: boolean;
-  }>({ open: false, person: null });
+  }>({ open: false, personCompleteData: null });
 
-  const showPersonCardModal = (person: Person) =>
-    setPersonModal({ open: true, person });
+  const showPersonCardModal = (personCompleteData: PersonCompleteData) =>
+    setPersonModal({ open: true, personCompleteData });
 
   const handleClosePersonCardModal = () => {
     setPersonModal({ ...personModal, open: false });
@@ -179,10 +183,11 @@ const PersonCard = ({
           <PersonInfo>
             <Link href={`/pessoas/cadastro/${Id}`}>
               <Title variant="body2">
-                {Preferential &&
-                  <Tooltip title='Preferencial'>
+                {Preferential && (
+                  <Tooltip title="Preferencial">
                     <PanToolRounded style={{ fill: 'rgb(76, 175, 80)' }} />
-                  </Tooltip>}
+                  </Tooltip>
+                )}
                 {Name}
               </Title>
             </Link>
@@ -192,9 +197,12 @@ const PersonCard = ({
           </PersonInfo>
         </Info>
         <Options>
-          <Chip label={lastEntranceLabel()}
+          <Chip
+            label={lastEntranceLabel()}
             color={getColor()}
-            tooltip={moment(entrance.LastEntranceDate).format('DD/MM/YYYY HH:mm').toString()}
+            tooltip={moment(entrance.LastEntranceDate)
+              .format('DD/MM/YYYY HH:mm')
+              .toString()}
           />
           {!entrance.EnteredToday && (
             <Button
@@ -211,7 +219,7 @@ const PersonCard = ({
             size="small"
             startIcon={<InfoRounded />}
             onClick={async () => {
-              const people = await PeopleService.getPerson(item.Id);
+              const people = await PeopleService.getPersonCompleteData(item.id);
               showPersonCardModal(people);
             }}
           >
@@ -224,7 +232,7 @@ const PersonCard = ({
         handleClose={handleClosePersonCardModal}
         newPerson={false}
       />
-    </PersonWrapper >
+    </PersonWrapper>
   );
 };
 

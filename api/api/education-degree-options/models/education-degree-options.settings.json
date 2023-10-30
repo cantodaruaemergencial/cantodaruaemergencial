@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "education_degree_options",
+  "info": {
+    "name": "EducationDegreeOptions",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

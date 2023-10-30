@@ -1,0 +1,1078 @@
+{
+  "paths": {
+    "/health-situations": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Health-situation"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Health-situation"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewHealth-situation"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health-situations/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Health-situation"
+        ],
+        "parameters": []
+      }
+    },
+    "/health-situations/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Health-situation"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Health-situation"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewHealth-situation"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Health-situation"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Health-situation": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "self_health_evaluation": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "date_last_medical_appointment": {
+            "type": "string",
+            "format": "date"
+          },
+          "date_last_medical_dentist": {
+            "type": "string",
+            "format": "date"
+          },
+          "use_medication_often": {
+            "type": "boolean"
+          },
+          "medication_details": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "was_hospitalized_last_twelve_months": {
+            "type": "boolean"
+          },
+          "hospitalized_reason": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "time_hospitalized_days": {
+            "type": "integer"
+          },
+          "did_any_surgery": {
+            "type": "string",
+            "maxLength": 150
+          },
+          "has_vaccination_card": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_covid19": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_hepatite": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_tetano": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_influenza": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_febre_amarela": {
+            "type": "boolean"
+          },
+          "questions_regarding_physical_or_mental_health": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "do_some_follow_up": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "use_alcohol_or_other_drugs": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "drugs_frequency": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "has_ever_been_admitted_to_therapeutic_community": {
+            "type": "string",
+            "maxLength": 150
+          },
+          "need_dental_care": {
+            "type": "boolean"
+          },
+          "describe_dental_care": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "need_psychological_care": {
+            "type": "boolean"
+          },
+          "describe_psychological_care": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "need_psychiatric_care": {
+            "type": "boolean"
+          },
+          "describe_psychiatric_care": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "other_specific_care": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "has_any_disabilities": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "describe_need_special_equipment": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "has_any_comorbidities_hipertensao": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_diabetes": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_cardiovascular_problem": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_depression": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_asma": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_cancer": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_none": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_other": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "man_health_last_prostate_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "man_health_last_ist_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "woman_health_last_preventive_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "woman_health_last_mammography_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "woman_health_last_gynecological_consultation_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "woman_health_suspected_pregnancy_week_quantity": {
+            "type": "integer"
+          },
+          "woman_health_use_some_contraceptive_method": {
+            "type": "boolean"
+          },
+          "use_condom": {
+            "type": "boolean"
+          },
+          "comment_health_situation": {
+            "type": "string",
+            "maxLength": 150
+          },
+          "person": {
+            "required": [
+              "id",
+              "name",
+              "social_name",
+              "birth_date",
+              "mother_name",
+              "birth_state",
+              "nationality",
+              "occupation",
+              "email",
+              "phone_number",
+              "has_govbr_registration"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "social_name": {
+                "type": "string"
+              },
+              "birth_date": {
+                "type": "string"
+              },
+              "mother_name": {
+                "type": "string"
+              },
+              "father_name": {
+                "type": "string"
+              },
+              "birth_state": {
+                "type": "string"
+              },
+              "nationality": {
+                "type": "string"
+              },
+              "occupation": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "phone_number": {
+                "type": "string"
+              },
+              "birth_document_number": {
+                "type": "string"
+              },
+              "wedding_document_number": {
+                "type": "string"
+              },
+              "rg_document_number": {
+                "type": "string"
+              },
+              "cpf_document_number": {
+                "type": "string"
+              },
+              "reservist_document_number": {
+                "type": "string"
+              },
+              "voter_registration_document_number": {
+                "type": "string"
+              },
+              "cnh_document_number": {
+                "type": "string"
+              },
+              "ctps_document_number": {
+                "type": "string"
+              },
+              "nis_document_number": {
+                "type": "string"
+              },
+              "caduni_document_number": {
+                "type": "string"
+              },
+              "has_govbr_registration": {
+                "type": "boolean"
+              },
+              "marital_status": {
+                "type": "string"
+              },
+              "self_declaration": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "sexual_orientation": {
+                "type": "string"
+              },
+              "child_quantity": {
+                "type": "integer"
+              },
+              "child_care_person": {
+                "type": "string"
+              },
+              "comment_person": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "card_number": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "associations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewHealth-situation": {
+        "properties": {
+          "self_health_evaluation": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "date_last_medical_appointment": {
+            "type": "string",
+            "format": "date"
+          },
+          "date_last_medical_dentist": {
+            "type": "string",
+            "format": "date"
+          },
+          "use_medication_often": {
+            "type": "boolean"
+          },
+          "medication_details": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "was_hospitalized_last_twelve_months": {
+            "type": "boolean"
+          },
+          "hospitalized_reason": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "time_hospitalized_days": {
+            "type": "integer"
+          },
+          "did_any_surgery": {
+            "type": "string",
+            "maxLength": 150
+          },
+          "has_vaccination_card": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_covid19": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_hepatite": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_tetano": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_influenza": {
+            "type": "boolean"
+          },
+          "is_updated_vaccination_febre_amarela": {
+            "type": "boolean"
+          },
+          "questions_regarding_physical_or_mental_health": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "do_some_follow_up": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "use_alcohol_or_other_drugs": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "drugs_frequency": {
+            "type": "string"
+          },
+          "has_ever_been_admitted_to_therapeutic_community": {
+            "type": "string",
+            "maxLength": 150
+          },
+          "need_dental_care": {
+            "type": "boolean"
+          },
+          "describe_dental_care": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "need_psychological_care": {
+            "type": "boolean"
+          },
+          "describe_psychological_care": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "need_psychiatric_care": {
+            "type": "boolean"
+          },
+          "describe_psychiatric_care": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "other_specific_care": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "has_any_disabilities": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "describe_need_special_equipment": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "has_any_comorbidities_hipertensao": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_diabetes": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_cardiovascular_problem": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_depression": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_asma": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_cancer": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_none": {
+            "type": "boolean"
+          },
+          "has_any_comorbidities_other": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "man_health_last_prostate_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "man_health_last_ist_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "woman_health_last_preventive_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "woman_health_last_mammography_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "woman_health_last_gynecological_consultation_exam_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "woman_health_suspected_pregnancy_week_quantity": {
+            "type": "integer"
+          },
+          "woman_health_use_some_contraceptive_method": {
+            "type": "boolean"
+          },
+          "use_condom": {
+            "type": "boolean"
+          },
+          "comment_health_situation": {
+            "type": "string",
+            "maxLength": 150
+          },
+          "person": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "judicial_situations",
+  "info": {
+    "name": "JudicialSituation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "has_already_been_through_the_socioeducational_system": {
+      "type": "boolean"
+    },
+    "has_already_been_through_the_prision_system": {
+      "type": "boolean"
+    },
+    "has_an_active_lawsuit": {
+      "type": "boolean"
+    },
+    "has_outstanding_writ_of_execution": {
+      "type": "boolean"
+    },
+    "wear_anklet": {
+      "type": "boolean"
+    },
+    "is_accompanied_by_a_defender": {
+      "type": "boolean"
+    },
+    "is_this_follow_up_enough": {
+      "type": "boolean"
+    },
+    "comment_judicial_situation": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "person": {
+      "model": "person"
+    }
+  }
+}

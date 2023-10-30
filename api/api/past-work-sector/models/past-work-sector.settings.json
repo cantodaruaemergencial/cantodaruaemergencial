@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "past_work_sectors",
+  "info": {
+    "name": "PastWorkSector",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

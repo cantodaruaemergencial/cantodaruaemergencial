@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/person-vacancy-reservation-benefits",
+      "handler": "person-vacancy-reservation-benefit.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/person-vacancy-reservation-benefits/count",
+      "handler": "person-vacancy-reservation-benefit.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/person-vacancy-reservation-benefits/:id",
+      "handler": "person-vacancy-reservation-benefit.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/person-vacancy-reservation-benefits",
+      "handler": "person-vacancy-reservation-benefit.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/person-vacancy-reservation-benefits/:id",
+      "handler": "person-vacancy-reservation-benefit.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/person-vacancy-reservation-benefits/:id",
+      "handler": "person-vacancy-reservation-benefit.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

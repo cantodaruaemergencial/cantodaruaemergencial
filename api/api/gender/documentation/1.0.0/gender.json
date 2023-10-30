@@ -516,13 +516,14 @@
     "schemas": {
       "Gender": {
         "required": [
-          "id"
+          "id",
+          "name"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "Gender": {
+          "name": {
             "type": "string"
           },
           "published_at": {
@@ -532,8 +533,11 @@
         }
       },
       "NewGender": {
+        "required": [
+          "name"
+        ],
         "properties": {
-          "Gender": {
+          "name": {
             "type": "string"
           },
           "published_at": {

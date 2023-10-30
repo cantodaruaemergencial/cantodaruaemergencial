@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "associations",
+  "info": {
+    "name": "Association"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "users": {
+      "via": "associations",
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}

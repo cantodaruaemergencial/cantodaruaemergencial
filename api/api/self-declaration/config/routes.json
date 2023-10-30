@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/self-declarations",
+      "handler": "self-declaration.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/self-declarations/count",
+      "handler": "self-declaration.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/self-declarations/:id",
+      "handler": "self-declaration.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/self-declarations",
+      "handler": "self-declaration.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/self-declarations/:id",
+      "handler": "self-declaration.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/self-declarations/:id",
+      "handler": "self-declaration.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

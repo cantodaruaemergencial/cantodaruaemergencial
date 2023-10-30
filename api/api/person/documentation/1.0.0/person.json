@@ -573,92 +573,118 @@
     "schemas": {
       "Person": {
         "required": [
-          "id"
+          "id",
+          "name",
+          "social_name",
+          "birth_date",
+          "mother_name",
+          "birth_state",
+          "nationality",
+          "occupation",
+          "email",
+          "phone_number",
+          "has_govbr_registration"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "Name": {
-            "type": "string"
+          "name": {
+            "type": "string",
+            "maxLength": 100
           },
-          "SocialName": {
-            "type": "string"
+          "social_name": {
+            "type": "string",
+            "maxLength": 100
           },
-          "MotherName": {
-            "type": "string"
-          },
-          "BirthDate": {
+          "birth_date": {
             "type": "string",
             "format": "date"
           },
-          "BirthPlace": {
-            "type": "string"
+          "mother_name": {
+            "type": "string",
+            "maxLength": 100
           },
-          "gender": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "Gender": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "father_name": {
+            "type": "string",
+            "maxLength": 100
           },
-          "GeneralRegister": {
-            "type": "string"
+          "birth_state": {
+            "type": "string",
+            "maxLength": 50
           },
-          "Childrens": {
-            "type": "integer"
+          "nationality": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasHabitation": {
-            "type": "boolean"
+          "occupation": {
+            "type": "string",
+            "maxLength": 100
           },
-          "HasEmergencyAid": {
-            "type": "boolean"
+          "email": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasPbhBasket": {
-            "type": "boolean"
+          "phone_number": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasUniqueRegister": {
-            "type": "boolean"
+          "birth_document_number": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasGeneralRegister": {
-            "type": "boolean"
+          "wedding_document_number": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasCpf": {
-            "type": "boolean"
+          "rg_document_number": {
+            "type": "string",
+            "maxLength": 20
           },
-          "Cpf": {
-            "type": "string"
+          "cpf_document_number": {
+            "type": "string",
+            "maxLength": 11,
+            "minLength": 11
           },
-          "HasCtps": {
-            "type": "boolean"
+          "reservist_document_number": {
+            "type": "string",
+            "maxLength": 20
           },
-          "HasBirthCertificate": {
+          "voter_registration_document_number": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "cnh_document_number": {
+            "type": "string",
+            "maxLength": 9,
+            "minLength": 9
+          },
+          "ctps_document_number": {
+            "type": "string",
+            "maxLength": 8,
+            "minLength": 8
+          },
+          "nis_document_number": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "caduni_document_number": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "has_govbr_registration": {
             "type": "boolean"
           },
           "marital_status": {
             "required": [
-              "id"
+              "id",
+              "name"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "MaritalStatus": {
+              "name": {
                 "type": "string"
               },
               "published_at": {
@@ -672,15 +698,16 @@
               }
             }
           },
-          "school_training": {
+          "self_declaration": {
             "required": [
-              "id"
+              "id",
+              "name"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "SchoolTraining": {
+              "name": {
                 "type": "string"
               },
               "published_at": {
@@ -694,33 +721,16 @@
               }
             }
           },
-          "ReferenceLocation": {
-            "type": "string"
-          },
-          "Occupation": {
-            "type": "string"
-          },
-          "Profession": {
-            "type": "string"
-          },
-          "ContactPhone": {
-            "type": "string"
-          },
-          "ReferenceAddress": {
-            "type": "string"
-          },
-          "Observation": {
-            "type": "string"
-          },
-          "skin_color": {
+          "gender": {
             "required": [
-              "id"
+              "id",
+              "name"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "SkinColor": {
+              "name": {
                 "type": "string"
               },
               "published_at": {
@@ -734,122 +744,93 @@
               }
             }
           },
-          "CardNumber": {
-            "type": "string"
+          "sexual_orientation": {
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
-          "Preferential": {
-            "type": "boolean"
+          "child_quantity": {
+            "type": "integer"
           },
-          "HomelessSince": {
+          "child_care_person": {
             "type": "string",
-            "format": "date"
+            "maxLength": 50
           },
-          "services": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "Service": {
-                  "type": "string"
-                },
-                "people": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "icon": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "HomelessTime": {
-            "type": "string"
-          },
-          "BirthPlaceState": {
-            "type": "string"
-          },
-          "BirthPlaceCity": {
-            "type": "string"
-          },
-          "external_services": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "ExternalService"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "ExternalService": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "benefits": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "benefit": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "Demands": {
-            "type": "string"
-          },
-          "Checked": {
-            "type": "boolean"
-          },
-          "CheckedBy": {
-            "type": "string"
-          },
-          "CheckedAt": {
+          "comment_person": {
             "type": "string",
-            "format": "date"
+            "maxLength": 150
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "associations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "card_number": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -858,135 +839,133 @@
         }
       },
       "NewPerson": {
+        "required": [
+          "name",
+          "social_name",
+          "birth_date",
+          "mother_name",
+          "birth_state",
+          "nationality",
+          "occupation",
+          "email",
+          "phone_number",
+          "has_govbr_registration"
+        ],
         "properties": {
-          "Name": {
-            "type": "string"
+          "name": {
+            "type": "string",
+            "maxLength": 100
           },
-          "SocialName": {
-            "type": "string"
+          "social_name": {
+            "type": "string",
+            "maxLength": 100
           },
-          "MotherName": {
-            "type": "string"
-          },
-          "BirthDate": {
+          "birth_date": {
             "type": "string",
             "format": "date"
           },
-          "BirthPlace": {
-            "type": "string"
+          "mother_name": {
+            "type": "string",
+            "maxLength": 100
           },
-          "gender": {
-            "type": "string"
+          "father_name": {
+            "type": "string",
+            "maxLength": 100
           },
-          "GeneralRegister": {
-            "type": "string"
+          "birth_state": {
+            "type": "string",
+            "maxLength": 50
           },
-          "Childrens": {
-            "type": "integer"
+          "nationality": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasHabitation": {
-            "type": "boolean"
+          "occupation": {
+            "type": "string",
+            "maxLength": 100
           },
-          "HasEmergencyAid": {
-            "type": "boolean"
+          "email": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasPbhBasket": {
-            "type": "boolean"
+          "phone_number": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasUniqueRegister": {
-            "type": "boolean"
+          "birth_document_number": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasGeneralRegister": {
-            "type": "boolean"
+          "wedding_document_number": {
+            "type": "string",
+            "maxLength": 50
           },
-          "HasCpf": {
-            "type": "boolean"
+          "rg_document_number": {
+            "type": "string",
+            "maxLength": 20
           },
-          "Cpf": {
-            "type": "string"
+          "cpf_document_number": {
+            "type": "string",
+            "maxLength": 11,
+            "minLength": 11
           },
-          "HasCtps": {
-            "type": "boolean"
+          "reservist_document_number": {
+            "type": "string",
+            "maxLength": 20
           },
-          "HasBirthCertificate": {
+          "voter_registration_document_number": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "cnh_document_number": {
+            "type": "string",
+            "maxLength": 9,
+            "minLength": 9
+          },
+          "ctps_document_number": {
+            "type": "string",
+            "maxLength": 8,
+            "minLength": 8
+          },
+          "nis_document_number": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "caduni_document_number": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "has_govbr_registration": {
             "type": "boolean"
           },
           "marital_status": {
             "type": "string"
           },
-          "school_training": {
+          "self_declaration": {
             "type": "string"
           },
-          "ReferenceLocation": {
+          "gender": {
             "type": "string"
           },
-          "Occupation": {
+          "sexual_orientation": {
             "type": "string"
           },
-          "Profession": {
-            "type": "string"
+          "child_quantity": {
+            "type": "integer"
           },
-          "ContactPhone": {
-            "type": "string"
-          },
-          "ReferenceAddress": {
-            "type": "string"
-          },
-          "Observation": {
-            "type": "string"
-          },
-          "skin_color": {
-            "type": "string"
-          },
-          "CardNumber": {
-            "type": "string"
-          },
-          "Preferential": {
-            "type": "boolean"
-          },
-          "HomelessSince": {
+          "child_care_person": {
             "type": "string",
-            "format": "date"
+            "maxLength": 50
           },
-          "services": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "HomelessTime": {
-            "type": "string"
-          },
-          "BirthPlaceState": {
-            "type": "string"
-          },
-          "BirthPlaceCity": {
-            "type": "string"
-          },
-          "external_services": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "benefits": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "Demands": {
-            "type": "string"
-          },
-          "Checked": {
-            "type": "boolean"
-          },
-          "CheckedBy": {
-            "type": "string"
-          },
-          "CheckedAt": {
+          "comment_person": {
             "type": "string",
-            "format": "date"
+            "maxLength": 150
+          },
+          "user": {
+            "type": "string"
+          },
+          "card_number": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

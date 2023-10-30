@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "people",
+  "collectionName": "person",
   "info": {
-    "name": "Person",
+    "name": "person",
     "description": ""
   },
   "options": {
@@ -11,124 +11,148 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Name": {
-      "type": "string"
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
     },
-    "SocialName": {
-      "type": "string"
+    "social_name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
     },
-    "MotherName": {
-      "type": "string"
+    "birth_date": {
+      "type": "date",
+      "required": true
     },
-    "BirthDate": {
-      "type": "date"
+    "mother_name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
     },
-    "BirthPlace": {
-      "type": "string"
+    "father_name": {
+      "type": "string",
+      "maxLength": 100
     },
-    "gender": {
-      "model": "gender"
+    "birth_state": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "maxLength": 50
     },
-    "GeneralRegister": {
-      "type": "string"
+    "nationality": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "maxLength": 50
     },
-    "Childrens": {
-      "type": "integer"
+    "occupation": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "maxLength": 100
     },
-    "HasHabitation": {
-      "type": "boolean"
+    "email": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 50
     },
-    "HasEmergencyAid": {
-      "type": "boolean"
+    "phone_number": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "maxLength": 50
     },
-    "HasPbhBasket": {
-      "type": "boolean"
+    "birth_document_number": {
+      "type": "string",
+      "required": false,
+      "unique": true,
+      "maxLength": 50
     },
-    "HasUniqueRegister": {
-      "type": "boolean"
+    "wedding_document_number": {
+      "type": "string",
+      "required": false,
+      "unique": true,
+      "maxLength": 50
     },
-    "HasGeneralRegister": {
-      "type": "boolean"
+    "rg_document_number": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 20
     },
-    "HasCpf": {
-      "type": "boolean"
+    "cpf_document_number": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 11,
+      "minLength": 11
     },
-    "Cpf": {
-      "type": "string"
+    "reservist_document_number": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 20
     },
-    "HasCtps": {
-      "type": "boolean"
+    "voter_registration_document_number": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 20
     },
-    "HasBirthCertificate": {
-      "type": "boolean"
+    "cnh_document_number": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 9,
+      "minLength": 9
+    },
+    "ctps_document_number": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 8,
+      "minLength": 8
+    },
+    "nis_document_number": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 20
+    },
+    "caduni_document_number": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 20
+    },
+    "has_govbr_registration": {
+      "type": "boolean",
+      "required": true
     },
     "marital_status": {
       "model": "marital-status"
     },
-    "school_training": {
-      "model": "school-training"
+    "self_declaration": {
+      "model": "self-declaration"
     },
-    "ReferenceLocation": {
-      "type": "text"
+    "gender": {
+      "model": "gender"
     },
-    "Occupation": {
-      "type": "string"
+    "sexual_orientation": {
+      "model": "sexual-orientation"
     },
-    "Profession": {
-      "type": "string"
+    "child_quantity": {
+      "type": "integer"
     },
-    "ContactPhone": {
-      "type": "string"
+    "child_care_person": {
+      "type": "string",
+      "maxLength": 50
     },
-    "ReferenceAddress": {
-      "type": "text"
+    "comment_person": {
+      "type": "text",
+      "maxLength": 150
     },
-    "Observation": {
-      "type": "string"
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     },
-    "skin_color": {
-      "model": "skin-color"
-    },
-    "CardNumber": {
-      "type": "string"
-    },
-    "Preferential": {
-      "type": "boolean"
-    },
-    "HomelessSince": {
-      "type": "date"
-    },
-    "services": {
-      "via": "people",
-      "collection": "service",
-      "dominant": true
-    },
-    "HomelessTime": {
-      "type": "string"
-    },
-    "BirthPlaceState": {
-      "type": "string"
-    },
-    "BirthPlaceCity": {
-      "type": "string"
-    },
-    "external_services": {
-      "collection": "external-service"
-    },
-    "benefits": {
-      "collection": "benefit"
-    },
-    "Demands": {
-      "type": "string"
-    },
-    "Checked": {
-      "type": "boolean"
-    },
-    "CheckedBy": {
-      "type": "string"
-    },
-    "CheckedAt": {
-      "type": "date"
+    "card_number": {
+      "type": "string",
+      "unique": true
     }
   }
 }

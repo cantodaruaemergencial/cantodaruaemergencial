@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "street_paths",
+  "info": {
+    "name": "StreetPath",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "time_homeless": {
+      "type": "integer"
+    },
+    "homeless_reason": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "had_any_family_ties_interrupted_quantity": {
+      "type": "integer"
+    },
+    "already_been_in_shelter_quantity_months": {
+      "type": "integer"
+    },
+    "already_been_in_hostel_quantity_months": {
+      "type": "integer"
+    },
+    "time_lived_in_bh_months": {
+      "type": "integer"
+    },
+    "lived_on_streets_in_another_city": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "any_family_member_have_been_homeless": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "reason_past_street_path_unemployment": {
+      "type": "boolean"
+    },
+    "reason_past_street_path_family_problems": {
+      "type": "boolean"
+    },
+    "reason_past_street_path_drugs": {
+      "type": "boolean"
+    },
+    "reason_past_street_path_comment": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "time_past_street_path": {
+      "type": "integer"
+    },
+    "comment_street_path": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "person": {
+      "model": "person"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "is_currently_homeless": {
+      "type": "boolean"
+    }
+  }
+}

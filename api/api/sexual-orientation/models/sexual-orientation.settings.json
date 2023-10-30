@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sexual_orientations",
+  "info": {
+    "name": "SexualOrientation"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

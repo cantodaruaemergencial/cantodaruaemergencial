@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_and_incomes",
+  "info": {
+    "name": "WorkAndIncome",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "already_has_paid_work": {
+      "type": "boolean"
+    },
+    "describe_past_paid_work": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "work_type": {
+      "model": "work-type"
+    },
+    "participate_in_any_income_generation_projects": {
+      "type": "boolean"
+    },
+    "what_is_being_done_to_get_out_of_this_situation": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "retirement_benefit_value": {
+      "type": "decimal"
+    },
+    "continuing_provision_benefit_value": {
+      "type": "decimal"
+    },
+    "sick_pay_benefit_value": {
+      "type": "decimal"
+    },
+    "bolsa_familia_benefit_value": {
+      "type": "decimal"
+    },
+    "brazil_financial_assistance_benefit_value": {
+      "type": "decimal"
+    },
+    "other_benefit_value": {
+      "type": "decimal"
+    },
+    "family_average_monthly_income_value": {
+      "type": "decimal"
+    },
+    "past_work_category": {
+      "model": "past-work-category"
+    },
+    "past_work_sector": {
+      "model": "past-work-sector"
+    },
+    "comment_work_and_income": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "person": {
+      "model": "person"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

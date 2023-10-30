@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cultures",
+  "info": {
+    "name": "Culture",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "exercises_practiced": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "exercises_quantity_by_week": {
+      "type": "integer"
+    },
+    "know_some_cultural_place": {
+      "type": "boolean"
+    },
+    "usually_go_to_some_culture_place": {
+      "type": "boolean"
+    },
+    "went_somewhere_place_last_twelve_months": {
+      "type": "boolean"
+    },
+    "has_reading_habit": {
+      "type": "boolean"
+    },
+    "has_listening_music_habit": {
+      "type": "boolean"
+    },
+    "has_drawing_habit": {
+      "type": "boolean"
+    },
+    "other_habit": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "person": {
+      "model": "person"
+    }
+  }
+}

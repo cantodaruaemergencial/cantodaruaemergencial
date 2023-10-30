@@ -3,7 +3,7 @@ name: deploy app
 on:
   push:
     branches:
-      - dev
+      - development #TODO: Change back to dev branch, when the cloud provider is Google Cloud Platform
       - master # TODO: If the deploy is not being done on GitHub Pages, it must change master to main to use this file correctly
     paths:
       - "app/**"

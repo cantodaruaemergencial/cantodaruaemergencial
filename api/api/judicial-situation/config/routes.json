@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/judicial-situations",
+      "handler": "judicial-situation.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/judicial-situations/count",
+      "handler": "judicial-situation.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/judicial-situations/:id",
+      "handler": "judicial-situation.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/judicial-situations",
+      "handler": "judicial-situation.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/judicial-situations/:id",
+      "handler": "judicial-situation.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/judicial-situations/:id",
+      "handler": "judicial-situation.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

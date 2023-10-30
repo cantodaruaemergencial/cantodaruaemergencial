@@ -3,6 +3,7 @@ import {
   Container as MuiContainer,
   TextField as MuiTextField,
   Button as MuiButton,
+  InputAdornment,
 } from '@material-ui/core';
 import { useRouter } from 'next/dist/client/router';
 import { ReactElement, useState } from 'react';
@@ -11,7 +12,8 @@ import styled from 'styled-components';
 import Card from './Card';
 
 import { useAuthMethods, useAuthState } from '#/packages/auth/auth-context';
-import Link from 'next/link';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 const Container = styled(MuiContainer)`
   && {
@@ -57,10 +59,11 @@ const LoginPage = (): ReactElement => {
   const { login } = useAuthMethods();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const router = useRouter();
 
   if (isLogged) {
-    router.replace('/dashboard');
+    router.replace('/pessoas');
   }
 
   return (
@@ -91,19 +94,29 @@ const LoginPage = (): ReactElement => {
           <TextField
             label="Senha"
             variant="outlined"
-            type="password"
+            type={!showPassword ? 'password' : 'text'}
             autoComplete="off"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             fullWidth
             required
+            InputProps={{
+              endAdornment: password.length ? (
+                <InputAdornment
+                  position="end"
+                  onClick={() => setShowPassword((oldValue) => !oldValue)}
+                >
+                  {!showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                </InputAdornment>
+              ) : null,
+            }}
           />
           <Button variant="outlined" type="submit" disabled={isLoading}>
             Login
           </Button>
-          <BackLabelText>
+          {/* <BackLabelText>
             <Link href="/">Voltar para Dashboard</Link>
-          </BackLabelText>
+          </BackLabelText> */}
         </Form>
       </Card>
     </Container>

@@ -102,6 +102,7 @@ const Form = ({ form, onSubmit, className }: Props) => {
         ))}
         <Buttons>
           <Button
+            id="saveButton"
             variant="contained"
             color="primary"
             type="submit"

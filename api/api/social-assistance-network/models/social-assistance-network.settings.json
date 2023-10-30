@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "social_assistance_networks",
+  "info": {
+    "name": "SocialAssistanceNetwork",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "is_attended_to_a_network_services": {
+      "type": "boolean"
+    },
+    "has_crea_service": {
+      "type": "boolean"
+    },
+    "has_cras_service": {
+      "type": "boolean"
+    },
+    "has_shelter_service": {
+      "type": "boolean"
+    },
+    "has_council_of_rights_service": {
+      "type": "boolean"
+    },
+    "has_health_service": {
+      "type": "boolean"
+    },
+    "has_education_service": {
+      "type": "boolean"
+    },
+    "has_pastoral_povo_da_rua_service": {
+      "type": "boolean"
+    },
+    "comment_social_assistance_network": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "person": {
+      "model": "person"
+    }
+  }
+}

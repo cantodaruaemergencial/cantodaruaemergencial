@@ -135,12 +135,15 @@ const FormField = ({
       invalidDateMessage={RulesMessages.invalidDate}
       maxDateMessage={RulesMessages.maxDate}
       disableFuture={dateConfig?.disableFuture || false}
+      disabled={disabled}
     />
   );
 
   const renderBoolean = ({ field }: RenderType) => (
     <FormControlLabel
-      control={<Checkbox {...field} color="primary" checked={field?.value === true} />}
+      control={
+        <Checkbox {...field} color="primary" checked={field?.value === true} />
+      }
       label={formatedLabel}
     />
   );

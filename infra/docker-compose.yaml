@@ -44,14 +44,14 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: "cantodarua"
+      MYSQL_DATABASE: "cantodarua-db"
       MYSQL_PASSWORD: "secret"
       MYSQL_ROOT_PASSWORD: "secret"
 
     volumes:
       - ./compose/docker-mysql/:/docker-entrypoint-initdb.d
       - ./compose/init.sql:/data/application/init.sql
-      
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: pma

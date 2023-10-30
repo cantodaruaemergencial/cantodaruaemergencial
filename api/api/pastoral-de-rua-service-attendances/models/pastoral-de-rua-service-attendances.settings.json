@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pastoral_de_rua_service_attendances",
+  "info": {
+    "name": "PastoralDeRuaServiceAttendances",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "needs_conversation": {
+      "type": "boolean",
+      "required": false
+    },
+    "describe_needs_call": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "describe_needs_health": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "needs_food": {
+      "type": "boolean"
+    },
+    "describe_needs_work": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "needs_house": {
+      "type": "boolean"
+    },
+    "needs_temporary_home": {
+      "type": "boolean"
+    },
+    "needs_documents": {
+      "type": "boolean"
+    },
+    "needs_shelter": {
+      "type": "boolean"
+    },
+    "needs_hygiene_care": {
+      "type": "boolean"
+    },
+    "describe_needs_others": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "comment": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "service_attendance_date": {
+      "type": "datetime"
+    },
+    "person": {
+      "model": "person"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

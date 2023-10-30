@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "infrastructures",
+  "info": {
+    "name": "Infrastructure",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "has_access_to_clean_water": {
+      "type": "boolean"
+    },
+    "has_access_to_adequate_toilets": {
+      "type": "boolean"
+    },
+    "has_access_to_a_bed": {
+      "type": "boolean"
+    },
+    "has_access_to_safety_spot": {
+      "type": "boolean"
+    },
+    "place_of_stay_has_adequate_hygiene": {
+      "type": "boolean"
+    },
+    "place_of_stay_has_adequate_structure": {
+      "type": "boolean"
+    },
+    "place_of_stay_has_proximity_to_basic_services": {
+      "type": "boolean"
+    },
+    "place_of_stay_has_adequate_sound_condition": {
+      "type": "boolean"
+    },
+    "has_any_furniture": {
+      "type": "boolean"
+    },
+    "comment_infrastructure": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "person": {
+      "model": "person"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

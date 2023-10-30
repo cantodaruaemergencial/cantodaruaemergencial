@@ -1,0 +1,176 @@
+{
+  "kind": "collectionType",
+  "collectionName": "health_situations",
+  "info": {
+    "name": "HealthSituation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "self_health_evaluation": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "date_last_medical_appointment": {
+      "type": "date"
+    },
+    "date_last_medical_dentist": {
+      "type": "date"
+    },
+    "use_medication_often": {
+      "type": "boolean"
+    },
+    "medication_details": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "was_hospitalized_last_twelve_months": {
+      "type": "boolean"
+    },
+    "hospitalized_reason": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "time_hospitalized_days": {
+      "type": "integer"
+    },
+    "did_any_surgery": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "has_vaccination_card": {
+      "type": "boolean"
+    },
+    "is_updated_vaccination_covid19": {
+      "type": "boolean"
+    },
+    "is_updated_vaccination_hepatite": {
+      "type": "boolean"
+    },
+    "is_updated_vaccination_tetano": {
+      "type": "boolean"
+    },
+    "is_updated_vaccination_influenza": {
+      "type": "boolean"
+    },
+    "is_updated_vaccination_febre_amarela": {
+      "type": "boolean"
+    },
+    "questions_regarding_physical_or_mental_health": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "do_some_follow_up": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "use_alcohol_or_other_drugs": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "drugs_frequency": {
+      "model": "drugs-frequency"
+    },
+    "has_ever_been_admitted_to_therapeutic_community": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "need_dental_care": {
+      "type": "boolean"
+    },
+    "describe_dental_care": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "need_psychological_care": {
+      "type": "boolean"
+    },
+    "describe_psychological_care": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "need_psychiatric_care": {
+      "type": "boolean"
+    },
+    "describe_psychiatric_care": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "other_specific_care": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "has_any_disabilities": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "describe_need_special_equipment": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "has_any_comorbidities_hipertensao": {
+      "type": "boolean"
+    },
+    "has_any_comorbidities_diabetes": {
+      "type": "boolean"
+    },
+    "has_any_comorbidities_cardiovascular_problem": {
+      "type": "boolean"
+    },
+    "has_any_comorbidities_depression": {
+      "type": "boolean"
+    },
+    "has_any_comorbidities_asma": {
+      "type": "boolean"
+    },
+    "has_any_comorbidities_cancer": {
+      "type": "boolean"
+    },
+    "has_any_comorbidities_none": {
+      "type": "boolean"
+    },
+    "has_any_comorbidities_other": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "man_health_last_prostate_exam_date": {
+      "type": "date"
+    },
+    "man_health_last_ist_exam_date": {
+      "type": "date"
+    },
+    "woman_health_last_preventive_exam_date": {
+      "type": "date"
+    },
+    "woman_health_last_mammography_exam_date": {
+      "type": "date"
+    },
+    "woman_health_last_gynecological_consultation_exam_date": {
+      "type": "date"
+    },
+    "woman_health_suspected_pregnancy_week_quantity": {
+      "type": "integer"
+    },
+    "woman_health_use_some_contraceptive_method": {
+      "type": "boolean"
+    },
+    "use_condom": {
+      "type": "boolean"
+    },
+    "comment_health_situation": {
+      "type": "text",
+      "maxLength": 150
+    },
+    "person": {
+      "model": "person"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

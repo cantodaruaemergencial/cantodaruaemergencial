@@ -14,9 +14,8 @@
     "person": {
       "model": "person"
     },
-    "DateTime": {
-      "type": "datetime",
-      "required": true
+    "date": {
+      "type": "datetime"
     }
   }
 }
