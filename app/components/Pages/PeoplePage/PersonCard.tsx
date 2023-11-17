@@ -159,7 +159,7 @@ const PersonCard = ({
 
   const updateItem = (lastEntrance: Entrance) =>
     setEntrance({
-      LastEntranceDate: lastEntrance.DateTime,
+      LastEntranceDate: lastEntrance.date,
       EnteredToday: true,
     });
 

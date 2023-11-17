@@ -48,11 +48,11 @@ const Logo = styled(Avatar)`
   }
 `;
 
-const BackLabelText = styled.p`
-  font-size: 0.875rem;
-  color: '#706e6e';
-  text-align: center;
-`;
+// const BackLabelText = styled.p`
+//   font-size: 0.875rem;
+//   color: '#706e6e';
+//   text-align: center;
+// `;
 
 const LoginPage = (): ReactElement => {
   const { isLoading, isLogged } = useAuthState();

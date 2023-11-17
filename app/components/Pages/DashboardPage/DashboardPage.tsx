@@ -1,6 +1,6 @@
 import { Avatar, Box, Container, withTheme, Link } from '@material-ui/core';
 import { Instagram, Facebook, InputRounded } from '@material-ui/icons';
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import styled from 'styled-components';
 import PageHeader from '../../PageHeader';
 import BarCard from '#/components/BarCard/BarCard';
@@ -8,7 +8,7 @@ import DashboardCard from '#/components/DashboardCard/DashboardCard';
 import DoughtnutCard from '#/components/DoughtnutCard/DoughtnutCard';
 import TotalListCard from '#/components/TotalListCard/TotalListCard';
 import { useAuthState } from '#/packages/auth/auth-context';
-import DashboardService from '#/services/DashboardService';
+// import DashboardService from '#/services/DashboardService';
 import { DashboardData } from '#/types/Dashboard';
 import { returnBasePathDependingOnEnv } from '#/utils/deploy';
 
@@ -124,7 +124,7 @@ const SchoolTrainings = styled(BarCard)`
 const DashboardPage = (): ReactElement => {
   const { isLogged } = useAuthState();
 
-  const [dashboardData, setDashboardData] = useState<DashboardData>();
+  const [dashboardData] = useState<DashboardData>();
 
   // useEffect(() => {
   //   DashboardService.getDashboardData().then((data) => {

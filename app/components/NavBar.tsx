@@ -8,7 +8,7 @@ import {
   withTheme,
 } from '@material-ui/core';
 import {
-  DashboardRounded,
+  // DashboardRounded,
   ExitToAppRounded,
   PersonRounded,
   TransferWithinAStationRounded,
