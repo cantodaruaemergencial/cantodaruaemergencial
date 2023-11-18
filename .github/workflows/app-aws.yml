@@ -8,36 +8,34 @@ on:
       - "app/**"
       - ".github/workflows/app-aws.yml"
 
-env:
-  USERNAME: ${{ secrets.USERNAME }}
-
 jobs:
   setup-build-deploy:
     name: Build and deploy to EC2
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
+      - name: Build & Deploy
         uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - run: npm ci
-      - run: npm run build
-
-      - name: Deploy to Web
-        uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}
+          PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          HOSTNAME: ${{secrets.HOST_DNS}}
+          USER_NAME: ${{secrets.USERNAME}}
 
-      - name: PM2 start
+      - name: Run commands
         run: |
-          pm2 start web.cantodaruaemergencial
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
 
-      - name: PM2 save
-        run: |
-          pm2 save
+              # Now we have got the access of EC2 and we will start the deploy .
+              cd /home/ubuntu/cantodaruaemergencial &&
+              git checkout main &&
+              git fetch --all &&
+              git reset --hard origin/main &&
+              git pull origin main &&
+              sudo npm i &&
+              sudo npm run build &&
+              cd ~ &&
+              sudo pm2 stop web.cantodaruaemergencial &&
+              sudo pm2 delete web.cantodaruaemergencial &&
+              sudo pm2 start ecosystem.config.js &&
+              sudo pm2 save
