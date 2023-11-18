@@ -24,7 +24,7 @@ jobs:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           script: |
-            cd /home/ubuntu/cantodarua &&
+            cd /home/ubuntu/cantodarua/app &&
             git fetch --all &&
             git reset --hard origin/main &&
             git pull origin main &&
