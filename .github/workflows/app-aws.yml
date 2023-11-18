@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build & Deploy
+      - name: Build &  Deploy
         uses: appleboy/ssh-action@v1.0.0
         with:
           key: ${{ secrets.EC2_SSH_KEY }}
