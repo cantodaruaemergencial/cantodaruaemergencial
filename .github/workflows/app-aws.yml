@@ -24,14 +24,14 @@ jobs:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           script: |
-            cd /home/ubuntu/cantodaruaemergencial &&
+            cd /home/ubuntu/cantodarua &&
             git fetch --all &&
             git reset --hard origin/main &&
             git pull origin main &&
             sudo npm i &&
             sudo npm run build &&
             cd ~ &&
-            sudo pm2 stop web.cantodaruaemergencial &&
-            sudo pm2 delete web.cantodaruaemergencial &&
+            sudo pm2 stop web.cantodarua &&
+            sudo pm2 delete web.cantodarua &&
             sudo pm2 start ecosystem.config.js &&
             sudo pm2 save
