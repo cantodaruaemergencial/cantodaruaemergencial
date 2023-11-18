@@ -20,6 +20,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm ci
+      - run: npm run build
+
       - name: Deploy to Web
         uses: easingthemes/ssh-deploy@main
         env:
@@ -27,19 +33,6 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
-
-      - name: Enter folder
-        run: |
-          echo "$PWD"
-          cd home/$USERNAME/cantodaruaemergencial/app
-
-      - name: Install
-        run: |
-          npm i
-
-      - name: Build
-        run: |
-          npm run build
 
       - name: PM2 start
         run: |
