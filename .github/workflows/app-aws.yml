@@ -18,13 +18,13 @@ jobs:
         uses: actions/checkout@v2
         env:
           PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          HOSTNAME: ${{secrets.HOST_DNS}}
-          USER_NAME: ${{secrets.USERNAME}}
+          HOSTNAME: ${{ secrets.HOST_DNS }}
+          USER_NAME: ${{ secrets.USERNAME }}
 
       - name: Run commands
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
 
               # Now we have got the access of EC2 and we will start the deploy .
               cd /home/ubuntu/cantodaruaemergencial &&
