@@ -24,3 +24,15 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
+
+      - name: Install
+        run: cd ./cantodaruaemergencial/app | npm i
+
+      - name: Build
+        run: cd ./cantodaruaemergencial/app | npm run build
+
+      - name: PM2 start
+        run: pm2 start web.cantodaruaemergencial
+
+      - name: PM2 save
+        run: pm2 save
