@@ -91,7 +91,7 @@ const ButtonAppBar = (): React.ReactElement => {
           <Link href="/pessoas">
             <Logo
               alt="Canto da Rua"
-              src={`${process.env.REPO_NAME}/images/logo.png`}
+              src={`${process.env.NEXT_PUBLIC_BUCKET_NAME}/images/logo.png`}
             />
           </Link>
 
@@ -146,7 +146,7 @@ const ButtonAppBar = (): React.ReactElement => {
           <ExitToAppRounded />
         </NavIconButton>
         <NavButton onClick={logout}>Sair</NavButton>
-        <Flag src={`/${process.env.REPO_NAME}/images/flag.png`} />
+        <Flag src={`/${process.env.NEXT_PUBLIC_BUCKET_NAME}/images/flag.png`} />
       </FloatingBox>
     </AppBar>
   );

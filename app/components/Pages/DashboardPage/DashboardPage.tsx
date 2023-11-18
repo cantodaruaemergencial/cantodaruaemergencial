@@ -151,7 +151,7 @@ const DashboardPage = (): ReactElement => {
 
     return (
       <Title>
-        <Logo src={`/${process.env.REPO_NAME}/images/logo.png`} />
+        <Logo src={`/${process.env.NEXT_PUBLIC_BUCKET_NAME}/images/logo.png`} />
         Canto da Rua
         <Link
           href="https://www.instagram.com/cantodaruaemergencial/"

@@ -25,7 +25,7 @@ const {
   PROJECT_ID,
   MEASUREMENT_ID,
   MESSAGING_SENDER_ID,
-  REPO_NAME,
+  NEXT_PUBLIC_BUCKET_NAME,
 } = process.env;
 
 module.exports = withPWA({
@@ -42,6 +42,6 @@ module.exports = withPWA({
     PROJECT_ID,
     MEASUREMENT_ID,
     MESSAGING_SENDER_ID,
-    REPO_NAME,
+    NEXT_PUBLIC_BUCKET_NAME,
   },
 });
