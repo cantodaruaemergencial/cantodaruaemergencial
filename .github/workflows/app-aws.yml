@@ -31,7 +31,7 @@ jobs:
             sudo npm i &&
             sudo npm run build &&
             cd ~ &&
-            pm2 stop web.cantodarua &&
-            pm2 delete web.cantodarua &&
-            pm2 start ecosystem.config.js &&
-            pm2 save
+            sudo pm2 stop web.cantodarua &&
+            sudo pm2 delete web.cantodarua &&
+            sudo pm2 start ecosystem.config.js &&
+            sudo pm2 save
