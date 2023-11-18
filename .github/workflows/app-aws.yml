@@ -26,7 +26,7 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
 
       - name: Enter folder
-        run: cd cantodaruaemergencial/app
+        run: cd ~/cantodaruaemergencial/app
 
       - name: Install
         run: npm i
