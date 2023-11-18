@@ -31,7 +31,7 @@ jobs:
             git reset --hard origin/main &&
             git pull origin main &&
             sudo npm i &&
-            sudo npm run build &&
+            sudo NODE_ENV=production npm run build &&
             cd ~ &&
             pm2 stop api.cantodarua &&
             pm2 delete api.cantodarua &&
