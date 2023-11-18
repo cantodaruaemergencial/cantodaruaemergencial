@@ -14,30 +14,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Build & Deploy
+      - name: Checkout
         uses: actions/checkout@v2
-        env:
-          PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          HOSTNAME: ${{ secrets.HOST_DNS }}
-          USER_NAME: ${{ secrets.USERNAME }}
-          AWS_DEFAULT_REGION: us-east-2
-          AWS_EC2_METADATA_DISABLED: true
 
-      - name: Run commands
-        run: |
-          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-
-              cd /home/ubuntu/cantodaruaemergencial &&
-              git checkout main &&
-              git fetch --all &&
-              git reset --hard origin/main &&
-              git pull origin main &&
-              sudo npm i &&
-              sudo npm run build &&
-              cd ~ &&
-              sudo pm2 stop web.cantodaruaemergencial &&
-              sudo pm2 delete web.cantodaruaemergencial &&
-              sudo pm2 start ecosystem.config.js &&
-              sudo pm2 save
-              '
+      - name: Build & Deploy
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          script: |
+            cd /home/ubuntu/cantodaruaemergencial &&
+            git checkout main &&
+            git fetch --all &&
+            git reset --hard origin/main &&
+            git pull origin main &&
+            sudo npm i &&
+            sudo npm run build &&
+            cd ~ &&
+            sudo pm2 stop web.cantodaruaemergencial &&
+            sudo pm2 delete web.cantodaruaemergencial &&
+            sudo pm2 start ecosystem.config.js &&
+            sudo pm2 save
