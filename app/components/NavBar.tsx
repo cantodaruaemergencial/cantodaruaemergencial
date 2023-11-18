@@ -146,7 +146,7 @@ const ButtonAppBar = (): React.ReactElement => {
           <ExitToAppRounded />
         </NavIconButton>
         <NavButton onClick={logout}>Sair</NavButton>
-        <Flag src={`/${process.env.NEXT_PUBLIC_BUCKET_NAME}/images/flag.png`} />
+        <Flag src={`${process.env.NEXT_PUBLIC_BUCKET_NAME}/images/flag.png`} />
       </FloatingBox>
     </AppBar>
   );

@@ -155,7 +155,7 @@ const PersonCardModal = ({
           <Card>
             <Logo
               alt="Canto da Rua"
-              src={`/${process.env.NEXT_PUBLIC_BUCKET_NAME}/images/logo.png`}
+              src={`${process.env.NEXT_PUBLIC_BUCKET_NAME}/images/logo.png`}
             />
 
             <Field>
