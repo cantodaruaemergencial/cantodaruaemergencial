@@ -24,7 +24,9 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
-        run: cd cantodaruaemergencial/app
+
+      - name: Enter folder
+        run: cd cd /home/${{ secrets.USERNAME }}/cantodaruaemergencial/app
 
       - name: Install
         run: npm i
