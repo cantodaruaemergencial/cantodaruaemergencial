@@ -8,6 +8,9 @@ on:
       - "app/**"
       - ".github/workflows/app-aws.yml"
 
+env:
+  USERNAME: ${{ secrets.USERNAME }}
+
 jobs:
   setup-build-deploy:
     name: Build and deploy to EC2
