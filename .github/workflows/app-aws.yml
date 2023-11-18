@@ -27,9 +27,9 @@ jobs:
             cd /home/ubuntu/cantodarua/app &&
             export PATH=$PATH:/home/ubuntu/.npm-global/bin &&
             source ~/.bashrc &&
-            git fetch --all &&
-            git reset --hard origin/main &&
-            git pull origin main &&
+            sudo git fetch --all &&
+            sudo git reset --hard origin/main &&
+            sudo git pull origin main &&
             sudo npm i &&
             sudo npm run build &&
             cd ~ &&
