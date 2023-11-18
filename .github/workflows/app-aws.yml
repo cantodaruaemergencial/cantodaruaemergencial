@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - "app/**"
-      - ".github/workflows/app.yml"
+      - ".github/workflows/app-aws.yml"
 
 jobs:
   setup-build-deploy:
