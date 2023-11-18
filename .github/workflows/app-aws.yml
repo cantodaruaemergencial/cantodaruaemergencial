@@ -25,11 +25,14 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
 
+      - name: Enter folder
+        run: cd cantodaruaemergencial/app
+
       - name: Install
-        run: cd app | npm i
+        run: npm i
 
       - name: Build
-        run: cd app | npm run build
+        run: npm run build
 
       - name: PM2 start
         run: pm2 start web.cantodaruaemergencial
