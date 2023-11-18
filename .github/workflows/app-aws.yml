@@ -26,10 +26,10 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
 
       - name: Install
-        run: cd cantodaruaemergencial/app | npm i
+        run: cd app | npm i
 
       - name: Build
-        run: cd cantodaruaemergencial/app | npm run build
+        run: cd app | npm run build
 
       - name: PM2 start
         run: pm2 start web.cantodaruaemergencial
