@@ -4,9 +4,9 @@ name: Deploy GH Pages for APP
 on:
   push:
     branches:
-      - main
+      - main-v2 # REMOVE -v2 to deploy using this yml
     paths:
-      - "app/**"
+      - "app-v2/**" # REMOVE -v2 to deploy using this yml
       - ".github/workflows/app-ghpages.yml"
 
 defaults:
