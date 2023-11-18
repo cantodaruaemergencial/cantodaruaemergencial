@@ -10,7 +10,9 @@ const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 // const { NEXT_PUBLIC_STRAPI_API_URL = 'https://api-t6n6cgkpra-ue.a.run.app' } =
 //   process?.env;
 
-const { NEXT_PUBLIC_STRAPI_API_URL_PRD } = process?.env;
+const {
+  NEXT_PUBLIC_STRAPI_API_URL_PRD = 'http://ec2-18-219-162-78.us-east-2.compute.amazonaws.com:1337',
+} = process?.env;
 
 export function getUserProfile(): UserProfile | null {
   if (!localStorage) return null;
