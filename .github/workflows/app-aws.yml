@@ -21,6 +21,7 @@ jobs:
           HOSTNAME: ${{ secrets.HOST_DNS }}
           USER_NAME: ${{ secrets.USERNAME }}
           AWS_DEFAULT_REGION: us-east-2
+          AWS_EC2_METADATA_DISABLED: true
 
       - name: Run commands
         run: |
