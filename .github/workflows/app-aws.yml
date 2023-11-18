@@ -30,6 +30,7 @@ jobs:
 
       - name: Enter folder
         run: |
+          echo "$PWD"
           cd home/$USERNAME/cantodaruaemergencial/app
 
       - name: Install
