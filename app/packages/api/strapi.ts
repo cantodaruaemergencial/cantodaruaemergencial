@@ -10,8 +10,7 @@ const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 // const { NEXT_PUBLIC_STRAPI_API_URL = 'https://api-t6n6cgkpra-ue.a.run.app' } =
 //   process?.env;
 
-const { NEXT_PUBLIC_STRAPI_API_URL_LOCAL = 'http://localhost:1337' } =
-  process?.env;
+const { NEXT_PUBLIC_STRAPI_API_URL_PRD } = process?.env;
 
 export function getUserProfile(): UserProfile | null {
   if (!localStorage) return null;
@@ -50,7 +49,7 @@ export class Api {
     };
 
     const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}`,
+      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}`,
       options,
     );
 
@@ -76,7 +75,7 @@ export class Api {
 
     const queryString = params ? `?${qs.stringify(params)}` : '';
     await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}${queryString}`,
+      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}${queryString}`,
       options,
     )
       .then((res) => res.blob())
@@ -94,7 +93,7 @@ export class Api {
 
     const queryString = params ? `?${qs.stringify(params)}` : '';
     const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}${queryString}`,
+      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}${queryString}`,
       options,
     );
 
@@ -115,7 +114,7 @@ export class Api {
     };
 
     const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}`,
+      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}`,
       options,
     );
 
@@ -138,7 +137,7 @@ export class Api {
     };
 
     const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_LOCAL}/${url}`,
+      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}`,
       options,
     );
 
