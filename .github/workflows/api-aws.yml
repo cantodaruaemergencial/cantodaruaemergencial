@@ -1,0 +1,39 @@
+name: Deploy api - AWS
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "api/**"
+      - ".github/workflows/api-aws.yml"
+
+jobs:
+  setup-build-deploy:
+    name: Build and deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build &  Deploy
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          script: |
+            cd /home/ubuntu/cantodarua/api &&
+            export PATH=$PATH:/home/ubuntu/.npm-global/bin &&
+            source ~/.bashrc &&
+            git fetch --all &&
+            git reset --hard origin/main &&
+            git pull origin main &&
+            sudo npm i &&
+            sudo npm run build &&
+            cd ~ &&
+            pm2 stop api.cantodarua &&
+            pm2 delete api.cantodarua &&
+            pm2 start ecosystem.config.js &&
+            pm2 save
