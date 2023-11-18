@@ -25,6 +25,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           script: |
             cd /home/ubuntu/cantodarua/app &&
+            export PATH=$PATH:/home/ubuntu/.npm-global/bin &&
+            source ~/.bashrc &&
             git fetch --all &&
             git reset --hard origin/main &&
             git pull origin main &&
