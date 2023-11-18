@@ -20,6 +20,7 @@ jobs:
           PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           HOSTNAME: ${{ secrets.HOST_DNS }}
           USER_NAME: ${{ secrets.USERNAME }}
+          AWS_DEFAULT_REGION: us-east-2
 
       - name: Run commands
         run: |
