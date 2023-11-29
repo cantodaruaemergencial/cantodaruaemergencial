@@ -6,6 +6,7 @@ import {
   Container,
   IconButton,
   withTheme,
+  Typography,
 } from '@material-ui/core';
 import {
   // DashboardRounded,
@@ -16,7 +17,7 @@ import {
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { useAuthMethods } from '#/packages/auth/auth-context';
+import { useAuthMethods, useAuthState } from '#/packages/auth/auth-context';
 
 const Logo = withTheme(styled(Avatar)`
   && {
@@ -73,6 +74,28 @@ const FloatingBox = styled(Box)`
   top: 20px;
 `;
 
+const ProfileBox = styled(Box)`
+  display: flex;
+  align-items: center;
+`;
+
+const ProfileAvatar = withTheme(styled(Avatar)`
+  color: ${({ theme }) => theme.palette.secondary.main};
+`);
+
+const AssociationBox = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 8px;
+`;
+
+const AssociationLabel = withTheme(styled(Typography)`
+  font-size: 12px;
+  color: ${({ theme }) => theme.palette.secondary.main};
+  font-weight: 600;
+`);
+
 const Flag = withTheme(styled.img`
   height: 100%;
 
@@ -83,6 +106,7 @@ const Flag = withTheme(styled.img`
 
 const ButtonAppBar = (): React.ReactElement => {
   const { logout } = useAuthMethods();
+  const { userProfile } = useAuthState();
 
   return (
     <AppBar position="static" color="default">
@@ -142,6 +166,19 @@ const ButtonAppBar = (): React.ReactElement => {
         </Links>
       </Toolbar>
       <FloatingBox>
+        <ProfileBox>
+          <ProfileAvatar>
+            {userProfile?.displayName
+              .split(' ')
+              .map((m) => m.slice(0, 1))
+              .join('')}
+          </ProfileAvatar>
+          <AssociationBox>
+            {userProfile?.associations.map((a) => (
+              <AssociationLabel>{a.name}</AssociationLabel>
+            ))}
+          </AssociationBox>
+        </ProfileBox>
         <NavIconButton onClick={logout}>
           <ExitToAppRounded />
         </NavIconButton>
