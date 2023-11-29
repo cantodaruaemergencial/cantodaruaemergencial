@@ -70,8 +70,9 @@ const FormField = ({
 }: Props) => {
   const formatedLabel = label + (rules?.required ? ' *' : '');
 
-  const getErrorMessage = (error?: FieldError) =>
-    error ? error.message || RulesMessages[error.type] || null : null;
+  const getErrorMessage = (error?: FieldError) => {
+    return error ? error.message || RulesMessages()[error.type] || null : null;
+  };
 
   const renderTooltip = () =>
     !description ? null : (
@@ -132,8 +133,8 @@ const FormField = ({
       label={formatedLabel}
       format="DD/MM/YYYY"
       inputVariant="outlined"
-      invalidDateMessage={RulesMessages.invalidDate}
-      maxDateMessage={RulesMessages.maxDate}
+      invalidDateMessage={RulesMessages().invalidDate}
+      maxDateMessage={RulesMessages().maxDate}
       disableFuture={dateConfig?.disableFuture || false}
       disabled={disabled}
     />

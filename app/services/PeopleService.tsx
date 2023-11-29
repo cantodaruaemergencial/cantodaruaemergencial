@@ -25,6 +25,7 @@ import {
   PersonVacancyReservationBenefit,
 } from '#/types/People';
 import { UserProfile } from '#/packages/entities/types';
+import { RulesMessages } from '#/utils/rules-messages';
 
 class PeopleService {
   static get = (
@@ -267,7 +268,13 @@ class PeopleService {
             type: FieldType.input,
             inputConfig: { maxLength: 11, minLength: 11 },
             rules: {
-              required: false,
+              required: true,
+              validate: {
+                minLength: (value: string) => {
+                  if (value?.length !== 11) return RulesMessages(11).minLength;
+                  return true;
+                },
+              },
             },
           },
           {
@@ -298,6 +305,12 @@ class PeopleService {
             inputConfig: { maxLength: 9, minLength: 9 },
             rules: {
               required: false,
+              validate: {
+                minLength: (value: string) => {
+                  if (value?.length !== 9) return RulesMessages(9).minLength;
+                  return true;
+                },
+              },
             },
           },
           {

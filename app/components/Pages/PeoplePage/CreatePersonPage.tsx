@@ -9,6 +9,7 @@ import Form from '../../Form/Form';
 import PageHeader from '../../PageHeader';
 import PersonCardModal from '../../PersonModalCard/PersonCardModal';
 import GoToButton from '../../GoToButton';
+import { ArrowDownward } from '@material-ui/icons';
 
 const Container = styled(MuiContainer)`
   && {
@@ -78,7 +79,11 @@ const CreatePersonPage = ({
         handleClose={handleClosePersonCardModal}
         newPerson
       />
-      <GoToButton idGoTo="#saveButton" tooltipLabel="Finalizar formulário" />
+      <GoToButton
+        idGoTo="#saveButton"
+        tooltipLabel="Finalizar formulário"
+        icon={<ArrowDownward htmlColor="white" fontSize="large" />}
+      />
     </Container>
   );
 };

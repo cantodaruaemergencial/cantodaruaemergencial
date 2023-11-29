@@ -71,8 +71,9 @@ const Form = ({ form, onSubmit, className }: Props) => {
     defaultValues: getDefaultValues(),
   });
 
-  const onError = () =>
+  const onError = () => {
     showFeedback('Verifique os dados e tente novamente.', 'error');
+  };
 
   const showFeedback = (message: string, variant: VariantType) =>
     enqueueSnackbar(message, { variant });

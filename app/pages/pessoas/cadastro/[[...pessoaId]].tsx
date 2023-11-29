@@ -26,7 +26,7 @@ const NewPerson = () => {
       setForm({ sections: formData.sections });
       setPersonCompleteData(formData.personCompleteData);
     });
-  }, []);
+  }, [userProfile]);
 
   return (
     <Layout title="Cadastro - Canto da Rua">
