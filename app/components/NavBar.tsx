@@ -77,6 +77,7 @@ const FloatingBox = styled(Box)`
 const ProfileBox = styled(Box)`
   display: flex;
   align-items: center;
+  padding: 0px 8px;
 `;
 
 const ProfileAvatar = withTheme(styled(Avatar)`

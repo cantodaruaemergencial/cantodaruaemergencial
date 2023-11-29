@@ -26,6 +26,7 @@ const {
   MEASUREMENT_ID,
   MESSAGING_SENDER_ID,
   NEXT_PUBLIC_BUCKET_NAME,
+  NEXT_PUBLIC_STRAPI_API_URL,
 } = process.env;
 
 module.exports = withPWA({
@@ -43,5 +44,6 @@ module.exports = withPWA({
     MEASUREMENT_ID,
     MESSAGING_SENDER_ID,
     NEXT_PUBLIC_BUCKET_NAME,
+    NEXT_PUBLIC_STRAPI_API_URL,
   },
 });

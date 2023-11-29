@@ -10,9 +10,7 @@ const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 // const { NEXT_PUBLIC_STRAPI_API_URL = 'https://api-t6n6cgkpra-ue.a.run.app' } =
 //   process?.env;
 
-const {
-  NEXT_PUBLIC_STRAPI_API_URL_PRD = 'http://ec2-18-219-162-78.us-east-2.compute.amazonaws.com:1337',
-} = process?.env;
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
 export function getUserProfile(): UserProfile | null {
   if (!localStorage) return null;
@@ -50,10 +48,7 @@ export class Api {
       headers: Api.getPublicHeaders(),
     };
 
-    const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}`,
-      options,
-    );
+    const res = await fetch(`${API_URL}/${url}`, options);
 
     return {
       status: res.status,
@@ -76,10 +71,7 @@ export class Api {
     };
 
     const queryString = params ? `?${qs.stringify(params)}` : '';
-    await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}${queryString}`,
-      options,
-    )
+    await fetch(`${API_URL}/${url}${queryString}`, options)
       .then((res) => res.blob())
       .then((blob) => saveAs(blob, filename));
   };
@@ -94,10 +86,7 @@ export class Api {
     };
 
     const queryString = params ? `?${qs.stringify(params)}` : '';
-    const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}${queryString}`,
-      options,
-    );
+    const res = await fetch(`${API_URL}/${url}${queryString}`, options);
 
     return {
       status: res.status,
@@ -115,10 +104,7 @@ export class Api {
       headers: Api.getHeaders(),
     };
 
-    const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}`,
-      options,
-    );
+    const res = await fetch(`${API_URL}/${url}`, options);
 
     const result = await res.json();
 
@@ -138,10 +124,7 @@ export class Api {
       headers: Api.getHeaders(),
     };
 
-    const res = await fetch(
-      `${NEXT_PUBLIC_STRAPI_API_URL_PRD}/${url}`,
-      options,
-    );
+    const res = await fetch(`${API_URL}/${url}`, options);
 
     const result = await res.json();
 
