@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/28/2023 9:53:17 PM"
+    "x-generation-date": "01/19/2024 8:04:00 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -20481,12 +20481,10 @@
           },
           "cnh_document_number": {
             "type": "string",
-            "maxLength": 9,
-            "minLength": 9
+            "maxLength": 9
           },
           "ctps_document_number": {
-            "type": "string",
-            "minLength": 8
+            "type": "string"
           },
           "nis_document_number": {
             "type": "string",
@@ -20743,12 +20741,10 @@
           },
           "cnh_document_number": {
             "type": "string",
-            "maxLength": 9,
-            "minLength": 9
+            "maxLength": 9
           },
           "ctps_document_number": {
-            "type": "string",
-            "minLength": 8
+            "type": "string"
           },
           "nis_document_number": {
             "type": "string",
