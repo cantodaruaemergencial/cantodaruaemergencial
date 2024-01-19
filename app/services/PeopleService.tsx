@@ -267,6 +267,7 @@ class PeopleService {
             value: person?.cpf_document_number,
             type: FieldType.input,
             inputConfig: { maxLength: 11, minLength: 11 },
+            description: 'Mínimo de 11 dígitos',
             rules: {
               required: true,
               validate: {
@@ -302,15 +303,9 @@ class PeopleService {
             label: 'Número Documento CNH',
             value: person?.cnh_document_number,
             type: FieldType.input,
-            inputConfig: { maxLength: 9, minLength: 9 },
+            inputConfig: { maxLength: 9 },
             rules: {
               required: false,
-              validate: {
-                minLength: (value: string) => {
-                  if (value?.length !== 9) return RulesMessages(9).minLength;
-                  return true;
-                },
-              },
             },
           },
           {
@@ -318,7 +313,7 @@ class PeopleService {
             label: 'Número Documento CTPS',
             value: person?.ctps_document_number,
             type: FieldType.input,
-            inputConfig: { maxLength: 8, minLength: 8 },
+            inputConfig: { maxLength: 8 },
             rules: {
               required: false,
             },

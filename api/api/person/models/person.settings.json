@@ -100,13 +100,11 @@
     "cnh_document_number": {
       "type": "string",
       "unique": true,
-      "maxLength": 9,
-      "minLength": 9
+      "maxLength": 9
     },
     "ctps_document_number": {
       "type": "string",
-      "unique": true,
-      "minLength": 8
+      "unique": true
     },
     "nis_document_number": {
       "type": "string",
