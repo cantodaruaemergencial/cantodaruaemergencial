@@ -1,7 +1,7 @@
 import PeopleService from '#/services/PeopleService';
 import { Form as FormType } from '#/types/Forms';
 import { PersonCompleteData } from '#/types/People';
-import { Container as MuiContainer } from '@material-ui/core';
+import { Container as MuiContainer } from '@mui/material';
 import { useRouter } from 'next/dist/client/router';
 import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
@@ -9,7 +9,7 @@ import Form from '../../Form/Form';
 import PageHeader from '../../PageHeader';
 import PersonCardModal from '../../PersonModalCard/PersonCardModal';
 import GoToButton from '../../GoToButton';
-import { ArrowDownward } from '@material-ui/icons';
+import ArrowDownward from '@mui/icons-material/ArrowDownward';
 
 const Container = styled(MuiContainer)`
   && {

@@ -5,7 +5,7 @@ import {
   DialogTitle,
   Fade,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import { ReactElement, ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 

@@ -1,4 +1,4 @@
-import { useTheme } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
 import { ChartOptions, ChartType, DatasetChartOptions } from 'chart.js';
 import React from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';

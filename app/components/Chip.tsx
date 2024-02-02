@@ -1,12 +1,12 @@
-import { Chip as MuiChip, Tooltip } from '@material-ui/core';
-import { withTheme } from '@material-ui/core/styles';
+import { Chip as MuiChip, Tooltip } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import {
   CheckCircleRounded,
   ErrorRounded,
   InfoRounded,
   RemoveCircleRounded,
-} from '@material-ui/icons';
-import { Skeleton } from '@material-ui/lab';
+} from '@mui/icons-material';
+import { Skeleton } from '@mui/lab';
 import clsx from 'clsx';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
@@ -68,9 +68,10 @@ const Chip = ({
   color,
   className,
   loading = false,
-  tooltip
+  tooltip,
 }: Props): ReactElement => {
-  if (loading) return <ChipSkeleton variant="rect" width={100} height={24} />;
+  if (loading)
+    return <ChipSkeleton variant="rectangular" width={100} height={24} />;
 
   const getAvatar = () => {
     switch (color) {
@@ -95,25 +96,23 @@ const Chip = ({
     disabled: Color.disabled === color,
   });
 
-  return tooltip ?
-    (
-      <Tooltip title={tooltip}>
-        <CustomChip
-          className={clsx(className, getClassColor())}
-          label={label}
-          avatar={getAvatar()}
-          size="small"
-        />
-      </Tooltip>
-    ) :
-    (
+  return tooltip ? (
+    <Tooltip title={tooltip}>
       <CustomChip
         className={clsx(className, getClassColor())}
         label={label}
         avatar={getAvatar()}
         size="small"
       />
-    );
+    </Tooltip>
+  ) : (
+    <CustomChip
+      className={clsx(className, getClassColor())}
+      label={label}
+      avatar={getAvatar()}
+      size="small"
+    />
+  );
 };
 
 export default Chip;

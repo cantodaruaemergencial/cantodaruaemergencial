@@ -8,9 +8,9 @@ import { ConfirmationModal as ConfirmationModalType } from '#/types/Confirmation
 import { Entrance } from '#/types/Entrance';
 import { BasePerson } from '#/types/People';
 import { Shadows } from '#/utils/theme';
-import { Box, Button, Container as MuiContainer } from '@material-ui/core';
-import { withTheme } from '@material-ui/core/styles';
-import { AddCircleRounded } from '@material-ui/icons';
+import { Box, Button, Container as MuiContainer } from '@mui/material';
+import { withTheme } from '@mui/styles';
+import { AddCircleRounded } from '@mui/icons-material';
 import Link from 'next/link';
 import { useSnackbar } from 'notistack';
 import { ReactElement, useEffect, useState } from 'react';

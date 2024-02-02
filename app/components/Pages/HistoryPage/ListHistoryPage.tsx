@@ -1,6 +1,8 @@
-import { Box, Tooltip, Typography, withTheme } from '@material-ui/core';
-import { Cancel, Check } from '@material-ui/icons';
-import { TimelineOppositeContent } from '@material-ui/lab';
+import { Box, Tooltip, Typography } from '@mui/material';
+import { withTheme } from '@mui/styles';
+import Cancel from '@mui/icons-material/Cancel';
+import Check from '@mui/icons-material/Check';
+import { TimelineOppositeContent } from '@mui/lab';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
 import { PersonHistory } from '#/types/PersonHistory';
@@ -13,9 +15,9 @@ import {
   TimelineConnector,
   TimelineContent,
   TimelineDot,
-} from '@material-ui/lab';
-import AddLocationIcon from '@material-ui/icons/AddLocation';
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+} from '@mui/lab';
+import AddLocationIcon from '@mui/icons-material/AddLocation';
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import moment, { Moment } from 'moment';
 import { listHistoryData } from './ListHistoryPageUtils';
 import { FormTypes } from '#/components/PersonModalCard/PersonModalCardUtils';

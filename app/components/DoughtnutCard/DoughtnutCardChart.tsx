@@ -1,4 +1,4 @@
-import { Box, NoSsr, useTheme } from '@material-ui/core';
+import { Box, NoSsr, useTheme } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
 

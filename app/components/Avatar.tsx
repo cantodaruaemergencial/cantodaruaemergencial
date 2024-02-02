@@ -1,5 +1,5 @@
-import { Avatar as MuiAvatar } from '@material-ui/core';
-import { withTheme } from '@material-ui/core/styles';
+import { Avatar as MuiAvatar } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import clsx from 'clsx';
 import initials from 'initials';
 import { ReactElement } from 'react';

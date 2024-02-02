@@ -1,19 +1,19 @@
 import { Color } from '#/types/Color';
-import { Box } from '@material-ui/core';
-import { withTheme } from '@material-ui/core/styles';
+import { Box } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import clsx from 'clsx';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
 
 const CustomTag = withTheme(styled(Box)`
   && {
-    padding: .1rem .5rem;
+    padding: 0.1rem 0.5rem;
     border-radius: 4px;
     font-weight: 600;
     text-align: center;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
-  
+
   color: rgba(0, 0, 0, 0.87);
   background-color: #e0e0e0;
 

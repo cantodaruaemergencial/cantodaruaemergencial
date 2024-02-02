@@ -1,4 +1,5 @@
-import { Box, withTheme } from '@material-ui/core';
+import { Box } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import clsx from 'clsx';
 import React from 'react';
 import styled from 'styled-components';

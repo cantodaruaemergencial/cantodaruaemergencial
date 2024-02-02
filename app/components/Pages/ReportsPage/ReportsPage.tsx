@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import Card from '#/components/Card';
-import { Container as MuiContainer, Button as MuiButton, InputBase, withTheme } from '@material-ui/core';
+import {
+  Container as MuiContainer,
+  Button as MuiButton,
+  InputBase,
+} from '@mui/material';
+import { withTheme } from '@mui/styles';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
 import PageHeader from '../../PageHeader';
@@ -45,7 +50,6 @@ const Button = styled(MuiButton)`
 `;
 
 const ReportsPage = (): ReactElement => {
-
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
 
@@ -66,7 +70,7 @@ const ReportsPage = (): ReactElement => {
       return;
     }
     ReportsService.getPeople(from, to);
-  }
+  };
 
   return (
     <Container>

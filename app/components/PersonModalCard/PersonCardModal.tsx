@@ -8,10 +8,10 @@ import {
   Grow,
   Modal as TheModal,
   Typography,
-  withTheme,
-} from '@material-ui/core';
-import { ExpandMore, Check, Cancel } from '@material-ui/icons';
-import { CheckCircleRounded } from '@material-ui/icons';
+} from '@mui/material';
+import { withTheme } from '@mui/styles';
+import { ExpandMore, Check, Cancel } from '@mui/icons-material';
+import { CheckCircleRounded } from '@mui/icons-material';
 import moment from 'moment';
 import styled from 'styled-components';
 import TheCard from '../Card';

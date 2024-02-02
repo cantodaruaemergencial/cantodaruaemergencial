@@ -1,5 +1,5 @@
-import { Box, InputBase } from '@material-ui/core';
-import { SearchRounded } from '@material-ui/icons';
+import { Box, InputBase } from '@mui/material';
+import SearchRounded from '@mui/icons-material/SearchRounded';
 import styled from 'styled-components';
 
 const Container = styled(Box)`

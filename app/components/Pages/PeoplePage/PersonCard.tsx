@@ -2,13 +2,14 @@ import Chip from '#/components/Chip';
 import { Color } from '#/types/Color';
 import { Entrance } from '#/types/Entrance';
 import { BasePerson, PersonCompleteData } from '#/types/People';
-import { Box, Button, Typography, withTheme, Tooltip } from '@material-ui/core';
+import { Box, Button, Typography, Tooltip } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import {
   AddCircleRounded,
   InfoRounded,
   PanToolRounded,
-} from '@material-ui/icons';
-import { Skeleton } from '@material-ui/lab';
+} from '@mui/icons-material';
+import { Skeleton } from '@mui/lab';
 import moment from 'moment';
 import Link from 'next/link';
 import { ReactElement, useState } from 'react';

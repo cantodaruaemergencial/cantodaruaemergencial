@@ -1,10 +1,5 @@
-import {
-  Box,
-  Card as MuiCard,
-  CardProps,
-  Typography,
-  withTheme,
-} from '@material-ui/core';
+import { Box, Card as MuiCard, CardProps, Typography } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import clsx from 'clsx';
 import { ReactNode } from 'react';
 import styled from 'styled-components';

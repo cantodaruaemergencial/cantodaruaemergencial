@@ -6,9 +6,9 @@ import {
   MenuItem,
   TextField as MuiTextField,
   Tooltip,
-} from '@material-ui/core';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import { KeyboardDatePicker } from '@material-ui/pickers';
+} from '@mui/material';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import { DatePicker as DatePickerComponent } from '@mui/x-date-pickers';
 import {
   Control,
   Controller,
@@ -30,7 +30,7 @@ const TextField = styled(MuiTextField)`
   width: 100%;
 `;
 
-const DatePicker = styled(KeyboardDatePicker)`
+const DatePicker = styled(DatePickerComponent)`
   width: 100%;
 
   .MuiInputAdornment-root {
@@ -71,6 +71,7 @@ const FormField = ({
   const formatedLabel = label + (rules?.required ? ' *' : '');
 
   const getErrorMessage = (error?: FieldError) => {
+    console.log({ error });
     return error ? error.message || RulesMessages()[error.type] || null : null;
   };
 
@@ -127,18 +128,18 @@ const FormField = ({
     );
   };
 
-  const renderDatePicker = ({ field }: RenderType) => (
-    <DatePicker
-      {...field}
-      label={formatedLabel}
-      format="DD/MM/YYYY"
-      inputVariant="outlined"
-      invalidDateMessage={RulesMessages().invalidDate}
-      maxDateMessage={RulesMessages().maxDate}
-      disableFuture={dateConfig?.disableFuture || false}
-      disabled={disabled}
-    />
-  );
+  const renderDatePicker = ({ field, fieldState: { error } }: RenderType) => {
+    return (
+      <DatePicker
+        {...field}
+        label={formatedLabel}
+        maxDate={new Date()}
+        // maxDateMessage={RulesMessages().maxDate}
+        disableFuture={dateConfig?.disableFuture || true}
+        disabled={disabled}
+      />
+    );
+  };
 
   const renderBoolean = ({ field }: RenderType) => (
     <FormControlLabel
@@ -157,6 +158,7 @@ const FormField = ({
       case FieldType.selectMultiple:
         return renderSelect;
       case FieldType.date:
+        console.log('caiu');
         return renderDatePicker;
       case FieldType.number:
       case FieldType.input:

@@ -1,4 +1,5 @@
-import { Box, Typography, withTheme } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import clsx from 'clsx';
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';

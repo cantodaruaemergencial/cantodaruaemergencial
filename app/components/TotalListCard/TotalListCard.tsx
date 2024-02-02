@@ -1,4 +1,5 @@
-import { Box, withTheme } from '@material-ui/core';
+import { Box } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -65,9 +66,8 @@ interface Props extends DashboardTotalHistoricalListCard {
 }
 
 const TotalListCard = ({ values, className }: Props) => {
-  const [property, setProperty] = useState<
-    keyof DashboardTotalByCategoryAndHistoric
-  >('total');
+  const [property, setProperty] =
+    useState<keyof DashboardTotalByCategoryAndHistoric>('total');
 
   const renderSelector = () => {
     const options = [

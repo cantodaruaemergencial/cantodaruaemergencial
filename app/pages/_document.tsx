@@ -2,7 +2,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React, { ReactElement } from 'react';
 
 import DefaultTheme from '#/utils/theme';
-import { ServerStyleSheets } from '@material-ui/styles';
+import { ServerStyleSheets } from '@mui/styles';
 
 const pwaMetaData = (
   <>

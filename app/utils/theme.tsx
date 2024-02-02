@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 export const Shadows = {
   bottom: '0 6px 8px rgba(0, 0, 0, 0.05)',
@@ -8,7 +8,6 @@ export const Shadows = {
 
 const theme = createTheme({
   palette: {
-    type: 'light',
     primary: {
       main: '#563727',
     },
@@ -75,44 +74,44 @@ const theme = createTheme({
       opacity: 0.6,
     },
   },
-  overrides: {
-    MuiButton: {
-      root: {
-        fontWeight: 600,
-      },
-      contained: {
-        backgroundColor: '#fff',
-        boxShadow: Shadows[1],
-      },
-      outlinedSizeSmall: {
-        fontSize: '.7rem',
-      },
-    },
-    MuiMenu: {
-      paper: {
-        backgroundColor: '#f7f7f7',
-      },
-    },
-    MuiPaper: {
-      elevation1: {
-        boxShadow: Shadows[2],
-      },
-      elevation4: {
-        boxShadow: Shadows[2],
-      },
-    },
-    MuiAvatar: {
-      colorDefault: {
-        backgroundColor: '#e0e0e0',
-        color: 'rgba(0, 0, 0, 0.87)',
-      },
-    },
-    // @ts-ignore
-    MuiSkeleton: { root: { borderRadius: '4px' } },
-    MuiAppBar: { root: { boxShadow: 'none' } },
-    MuiContainer: { root: { paddingTop: '2rem', paddingBottom: '2rem' } },
-    MuiFormHelperText: { root: { opacity: 1 } },
-  },
+  // overrides: {
+  //   MuiButton: {
+  //     root: {
+  //       fontWeight: 600,
+  //     },
+  //     contained: {
+  //       backgroundColor: '#fff',
+  //       boxShadow: Shadows[1],
+  //     },
+  //     outlinedSizeSmall: {
+  //       fontSize: '.7rem',
+  //     },
+  //   },
+  //   MuiMenu: {
+  //     paper: {
+  //       backgroundColor: '#f7f7f7',
+  //     },
+  //   },
+  //   MuiPaper: {
+  //     elevation1: {
+  //       boxShadow: Shadows[2],
+  //     },
+  //     elevation4: {
+  //       boxShadow: Shadows[2],
+  //     },
+  //   },
+  //   MuiAvatar: {
+  //     colorDefault: {
+  //       backgroundColor: '#e0e0e0',
+  //       color: 'rgba(0, 0, 0, 0.87)',
+  //     },
+  //   },
+  //   // @ts-ignore
+  //   MuiSkeleton: { root: { borderRadius: '4px' } },
+  //   MuiAppBar: { root: { boxShadow: 'none' } },
+  //   MuiContainer: { root: { paddingTop: '2rem', paddingBottom: '2rem' } },
+  //   MuiFormHelperText: { root: { opacity: 1 } },
+  // },
 });
 
 export default responsiveFontSizes(theme);

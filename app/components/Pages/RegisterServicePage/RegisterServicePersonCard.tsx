@@ -1,8 +1,9 @@
 import Chip from '#/components/Chip';
 import { BasePerson, PersonCompleteData } from '#/types/People';
-import { Box, Button, Typography, withTheme } from '@material-ui/core';
-import { AddCircleRounded, InfoRounded } from '@material-ui/icons';
-import { Skeleton } from '@material-ui/lab';
+import { Box, Button, Typography } from '@mui/material';
+import { withTheme } from '@mui/styles';
+import { AddCircleRounded, InfoRounded } from '@mui/icons-material';
+import { Skeleton } from '@mui/lab';
 import { ReactElement, useState } from 'react';
 import { ListRowProps } from 'react-virtualized';
 import styled from 'styled-components';

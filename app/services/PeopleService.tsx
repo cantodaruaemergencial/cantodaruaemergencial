@@ -39,47 +39,87 @@ class PeopleService {
       filter: filter?.nameOrCardNumber,
     };
 
-    return Api.get<BasePerson[]>('people2', query).then((res) => res.data);
+    return Api.get<BasePerson[]>('people2', query).then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
   };
 
   static getAssociations = () =>
-    Api.publicGet<GeneralOption[]>('associations').then((res) => res.data);
+    Api.publicGet<GeneralOption[]>('associations').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getDrugsFrequency = () =>
-    Api.publicGet<GeneralOption[]>('drugs-frequencies').then((res) => res.data);
+    Api.publicGet<GeneralOption[]>('drugs-frequencies').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getEducationDegreeOptions = () =>
-    Api.publicGet<GeneralOption[]>('education-degree-options').then(
-      (res) => res.data,
-    );
+    Api.publicGet<GeneralOption[]>('education-degree-options').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getWorkTypes = () =>
-    Api.publicGet<GeneralOption[]>('work-types').then((res) => res.data);
+    Api.publicGet<GeneralOption[]>('work-types').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getPastWorkCategory = () =>
-    Api.publicGet<GeneralOption[]>('past-work-categories').then(
-      (res) => res.data,
-    );
+    Api.publicGet<GeneralOption[]>('past-work-categories').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getPastWorkSector = () =>
-    Api.publicGet<GeneralOption[]>('past-work-sectors').then((res) => res.data);
+    Api.publicGet<GeneralOption[]>('past-work-sectors').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getGenders = () =>
-    Api.publicGet<GeneralOption[]>('genders').then((res) => res.data);
+    Api.publicGet<GeneralOption[]>('genders').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getSelfDeclarations = () =>
-    Api.publicGet<GeneralOption[]>('self-declarations').then((res) => res.data);
+    Api.publicGet<GeneralOption[]>('self-declarations').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getSexualOrientation = () =>
-    Api.publicGet<GeneralOption[]>('sexual-orientations').then(
-      (res) => res.data,
-    );
+    Api.publicGet<GeneralOption[]>('sexual-orientations').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getMaritalStatuses = () =>
-    Api.publicGet<GeneralOption[]>('marital-statuses').then((res) => res.data);
+    Api.publicGet<GeneralOption[]>('marital-statuses').then((res) => {
+      if (Object.keys(res.data).length) return res.data;
+
+      return [];
+    });
 
   static getPerson = (personId: number) =>
-    Api.get<Person>(`people/${personId}`).then((res) => res.data);
+    Api.get<Person>(`people/${personId}`).then((res) => {
+      return res.data;
+    });
 
   static getPersonCompleteData = (personId: number) =>
     Api.get<PersonCompleteData>(`general-data/person/${personId}`).then(
@@ -170,12 +210,25 @@ class PeopleService {
           },
           {
             property: 'birth_date',
-            value: person?.birth_date ? moment(person.birth_date) : null,
+            value: person?.birth_date
+              ? moment(person.birth_date).format('DD/MM/yyyy')
+              : null,
             label: 'Data de Nascimento',
             type: FieldType.date,
             dateConfig: { disableFuture: true },
             rules: {
               required: true,
+              // validate: {
+              //   noFutureDate: (value: Moment) => {
+              //     console.log({
+              //       valor: value,
+              //       value: value.isAfter(moment()),
+              //     });
+              //     if (value.isAfter(moment(new Date())))
+              //       return RulesMessages().invalidDate;
+              //     return false;
+              //   },
+              // },
             },
           },
           {
@@ -1540,7 +1593,7 @@ class PeopleService {
           },
           {
             property: 'CheckedAt',
-            value: moment(new Date()),
+            value: new Date(),
             label: 'Conferido em',
             type: FieldType.date,
             disabled: true,
@@ -1911,7 +1964,7 @@ class PeopleService {
     Object.keys(body)?.forEach((k) => {
       if (isMoment(body[k])) {
         const momentDate: Moment = body[k] as Moment;
-        body[k] = momentDate.format('YYYY-MM-DD');
+        body[k] = moment(momentDate).utc().format('YYYY-MM-DD');
       }
     });
 

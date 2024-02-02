@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import Head from 'next/head';
 import { ReactElement } from 'react';
 import styled from 'styled-components';

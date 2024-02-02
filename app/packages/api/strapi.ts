@@ -48,12 +48,19 @@ export class Api {
       headers: Api.getPublicHeaders(),
     };
 
-    const res = await fetch(`${API_URL}/${url}`, options);
+    try {
+      const res = await fetch(`${API_URL}/${url}`, options);
 
-    return {
-      status: res.status,
-      data: res.json() as ResultType,
-    };
+      return {
+        status: res.status,
+        data: res.json() as ResultType,
+      };
+    } catch (err) {
+      return {
+        status: 500,
+        data: {} as ResultType,
+      };
+    }
   };
 
   static getFile = async (
@@ -70,10 +77,14 @@ export class Api {
       },
     };
 
-    const queryString = params ? `?${qs.stringify(params)}` : '';
-    await fetch(`${API_URL}/${url}${queryString}`, options)
-      .then((res) => res.blob())
-      .then((blob) => saveAs(blob, filename));
+    try {
+      const queryString = params ? `?${qs.stringify(params)}` : '';
+      const response = await fetch(`${API_URL}/${url}${queryString}`, options);
+      const blob = await response.blob();
+      saveAs(blob, filename);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   static get = async <ResultType extends unknown>(
@@ -85,13 +96,20 @@ export class Api {
       headers: Api.getHeaders(),
     };
 
-    const queryString = params ? `?${qs.stringify(params)}` : '';
-    const res = await fetch(`${API_URL}/${url}${queryString}`, options);
+    try {
+      const queryString = params ? `?${qs.stringify(params)}` : '';
+      const res = await fetch(`${API_URL}/${url}${queryString}`, options);
 
-    return {
-      status: res.status,
-      data: res.json() as ResultType,
-    };
+      return {
+        status: res.status,
+        data: res.json() as ResultType,
+      };
+    } catch (err) {
+      return {
+        status: 500,
+        data: {} as ResultType,
+      };
+    }
   };
 
   static post = async <ResultType extends unknown>(
@@ -104,14 +122,21 @@ export class Api {
       headers: Api.getHeaders(),
     };
 
-    const res = await fetch(`${API_URL}/${url}`, options);
+    try {
+      const res = await fetch(`${API_URL}/${url}`, options);
 
-    const result = await res.json();
+      const result = await res.json();
 
-    return {
-      status: res.status,
-      data: result,
-    };
+      return {
+        status: res.status,
+        data: result,
+      };
+    } catch (err) {
+      return {
+        status: 500,
+        data: {} as ResultType,
+      };
+    }
   };
 
   static put = async <ResultType extends unknown>(
@@ -124,14 +149,21 @@ export class Api {
       headers: Api.getHeaders(),
     };
 
-    const res = await fetch(`${API_URL}/${url}`, options);
+    try {
+      const res = await fetch(`${API_URL}/${url}`, options);
 
-    const result = await res.json();
+      const result = await res.json();
 
-    return {
-      status: res.status,
-      data: result,
-    };
+      return {
+        status: res.status,
+        data: result,
+      };
+    } catch (err) {
+      return {
+        status: 500,
+        data: {} as ResultType,
+      };
+    }
   };
 }
 

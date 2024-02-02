@@ -5,15 +5,12 @@ import {
   Button,
   Container,
   IconButton,
-  withTheme,
   Typography,
-} from '@material-ui/core';
-import {
-  // DashboardRounded,
-  ExitToAppRounded,
-  PersonRounded,
-  TransferWithinAStationRounded,
-} from '@material-ui/icons';
+} from '@mui/material';
+import { withTheme } from '@mui/styles';
+import ExitToAppRounded from '@mui/icons-material/ExitToAppRounded';
+import PersonRounded from '@mui/icons-material/PersonRounded';
+import TransferWithinAStationRounded from '@mui/icons-material/TransferWithinAStationRounded';
 import Link from 'next/link';
 import styled from 'styled-components';
 

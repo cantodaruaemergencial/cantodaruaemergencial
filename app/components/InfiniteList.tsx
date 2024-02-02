@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FC } from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { ReactNode, useEffect, useMemo, useState } from 'react';
 import {
   AutoSizer as _AutoSizer,
@@ -79,8 +79,11 @@ const InfiniteList = ({ fetchRows, rowRenderer, filter, className }: Props) => {
   }: IndexRange): Promise<any> => {
     const limit = stopIndex - startIndex;
     return fetchRows(startIndex, limit, filter).then((result) => {
+      console.log({ result });
       setHasNextPage(result.length > 0);
-      setList([...list, ...result]);
+      if (Array.isArray(result)) {
+        setList([...list, ...result]);
+      }
     });
   };
 

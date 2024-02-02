@@ -1,15 +1,16 @@
-import MomentUtils from '@date-io/moment';
 import type { AppProps } from 'next/app';
-import { SnackbarOrigin } from '@material-ui/core';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider, withStyles } from '@material-ui/core/styles';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { SnackbarOrigin } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider, withStyles } from '@mui/styles';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 import moment from 'moment';
 import { SnackbarProvider } from 'notistack';
 import { useEffect } from 'react';
 import AuthProvider from '#/packages/auth/auth-context';
 import DefaultTheme, { globalStyles } from '#/utils/theme';
 import 'moment/locale/pt-br';
+import pt from 'date-fns/locale/pt-BR';
 
 const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const snackbarConfig: SnackbarOrigin = {
@@ -32,13 +33,13 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   return (
     <SnackbarProvider anchorOrigin={snackbarConfig}>
       <AuthProvider>
-        <MuiPickersUtilsProvider utils={MomentUtils}>
-          <MuiThemeProvider theme={DefaultTheme}>
+        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={pt}>
+          <ThemeProvider theme={DefaultTheme}>
             <CssBaseline />
             <GlobalCss />
             <Component {...pageProps} />
-          </MuiThemeProvider>
-        </MuiPickersUtilsProvider>
+          </ThemeProvider>
+        </LocalizationProvider>
       </AuthProvider>
     </SnackbarProvider>
   );

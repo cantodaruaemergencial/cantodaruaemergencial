@@ -1,4 +1,4 @@
-import { Box, Button as TheButton } from '@material-ui/core';
+import { Box, Button as TheButton } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
@@ -66,10 +66,19 @@ const Form = ({ form, onSubmit, className }: Props) => {
     return defaultValues;
   };
 
-  const { control, handleSubmit } = useForm({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm({
     mode: 'onSubmit',
     defaultValues: getDefaultValues(),
   });
+
+  // const birth = watch('birth_date');
+
+  console.log({ errors });
 
   const onError = () => {
     showFeedback('Verifique os dados e tente novamente.', 'error');

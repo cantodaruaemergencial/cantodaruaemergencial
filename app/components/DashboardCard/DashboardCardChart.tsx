@@ -1,4 +1,4 @@
-import { Box, NoSsr } from '@material-ui/core';
+import { Box, NoSsr } from '@mui/material';
 import moment, { Moment } from 'moment';
 import React from 'react';
 import styled from 'styled-components';

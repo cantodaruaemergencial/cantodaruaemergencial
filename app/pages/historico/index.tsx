@@ -1,10 +1,6 @@
 import Layout from '#/components/Layout';
-import {
-  Box,
-  Container as MuiContainer,
-  Typography,
-  withTheme,
-} from '@material-ui/core';
+import { Box, Container as MuiContainer, Typography } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import styled from 'styled-components';
 import PageHeader from '../../components/PageHeader';
 import { useState, useEffect } from 'react';

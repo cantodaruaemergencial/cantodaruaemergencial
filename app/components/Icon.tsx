@@ -5,7 +5,7 @@ import {
   RestaurantRounded,
   WcRounded,
   WorkRounded,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 
 interface Props {
   icon?: string;

@@ -1,4 +1,5 @@
-import { Box, Button, withTheme } from '@material-ui/core';
+import { Box, Button } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import clsx from 'clsx';
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -47,9 +48,8 @@ interface Props {
 }
 
 const Selector = ({ inititalValue, options, onSelect, className }: Props) => {
-  const [selectedOption, setSelectedOption] = useState<SelectorOption>(
-    inititalValue,
-  );
+  const [selectedOption, setSelectedOption] =
+    useState<SelectorOption>(inititalValue);
 
   const handleSelection = (option: SelectorOption) => {
     setSelectedOption(option);

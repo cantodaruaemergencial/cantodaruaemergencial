@@ -4,7 +4,7 @@ import {
   TextField as MuiTextField,
   Button as MuiButton,
   InputAdornment,
-} from '@material-ui/core';
+} from '@mui/material';
 import { useRouter } from 'next/dist/client/router';
 import { ReactElement, useState } from 'react';
 import styled from 'styled-components';
@@ -12,8 +12,8 @@ import styled from 'styled-components';
 import Card from './Card';
 
 import { useAuthMethods, useAuthState } from '#/packages/auth/auth-context';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const Container = styled(MuiContainer)`
   && {

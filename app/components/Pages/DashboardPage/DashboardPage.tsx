@@ -1,5 +1,8 @@
-import { Avatar, Box, Container, withTheme, Link } from '@material-ui/core';
-import { Instagram, Facebook, InputRounded } from '@material-ui/icons';
+import { Avatar, Box, Container, Link } from '@mui/material';
+import { withTheme } from '@mui/styles';
+import Instagram from '@mui/icons-material/Instagram';
+import Facebook from '@mui/icons-material/Facebook';
+import InputRounded from '@mui/icons-material/InputRounded';
 import { ReactElement, useState } from 'react';
 import styled from 'styled-components';
 import PageHeader from '../../PageHeader';

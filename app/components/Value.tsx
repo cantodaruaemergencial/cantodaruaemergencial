@@ -1,5 +1,6 @@
-import { Box, Typography, withTheme } from '@material-ui/core';
-import TrendingUpRoundedIcon from '@material-ui/icons/TrendingUpRounded';
+import { Box, Typography } from '@mui/material';
+import { withTheme } from '@mui/styles';
+import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 import clsx from 'clsx';
 import React from 'react';
 import styled from 'styled-components';
