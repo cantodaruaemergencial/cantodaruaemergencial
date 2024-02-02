@@ -51,6 +51,8 @@ module.exports = {
 		const knex = strapi.connections.default;
 
 		let inputEntity = ctx.request.body;
+
+		console.log({ body: JSON.stringify(inputEntity) });
 		const nextCardNumber = await knex.raw(
 			"select max(cast(card_number as unsigned)) + 1 as nextCardNumber from person p"
 		);
