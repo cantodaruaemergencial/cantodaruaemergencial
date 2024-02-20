@@ -113,7 +113,7 @@ const PersonCard = ({
     <PersonWrapper key={`${key}-${index}-skeleton`}>
       <PersonBox condensed>
         <Info>
-          <Skeleton variant="rect" width={64} height={24} />
+          <Skeleton variant="rectangular" width={64} height={24} />
           <PersonInfo>
             <Title variant="body2">
               <Skeleton variant="text" width={160} />
@@ -122,7 +122,7 @@ const PersonCard = ({
         </Info>
         <Options>
           <Chip loading />
-          <Skeleton variant="rect" width={95} height={27} />
+          <Skeleton variant="rectangular" width={95} height={27} />
         </Options>
       </PersonBox>
     </PersonWrapper>

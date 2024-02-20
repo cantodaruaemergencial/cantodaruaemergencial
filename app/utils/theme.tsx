@@ -6,7 +6,7 @@ export const Shadows = {
   2: '0px 5px 5px -3px rgba(0,0,0,0.02),0px 12px 12px -1px rgba(0,0,0,0.05),0px 3px 12px 2px rgba(0,0,0,0.02)',
 };
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
     primary: {
       main: '#563727',
@@ -20,8 +20,9 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Open Sans"',
+    fontFamily: 'Open Sans',
     h1: {
+      fontFamily: 'Open Sans',
       fontSize: '3rem',
       fontWeight: 600,
       lineHeight: 1.25,
@@ -74,44 +75,68 @@ const theme = createTheme({
       opacity: 0.6,
     },
   },
-  // overrides: {
-  //   MuiButton: {
-  //     root: {
-  //       fontWeight: 600,
-  //     },
-  //     contained: {
-  //       backgroundColor: '#fff',
-  //       boxShadow: Shadows[1],
-  //     },
-  //     outlinedSizeSmall: {
-  //       fontSize: '.7rem',
-  //     },
-  //   },
-  //   MuiMenu: {
-  //     paper: {
-  //       backgroundColor: '#f7f7f7',
-  //     },
-  //   },
-  //   MuiPaper: {
-  //     elevation1: {
-  //       boxShadow: Shadows[2],
-  //     },
-  //     elevation4: {
-  //       boxShadow: Shadows[2],
-  //     },
-  //   },
-  //   MuiAvatar: {
-  //     colorDefault: {
-  //       backgroundColor: '#e0e0e0',
-  //       color: 'rgba(0, 0, 0, 0.87)',
-  //     },
-  //   },
-  //   // @ts-ignore
-  //   MuiSkeleton: { root: { borderRadius: '4px' } },
-  //   MuiAppBar: { root: { boxShadow: 'none' } },
-  //   MuiContainer: { root: { paddingTop: '2rem', paddingBottom: '2rem' } },
-  //   MuiFormHelperText: { root: { opacity: 1 } },
-  // },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontWeight: 600,
+          color: '#545a68',
+        },
+        contained: {
+          backgroundColor: '#fff',
+          boxShadow: Shadows[1],
+        },
+        outlinedSizeSmall: {
+          fontSize: '.7rem',
+        },
+      },
+    },
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#f7f7f7',
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        elevation1: {
+          boxShadow: Shadows[2],
+        },
+        elevation4: {
+          boxShadow: Shadows[2],
+        },
+      },
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        colorDefault: {
+          backgroundColor: '#e0e0e0',
+          color: 'rgba(0, 0, 0, 0.87)',
+        },
+      },
+    },
+    MuiSkeleton: {
+      styleOverrides: {
+        root: { borderRadius: '4px' },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: { boxShadow: 'none' },
+      },
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: { paddingTop: '2rem', paddingBottom: '2rem' },
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: { opacity: 1 },
+      },
+    },
+  },
 });
 
 export default responsiveFontSizes(theme);

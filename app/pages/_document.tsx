@@ -30,7 +30,8 @@ const pwaMetaData = (
       rel="shortcut icon"
       href={`${process.env.NEXT_PUBLIC_BUCKET_NAME}/icons/favicon.ico`}
     />
-    <style>{`
+    <style>
+      {`
       html, body, #__next {
         height: 100%;
         background-color: #eaeaea;
@@ -66,7 +67,8 @@ const pwaMetaData = (
       .ReactVirtualized__List {
         overflow-y: scroll !important;
       }
-      `}</style>
+      `}
+    </style>
   </>
 );
 

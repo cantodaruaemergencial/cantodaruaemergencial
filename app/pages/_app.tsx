@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import { SnackbarOrigin } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider, withStyles } from '@mui/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import moment from 'moment';
@@ -11,6 +11,7 @@ import AuthProvider from '#/packages/auth/auth-context';
 import DefaultTheme, { globalStyles } from '#/utils/theme';
 import 'moment/locale/pt-br';
 import pt from 'date-fns/locale/pt-BR';
+import { withStyles } from '@mui/styles';
 
 const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const snackbarConfig: SnackbarOrigin = {

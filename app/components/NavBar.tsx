@@ -48,7 +48,7 @@ const NavButton = withTheme(styled(Button)`
   && {
     margin-right: 1rem;
 
-    ${({ theme }) => theme.breakpoints.down('sm')} {
+    ${({ theme }) => theme.breakpoints.down('md')} {
       display: none;
     }
   }
@@ -105,6 +105,8 @@ const Flag = withTheme(styled.img`
 const ButtonAppBar = (): React.ReactElement => {
   const { logout } = useAuthMethods();
   const { userProfile } = useAuthState();
+
+  console.log({ userProfile });
 
   return (
     <AppBar position="static" color="default">
