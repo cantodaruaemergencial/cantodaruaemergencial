@@ -54,7 +54,7 @@ const CreatePersonPage = ({
           }
         })
         .catch((err) => {
-          console.log({ err });
+          console.warn({ err });
           reject('Ocorreu um erro. Tente novamente.');
         });
     });

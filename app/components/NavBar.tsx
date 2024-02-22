@@ -106,8 +106,6 @@ const ButtonAppBar = (): React.ReactElement => {
   const { logout } = useAuthMethods();
   const { userProfile } = useAuthState();
 
-  console.log({ userProfile });
-
   return (
     <AppBar position="static" color="default">
       <Toolbar>

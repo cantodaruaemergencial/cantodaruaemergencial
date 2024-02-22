@@ -299,10 +299,6 @@ class PeopleService {
               required: true,
               // validate: {
               //   noFutureDate: (value: Moment) => {
-              //     console.log({
-              //       valor: value,
-              //       value: value.isAfter(moment()),
-              //     });
               //     if (value.isAfter(moment(new Date())))
               //       return RulesMessages().invalidDate;
               //     return false;
