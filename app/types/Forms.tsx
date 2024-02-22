@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
 import { RegisterOptions } from 'react-hook-form';
 import { PersonCompleteData } from './People';
+import { Dayjs } from 'dayjs';
 
 export enum FieldType {
   input,
@@ -25,7 +26,16 @@ export interface FormField {
   label: string;
   description?: string;
   type: FieldType;
-  value?: string | string[] | number | number[] | Moment | boolean | null;
+  value?:
+    | string
+    | string[]
+    | number
+    | number[]
+    | Moment
+    | Dayjs
+    | boolean
+    | null
+    | Date;
   options?: FormFieldOption[];
   rules?: RegisterOptions;
   dateConfig?: DateConfig;

@@ -261,7 +261,7 @@ export const personModalCardData = (personCompleteData: PersonCompleteData) => [
       },
       {
         label: 'Escolaridade',
-        value: personCompleteData.education.study_degree?.name,
+        value: personCompleteData.education.education_degree_option?.name,
       },
       {
         label: 'Deseja voltar a estudar?',
@@ -362,11 +362,11 @@ export const personModalCardData = (personCompleteData: PersonCompleteData) => [
       },
       {
         label: 'Data da última avaliação médica',
-        value: personCompleteData.healthSituation.date_last_medical_appointment,
+        value: personCompleteData.healthSituation.last_medical_appointment_date,
       },
       {
         label: 'Data da última avaliação com dentista',
-        value: personCompleteData.healthSituation.date_last_medical_dentist,
+        value: personCompleteData.healthSituation.last_medical_dentist_date,
       },
       {
         label: 'Faz uso contínuo de medicação?',
@@ -556,7 +556,7 @@ export const personModalCardData = (personCompleteData: PersonCompleteData) => [
         label: 'Saúde do Mulher - Data do última consulta ginecológica',
         value:
           personCompleteData.healthSituation
-            .woman_health_last_gynecological_consultation_exam_date,
+            .woman_health_last_gynecological_exam_date,
       },
       {
         label: 'Saúde do Mulher - Há suspeita de gravidez? Quantas semanas?',

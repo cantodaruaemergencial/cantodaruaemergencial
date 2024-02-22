@@ -1,4 +1,4 @@
-import moment, { isMoment, Moment } from 'moment';
+// import moment, { isMoment, Moment } from 'moment';
 
 import { Api } from '#/packages/api/strapi';
 import {
@@ -23,9 +23,13 @@ import {
   FamilyReferences,
   SocialAssistanceNetwork,
   PersonVacancyReservationBenefit,
+  GeneralOptionName,
 } from '#/types/People';
 import { UserProfile } from '#/packages/entities/types';
 import { RulesMessages } from '#/utils/rules-messages';
+import { BaseStrapiData, BaseStrapiDataArray } from '#/types/BaseStrapiData';
+import { format, isDate } from 'date-fns';
+import dayjs from 'dayjs';
 
 class PeopleService {
   static get = (
@@ -47,78 +51,153 @@ class PeopleService {
   };
 
   static getAssociations = () =>
-    Api.publicGet<GeneralOption[]>('associations').then((res) => {
+    Api.get<GeneralOption[]>('associations').then((res) => {
       if (Object.keys(res.data).length) return res.data;
 
       return [];
     });
 
   static getDrugsFrequency = () =>
-    Api.publicGet<GeneralOption[]>('drugs-frequencies').then((res) => {
-      if (Object.keys(res.data).length) return res.data;
+    Api.get<BaseStrapiDataArray<GeneralOptionName>>('drugs-frequencies').then(
+      (res) => {
+        if (Object.keys(res.data).length)
+          return res.data.data.map((d) => ({
+            id: d.id,
+            name: d.attributes.name,
+          }));
 
-      return [];
-    });
+        return [];
+      },
+    );
 
   static getEducationDegreeOptions = () =>
-    Api.publicGet<GeneralOption[]>('education-degree-options').then((res) => {
-      if (Object.keys(res.data).length) return res.data;
+    Api.get<BaseStrapiDataArray<GeneralOptionName>>(
+      'education-degree-options',
+    ).then((res) => {
+      if (Object.keys(res.data).length)
+        return res.data.data.map((d) => ({
+          id: d.id,
+          name: d.attributes.name,
+        }));
 
       return [];
     });
 
   static getWorkTypes = () =>
-    Api.publicGet<GeneralOption[]>('work-types').then((res) => {
-      if (Object.keys(res.data).length) return res.data;
+    Api.get<BaseStrapiDataArray<GeneralOptionName>>('work-types').then(
+      (res) => {
+        if (Object.keys(res.data).length)
+          return res.data.data.map((d) => ({
+            id: d.id,
+            name: d.attributes.name,
+          }));
 
-      return [];
-    });
+        return [];
+      },
+    );
 
   static getPastWorkCategory = () =>
-    Api.publicGet<GeneralOption[]>('past-work-categories').then((res) => {
-      if (Object.keys(res.data).length) return res.data;
+    Api.get<BaseStrapiDataArray<GeneralOptionName>>(
+      'past-work-categories',
+    ).then((res) => {
+      if (Object.keys(res.data).length)
+        return res.data.data.map((d) => ({
+          id: d.id,
+          name: d.attributes.name,
+        }));
 
       return [];
     });
 
   static getPastWorkSector = () =>
-    Api.publicGet<GeneralOption[]>('past-work-sectors').then((res) => {
-      if (Object.keys(res.data).length) return res.data;
+    Api.get<BaseStrapiDataArray<GeneralOptionName>>('past-work-sectors').then(
+      (res) => {
+        if (Object.keys(res.data).length)
+          return res.data.data.map((d) => ({
+            id: d.id,
+            name: d.attributes.name,
+          }));
 
-      return [];
-    });
+        return [];
+      },
+    );
 
   static getGenders = () =>
-    Api.publicGet<GeneralOption[]>('genders').then((res) => {
-      if (Object.keys(res.data).length) return res.data;
+    Api.get<BaseStrapiDataArray<GeneralOptionName>>('genders').then((res) => {
+      if (Object.keys(res.data).length)
+        return res.data.data.map((d) => ({
+          id: d.id,
+          name: d.attributes.name,
+        }));
 
       return [];
     });
 
   static getSelfDeclarations = () =>
-    Api.publicGet<GeneralOption[]>('self-declarations').then((res) => {
-      if (Object.keys(res.data).length) return res.data;
+    Api.get<BaseStrapiDataArray<GeneralOptionName>>('self-declarations').then(
+      (res) => {
+        if (Object.keys(res.data).length)
+          return res.data.data.map((d) => ({
+            id: d.id,
+            name: d.attributes.name,
+          }));
 
-      return [];
-    });
+        return [];
+      },
+    );
 
   static getSexualOrientation = () =>
-    Api.publicGet<GeneralOption[]>('sexual-orientations').then((res) => {
-      if (Object.keys(res.data).length) return res.data;
+    Api.get<BaseStrapiDataArray<GeneralOptionName>>('sexual-orientations').then(
+      (res) => {
+        if (Object.keys(res.data).length)
+          return res.data.data.map((d) => ({
+            id: d.id,
+            name: d.attributes.name,
+          }));
 
-      return [];
-    });
+        return [];
+      },
+    );
 
   static getMaritalStatuses = () =>
-    Api.publicGet<GeneralOption[]>('marital-statuses').then((res) => {
-      if (Object.keys(res.data).length) return res.data;
+    Api.get<BaseStrapiDataArray<GeneralOptionName>>('marital-statuses').then(
+      (res) => {
+        if (Object.keys(res.data).length)
+          return res.data.data.map((d) => ({
+            id: d.id,
+            name: d.attributes.name,
+          }));
 
-      return [];
-    });
+        return [];
+      },
+    );
 
   static getPerson = (personId: number) =>
-    Api.get<Person>(`people/${personId}`).then((res) => {
-      return res.data;
+    Api.get<BaseStrapiData<Person>>(
+      `assisted-people/${personId}?populate=*`,
+    ).then((res) => {
+      const { id, attributes } = res.data.data;
+
+      return {
+        ...attributes,
+        id: id,
+        gender: {
+          id: attributes.gender.data.id,
+          name: attributes.gender.data.attributes.name,
+        },
+        self_declaration: {
+          id: attributes.self_declaration.data.id,
+          name: attributes.self_declaration.data.attributes.name,
+        },
+        sexual_orientation: {
+          id: attributes.sexual_orientation.data.id,
+          name: attributes.sexual_orientation.data.attributes.name,
+        },
+        marital_status: {
+          id: attributes.marital_status.data.id,
+          name: attributes.marital_status.data.attributes.name,
+        },
+      };
     });
 
   static getPersonCompleteData = (personId: number) =>
@@ -210,9 +289,9 @@ class PeopleService {
           },
           {
             property: 'birth_date',
-            value: person?.birth_date
-              ? moment(person.birth_date).format('DD/MM/yyyy')
-              : null,
+            value: new Date(
+              dayjs(person?.birth_date ?? '')?.toISOString() ?? '',
+            ),
             label: 'Data de Nascimento',
             type: FieldType.date,
             dateConfig: { disableFuture: true },
@@ -503,7 +582,7 @@ class PeopleService {
           {
             property: 'study_degree',
             label: 'Escolaridade',
-            value: personCompleteData?.education.study_degree?.id,
+            value: personCompleteData?.education.education_degree_option.id,
             type: FieldType.select,
             options: educationDegreeOptions.map(
               (ms): FormFieldOption => ({
@@ -1212,10 +1291,12 @@ class PeopleService {
           {
             property: 'date_last_medical_appointment',
             value: personCompleteData?.healthSituation
-              .date_last_medical_appointment
-              ? moment(
-                  personCompleteData?.healthSituation
-                    .date_last_medical_appointment,
+              .last_medical_appointment_date
+              ? new Date(
+                  dayjs(
+                    personCompleteData?.healthSituation
+                      .last_medical_appointment_date ?? '',
+                  ).toISOString(),
                 )
               : null,
             label: 'Data da última avaliação médica',
@@ -1223,9 +1304,12 @@ class PeopleService {
           },
           {
             property: 'date_last_medical_dentist',
-            value: personCompleteData?.healthSituation.date_last_medical_dentist
-              ? moment(
-                  personCompleteData?.healthSituation.date_last_medical_dentist,
+            value: personCompleteData?.healthSituation.last_medical_dentist_date
+              ? new Date(
+                  dayjs(
+                    personCompleteData?.healthSituation
+                      .last_medical_dentist_date ?? '',
+                  ).toISOString(),
                 )
               : null,
             label: 'Data da última avaliação com dentista',
@@ -1493,9 +1577,11 @@ class PeopleService {
             property: 'man_health_last_prostate_exam_date',
             value: personCompleteData?.healthSituation
               .man_health_last_prostate_exam_date
-              ? moment(
-                  personCompleteData?.healthSituation
-                    .man_health_last_prostate_exam_date,
+              ? new Date(
+                  dayjs(
+                    personCompleteData?.healthSituation
+                      .man_health_last_prostate_exam_date ?? '',
+                  ).toISOString(),
                 )
               : null,
             label: 'Saúde do Homem - Data do último exame de próstata',
@@ -1505,9 +1591,11 @@ class PeopleService {
             property: 'man_health_last_ist_exam_date',
             value: personCompleteData?.healthSituation
               .man_health_last_ist_exam_date
-              ? moment(
-                  personCompleteData?.healthSituation
-                    .man_health_last_ist_exam_date,
+              ? new Date(
+                  dayjs(
+                    personCompleteData?.healthSituation
+                      .man_health_last_ist_exam_date ?? '',
+                  ).toISOString(),
                 )
               : null,
             label: 'Saúde do Homem - Data do último teste rápido (IST)',
@@ -1517,9 +1605,11 @@ class PeopleService {
             property: 'woman_health_last_preventive_exam_date',
             value: personCompleteData?.healthSituation
               .woman_health_last_preventive_exam_date
-              ? moment(
-                  personCompleteData?.healthSituation
-                    .woman_health_last_preventive_exam_date,
+              ? new Date(
+                  dayjs(
+                    personCompleteData?.healthSituation
+                      .woman_health_last_preventive_exam_date ?? '',
+                  ).toISOString(),
                 )
               : null,
             label: 'Saúde da Mulher - Data do último exame preventivo',
@@ -1529,9 +1619,11 @@ class PeopleService {
             property: 'woman_health_last_mammography_exam_date',
             value: personCompleteData?.healthSituation
               .woman_health_last_mammography_exam_date
-              ? moment(
-                  personCompleteData?.healthSituation
-                    .woman_health_last_mammography_exam_date,
+              ? new Date(
+                  dayjs(
+                    personCompleteData?.healthSituation
+                      .woman_health_last_mammography_exam_date ?? '',
+                  ).toISOString(),
                 )
               : null,
             label: 'Saúde da Mulher - Data do último exame de mamografia',
@@ -1540,10 +1632,12 @@ class PeopleService {
           {
             property: 'woman_health_last_gynecological_consultation_exam_date',
             value: personCompleteData?.healthSituation
-              .woman_health_last_gynecological_consultation_exam_date
-              ? moment(
-                  personCompleteData?.healthSituation
-                    .woman_health_last_gynecological_consultation_exam_date,
+              .woman_health_last_gynecological_exam_date
+              ? new Date(
+                  dayjs(
+                    personCompleteData?.healthSituation
+                      .woman_health_last_gynecological_exam_date ?? '',
+                  ).toISOString(),
                 )
               : null,
             label: 'Saúde da Mulher - Data da última consulta ginecológica',
@@ -1639,7 +1733,7 @@ class PeopleService {
       voter_registration_document_number:
         fullBody.voter_registration_document_number,
       wedding_document_number: fullBody.wedding_document_number,
-      user: userId,
+      volunteer: userId ? [userId] : null,
     };
   }
 
@@ -1656,9 +1750,9 @@ class PeopleService {
         fullBody.is_interested_doing_some_course ?? false,
       is_interested_returning_study:
         fullBody.is_interested_returning_study ?? false,
-      study_degree: fullBody.study_degree,
-      person: personId,
-      user: userId,
+      education_degree_option: fullBody.study_degree,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1679,8 +1773,8 @@ class PeopleService {
         fullBody.usually_go_to_some_culture_place ?? false,
       went_somewhere_place_last_twelve_months:
         fullBody.went_somewhere_place_last_twelve_months ?? false,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1691,8 +1785,8 @@ class PeopleService {
   ): Partial<HealthSituation> {
     return {
       self_health_evaluation: fullBody.self_health_evaluation,
-      date_last_medical_appointment: fullBody.date_last_medical_appointment,
-      date_last_medical_dentist: fullBody.date_last_medical_dentist,
+      last_medical_appointment_date: fullBody.date_last_medical_appointment,
+      last_medical_dentist_date: fullBody.date_last_medical_dentist,
       use_medication_often: fullBody.use_medication_often ?? false,
       medication_details: fullBody.medication_details,
       was_hospitalized_last_twelve_months:
@@ -1747,7 +1841,7 @@ class PeopleService {
         fullBody.woman_health_last_preventive_exam_date,
       woman_health_last_mammography_exam_date:
         fullBody.woman_health_last_mammography_exam_date,
-      woman_health_last_gynecological_consultation_exam_date:
+      woman_health_last_gynecological_exam_date:
         fullBody.woman_health_last_gynecological_consultation_exam_date,
       woman_health_suspected_pregnancy_week_quantity:
         fullBody.woman_health_suspected_pregnancy_week_quantity,
@@ -1755,8 +1849,8 @@ class PeopleService {
         fullBody.woman_health_use_some_contraceptive_method ?? false,
       use_condom: fullBody.use_condom ?? false,
       comment_health_situation: fullBody.comment_health_situation,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1778,8 +1872,8 @@ class PeopleService {
         fullBody.is_accompanied_by_a_defender ?? false,
       is_this_follow_up_enough: fullBody.is_this_follow_up_enough ?? false,
       comment_judicial_situation: fullBody.comment_judicial_situation,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1804,8 +1898,8 @@ class PeopleService {
         fullBody.place_of_stay_has_adequate_sound_condition ?? false,
       has_any_furniture: fullBody.has_any_furniture ?? false,
       comment_infrastructure: fullBody.comment_infrastructure,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1822,8 +1916,8 @@ class PeopleService {
       quantity_victim_of_institutional_violence_last_three_months:
         fullBody.quantity_victim_of_institutional_violence_last_three_months,
       comment_safety: fullBody.comment_safety,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1856,8 +1950,8 @@ class PeopleService {
       reason_past_street_path_comment: fullBody.reason_past_street_path_comment,
       time_past_street_path: fullBody.time_past_street_path,
       comment_street_path: fullBody.comment_street_path,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1887,8 +1981,8 @@ class PeopleService {
       past_work_category: fullBody.past_work_category,
       past_work_sector: fullBody.past_work_sector,
       comment_work_and_income: fullBody.comment_work_and_income,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1900,8 +1994,8 @@ class PeopleService {
     return {
       description: fullBody.description,
       comment_family_references: fullBody.comment_family_references,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1924,8 +2018,8 @@ class PeopleService {
         fullBody.has_pastoral_povo_da_rua_service ?? false,
       comment_social_assistance_network:
         fullBody.comment_social_assistance_network,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1947,8 +2041,8 @@ class PeopleService {
         fullBody.has_vacancy_reservation_benefits_racial_quota,
       details_person_vacancy_reservation_benefit:
         fullBody.details_person_vacancy_reservation_benefit,
-      person: personId,
-      user: userId,
+      assisted_person: [personId],
+      volunteer: [userId],
     };
   }
 
@@ -1962,9 +2056,9 @@ class PeopleService {
     const body = { ...formData };
 
     Object.keys(body)?.forEach((k) => {
-      if (isMoment(body[k])) {
-        const momentDate: Moment = body[k] as Moment;
-        body[k] = moment(momentDate).utc().format('YYYY-MM-DD');
+      if (isDate(body[k])) {
+        const momentDate: Date = body[k] as Date;
+        body[k] = format(momentDate, 'yyyy-MM-dd');
       }
     });
 
@@ -1972,8 +2066,11 @@ class PeopleService {
 
     const saveMethod =
       personId !== null
-        ? Api.put<Person>(`people/${personId}`, body)
-        : Api.post<Person>('people', this.mountPersonData(body, userId));
+        ? Api.put<Person>(`assisted-people/${personId}`, body)
+        : Api.post<Person>(
+            'assisted-people',
+            this.mountPersonData(body, userId),
+          );
 
     const { status, data } = await saveMethod;
 
@@ -2045,11 +2142,11 @@ class PeopleService {
     const savePersonVacancyReservationBenefitMethod =
       personId !== null && personInformation?.personVacancyReservationBenefit.id
         ? Api.put<PersonVacancyReservationBenefit>(
-            `person-vacancy-reservation-benefits/${personInformation?.personVacancyReservationBenefit.id}`,
+            `ap-benefits/${personInformation?.personVacancyReservationBenefit.id}`,
             body,
           )
         : Api.post<PersonVacancyReservationBenefit>(
-            'person-vacancy-reservation-benefits',
+            'ap-benefits',
             this.mountPersonVacancyReservationBenefitData(
               body,
               data.id,
@@ -2068,11 +2165,11 @@ class PeopleService {
     const saveSocialAssistanceNetworkMethod =
       personId !== null && personInformation?.socialAssistanceNetwork.id
         ? Api.put<SocialAssistanceNetwork>(
-            `social-assistance-networks/${personInformation?.socialAssistanceNetwork.id}`,
+            `social-assist-networks/${personInformation?.socialAssistanceNetwork.id}`,
             body,
           )
         : Api.post<SocialAssistanceNetwork>(
-            'social-assistance-networks',
+            'social-assist-networks',
             this.mountSocialAssistanceNetworkData(body, data.id, userId),
           );
 

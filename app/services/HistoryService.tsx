@@ -3,7 +3,7 @@ import { PersonHistory } from '#/types/PersonHistory';
 
 class HistoryService {
   static get = (personId: number) => {
-    return Api.publicGet<PersonHistory>(`person-history/${personId}`).then(
+    return Api.get<PersonHistory>(`assisted-person-history/${personId}`).then(
       (res) => res.data,
     );
   };

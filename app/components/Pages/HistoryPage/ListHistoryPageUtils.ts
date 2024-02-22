@@ -6,23 +6,23 @@ export const listHistoryData = (
 ) => [
   {
     label: 'Telefonema',
-    value: personAttendances.describe_needs_call,
+    value: personAttendances.needs_call_details,
   },
   {
     label: 'Alimentação',
-    value: personAttendances.describe_needs_food,
+    value: personAttendances.needs_food,
   },
   {
     label: 'Saúde',
-    value: personAttendances.describe_needs_health,
+    value: personAttendances.needs_health_details,
   },
   {
     label: 'Outras demandas',
-    value: personAttendances.describe_needs_others,
+    value: personAttendances.needs_other_details,
   },
   {
     label: 'Trabalho',
-    value: personAttendances.describe_needs_work,
+    value: personAttendances.needs_work_details,
     type: FormTypes.bool,
   },
   {
@@ -32,7 +32,7 @@ export const listHistoryData = (
   },
   {
     label: 'Documentos',
-    value: personAttendances.needs_documents,
+    value: personAttendances.needs_document,
     type: FormTypes.bool,
   },
   {
@@ -57,6 +57,6 @@ export const listHistoryData = (
   },
   {
     label: 'Observações',
-    value: personAttendances.comment,
+    value: personAttendances.comment_pastoral_attendance,
   },
 ];

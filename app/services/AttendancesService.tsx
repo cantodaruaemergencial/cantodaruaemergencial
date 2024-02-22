@@ -13,7 +13,7 @@ class AttendancesService {
         fields: [
           {
             label: 'Data de referência',
-            property: 'service_attendance_date',
+            property: 'attendance_date',
             value: null,
             type: FieldType.date,
             dateConfig: { disableFuture: true },
@@ -28,7 +28,7 @@ class AttendancesService {
           },
           {
             label: 'Precisa de telefonema? Descreva',
-            property: 'describe_needs_call',
+            property: 'needs_call_details',
             rules: {
               required: true,
             },
@@ -39,7 +39,7 @@ class AttendancesService {
           },
           {
             label: 'Demanda sobre saúde? Descreva',
-            property: 'describe_needs_health',
+            property: 'needs_health_details',
             rules: {
               required: true,
             },
@@ -51,12 +51,12 @@ class AttendancesService {
           },
           {
             label: 'Demanda sobre alimentação?',
-            property: 'describe_needs_food',
+            property: 'needs_food',
             type: FieldType.boolean,
           },
           {
             label: 'Demanda sobre trabalho? Descreva',
-            property: 'describe_needs_work',
+            property: 'needs_work_details',
             rules: {
               required: true,
             },
@@ -77,7 +77,7 @@ class AttendancesService {
           },
           {
             label: 'Demanda sobre documentos?',
-            property: 'needs_documents',
+            property: 'needs_document',
             type: FieldType.boolean,
           },
           {
@@ -92,7 +92,7 @@ class AttendancesService {
           },
           {
             label: 'Outras demandas? Descreva',
-            property: 'describe_needs_others',
+            property: 'needs_other_details',
             rules: {
               required: true,
             },
@@ -103,7 +103,7 @@ class AttendancesService {
           },
           {
             label: 'Observações',
-            property: 'comment',
+            property: 'comment_pastoral_attendance',
             rules: {
               required: true,
             },
@@ -137,12 +137,12 @@ class AttendancesService {
 
     const requestBody = {
       ...body,
-      person: referencePerson?.id,
-      user: loggedUser?.id,
+      assisted_person: referencePerson?.id,
+      volunteer: [loggedUser?.id],
     };
 
     const { status, data } = await Api.post<PastoralDeRuaServiceAttendance>(
-      'pastoral-de-rua-service-attendances',
+      'pastoral-attendances',
       requestBody,
     );
 

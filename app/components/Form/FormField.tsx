@@ -21,6 +21,7 @@ import styled from 'styled-components';
 
 import { FieldType, FormField as FormFieldType } from '#/types/Forms';
 import { RulesMessages } from '#/utils/rules-messages';
+import dayjs from 'dayjs';
 
 const Container = styled(Box)`
   margin-bottom: 1.5rem;
@@ -71,7 +72,6 @@ const FormField = ({
   const formatedLabel = label + (rules?.required ? ' *' : '');
 
   const getErrorMessage = (error?: FieldError) => {
-    console.log({ error });
     return error ? error.message || RulesMessages()[error.type] || null : null;
   };
 
@@ -128,13 +128,13 @@ const FormField = ({
     );
   };
 
-  const renderDatePicker = ({ field, fieldState: { error } }: RenderType) => {
+  const renderDatePicker = ({ field }: RenderType) => {
     return (
       <DatePicker
         {...field}
         label={formatedLabel}
-        maxDate={new Date()}
-        // maxDateMessage={RulesMessages().maxDate}
+        maxDate={dayjs()}
+        format="dd/MM/yyyy"
         disableFuture={dateConfig?.disableFuture || true}
         disabled={disabled}
       />
@@ -158,7 +158,6 @@ const FormField = ({
       case FieldType.selectMultiple:
         return renderSelect;
       case FieldType.date:
-        console.log('caiu');
         return renderDatePicker;
       case FieldType.number:
       case FieldType.input:

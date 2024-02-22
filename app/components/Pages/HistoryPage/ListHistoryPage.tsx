@@ -169,8 +169,10 @@ interface Props {
 const ListHistoryPage = ({ item }: Props): ReactElement => {
   const { attendances, entrances } = item;
 
-  const formatDate = (dateValue: Date | Moment) =>
-    moment(dateValue).format('DD-MM-YYYY HH:mm:ss');
+  const formatDate = (dateValue: Date | Moment, onlyDate: boolean = false) =>
+    onlyDate
+      ? moment(dateValue).format('DD-MM-YYYY')
+      : moment(dateValue).format('DD-MM-YYYY HH:mm:ss');
 
   const renderAttendances = (
     personAttendances: PastoralDeRuaServiceAttendance[],
@@ -186,7 +188,7 @@ const ListHistoryPage = ({ item }: Props): ReactElement => {
               <TimelineItemWrapper>
                 <TimelineOppositeContent>
                   <DateText variant="body2">
-                    {formatDate(pa.service_attendance_date)}
+                    {formatDate(pa.attendance_date, true)}
                   </DateText>
                 </TimelineOppositeContent>
                 <TimelineSeparator>

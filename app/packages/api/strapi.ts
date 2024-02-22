@@ -4,6 +4,7 @@ import { UserProfile } from '#/packages/entities/types';
 import { AuthLocal } from '#/types/Auth';
 
 import { saveAs } from 'file-saver';
+import { Volunteer } from '#/types/Volunteer';
 
 const LOCAL_STORAGE_CREDENTIAL_KEY = 'strapi:credentials';
 
@@ -90,10 +91,11 @@ export class Api {
   static get = async <ResultType extends unknown>(
     url: string,
     params?: { [key: string]: any },
+    customHeader?: { [key: string]: any },
   ): Promise<{ status: number; data: ResultType }> => {
     const options = {
       method: 'GET',
-      headers: Api.getHeaders(),
+      headers: customHeader ?? Api.getHeaders(),
     };
 
     try {
@@ -102,7 +104,7 @@ export class Api {
 
       return {
         status: res.status,
-        data: res.json() as ResultType,
+        data: (await res.json()) as ResultType,
       };
     } catch (err) {
       return {
@@ -112,7 +114,7 @@ export class Api {
     }
   };
 
-  static post = async <ResultType extends unknown>(
+  static commonPost = async <ResultType extends unknown>(
     url: string,
     body = {},
   ): Promise<{ status: number; data: ResultType }> => {
@@ -139,13 +141,40 @@ export class Api {
     }
   };
 
+  static post = async <ResultType extends unknown>(
+    url: string,
+    body = {},
+  ): Promise<{ status: number; data: ResultType }> => {
+    const options = {
+      method: 'POST',
+      body: JSON.stringify({ data: body }),
+      headers: Api.getHeaders(),
+    };
+
+    try {
+      const res = await fetch(`${API_URL}/${url}`, options);
+
+      const result = await res.json();
+
+      return {
+        status: res.status,
+        data: result,
+      };
+    } catch (err) {
+      return {
+        status: 500,
+        data: {} as ResultType,
+      };
+    }
+  };
+
   static put = async <ResultType extends unknown>(
     url: string,
     body = {},
   ): Promise<{ status: number; data: ResultType }> => {
     const options = {
       method: 'PUT',
-      body: JSON.stringify(body),
+      body: JSON.stringify({ data: body }),
       headers: Api.getHeaders(),
     };
 
@@ -172,12 +201,25 @@ export async function validateUser(
   password: string,
 ): Promise<UserProfile> {
   try {
-    const { status, data } = await Api.post<AuthLocal>('auth/local', {
+    const { status, data } = await Api.commonPost<AuthLocal>('auth/local', {
       identifier: email,
       password,
     });
 
     if (status !== 200) {
+      throw new Error('Erro ao realizar login!');
+    }
+
+    const { status: statusUserMe, data: dataUserMe } = await Api.get<Volunteer>(
+      'users/me?populate[0]=associations',
+      undefined,
+      {
+        ...Api.getPublicHeaders(),
+        Authorization: `Bearer ${data.jwt}`,
+      },
+    );
+
+    if (statusUserMe !== 200) {
       throw new Error('Erro ao realizar login!');
     }
 
@@ -188,7 +230,7 @@ export async function validateUser(
         `${data?.user?.firstname ?? ''} ${data?.user?.lastname ?? ''}`,
       token: data?.jwt,
       email: data?.user?.email,
-      associations: data?.user?.associations,
+      associations: dataUserMe?.associations,
     };
 
     localStorage.setItem(

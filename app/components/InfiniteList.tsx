@@ -79,7 +79,6 @@ const InfiniteList = ({ fetchRows, rowRenderer, filter, className }: Props) => {
   }: IndexRange): Promise<any> => {
     const limit = stopIndex - startIndex;
     return fetchRows(startIndex, limit, filter).then((result) => {
-      console.log({ result });
       setHasNextPage(result.length > 0);
       if (Array.isArray(result)) {
         setList([...list, ...result]);

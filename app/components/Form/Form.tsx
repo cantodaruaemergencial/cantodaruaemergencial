@@ -70,15 +70,10 @@ const Form = ({ form, onSubmit, className }: Props) => {
     control,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm({
     mode: 'onSubmit',
     defaultValues: getDefaultValues(),
   });
-
-  // const birth = watch('birth_date');
-
-  console.log({ errors });
 
   const onError = () => {
     showFeedback('Verifique os dados e tente novamente.', 'error');

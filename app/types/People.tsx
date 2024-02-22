@@ -1,7 +1,12 @@
 import { Moment } from 'moment';
+// TODO: Review all fields from the database
 
 export interface GeneralOption {
   id: number;
+  name: string;
+}
+
+export interface GeneralOptionName {
   name: string;
 }
 
@@ -28,17 +33,17 @@ export interface Person {
   nis_document_number: string;
   caduni_document_number: string;
   has_govbr_registration: boolean;
-  marital_status: GeneralOption;
-  self_declaration: GeneralOption;
-  gender: GeneralOption;
-  sexual_orientation: GeneralOption;
+  marital_status: any; // TODO: FIX THE TYPE
+  self_declaration: any; // TODO: FIX THE TYPE
+  gender: any; // TODO: FIX THE TYPE
+  sexual_orientation: any; // TODO: FIX THE TYPE
   child_quantity: number;
   child_care_person: string;
   comment_person: string;
   card_number: string;
   created_at: string;
   created_by: string;
-  user: number | null;
+  volunteer: number[] | null;
 }
 
 export interface BasePerson {
@@ -53,8 +58,8 @@ export interface BasePerson {
 
 interface BaseEntity {
   id: number;
-  user: number;
-  person: number;
+  volunteer: number[];
+  assisted_person: [number];
   created_at: Date;
   updated_at: Date;
 }
@@ -74,7 +79,7 @@ export interface Culture extends BaseEntity {
 export interface Education extends BaseEntity {
   id: number;
   is_currently_studying: boolean;
-  study_degree: GeneralOption;
+  education_degree_option: GeneralOption;
   is_interested_returning_study: boolean;
   has_extra_course: boolean;
   is_interested_doing_some_course: boolean;
@@ -88,8 +93,8 @@ export interface FamilyReferences extends BaseEntity {
 
 export interface HealthSituation extends BaseEntity {
   self_health_evaluation: string;
-  date_last_medical_appointment: Date;
-  date_last_medical_dentist: Date;
+  last_medical_appointment_date: Date;
+  last_medical_dentist_date: Date;
   use_medication_often: boolean;
   medication_details: string;
   was_hospitalized_last_twelve_months: boolean;
@@ -128,7 +133,7 @@ export interface HealthSituation extends BaseEntity {
   man_health_last_ist_exam_date: Date;
   woman_health_last_preventive_exam_date: Date;
   woman_health_last_mammography_exam_date: Date;
-  woman_health_last_gynecological_consultation_exam_date: Date;
+  woman_health_last_gynecological_exam_date: Date;
   woman_health_suspected_pregnancy_week_quantity: number;
   woman_health_use_some_contraceptive_method: boolean;
   use_condom: boolean;

@@ -39,6 +39,7 @@ const Header = withTheme(styled(PageHeader)``);
 const AddNew = styled(Button)`
   grid-area: add-new;
   height: 42px;
+  color: #545a68;
 `;
 
 const ListContainer = styled(Card)`
